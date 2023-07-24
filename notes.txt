@@ -1,0 +1,15 @@
+Map Parsing
+1. Character exists
+2. All empty spaces (0) are surrounded by walls
+3. input in stdin is correct
+	map MUST be last
+	all other elements can be separated by one or more empty lines and can be in any order
+	all identifiers must be correct but no repeats
+4. map contains only numbers (0 1 for mandatory) and one letter (NSEW)
+5. If .cub map can't be open, an error should be returned
+
+Execution
+1. Set up window
+2. DDA (Digital Differentiator Analayzer) Algorithm
+3. Calculate distance of ray to wall, and height of every wall
+4. Render images
