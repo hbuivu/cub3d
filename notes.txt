@@ -1,12 +1,16 @@
 Map Parsing
-1. Character exists
-2. All empty spaces (0) are surrounded by walls
+1. Character exists and there is only one character
+2. map is surrounded by walls
 3. input in stdin is correct
 	map MUST be last
 	all other elements can be separated by one or more empty lines and can be in any order
 	all identifiers must be correct but no repeats
 4. map contains only numbers (0 1 for mandatory) and one letter (NSEW)
 5. If .cub map can't be open, an error should be returned
+6. find length of longest row
+7. character position is valid
+
+if the first row has 0
 
 Execution
 1. Set up window

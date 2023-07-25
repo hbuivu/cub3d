@@ -1,13 +1,17 @@
 #include "cubed.h"
 
-int main(void)
+void	print_map(t_map **map, int len)
 {
-	void	*mlx;
-	t_data	img.
-	void	*mlx_win;
+	t_map *row;
 
-	mlx = mlx_init();
-	img.img = mlx_new_image(mlx, 1920, 1080);
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello!");
-	mlx_loop(mlx);
+	if (!map || !*map)
+		return ;
+	row = *map;
+	while (row)
+	{
+		for (int i = 0; i < len; i++)
+			printf("%i", row->row_array[i]);
+		printf("\n");
+		row = row->next;
+	}
 }
