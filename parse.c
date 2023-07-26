@@ -21,7 +21,19 @@ int main(void)
 	str = get_next_line(fd);
 	while (str)
 	{
-		printf("%s", str);
+		if (str[0] == 'F')
+			map->f_color = str;
+		if (str[0] == 'C')
+			map->c_color = str;
+		if (str[0] == 'N')
+			map->n_path = str;
+		if (str[0] == 'S')
+			map->s_path = str;
+		if (str[0] == 'E')
+			map->e_path = str;
+		if (str[0] == 'W')
+			map->w_path = str;
+		// printf("%s", str);
 		free(str);
 		str = get_next_line(fd);
 	}
