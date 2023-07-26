@@ -12,13 +12,6 @@
 
 #include "cubed.h"
 
-typedef struct s_queue
-{
-	char			content;
-	struct s_queue	*next;
-	struct s_queue	*prev;
-}	t_queue;
-
 
 void	ft_valid_path_visit(t_queue *ptr, t_map *map, int position)
 {
