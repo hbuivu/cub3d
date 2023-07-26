@@ -7,6 +7,13 @@
 # include <fcntl.h>
 # include "./libft/libft.h"
 
+typedef struct s_queue
+{
+	char			content;
+	struct s_queue	*next;
+	struct s_queue	*prev;
+}	t_queue;
+
 typedef struct	s_data
 {
 	void	*img;
