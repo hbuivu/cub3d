@@ -25,10 +25,23 @@ typedef struct	s_data
 
 typedef struct s_map
 {
-	int	*row_array;
-	struct s_map *next;
-	struct s_map *prev;
+	// int				*row_array;
+	char			*str_map;
+	char			*n_path;
+	char			*s_path;
+	char			*w_path;
+	char			*e_path;
+	char			*f_color;
+	char			*c_color;
+	// struct s_map	*next;
+	// struct s_map	*prev;
 }	t_map;
+// typedef struct s_map
+// {
+// 	int	*row_array;
+// 	struct s_map *next;
+// 	struct s_map *prev;
+// }	t_map;
 
 /* test*/
 void	print_map(t_map **map, int len);
