@@ -30,6 +30,18 @@
 			|
 			v
 			y+
+				 
+			  (0, -1)
+				 N 
+				 ^
+			     |
+	(-1, 0)	W <--0--> E (1, 0)
+				 |
+				 v
+				 S 
+			   (0, 1)
+
+
 9. Free omap - we don't need it anymore (??)
 10. Use a method (floodfill or the other one that's kind of like floodfill) to check map validity
 11. Start drawing??

@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/07/27 22:29:32 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/07/28 00:10:26 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,12 @@ typedef struct s_omap
 	struct s_omap	*next;
 	struct s_omap	*prev;
 }	t_omap;
+
+typedef struct s_calc
+{
+	double	sideDistX;
+	double	sideDistY;
+}	t_calc;
 
 typedef struct s_main
 {
