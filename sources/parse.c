@@ -64,27 +64,27 @@
 // 	// error_check_helper(map);
 // }
 
-// void	identify(char *str, t_map *map, char **argv, int fd)
-// {
-// 	while (str)
-// 	{
-// 		if (str[0] == 'F')
-// 			map->f_color = str;
-// 		if (str[0] == 'C')
-// 			map->c_color = str;
-// 		if (str[0] == 'N')
-// 			map->n_path = str;
-// 		if (str[0] == 'S')
-// 			map->s_path = str;
-// 		if (str[0] == 'E')
-// 			map->e_path = str;
-// 		if (str[0] == 'W')
-// 			map->w_path = str;
-// 		else if (str[0] == '1' || (str[0] == '0' && ft_strchr(str, '1') != NULL)
-// 			|| (str[0] == ' ' && ft_strchr(str, '1') != NULL))
-// 			read_map(argv, map, fd);
-// 		free(str);
-// 		str = get_next_line(fd);
-// 	}
-// }
+void	identify(char *str, t_map *map, char **argv, int fd)
+{
+	while (str)
+	{
+		if (str[0] == 'F')
+			map->f_color = str;
+		if (str[0] == 'C')
+			map->c_color = str;
+		if (str[0] == 'N')
+			map->n_path = str;
+		if (str[0] == 'S')
+			map->s_path = str;
+		if (str[0] == 'E')
+			map->e_path = str;
+		if (str[0] == 'W')
+			map->w_path = str;
+		else if (str[0] == '1' || (str[0] == '0' && ft_strchr(str, '1') != NULL)
+			|| (str[0] == ' ' && ft_strchr(str, '1') != NULL))
+			read_map(argv, map, fd);
+		free(str);
+		str = get_next_line(fd);
+	}
+}
 

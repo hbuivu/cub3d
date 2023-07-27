@@ -7,8 +7,10 @@
 	-check that labels are correct (ex: NO not NORTH or no);
 	-check that there are no duplicates (if element in main struct !NULL when you try to access, then it's an error)
 	-for textures, add string containing just the path to main struct
+		-check that string ends in correct ending (.xpm)
 	-for F and C, create an int *array of 3 nums and add to main struct
-	-return a pointer to the node that contains the first row of the linked list
+		-check that ints are between 0 and 255
+	-return a pointer to the node that contains the first row of the actual map in the linked list
 		-ft_strchr 1 or 0 (only check for this after checking for all other element conditions ->see in identify func)
 7. check the elements in the main struct to make sure none of them are NULL. Else map is invalid
 8. parse map
@@ -41,7 +43,8 @@
 				 S 
 			   (0, 1)
 
-
+	-check for presence of player
+	-check that map exists
 9. Free omap - we don't need it anymore (??)
 10. Use a method (floodfill or the other one that's kind of like floodfill) to check map validity
 11. Start drawing??
