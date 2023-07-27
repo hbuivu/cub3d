@@ -1,19 +1,29 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/07/27 11:02:22 by zsyyida          ###   ########.fr        #
+#    Updated: 2023/07/27 14:21:48 by zsyyida          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 
-SRCS = parse.c test.c error.c space_check.c space_check_utilies.c
-#why not gcc?
+INC_DIR = include
+SRC_DIR = sources
+OBJ_DIR = object
+LIBFT_DIR = libft
+LIBFT = libft.a
+MLX_DIR = mlx
+MLX = libmlx.a
+
+SRCS = parse.c test.c error.c space_check.c space_check_utilies.c main.c download.c
+
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
+
 CC = cc
 RM	= rm -rf
 
@@ -21,17 +31,6 @@ CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 # why 0fast?
 MLX_FLAGS = -Lmlx -lmlx -Ofast -framework OpenGL -g -framework AppKit
 
-INC_DIR = include
-SRC_DIR = sources
-OBJ_DIR = object
-LIBFT_DIR = ./libft
-MLX_DIR = ./mlx
-
-LIBS = ./libft/libft.a
-
-#OBJS = $(SRCS:.c=.o)
-OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
-#BOBJS = $(BSRCS:.c=.o)
 #BOBJS = $(addprefix $(BOBJ_DIR)/, $(BSRCS:.c=.o))
 
 #to create all of the .o files from files in SRC_DIR in OBJ_DIR
@@ -43,8 +42,8 @@ $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 $(NAME): $(OBJS)
 	$(MAKE) -C $(LIBFT_DIR)
 	$(MAKE) -C $(MLX_DIR)
-	#$(CC) $(LIBS) $(CFLAGS) $(MLX_FLAGS) $(OBJS) -o $(NAME)
 	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(OBJS) -Llibft -lft -o $(NAME)
+#$(CC) $(LIBS) $(CFLAGS) $(MLX_FLAGS) $(OBJS) -o $(NAME)
 
 all: $(NAME)
 

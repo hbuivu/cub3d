@@ -3,14 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+         #
+#    By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/22 15:05:32 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/07/25 14:27:22 by hbui-vu          ###   ########.fr        #
+#    Updated: 2023/07/27 14:15:16 by zsyyida          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+
+INC_DIR = include
+SRC_DIR = sources
+OBJ_DIR = objects
 
 SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 		ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
@@ -22,24 +26,30 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 		ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
 		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c gnl.c
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-OBJS = $(SRCS:.c=.o)
+# to add prefix (put into folder) called objects all o files
+OBJS_SRC = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
-$(NAME): $(OBJS) 
-	ar -rc $(NAME) $(OBJS)
+CC	= gcc
+RM	= rm -rf
+CFLAGS = -Wextra
 
-all: $(NAME)
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
+# to put all in one line use @printf "\033[A\033[2K\r"
+	@$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
 
-%.o: %.c 
-	$(CC) $(CFLAGS) -c $< -o $@
+all:	$(NAME)
+
+$(NAME): $(OBJS_SRC)
+	@ar rcs $(NAME) $(OBJS_SRC)
+	@echo "libft ready"
 
 clean:
-	rm -rf *.o
+	$(RM) $(OBJ_DIR)
 
-fclean: clean
-	rm -rf $(NAME)
+fclean:	clean
+	$(RM) $(NAME)
 
-re: fclean all
+re:	fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY:	all clean fclean re

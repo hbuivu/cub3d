@@ -1,0 +1,6 @@
+1. Check argv/argc for correct number of arguments
+2. Check argv[1] for .cub ending
+3. open .cub file -> if can't be opened return
+4. calloc main struct
+5. download map into initial linked list
+6. parse 
