@@ -3,14 +3,70 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:27:01 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/07/27 14:57:27 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/07/27 19:32:34 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
+
+void	error_check(int argc, char **argv)
+{
+	if (argc != 2)
+	{
+		perror("Error\n wrong number of arguments");
+		exit (0);
+	}
+	// if (ft_is_cub(argv) == 1)
+	if (ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4, ".cub", 4) != 0)
+	{
+		perror("Error\n require .cub argument");
+		exit(0);
+	}
+}
+
+void	return_error(t_main *main)
+{
+	t_omap	*cur;
+	int		i;
+
+	i = -1;
+	perror("Return error");
+	if (main)
+	{
+		if (main->omap)
+		{
+			cur = main->omap;
+			main->omap = main->omap->next;
+			free(cur->row);
+			free(cur);
+		}
+		if (main->player_pos)
+			free(main->player_pos);
+		if (main->n_path)
+			free(main->n_path);
+		if (main->s_path)
+			free(main->s_path);
+		if (main->w_path)
+			free(main->w_path);
+		if (main->e_path)
+			free(main->e_path);
+		if (main->f_color)
+			free(main->f_color);
+		if (main->c_color)
+			free(main->c_color);
+		if (main->map)
+		{
+			while (main->map[++i])
+				free(main->map[i]);
+			free(main->map);
+		}
+		free(main);
+	}
+	exit(1);
+}
 
 // int	ft_strstr(char *h, char *n)
 // {
@@ -40,34 +96,3 @@
 // 		return (1);
 // 	return (0);
 // }
-
-void	error_check(int argc, char **argv)
-{
-	if (argc != 2)
-	{
-		perror("Error\n wrong number of arguments");
-		exit (0);
-	}
-	// if (ft_is_cub(argv) == 1)
-	if (ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4, ".cub", 4) != 0)
-	{
-		perror("Error\n require .cub argument");
-		exit(0);
-	}
-}
-
-void	return_error(t_omap *omap)
-{
-	t_omap *cur;
-
-	write(2, "Error\n", 6);
-	if (map)
-	{
-		cur = map;
-		map = map->next;
-		free(cur->row);
-		free(cur);
-	}
-	//free main
-	exit(1);
-}

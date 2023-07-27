@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+         #
+#    By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/07/27 14:21:48 by zsyyida          ###   ########.fr        #
+#    Updated: 2023/07/27 17:46:48 by hbui-vu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ LIBFT = libft.a
 MLX_DIR = mlx
 MLX = libmlx.a
 
-SRCS = parse.c test.c error.c space_check.c space_check_utilies.c main.c download.c
+SRCS = parse.c test.c error.c space_check.c space_check_utilies.c main.c \
+	download.c utils.c parse_map.c
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
