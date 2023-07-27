@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:27:01 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/07/27 19:32:34 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/07/27 23:30:24 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,13 @@ void	return_error(t_main *main)
 		if (main->omap)
 		{
 			cur = main->omap;
-			main->omap = main->omap->next;
-			free(cur->row);
-			free(cur);
+			while (cur)
+			{
+				main->omap = main->omap->next;
+				free(cur->row);
+				free(cur);
+				cur = main->omap;
+			}
 		}
 		if (main->player_pos)
 			free(main->player_pos);

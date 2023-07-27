@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:14:26 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/07/27 19:45:49 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/07/27 23:49:11 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@ void	parse_map(t_omap *omap_start, t_main *main)
 {
 	t_omap	*cur;
 	int		i;
-	// int		j;
+	int		j;
 	
 	cur = omap_start;
 	i = 0;
 	//first iteration
 	while (cur)
 	{
+		if (cur->row[0] == '\0')
+			return_error(main);
 		while (cur->row[i])
 		{
 			if (ft_strchr(" NSEW01", cur->row[i]) == 0)
@@ -33,7 +35,10 @@ void	parse_map(t_omap *omap_start, t_main *main)
 			if (ft_strchr("NSEW", cur->row[i]))
 			{
 				if (main->player_dir != '\0' || main->player_pos != NULL)
+				{
+					printf("more than one player\n");
 					return_error(main);
+				}
 				main->player_dir = cur->row[i];
 				main->player_pos = (int *)cub_malloc(2, sizeof(int), main);
 				main->player_pos[0] = i;
@@ -47,29 +52,33 @@ void	parse_map(t_omap *omap_start, t_main *main)
 		i = 0;
 		cur = cur->next;
 	}
+	
 	printf("map_height: %i\n", main->map_height);
 	printf("map_width: %i\n", main->map_width);
 	printf("player position (col, row): %i, %i\n", main->player_pos[0], main->player_pos[1]);
 	printf("player dir: %c\n", main->player_dir);
-	// //second iteration
-	// i = 0;
-	// j = 0;
-	// main->map = (char **)cub_calloc(main->map_height, sizeof(char *), main);
-	// while (i < main->height)
-	// {
-	// 	main->map[i] = (char *)cub_calloc(main->map_width + 1, sizeof(char), main);
-	// 	while (main->omap->row[j])
-	// 	{
-	// 		main->map[i][j] = main->omap->row[j];
-	// 		j++;
-	// 	}
-	// 	while (j < main->map_width)
-	// 	{
-	// 		main->map[i][j] = ' ';
-	// 		j++;
-	// 	}
-	// 	j = 0;
-	// 	i++;
-	// }
+	
+	//second iteration
+	i = 0;
+	j = 0;
+	cur = omap_start;
+	main->map = (char **)cub_calloc(main->map_height + 1, sizeof(char *), main);
+	while (i < main->map_height)
+	{
+		main->map[i] = (char *)cub_calloc(main->map_width + 1, sizeof(char), main);
+		while (cur->row[j])
+		{
+			main->map[i][j] = cur->row[j];
+			j++;
+		}
+		while (j < main->map_width)
+		{
+			main->map[i][j] = ' ';
+			j++;
+		}
+		j = 0;
+		i++;
+		cur = cur->next;
+	}
 	
 }

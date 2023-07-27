@@ -15,7 +15,9 @@ int	main(int argc, char **argv)
 		return_error(main);
 	}
 	download_map(fd, main);
-	// print_omap(main->omap);
+	print_omap(main->omap);
 	parse_map(main->omap, main);
+	print_main_map(main);
+	return_error(main);
 	// identify(str, map, argv, fd);
 }

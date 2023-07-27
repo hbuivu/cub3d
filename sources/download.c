@@ -40,7 +40,10 @@ void	download_map(int fd, t_main *main)
 		if (main->omap == NULL)
 			main->omap = node;
 		else
+		{
+			node->prev = cur;
 			cur->next = node;
+		}
 		cur = node;
 		free(str);
 		str = get_next_line(fd);
@@ -49,15 +52,4 @@ void	download_map(int fd, t_main *main)
 	close(fd);
 }
 
-//need a prev for omap;
-void	clean_omap(t_main *main)
-{
-	t_omap	*cur;
-
-	cur = main->omap;
-	while (cur->next)
-		cur = cur->next;
-	//go to end of omap
-	//look for a character in line. if only spaces or \n delete node
-	//go to next previous
-}
+//do we need a clean_omap if there are extra spaces after the map ends?

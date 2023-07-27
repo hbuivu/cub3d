@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 12:26:41 by hbui-vu           #+#    #+#             */
-/*   Updated: 2022/09/23 14:50:29 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/07/27 22:31:44 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	i = len - 1;
 	if (dst == NULL && src == NULL)
 		return (NULL);
-	if (&src[0] > &dst[0])
+	if (&((unsigned char *)src)[0] > &((unsigned char *)dst)[0])
 		return (ft_memcpy(dst, src, len));
 	while (i >= 0)
 	{

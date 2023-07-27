@@ -20,6 +20,7 @@
 			-player_dir (char NSEW)
 				if player_dir !NULL in main, return error
 		-if any chars that are not " NSEW01", return error
+		-if there are any empty lines, return error
 	-create a 2d char array (possibly a linked list if we want to use floodfill to check map)
 		-copy over string, and if any leftover space, copy over space (except for last element which should be NULL)
 		-based on the way the string was copied (top to bottom), the graph will look like this
@@ -32,4 +33,10 @@
 9. Free omap - we don't need it anymore (??)
 10. Use a method (floodfill or the other one that's kind of like floodfill) to check map validity
 11. Start drawing??
+
+NOTES:
+If any misconfiguration of any kind is encountered in the file, the program
+must exit properly and return "Error\n" followed by an explicit error message
+of your choice.
+--> need to configure error messages later
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/07/27 17:54:18 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/07/27 22:29:32 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_omap
 {
 	char			*row;
 	struct s_omap	*next;
+	struct s_omap	*prev;
 }	t_omap;
 
 typedef struct s_main
@@ -81,15 +82,16 @@ void	parse_map(t_omap *omap_start, t_main *main);
 
 /* test*/
 void	print_omap(t_omap *map);
+void	print_main_map(t_main *main);
 
 /* parse.c */
 void	identify(char *str, t_main *map, char **argv, int fd);
 
-void	ft_valid_path_visit(t_queue *ptr, t_main *map, int position);
-void	ft_valid_path_helper(t_queue *ptr, t_main *map);
-void	ft_valid_path(t_main map);
-t_queue	*ft_lstnew_dl(int content);
-t_queue	*ft_lstadd_back_dl(t_queue **queue, t_queue *new);
-void	*ft_dequeue(t_queue *enqueue);
+// void	ft_valid_path_visit(t_queue *ptr, t_main *map, int position);
+// void	ft_valid_path_helper(t_queue *ptr, t_main *map);
+// void	ft_valid_path(t_main map);
+// t_queue	*ft_lstnew_dl(int content);
+// t_queue	*ft_lstadd_back_dl(t_queue **queue, t_queue *new);
+// void	*ft_dequeue(t_queue *enqueue);
 
 #endif
