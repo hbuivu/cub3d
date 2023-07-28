@@ -20,7 +20,4 @@ int	main(int argc, char **argv)
 	print_main_map(main);
 	return_error(main);
 	// identify(str, map, argv, fd);
-
-	//MLX
-	
 }
