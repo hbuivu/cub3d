@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	print_omap(main->omap);
 	parse_map(main->omap, main);
 	print_main_map(main);
-	printf("player_pos[0] = %i, player_pos[1]: %i\n", main->player_pos[0], main->player_pos[1]);
+	// printf("player_pos[0] = %i, player_pos[1]: %i\n", main->player_pos[0], main->player_pos[1]);
 	return_error(main, NONE);
 	// identify(str, map, argv, fd);
 }

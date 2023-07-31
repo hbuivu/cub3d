@@ -54,6 +54,7 @@ void	draw_walls(t_main *main)
 {
 	//main->player_pos[0] = column;
 	//main->player_pos[1] = row;
+	//convert player position to unit coordinat
 }
 
 void	mlx(t_main *main)
