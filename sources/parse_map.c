@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:14:26 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/07/27 23:49:11 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/07/28 22:27:27 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,15 @@ void	parse_map(t_omap *omap_start, t_main *main)
 	while (cur)
 	{
 		if (cur->row[0] == '\0')
-			return_error(main);
+			return_error(main, MAP_ERR);
 		while (cur->row[i])
 		{
 			if (ft_strchr(" NSEW01", cur->row[i]) == 0)
-				return_error(main);
+				return_error(main, MAP_ERR);
 			if (ft_strchr("NSEW", cur->row[i]))
 			{
 				if (main->player_dir != '\0' || main->player_pos != NULL)
-				{
-					printf("more than one player\n");
-					return_error(main);
-				}
+					return_error(main, MAP_ERR);
 				main->player_dir = cur->row[i];
 				main->player_pos = (int *)cub_malloc(2, sizeof(int), main);
 				main->player_pos[0] = i;
