@@ -27,13 +27,15 @@ void	error_check(int argc, char **argv)
 	}
 }
 
-void	return_error(t_main *main)
+void	return_error(t_main *main, int err_msg)
 {
 	t_omap	*cur;
 	int		i;
 
 	i = -1;
-	perror("Return error");
+	//return err messages here
+	(void)err_msg;
+	perror("Return error\n");
 	if (main)
 	{
 		if (main->omap)
@@ -67,6 +69,10 @@ void	return_error(t_main *main)
 				free(main->map[i]);
 			free(main->map);
 		}
+		if (main->mlx)
+			free(main->mlx);
+		if (main->img)
+			free(main->img);
 		free(main);
 	}
 	exit(1);
