@@ -20,6 +20,16 @@
 # include <fcntl.h>
 # include <stdlib.h>
 
+enum	error
+{
+	GNL_ERR,
+	MALLOC_ERR,
+	MAP_ERR,
+	MLX_ERR,
+	OPEN_ERR,
+	NONE
+};
+
 typedef struct s_queue
 {
 	char			content;
@@ -27,14 +37,20 @@ typedef struct s_queue
 	struct s_queue	*prev;
 }	t_queue;
 
-typedef struct	s_data
+typedef struct	s_img
 {
 	void	*img;
 	char	*addr;
 	int		bpp;
 	int		line_length;
 	int		endian;
-}	t_data;
+}	t_img;
+
+typedef struct	s_mlx
+{
+	void	*mlx_ptr;
+	void	*mlx_win;
+}	t_mlx;
 
 typedef struct s_omap
 {
@@ -47,6 +63,16 @@ typedef struct s_calc
 {
 	double	sideDistX;
 	double	sideDistY;
+	double	deltaX;
+	double	deltaY;
+	int		stepX;
+	int		stepY;
+	int		dirX;
+	int		dirY;
+	double	cameraX;
+	double	rayDirX;
+	double	rayDirY;
+	
 }	t_calc;
 
 typedef struct s_main
@@ -56,21 +82,26 @@ typedef struct s_main
 	char			player_dir;
 	int				map_width;
 	int				map_height;
-	char			**map;
+	char			**map; //final map
 	char			*n_path;
 	char			*s_path;
 	char			*w_path;
 	char			*e_path;
 	int				*f_color;
 	int				*c_color;
-	t_omap			*omap; //original map
+	t_omap			*omap; //original map (linked list)
+	t_mlx			mlx;
+	t_img			img;
+	t_calc			calc;
+	int				win_width;
+	int				win_height;
 
-	/* delete later */
-	char			*str_map;
-	int				player;
-	int				width;
-	int				height;
-	char			*str;
+	// /* delete later */
+	// char			*str_map;
+	// int				player;
+	// int				width;
+	// int				height;
+	// char			*str;
 }	t_main;
 
 /* utils.c */
@@ -78,7 +109,7 @@ void	*cub_calloc(size_t count, size_t size, t_main *main);
 void	*cub_malloc(size_t count, size_t size, t_main *main);
 /* error.c */
 void	error_check(int argc, char **argv);
-void	return_error(t_main *main);
+void	return_error(t_main *main, int err_msg);
 
 /* download.c */
 void	download_map(int fd, t_main *main);
