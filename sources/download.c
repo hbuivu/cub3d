@@ -24,7 +24,10 @@ void	download_map(int fd, t_main *main)
 
 	str = get_next_line(fd);
 	if (!str)
-		return_error(main);
+	{
+		close(fd);
+		return_error(main, GNL_ERR);
+	}
 	node = NULL;
 	cur = NULL;
 	while (str)
@@ -34,7 +37,7 @@ void	download_map(int fd, t_main *main)
 		{
 			free(str);
 			close(fd);
-			return_error(main);
+			return_error(main, MALLOC_ERR);
 		}
 		node->row = cub_strdup(str, main);
 		if (main->omap == NULL)
