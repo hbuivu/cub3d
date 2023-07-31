@@ -6,7 +6,7 @@ void	*cub_calloc(size_t count, size_t size, t_main *main)
 
 	buf = ft_calloc(count, size);
 	if (!buf)
-		return_error(main);
+		return_error(main, MALLOC_ERR);
 	return (buf);
 }
 
@@ -16,6 +16,6 @@ void	*cub_malloc(size_t count, size_t size, t_main *main)
 
 	buf = malloc(count * size);
 	if (!buf)
-		return_error(main);
+		return_error(main, MALLOC_ERR);
 	return (buf);
 }
