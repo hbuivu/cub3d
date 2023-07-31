@@ -95,13 +95,6 @@ typedef struct s_main
 	t_calc			calc;
 	int				win_width;
 	int				win_height;
-
-	// /* delete later */
-	// char			*str_map;
-	// int				player;
-	// int				width;
-	// int				height;
-	// char			*str;
 }	t_main;
 
 /* utils.c */
@@ -122,13 +115,14 @@ void	print_omap(t_omap *map);
 void	print_main_map(t_main *main);
 
 /* parse.c */
-void	identify(char *str, t_main *map, char **argv, int fd);
+char	*identify(t_omap *omap_start, t_main *main);
 
-// void	ft_valid_path_visit(t_queue *ptr, t_main *map, int position);
-// void	ft_valid_path_helper(t_queue *ptr, t_main *map);
-// void	ft_valid_path(t_main map);
-// t_queue	*ft_lstnew_dl(int content);
-// t_queue	*ft_lstadd_back_dl(t_queue **queue, t_queue *new);
-// void	*ft_dequeue(t_queue *enqueue);
+void	ft_valid_path_visit(t_queue *ptr, t_main *map, int position);
+void	ft_valid_path_helper(t_queue *ptr, t_main *map);
+void	ft_valid_path(t_main map);
+t_queue	*ft_lstnew_dl(int *content);
+t_queue	*ft_lstadd_back_dl(t_queue **queue, t_queue *new);
+void	*ft_dequeue(t_queue *enqueue);
+void	change_space(t_main *map);
 
 #endif
