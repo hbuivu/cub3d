@@ -52,16 +52,8 @@ int	encode_rgb(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha)
 
 void	draw_walls(t_main *main)
 {
-	int	x;
-
-	x = 0;
-	
-	while (x < main->win_width)
-	{
-		main->calc.cameraX = 2 * x / (double)main->win_width - 1; 
-		main->rayDirX = main->dirX - 
-	}
-
+	//main->player_pos[0] = column;
+	//main->player_pos[1] = row;
 }
 
 void	mlx(t_main *main)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:27:01 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/07/27 23:30:24 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/07/31 13:03:55 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,6 @@ void	return_error(t_main *main, int err_msg)
 				free(main->map[i]);
 			free(main->map);
 		}
-		if (main->mlx)
-			free(main->mlx);
-		if (main->img)
-			free(main->img);
 		free(main);
 	}
 	exit(1);
