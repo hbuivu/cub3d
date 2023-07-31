@@ -1,0 +1,33 @@
+MLX
+*note: for any functions returning a void *, on error it will return NULL
+1. init window
+	-mlx_init
+	void *mlx_init();
+		-call to initialize mlx lib
+		-MUST call before starting anything
+
+	-mlx_new_window
+	void *mlx_new_window(void *mlx_ptr, int size_x, int size_y, char *title);
+		-creates a new window
+
+	-mlx_loop
+	int	mlx_loop(void *mlx_ptr);
+	loops over given mlx ptr, keeps window up on the screen
+
+2. Create and get img addr
+	-mlx_new_image
+	void *mlx_new_image(void *mlx_ptr,int width,int height);
+		-creates new mlx compatible img with size width and height
+		-buffer img you are rendering
+		-returns ref pointer to img
+
+	-mlx_get_data_addr
+	char *mlx_get_data_addr(void *img_ptr, int *bits_per_pixel, int *size_line, int *endian);
+		-gets memory addr of given img
+		-sets bpp, line length, and endian variables for us
+	
+3. Calculate coordinates
+4. Draw img
+	-manipulate pixels directly on the image instead of using pixel ft_pixel_put
+5.  mlx_put_image_to_window
+		-after image is drawn, put image on the window
