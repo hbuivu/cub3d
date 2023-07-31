@@ -28,11 +28,32 @@ int	*to_int(char *s)
 	}
 	return (color);
 }
+
+int	check_main(t_main *main)
+{
+	if (main->n_path == NULL)
+		return (1);
+	if (main->s_path == NULL)
+		return (1);
+	if (main->w_path == NULL)
+		return (1);
+	if (main->e_path == NULL)
+		return (1);
+	if (main->f_color == NULL)
+		return (1);
+	if (main->c_color == NULL)
+		return (1);
+	if (main->n_path == NULL)
+		return (1);
+}
+
 // add free and exit
-void	identify(t_omap *omap_start, t_main *main)
+char	*identify(t_omap *omap_start, t_main *main)
 {
 	t_omap	*curr;
 	int		i;
+	char	*ptr_map;
+
 
 	curr = omap_start;
 	while (curr)
@@ -141,8 +162,13 @@ void	identify(t_omap *omap_start, t_main *main)
 			}
 			main->w_path = curr->row + 3;
 		}
-		// else if (str[0] == '1' || (str[0] == '0' && ft_strchr(str, '1') != NULL)
-		// 	|| (str[0] == ' ' && ft_strchr(str, '1') != NULL))
+		else if (ft_strchr(curr->row, '1') != NULL || ft_strchr(curr->row, '1') != NULL)
+		{
+			ptr_map = curr->row;
+			if (check_main(main) == 1)
+				return (NULL);
+			return (ptr_map);
+		}
 		curr = curr->next;
 	}
 	printf("%s\n%s\n%s\n%s\n", main->n_path, main->s_path, main->e_path, main->w_path);
