@@ -17,7 +17,7 @@ void	del(void *lst)
 	free (lst);
 }
 
-t_queue	*ft_lstnew_dl(int content)
+t_queue	*ft_lstnew_dl(int *content)
 {
 	t_queue	*new;
 
@@ -25,6 +25,7 @@ t_queue	*ft_lstnew_dl(int content)
 	if (new == NULL)
 		return (0);
 	new -> content = content;
+
 	new -> next = NULL;
 	new -> prev = NULL;
 	return (new);
