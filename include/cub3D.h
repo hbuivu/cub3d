@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/07/28 00:10:26 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/01 14:43:41 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ typedef struct s_main
 	int				*player_pos; //(column, row)
 	int				player_update;
 	char			player_dir;
+	int				*player_vec; //player direction vector
 	int				map_width;
 	int				map_height;
 	char			**map; //final map
@@ -95,6 +96,7 @@ typedef struct s_main
 	t_calc			calc;
 	int				win_width;
 	int				win_height;
+	int				grid_size;
 }	t_main;
 
 /* utils.c */

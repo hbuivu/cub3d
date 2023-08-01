@@ -50,12 +50,10 @@ int	encode_rgb(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha)
 // 	mlx_put_image_to_window(main->mlx->mlx_ptr, main->mlx->mlx_win, main->img->img, 0, 0);
 // }
 
-void	draw_walls(t_main *main)
-{
-	//main->player_pos[0] = column;
-	//main->player_pos[1] = row;
-	//convert player position to unit coordinat
-}
+// void	draw_walls(t_main *main)
+// {
+	
+// }
 
 void	mlx(t_main *main)
 {

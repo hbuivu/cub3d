@@ -5,3 +5,82 @@ E = (1, 0)
 W = (-1, 0)
 */
 
+#include "../include/cub3D.h"
+
+void	raycasting(t_main *main)
+{
+	double	pl_x;
+	double	pl_y;
+	double	map_x;
+	double	map_y;
+	double	ray_x;
+	double	ray_y;
+	double	pl_dirx;
+	double	pl_diry;
+	double	camera_dirx;
+	double	camera_diry;
+	double	camera_mag;
+	double	delta_x;
+	double	delta_y;
+	double	inter_x;
+	double	inter_y
+	int		step_x;
+	int		step_y;
+
+	//set position of player in unit coordinates and map coordinates -> this would require conversion of everything else
+	// pl_x = main->grid_size * main->player_pos[0] + (main->grid_size / 2);
+	// pl_y = main->grid_size * main->player_pos[1] + (main->grid_size / 2);
+	pl_x = main->player_pos[0] + .5;
+	pl_y = main->player_pos[1] + .5;
+	map_x = main->player_pos[0];
+	map_y = main->player_pos[1];
+
+	//set direction that player is facing (only direction, no magnitude, so it's in unit of 1)
+	pl_dirx = main->player_vec[0];
+	pl_diry = main->player_vec[1];
+
+	//set camera plane direction (only the direction, no magnitude, so it's in unit based on pl dir)
+	//we set it to .65 since we want a FOV of 66 degrees. tan(33) = camera_dirx / 1 
+	if (pl_dirx == 0)
+		camera_dirx = .65; //?????
+	else
+		camera_dirx = 0;
+	if (pl_diry == 0)
+		camera_diry = .65;
+	else
+		camera_diry = 0;
+
+	//get the magnitude of the camera plane <- check this later
+	//we have to send out rays for every x on the screen so the magnitude will shorten/lengthen camera plane
+	int	x;
+	x = 1;
+	//here we set x = 1, but x spans the whole width of the window
+	camera_mag = 2 * (x / main->win_width) - 1;
+
+	//get ray in x and y components
+	//ray = pl_dir + camera_dir * camera_mag
+	ray_x = pl_dirx + camera_dirx * camera_mag;
+	ray_y = pl_diry + camera_diry * camera_mag;
+
+	//find delta x and delta y
+	//delta x is the distance the vector travels per unit of x - going left and right col
+	//delta y is the distance the vector travels per unit of y - going up and down rows
+	//technically it should be delta_x = abs(|ray|/ray_x) and delta_y = abs(|ray|/ray_y);
+	//however we are only interested in the ratio between delta x and delta y, so we simplify top number to 1
+	if (ray_x != 0)
+		delta_x = abs(1 / ray_x);
+	else
+		delta_x = 0;
+	if (ray_y != 0)
+		delta_y = abs(1 / ray_y);
+	else
+		delta_y = 0;
+
+	//find the initial intersect at horizontal and vertical lines on map grid
+	if (ray_x < 0) //going left
+	{
+		step_x = -1;
+		inter_x = (map_x - pl_x)
+	}
+
+}
