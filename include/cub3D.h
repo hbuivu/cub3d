@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/01 14:43:41 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/02 14:36:00 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,28 +59,36 @@ typedef struct s_omap
 	struct s_omap	*prev;
 }	t_omap;
 
-typedef struct s_calc
+typedef struct	s_calc
 {
-	double	sideDistX;
-	double	sideDistY;
-	double	deltaX;
-	double	deltaY;
-	int		stepX;
-	int		stepY;
-	int		dirX;
-	int		dirY;
-	double	cameraX;
-	double	rayDirX;
-	double	rayDirY;
+	double	upg; //units per grid
+	double	fov; //field of view in rad
+	double	pln_height; //plane height (repeat of main win_height)
+	double	pln_width; //plane width (repeate of main win_width)
+	double	pln_dist; //plane distance from player
+	double	ray_incr; //angle at which ray increments from right to left
+	double	pl_dir; //player direction in rad
+	double	angle; //angle used for calculations
+	double	pl_x; //player spawn x(col) position in unit coordinates
+	double	pl_y; //player spawn y(row) position in unit coordinates
 	
+	/* initiated to 0 at start */
+	int		stepx; //direction in which x is going (-1 or 1)
+	int		stepy; //direction in which y is going (-1 or 1)
+	double	col_pt; //point where ray intersects a column line
+	double	col_pty; //the y coordinate where ray intersects column line
+	double	row_pt; //point where ray intersects a row line
+	double	row_ptx; //the x coordinate where ray intersects a row line
+	int		ch_col; //map column coordinate to check
+	int		ch_row; //map row coordinate to check
 }	t_calc;
 
 typedef struct s_main
 {
+	int				win_width;
+	int				win_height;
 	int				*player_pos; //(column, row)
-	int				player_update;
 	char			player_dir;
-	int				*player_vec; //player direction vector
 	int				map_width;
 	int				map_height;
 	char			**map; //final map
@@ -94,9 +102,9 @@ typedef struct s_main
 	t_mlx			mlx;
 	t_img			img;
 	t_calc			calc;
-	int				win_width;
-	int				win_height;
-	int				grid_size;
+
+	/* zahra */
+	int				player_update;
 }	t_main;
 
 /* utils.c */

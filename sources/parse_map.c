@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:14:26 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/01 14:34:50 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/02 13:09:29 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 //does not check for if there are multiple spaces after end of map
 //-> delete all spaces at the end in download.c
+
+void	init_main(t_main *main)
+{
+	main->win_width = 320;
+	main->win_height = 200;
+}
 
 void	parse_map(t_omap *omap_start, t_main *main)
 {
@@ -58,28 +64,6 @@ void	parse_map(t_omap *omap_start, t_main *main)
 	//check for presence of player
 	if (main->player_dir == '\0')
 		return_error(main, MAP_ERR);
-	//get player dir vector
-	main->player_vec = (int *)cub_calloc(2, sizeof(int), main);
-	if (main->player_dir == 'N')
-	{
-		main->player_vec[0] = 0;
-		main->player_vec[1] = -1;
-	}
-	else if (main->player_dir == 'S')
-	{
-		main->player_vec[0] = 0;
-		main->player_vec[1] = 1;
-	}
-	else if (main->player_dir == 'E')
-	{
-		main->player_vec[0] = 1;
-		main->player_vec[1] = 0;
-	}
-	else if (main->player_dir == 'W')
-	{
-		main->player_vec[0] = -1;
-		main->player_vec[1] = 0;
-	}	
 	//check for presence of map in previous parse function
 	//when returning a pointer to the first node that contains a line of the map - if line doesn't exist, return error there
 	

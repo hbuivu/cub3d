@@ -14,9 +14,9 @@ int	main(int argc, char **argv)
 		perror("error\n not a file");
 		return_error(main, OPEN_ERR);
 	}
-	download_map(fd, main);
+	download_map(fd, main); //fills out omap
 	print_omap(main->omap);
-	parse_map(main->omap, main);
+	parse_map(main->omap, main); //fills out everything else in main
 	print_main_map(main);
 	// printf("player_pos[0] = %i, player_pos[1]: %i\n", main->player_pos[0], main->player_pos[1]);
 	return_error(main, NONE);

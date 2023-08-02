@@ -23,10 +23,11 @@ void	raycasting(t_main *main)
 	double	delta_x;
 	double	delta_y;
 	double	inter_x;
-	double	inter_y
+	double	inter_y;
 	int		step_x;
 	int		step_y;
 	double	wall_dist;
+	int		side;
 	
 	//set position of player in unit coordinates and map coordinates -> this would require conversion of everything else
 	// pl_x = main->grid_size * main->player_pos[0] + (main->grid_size / 2);
@@ -44,7 +45,7 @@ void	raycasting(t_main *main)
 	//set camera plane direction (only the direction, no magnitude, so it's in unit based on pl dir)
 	//we set it to .65 since we want a FOV of 66 degrees. tan(33) = camera_dirx / 1 
 	if (pl_dirx == 0)
-		camera_dirx = .65; //?????
+		camera_dirx = .65; 
 	else
 		camera_dirx = 0;
 	if (pl_diry == 0)
@@ -98,7 +99,7 @@ void	raycasting(t_main *main)
 	}
 	else //going down
 	{
-		stepy_y = 1;
+		step_y = 1;
 		inter_y = (map_y + 1 - pl_y) + delta_y
 	}
 
@@ -126,4 +127,8 @@ void	raycasting(t_main *main)
 		wall_dist = inter_x - delta_x;
 	else
 		wall_dist = inter_y - delta_y
+
+	//once we figure out distance from camera plane to wall, we can calculate wall height
+	//wall height = inverse of camera plane * height of screen
+
 }
