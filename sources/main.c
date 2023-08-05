@@ -1,5 +1,12 @@
 #include "../include/cub3D.h"
 
+void	init_main(t_main *main)
+{
+	main->win_width = 320;
+	main->win_height = 200;
+	main->calc = (t_calc *)cub_calloc(1, sizeof(t_calc), main);
+}
+
 int	main(int argc, char **argv)
 {
 	int		fd;
@@ -15,10 +22,11 @@ int	main(int argc, char **argv)
 		return_error(main, OPEN_ERR);
 	}
 	download_map(fd, main); //fills out omap
-	print_omap(main->omap);
+	// print_omap(main->omap);
 	parse_map(main->omap, main); //fills out everything else in main
-	print_main_map(main);
-	// printf("player_pos[0] = %i, player_pos[1]: %i\n", main->player_pos[0], main->player_pos[1]);
+	// print_main_map(main);
+	init_main(main);
+	raycast(main);
+	print_calc(main);
 	return_error(main, NONE);
-	// identify(str, map, argv, fd);
 }

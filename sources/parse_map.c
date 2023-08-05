@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:14:26 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/02 13:09:29 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/03 14:39:48 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 
 //does not check for if there are multiple spaces after end of map
 //-> delete all spaces at the end in download.c
-
-void	init_main(t_main *main)
-{
-	main->win_width = 320;
-	main->win_height = 200;
-}
 
 void	parse_map(t_omap *omap_start, t_main *main)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/02 14:36:00 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/04 09:59:49 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,25 +62,27 @@ typedef struct s_omap
 typedef struct	s_calc
 {
 	double	upg; //units per grid
-	double	fov; //field of view in rad
+	double	fov;
+	double	r_fov; //field of view in rad
 	double	pln_height; //plane height (repeat of main win_height)
 	double	pln_width; //plane width (repeate of main win_width)
 	double	pln_dist; //plane distance from player
+	double	px; //player spawn x(col) position in unit coordinates
+	double	py; //player spawn y(row) position in unit coordinates
+	int		pdir; //player direction in degrees
 	double	ray_incr; //angle at which ray increments from right to left
-	double	pl_dir; //player direction in rad
 	double	angle; //angle used for calculations
-	double	pl_x; //player spawn x(col) position in unit coordinates
-	double	pl_y; //player spawn y(row) position in unit coordinates
+	double	r_angle;
 	
 	/* initiated to 0 at start */
 	int		stepx; //direction in which x is going (-1 or 1)
 	int		stepy; //direction in which y is going (-1 or 1)
-	double	col_pt; //point where ray intersects a column line
-	double	col_pty; //the y coordinate where ray intersects column line
-	double	row_pt; //point where ray intersects a row line
-	double	row_ptx; //the x coordinate where ray intersects a row line
-	int		ch_col; //map column coordinate to check
-	int		ch_row; //map row coordinate to check
+	double	col_int; //point where ray intersects a column line
+	double	col_int_y; //the y coordinate where ray intersects column line
+	double	row_int; //point where ray intersects a row line
+	double	row_int_x; //the x coordinate where ray intersects a row line
+	double	deltax; //movement in x direction every time y moves by 1 grid
+	double	deltay; //movement in y direction every time x moves by 1 grid
 }	t_calc;
 
 typedef struct s_main
@@ -101,7 +103,7 @@ typedef struct s_main
 	t_omap			*omap; //original map (linked list)
 	t_mlx			mlx;
 	t_img			img;
-	t_calc			calc;
+	t_calc			*calc;
 
 	/* zahra */
 	int				player_update;
@@ -120,9 +122,13 @@ void	download_map(int fd, t_main *main);
 /* parse_map.c */
 void	parse_map(t_omap *omap_start, t_main *main);
 
+/* raycasting.c */
+void	raycast(t_main *main);
+
 /* test*/
 void	print_omap(t_omap *map);
 void	print_main_map(t_main *main);
+void	print_calc(t_main *main);
 
 /* parse.c */
 char	*identify(t_omap *omap_start, t_main *main);
