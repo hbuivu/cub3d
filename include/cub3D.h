@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/05 12:28:30 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/05 16:55:26 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ typedef struct s_omap
 typedef struct	s_calc
 {
 	double	upg; //units per grid
-	double	fov;
-	double	r_fov; //field of view in rad
+	double	fov; //field of view in degrees
+	double	rfov; //field of view in rad
 	double	pln_height; //plane height (repeat of main win_height)
 	double	pln_width; //plane width (repeate of main win_width)
 	double	pln_dist; //plane distance from player
@@ -71,36 +71,40 @@ typedef struct	s_calc
 	double	py; //player spawn y(row) position in unit coordinates
 	int		pdir; //player direction in degrees
 	double	ray_incr; //angle at which ray increments from right to left
-	double	angle; //angle used for calculations
-	double	r_angle;
+	double	angle; //angle used for calculations in degrees
+	double	rangle; //angle used for calculations in radians
 	
 	/* initiated to 0 at start */
 	int		stepx; //direction in which x is going (-1 or 1)
 	int		stepy; //direction in which y is going (-1 or 1)
 	double	col_int; //point where ray intersects a column line
-	double	col_int_y; //the y coordinate where ray intersects column line
+	double	col_inty; //the y coordinate where ray intersects column line
 	double	row_int; //point where ray intersects a row line
-	double	row_int_x; //the x coordinate where ray intersects a row line
+	double	row_intx; //the x coordinate where ray intersects a row line
 	double	deltax; //movement in x direction every time y moves by 1 grid
 	double	deltay; //movement in y direction every time x moves by 1 grid
+	double	dist_col; //distance squared of original point to first column intersect with wall
+	double	dist_row; //distance squared of original point to first row intersect with wall
+	double	cor_dist; //corrected distance from point to closest 
+	double	wall_height;
 }	t_calc;
 
 typedef struct s_main
 {
+	t_omap			*omap; //original map (linked list)
 	int				win_width;
 	int				win_height;
 	int				*player_pos; //(column, row)
 	char			player_dir;
 	int				map_width;
 	int				map_height;
-	char			**map; //final map
 	char			*n_path;
 	char			*s_path;
 	char			*w_path;
 	char			*e_path;
 	int				*f_color;
 	int				*c_color;
-	t_omap			*omap; //original map (linked list)
+	char			**map; //final map, access via map[row][column]
 	t_mlx			mlx;
 	t_img			img;
 	t_calc			*calc;
@@ -126,11 +130,13 @@ void	parse_map(t_omap *omap_start, t_main *main);
 
 /* raycasting.c */
 void	raycast(t_main *main);
+void	init_calc(t_main *main);
 
 /* test*/
 void	print_omap(t_omap *map);
 void	print_main_map(t_main *main);
 void	print_calc(t_main *main);
+void	print_main(t_main *main);
 
 /* identify.c */
 t_omap	*identify(t_omap *omap_start, t_main *main);

@@ -6,7 +6,7 @@
 #    By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/05 12:20:51 by hbui-vu          ###   ########.fr        #
+#    Updated: 2023/08/05 13:46:03 by hbui-vu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBFT = libft.a
 MLX_DIR = mlx
 MLX = libmlx.a
 
-SRCS = test.c error.c main.c identify.c \
+SRCS = test.c error.c main.c identify.c raycasting2.c\
 	download.c utils.c parse_map.c
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
