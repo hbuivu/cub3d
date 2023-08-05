@@ -6,7 +6,7 @@
 2. Make sure NO, SO, WE, EA is there
 3. After that, is the map
 */
-
+// not going to next for some reason
 int	*to_int(char *s)
 {
 	char	**split;
@@ -45,16 +45,17 @@ int	check_main(t_main *main)
 		return (1);
 	if (main->n_path == NULL)
 		return (1);
+	return (0);
 }
 
 // add free and exit
-char	*identify(t_omap *omap_start, t_main *main)
+t_omap	*identify(t_omap *omap_start, t_main *main)
 {
 	t_omap	*curr;
 	int		i;
-	char	*ptr_map;
+	t_omap	*ptr_map;
 
-
+	i = 0;
 	curr = omap_start;
 	while (curr)
 	{
@@ -72,7 +73,7 @@ char	*identify(t_omap *omap_start, t_main *main)
 			}
 			main->f_color = to_int(curr->row + 2);
 		}
-		if (curr->row[0] == 'C')
+		else if (curr->row[0] == 'C')
 		{
 			if (main->c_color != NULL)
 			{
@@ -86,7 +87,7 @@ char	*identify(t_omap *omap_start, t_main *main)
 			}
 			main->c_color = to_int(curr->row + 2);
 		}
-		if (curr->row[0] == 'N')
+		else if (curr->row[0] == 'N')
 		{
 			if (main->n_path != NULL)
 			{
@@ -103,9 +104,10 @@ char	*identify(t_omap *omap_start, t_main *main)
 				perror("Error\n require .xpm file");
 				exit(1);
 			}
-			main->n_path = curr->row + 3;
+			main->n_path = ft_calloc(ft_strlen(curr->row) - 2, sizeof(char));
+			main->n_path = cub_strdup(curr->row + 3, main);
 		}
-		if (curr->row[0] == 'S')
+		else if (curr->row[0] == 'S')
 		{
 			if (main->s_path != NULL)
 			{
@@ -122,9 +124,10 @@ char	*identify(t_omap *omap_start, t_main *main)
 				perror("Error\n require .xpm file");
 				exit(1);
 			}
-			main->s_path = curr->row + 3;
+			main->s_path = ft_calloc(ft_strlen(curr->row) - 2, sizeof(char));
+			main->s_path = cub_strdup(curr->row + 3, main);
 		}
-		if (curr->row[0] == 'E')
+		else if (curr->row[0] == 'E')
 		{
 			if (main->e_path != NULL)
 			{
@@ -141,9 +144,10 @@ char	*identify(t_omap *omap_start, t_main *main)
 				perror("Error\n require .xpm file");
 				exit(1);
 			}
-			main->e_path = curr->row + 3;
+			main->e_path = ft_calloc(ft_strlen(curr->row) - 2, sizeof(char));
+			main->e_path = cub_strdup(curr->row + 3, main);
 		}
-		if (curr->row[0] == 'W')
+		else if (curr->row[0] == 'W')
 		{
 			if (main->w_path != NULL)
 			{
@@ -160,23 +164,25 @@ char	*identify(t_omap *omap_start, t_main *main)
 				perror("Error\n require .xpm file");
 				exit(1);
 			}
-			main->w_path = curr->row + 3;
+			main->w_path = ft_calloc(ft_strlen(curr->row) - 2, sizeof(char));
+			main->w_path = cub_strdup(curr->row + 3, main);
 		}
 		else if (ft_strchr(curr->row, '1') != NULL || ft_strchr(curr->row, '1') != NULL)
 		{
-			ptr_map = curr->row;
+			printf("%s\n%s\n%s\n%s\n", main->n_path, main->s_path, main->e_path, main->w_path);
+			i = 0;
+			while (main->f_color[i])
+			{
+				printf("%d\n%d\n", main->f_color[i], main->c_color[i]);
+				i++;
+			}
 			if (check_main(main) == 1)
 				return (NULL);
+			ptr_map = curr;
 			return (ptr_map);
 		}
 		curr = curr->next;
 	}
-	printf("%s\n%s\n%s\n%s\n", main->n_path, main->s_path, main->e_path, main->w_path);
-	i = 0;
-	while (main->f_color[i])
-	{
-		printf("%d\n%d\n", main->f_color[i], main->c_color[i]);
-		i++;
-	}
+	return (NULL);
 }
 

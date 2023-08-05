@@ -19,3 +19,19 @@ void	*cub_malloc(size_t count, size_t size, t_main *main)
 		return_error(main, MALLOC_ERR);
 	return (buf);
 }
+
+//special strdup for download_map - does not copy \n if one exists
+char	*cub_strdup(const char *s1, t_main *main)
+{
+	char	*ret_str;
+	size_t	i;
+
+	i = 0;
+	ret_str = cub_calloc(ft_strlen(s1) + 1, sizeof(char), main);
+	while (s1[i] != '\n' && s1[i] != '\0')
+	{
+		ret_str[i] = s1[i];
+		i++;
+	}
+	return (ret_str);
+}
