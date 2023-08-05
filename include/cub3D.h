@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/05 12:28:30 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/05 15:21:39 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,21 @@
 
 enum	error
 {
+	IDENT_ERR,
+	NBR_IDENT_ERR,
+	XPM_ERR,
 	GNL_ERR,
 	MALLOC_ERR,
 	MAP_ERR,
 	MLX_ERR,
 	OPEN_ERR,
+	PLAYER_ERR,
 	NONE
 };
 
 typedef struct s_queue
 {
-	char			content;
+	int				*content;
 	struct s_queue	*next;
 	struct s_queue	*prev;
 }	t_queue;
@@ -73,7 +77,7 @@ typedef struct	s_calc
 	double	ray_incr; //angle at which ray increments from right to left
 	double	angle; //angle used for calculations
 	double	r_angle;
-	
+
 	/* initiated to 0 at start */
 	int		stepx; //direction in which x is going (-1 or 1)
 	int		stepy; //direction in which y is going (-1 or 1)
@@ -106,7 +110,7 @@ typedef struct s_main
 	t_calc			*calc;
 
 	/* zahra */
-	int				player_update;
+	int				*player_update;
 }	t_main;
 
 /* utils.c */
@@ -123,6 +127,7 @@ void	download_map(int fd, t_main *main);
 
 /* parse_map.c */
 void	parse_map(t_omap *omap_start, t_main *main);
+void	get_map(t_omap *ptr_map, t_main *main);
 
 /* raycasting.c */
 void	raycast(t_main *main);
@@ -135,12 +140,11 @@ void	print_calc(t_main *main);
 /* identify.c */
 t_omap	*identify(t_omap *omap_start, t_main *main);
 void	visit(t_queue *ptr, t_main *main, int x, int y);
-void	check_walled_helper(t_queue *ptr, t_main *main);
+void	check_walled_helper(t_queue *ptr, t_main *main, char **map_cpy);
 void	check_walled(t_main *main);
 t_queue	*ft_lstnew_dl(int *content);
 t_queue	*ft_lstadd_back_dl(t_queue **queue, t_queue *new);
 void	*ft_dequeue(t_queue *enqueue);
 void	del(void *lst);
-void	change_space(t_main *map);
 
 #endif

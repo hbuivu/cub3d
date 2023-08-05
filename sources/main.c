@@ -18,15 +18,14 @@ int	main(int argc, char **argv)
 	main = cub_calloc(1, sizeof(t_main), main);
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-	{
-		perror("error\n not a file");
 		return_error(main, OPEN_ERR);
-	}
 	download_map(fd, main); //fills out omap
-	map_ptr = identify(main->omap, main);
 	// print_omap(main->omap);
-	parse_map(map_ptr, main); //fills out everything else in main
-	print_main_map(main);
+	map_ptr = identify(main->omap, main);//fills out everything else in main
+	parse_map(map_ptr, main); //puts map in main
+	get_map(map_ptr, main);
+	// print_main_map(main);
+	check_walled(main);
 	// init_main(main);
 	// raycast(main);
 	// print_calc(main);

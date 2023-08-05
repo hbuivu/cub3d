@@ -6,39 +6,44 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 17:01:13 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/04 15:32:40 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/05 15:44:58 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
-void	visit(t_queue *ptr, t_main *main, int x, int y)
+void	visit(t_queue *ptr, t_main *main, int y, int x)
 {
-	if ((main->map[main->player_pos[x]][main->player_pos[y]] != '1') &&
-		(main->player_pos[1] == 0 || main->player_pos[1] == main->map_width ||
-		main->player_pos[0] == 0 || main->player_pos[0] == main->map_height))
+	printf("player_update[y]: %i player_update[x]: %i\n", main->player_update[y], main->player_update[x]);
+	if ((main->map[main->player_update[y]][main->player_update[x]] != '1') &&
+		(main->player_pos[x] == 0 || main->player_pos[x] == main->map_width ||
+		main->player_pos[y] == 0 || main->player_pos[y] == main->map_height))
 	{
 		perror("map not surrounded by walls");
 		// free
 		exit (1);
 	}
-	if (main->map[main->player_pos[x]][main->player_pos[y]] == '1' ||
-		main->map[main->player_pos[x]][main->player_pos[y]] == 'V')
+	if (main->map[main->player_pos[y]][main->player_pos[x]] == '1' ||
+		main->map[main->player_pos[y]][main->player_pos[x]] == 'V')
 		return ;
-	if (main->map[main->player_pos[x]][main->player_pos[y]] == ' ' ||
-		main->map[main->player_pos[x]][main->player_pos[y]] == '0')
+	if (main->map[main->player_pos[y]][main->player_pos[x]] == ' ' ||
+		main->map[main->player_pos[y]][main->player_pos[x]] == '0')
 		ft_lstadd_back_dl(&ptr, ft_lstnew_dl(main->player_pos));
 }
 
-void	check_walled_helper(t_queue *ptr, t_main *main)
+void	check_walled_helper(t_queue *ptr, t_main *main, char **map_cpy)
 {
-	main->map_cpy[main->player_pos[1]][main->player_pos[0]] = 'V';
+	map_cpy[main->player_pos[1]][main->player_pos[0]] = 'V';
 	// main->player_content = ptr->content;
 	main->player_update = ptr->content;
-	printf("player_pos[1]: %i player_pos[0]: %i\n", main->player_pos[1], main->player_pos[0]);
-	printf("player: %c\n", main->map[main->player_pos[1]][main->player_pos[0]]);
+	printf("player_update[0]: %i player_update[1]: %i\n", main->player_update[0] + 1, main->player_update[1]);
+	// printf("player: %c\n", main->map[main->player_pos[0] + 1][main->player_pos[1]]); deadly signal
 	visit(ptr, main, main->player_update[0] + 1, main->player_update[1]);
+	visit(ptr, main, main->player_update[0] + 1, main->player_update[1] + 1);
+	visit(ptr, main, main->player_update[0] + 1, main->player_update[1] - 1);
 	visit(ptr, main, main->player_update[0] - 1, main->player_update[1]);
+	visit(ptr, main, main->player_update[0] - 1, main->player_update[1] + 1);
+	visit(ptr, main, main->player_update[0] - 1, main->player_update[1] - 1);
 	visit(ptr, main, main->player_update[0], main->player_update[1] + 1);
 	visit(ptr, main, main->player_update[0], main->player_update[1] - 1);
 }
@@ -48,19 +53,26 @@ void	check_walled(t_main *main)
 	t_queue	*enqueue;
 	int		i;
 	t_queue	*ptr;
+	char	**map_cpy;
 
-	main->map_cpy = ft_calloc(main->map_height + 1, sizeof(char*));
+	map_cpy = ft_calloc(main->map_height + 1, sizeof(char*));
 	i = 0;
 	while (main->map[i])
 	{
-		main->map_cpy[i] = ft_strdup(main->map[i]);
+		map_cpy[i] = ft_strdup(main->map[i]);
+		i++;
+	}
+	 i = 0;
+	while(map_cpy[i])
+	{
+		printf("%s\n", map_cpy[i]);
 		i++;
 	}
 	enqueue = ft_lstnew_dl(main->player_pos);
 	ptr = enqueue;
 	while (enqueue != NULL)
 	{
-		check_walled_helper(ptr, main);
+		check_walled_helper(ptr, main, map_cpy);
 		ptr = ptr->next;
 		ft_dequeue(enqueue);
 		enqueue = ptr;
