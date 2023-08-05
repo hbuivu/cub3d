@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:14:26 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/03 14:39:48 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/05 15:22:23 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,6 @@ void	parse_map(t_omap *omap_start, t_main *main)
 		i = 0;
 		cur = cur->next;
 	}
-	
-	printf("map_height: %i\n", main->map_height);
-	printf("map_width: %i\n", main->map_width);
-	printf("player position (col, row): %i, %i\n", main->player_pos[0], main->player_pos[1]);
-	printf("player dir: %c\n", main->player_dir);
 
 	//check for presence of player
 	if (main->player_dir == '\0')
