@@ -27,6 +27,8 @@ int	main(int argc, char **argv)
 	init_main(main);
 	init_calc(main);
 	// print_main(main);
+	mlx(main);
 	raycast(main);
+	mlx_loop(main->mlx.mlx_ptr);
 	return_error(main, NONE);
 }
