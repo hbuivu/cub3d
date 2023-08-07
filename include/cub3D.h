@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/06 23:40:29 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/07 13:33:39 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,21 +62,21 @@ typedef struct s_omap
 typedef struct	s_calc
 {
 	double	upg; //units per grid
-	double	fov; //field of view in degrees
-	double	rfov; //field of view in rad
+	double	fov; //field of view in rad
 	double	pln_height; //plane height (repeat of main win_height)
 	double	pln_width; //plane width (repeate of main win_width)
 	double	pln_dist; //plane distance from player
 	double	px; //player spawn x(col) position in unit coordinates
 	double	py; //player spawn y(row) position in unit coordinates
-	double	pdir; //player direction in degrees
+	double	pdir; //player direction in rad
 	double	ray_incr; //angle at which ray increments from right to left
-	double	angle; //angle used for calculations in degrees
-	double	rangle; //angle used for calculations in radians
 	
-	/* initiated to 0 at start */
+	/* recalculated each ray */
+	double	angle; //angle used for calculations in degrees
 	int		stepx; //direction in which x is going (-1 or 1)
 	int		stepy; //direction in which y is going (-1 or 1)
+	
+	/* initiated to 0 at start */
 	double	col_int; //point where ray intersects a column line
 	double	col_inty; //the y coordinate where ray intersects column line
 	double	row_int; //point where ray intersects a row line
@@ -86,7 +86,7 @@ typedef struct	s_calc
 	double	dist_col; //distance squared of original point to first column intersect with wall
 	double	dist_row; //distance squared of original point to first row intersect with wall
 	double	cor_dist; //corrected distance from point to closest 
-	double	wall_height;
+	double	wall_height; //projected wall height
 }	t_calc;
 
 typedef struct s_main
@@ -108,6 +108,8 @@ typedef struct s_main
 	t_mlx			mlx;
 	t_img			img;
 	t_calc			*calc;
+	double			n_angle;
+	double			s_angle;
 
 	/* zahra */
 	int				player_update;

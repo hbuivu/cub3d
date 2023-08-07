@@ -30,16 +30,14 @@ void	print_calc(t_main *main)
 {
 	printf("upg: %lf\n", main->calc->upg);
 	printf("fov: %lf\n", main->calc->fov);
-	printf("rfov: %lf\n", main->calc->rfov);
 	printf("pln_height: %lf\n", main->calc->pln_height);
 	printf("pln_width: %lf\n", main->calc->pln_width);
 	printf("pln_dist: %lf\n", main->calc->pln_dist);
 	printf("px: %lf\n", main->calc->px);
 	printf("py: %lf\n", main->calc->py);
-	printf("pdir: %i\n", main->calc->pdir);
+	printf("pdir: %lf\n", main->calc->pdir);
 	printf("ray_incr: %lf\n", main->calc->ray_incr);
 	printf("angle: %lf\n", main->calc->angle);
-	printf("rangle: %lf\n", main->calc->rangle);
 	printf("stepx: %i\n", main->calc->stepx);
 	printf("stepy: %i\n", main->calc->stepy);
 	printf("col_int: %lf\n", main->calc->col_int);

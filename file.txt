@@ -1,0 +1,2893 @@
+main->s_angle = 4.712389
+pi: 3.141593
+x: 0
+angle: 4.136430
+check row: 9 check column: 2
+check row: 9 check column: 3
+dist_col: 648.135696
+dist_row: 572.334381
+x: 1
+angle: 4.137630
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 649.335945
+dist_row: 571.889157
+x: 2
+angle: 4.138830
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 650.541585
+dist_row: 571.445448
+x: 3
+angle: 4.140030
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 651.752651
+dist_row: 571.003249
+x: 4
+angle: 4.141230
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 652.969177
+dist_row: 570.562554
+x: 5
+angle: 4.142430
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 654.191196
+dist_row: 570.123359
+x: 6
+angle: 4.143630
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 655.418743
+dist_row: 569.685660
+x: 7
+angle: 4.144830
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 656.651853
+dist_row: 569.249451
+x: 8
+angle: 4.146030
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 657.890561
+dist_row: 568.814728
+x: 9
+angle: 4.147230
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 659.134901
+dist_row: 568.381486
+x: 10
+angle: 4.148429
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 660.384911
+dist_row: 567.949720
+x: 11
+angle: 4.149629
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 661.640624
+dist_row: 567.519427
+x: 12
+angle: 4.150829
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 662.902079
+dist_row: 567.090601
+x: 13
+angle: 4.152029
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 664.169311
+dist_row: 566.663237
+x: 14
+angle: 4.153229
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 665.442357
+dist_row: 566.237332
+x: 15
+angle: 4.154429
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 666.721255
+dist_row: 565.812881
+x: 16
+angle: 4.155629
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 668.006041
+dist_row: 565.389879
+x: 17
+angle: 4.156829
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 669.296754
+dist_row: 564.968322
+x: 18
+angle: 4.158029
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 670.593432
+dist_row: 564.548206
+x: 19
+angle: 4.159229
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 671.896114
+dist_row: 564.129525
+x: 20
+angle: 4.160429
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 673.204837
+dist_row: 563.712276
+x: 21
+angle: 4.161629
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 674.519642
+dist_row: 563.296454
+x: 22
+angle: 4.162828
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 675.840567
+dist_row: 562.882055
+x: 23
+angle: 4.164028
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 677.167653
+dist_row: 562.469074
+x: 24
+angle: 4.165228
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 678.500940
+dist_row: 562.057508
+x: 25
+angle: 4.166428
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 679.840469
+dist_row: 561.647351
+x: 26
+angle: 4.167628
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 681.186279
+dist_row: 561.238601
+x: 27
+angle: 4.168828
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 682.538414
+dist_row: 560.831251
+x: 28
+angle: 4.170028
+check row: 10 check column: 2
+check row: 9 check column: 3
+dist_col: 683.896913
+dist_row: 560.425299
+x: 29
+angle: 4.171228
+check row: 9 check column: 3
+check row: 9 check column: 3
+dist_col: 561.021716
+dist_row: 560.020740
+x: 30
+angle: 4.172428
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 562.144441
+dist_row: 559.617569
+x: 31
+angle: 4.173628
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 563.272482
+dist_row: 559.215784
+x: 32
+angle: 4.174828
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 564.405873
+dist_row: 558.815379
+x: 33
+angle: 4.176027
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 565.544650
+dist_row: 558.416350
+x: 34
+angle: 4.177227
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 566.688849
+dist_row: 558.018693
+x: 35
+angle: 4.178427
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 567.838507
+dist_row: 557.622405
+x: 36
+angle: 4.179627
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 568.993660
+dist_row: 557.227481
+x: 37
+angle: 4.180827
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 570.154344
+dist_row: 556.833917
+x: 38
+angle: 4.182027
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 571.320599
+dist_row: 556.441710
+x: 39
+angle: 4.183227
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 572.492460
+dist_row: 556.050854
+x: 40
+angle: 4.184427
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 573.669965
+dist_row: 555.661347
+x: 41
+angle: 4.185627
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 574.853154
+dist_row: 555.273183
+x: 42
+angle: 4.186827
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 576.042065
+dist_row: 554.886360
+x: 43
+angle: 4.188027
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 577.236737
+dist_row: 554.500874
+x: 44
+angle: 4.189227
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 578.437209
+dist_row: 554.116720
+x: 45
+angle: 4.190426
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 579.643521
+dist_row: 553.733895
+x: 46
+angle: 4.191626
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 580.855712
+dist_row: 553.352394
+x: 47
+angle: 4.192826
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 582.073825
+dist_row: 552.972214
+x: 48
+angle: 4.194026
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 583.297898
+dist_row: 552.593352
+x: 49
+angle: 4.195226
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 584.527975
+dist_row: 552.215803
+x: 50
+angle: 4.196426
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 585.764095
+dist_row: 551.839563
+x: 51
+angle: 4.197626
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 587.006301
+dist_row: 551.464629
+x: 52
+angle: 4.198826
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 588.254636
+dist_row: 551.090997
+x: 53
+angle: 4.200026
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 589.509143
+dist_row: 550.718664
+x: 54
+angle: 4.201226
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 590.769864
+dist_row: 550.347625
+x: 55
+angle: 4.202426
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 592.036843
+dist_row: 549.977877
+x: 56
+angle: 4.203626
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 593.310124
+dist_row: 549.609416
+x: 57
+angle: 4.204825
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 594.589752
+dist_row: 549.242239
+x: 58
+angle: 4.206025
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 595.875771
+dist_row: 548.876342
+x: 59
+angle: 4.207225
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 597.168227
+dist_row: 548.511721
+x: 60
+angle: 4.208425
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 598.467166
+dist_row: 548.148374
+x: 61
+angle: 4.209625
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 599.772632
+dist_row: 547.786295
+x: 62
+angle: 4.210825
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 601.084675
+dist_row: 547.425482
+x: 63
+angle: 4.212025
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 602.403339
+dist_row: 547.065932
+x: 64
+angle: 4.213225
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 603.728673
+dist_row: 546.707639
+x: 65
+angle: 4.214425
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 605.060724
+dist_row: 546.350603
+x: 66
+angle: 4.215625
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 606.399542
+dist_row: 545.994817
+x: 67
+angle: 4.216825
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 607.745174
+dist_row: 545.640280
+x: 68
+angle: 4.218024
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 609.097671
+dist_row: 545.286988
+x: 69
+angle: 4.219224
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 610.457082
+dist_row: 544.934936
+x: 70
+angle: 4.220424
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 611.823457
+dist_row: 544.584123
+x: 71
+angle: 4.221624
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 613.196847
+dist_row: 544.234544
+x: 72
+angle: 4.222824
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 614.577304
+dist_row: 543.886197
+x: 73
+angle: 4.224024
+check row: 9 check column: 3
+check row: 9 check column: 4
+dist_col: 615.964880
+dist_row: 543.539077
+x: 74
+angle: 4.225224
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 617.359626
+dist_row: 543.193181
+x: 75
+angle: 4.226424
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 618.761596
+dist_row: 542.848507
+x: 76
+angle: 4.227624
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 620.170842
+dist_row: 542.505050
+x: 77
+angle: 4.228824
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 621.587420
+dist_row: 542.162808
+x: 78
+angle: 4.230024
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 623.011383
+dist_row: 541.821776
+x: 79
+angle: 4.231224
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 624.442786
+dist_row: 541.481953
+x: 80
+angle: 4.232423
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 625.881685
+dist_row: 541.143334
+x: 81
+angle: 4.233623
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 627.328136
+dist_row: 540.805917
+x: 82
+angle: 4.234823
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 628.782195
+dist_row: 540.469698
+x: 83
+angle: 4.236023
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 630.243920
+dist_row: 540.134674
+x: 84
+angle: 4.237223
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 631.713369
+dist_row: 539.800842
+x: 85
+angle: 4.238423
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 633.190600
+dist_row: 539.468198
+x: 86
+angle: 4.239623
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 634.675672
+dist_row: 539.136740
+x: 87
+angle: 4.240823
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 636.168644
+dist_row: 538.806464
+x: 88
+angle: 4.242023
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 637.669577
+dist_row: 538.477368
+x: 89
+angle: 4.243223
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 639.178532
+dist_row: 538.149448
+x: 90
+angle: 4.244423
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 640.695570
+dist_row: 537.822700
+x: 91
+angle: 4.245622
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 642.220753
+dist_row: 537.497123
+x: 92
+angle: 4.246822
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 643.754144
+dist_row: 537.172712
+x: 93
+angle: 4.248022
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 645.295806
+dist_row: 536.849466
+x: 94
+angle: 4.249222
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 646.845803
+dist_row: 536.527380
+x: 95
+angle: 4.250422
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 648.404200
+dist_row: 536.206452
+x: 96
+angle: 4.251622
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 649.971063
+dist_row: 535.886678
+x: 97
+angle: 4.252822
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 651.546457
+dist_row: 535.568057
+x: 98
+angle: 4.254022
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 653.130449
+dist_row: 535.250584
+x: 99
+angle: 4.255222
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 654.723106
+dist_row: 534.934258
+x: 100
+angle: 4.256422
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 656.324497
+dist_row: 534.619074
+x: 101
+angle: 4.257622
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 657.934690
+dist_row: 534.305030
+x: 102
+angle: 4.258822
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 659.553756
+dist_row: 533.992124
+x: 103
+angle: 4.260021
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 661.181764
+dist_row: 533.680351
+x: 104
+angle: 4.261221
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 662.818786
+dist_row: 533.369710
+x: 105
+angle: 4.262421
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 664.464893
+dist_row: 533.060198
+x: 106
+angle: 4.263621
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 666.120158
+dist_row: 532.751811
+x: 107
+angle: 4.264821
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 667.784655
+dist_row: 532.444547
+x: 108
+angle: 4.266021
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 669.458457
+dist_row: 532.138403
+x: 109
+angle: 4.267221
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 671.141639
+dist_row: 531.833376
+x: 110
+angle: 4.268421
+check row: 10 check column: 3
+check row: 9 check column: 4
+dist_col: 672.834278
+dist_row: 531.529463
+x: 111
+angle: 4.269621
+check row: 11 check column: 3
+check row: 9 check column: 4
+dist_col: 674.536451
+dist_row: 531.226662
+x: 112
+angle: 4.270821
+check row: 11 check column: 3
+check row: 9 check column: 4
+dist_col: 676.248233
+dist_row: 530.924969
+x: 113
+angle: 4.272021
+check row: 11 check column: 3
+check row: 9 check column: 4
+dist_col: 677.969704
+dist_row: 530.624383
+x: 114
+angle: 4.273221
+check row: 11 check column: 3
+check row: 9 check column: 4
+dist_col: 679.700944
+dist_row: 530.324900
+x: 115
+angle: 4.274420
+check row: 9 check column: 4
+check row: 9 check column: 4
+dist_col: 530.534453
+dist_row: 530.026518
+x: 116
+angle: 4.275620
+check row: 9 check column: 4
+check row: 9 check column: 4
+dist_col: 531.897701
+dist_row: 529.729233
+x: 117
+angle: 4.276820
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 533.268742
+dist_row: 529.433043
+x: 118
+angle: 4.278020
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 534.647642
+dist_row: 529.137946
+x: 119
+angle: 4.279220
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 536.034465
+dist_row: 528.843939
+x: 120
+angle: 4.280420
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 537.429277
+dist_row: 528.551019
+x: 121
+angle: 4.281620
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 538.832144
+dist_row: 528.259183
+x: 122
+angle: 4.282820
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 540.243135
+dist_row: 527.968430
+x: 123
+angle: 4.284020
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 541.662317
+dist_row: 527.678755
+x: 124
+angle: 4.285220
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 543.089758
+dist_row: 527.390157
+x: 125
+angle: 4.286420
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 544.525529
+dist_row: 527.102633
+x: 126
+angle: 4.287619
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 545.969699
+dist_row: 526.816181
+x: 127
+angle: 4.288819
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 547.422341
+dist_row: 526.530797
+x: 128
+angle: 4.290019
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 548.883526
+dist_row: 526.246479
+x: 129
+angle: 4.291219
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 550.353326
+dist_row: 525.963226
+x: 130
+angle: 4.292419
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 551.831816
+dist_row: 525.681033
+x: 131
+angle: 4.293619
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 553.319070
+dist_row: 525.399900
+x: 132
+angle: 4.294819
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 554.815163
+dist_row: 525.119822
+x: 133
+angle: 4.296019
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 556.320171
+dist_row: 524.840798
+x: 134
+angle: 4.297219
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 557.834172
+dist_row: 524.562826
+x: 135
+angle: 4.298419
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 559.357244
+dist_row: 524.285902
+x: 136
+angle: 4.299619
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 560.889466
+dist_row: 524.010025
+x: 137
+angle: 4.300819
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 562.430916
+dist_row: 523.735191
+x: 138
+angle: 4.302018
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 563.981677
+dist_row: 523.461399
+x: 139
+angle: 4.303218
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 565.541830
+dist_row: 523.188645
+x: 140
+angle: 4.304418
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 567.111457
+dist_row: 522.916929
+x: 141
+angle: 4.305618
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 568.690642
+dist_row: 522.646246
+x: 142
+angle: 4.306818
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 570.279470
+dist_row: 522.376596
+x: 143
+angle: 4.308018
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 571.878027
+dist_row: 522.107974
+x: 144
+angle: 4.309218
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 573.486399
+dist_row: 521.840380
+x: 145
+angle: 4.310418
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 575.104673
+dist_row: 521.573811
+x: 146
+angle: 4.311618
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 576.732939
+dist_row: 521.308264
+x: 147
+angle: 4.312818
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 578.371286
+dist_row: 521.043737
+x: 148
+angle: 4.314018
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 580.019805
+dist_row: 520.780228
+x: 149
+angle: 4.315217
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 581.678589
+dist_row: 520.517734
+x: 150
+angle: 4.316417
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 583.347730
+dist_row: 520.256254
+x: 151
+angle: 4.317617
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 585.027323
+dist_row: 519.995784
+x: 152
+angle: 4.318817
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 586.717462
+dist_row: 519.736323
+x: 153
+angle: 4.320017
+check row: 9 check column: 4
+check row: 9 check column: 5
+dist_col: 588.418245
+dist_row: 519.477868
+x: 154
+angle: 4.321217
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 590.129770
+dist_row: 519.220418
+x: 155
+angle: 4.322417
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 591.852134
+dist_row: 518.963969
+x: 156
+angle: 4.323617
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 593.585439
+dist_row: 518.708520
+x: 157
+angle: 4.324817
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 595.329786
+dist_row: 518.454068
+x: 158
+angle: 4.326017
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 597.085278
+dist_row: 518.200612
+x: 159
+angle: 4.327217
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 598.852018
+dist_row: 517.948149
+x: 160
+angle: 4.328417
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 600.630112
+dist_row: 517.696676
+x: 161
+angle: 4.329616
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 602.419666
+dist_row: 517.446193
+x: 162
+angle: 4.330816
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 604.220788
+dist_row: 517.196696
+x: 163
+angle: 4.332016
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 606.033588
+dist_row: 516.948183
+x: 164
+angle: 4.333216
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 607.858176
+dist_row: 516.700653
+x: 165
+angle: 4.334416
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 609.694664
+dist_row: 516.454103
+x: 166
+angle: 4.335616
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 611.543166
+dist_row: 516.208531
+x: 167
+angle: 4.336816
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 613.403796
+dist_row: 515.963934
+x: 168
+angle: 4.338016
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 615.276672
+dist_row: 515.720312
+x: 169
+angle: 4.339216
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 617.161911
+dist_row: 515.477662
+x: 170
+angle: 4.340416
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 619.059632
+dist_row: 515.235981
+x: 171
+angle: 4.341616
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 620.969957
+dist_row: 514.995268
+x: 172
+angle: 4.342816
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 622.893008
+dist_row: 514.755520
+x: 173
+angle: 4.344015
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 624.828909
+dist_row: 514.516736
+x: 174
+angle: 4.345215
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 626.777786
+dist_row: 514.278914
+x: 175
+angle: 4.346415
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 628.739767
+dist_row: 514.042051
+x: 176
+angle: 4.347615
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 630.714980
+dist_row: 513.806145
+x: 177
+angle: 4.348815
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 632.703556
+dist_row: 513.571196
+x: 178
+angle: 4.350015
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 634.705629
+dist_row: 513.337199
+x: 179
+angle: 4.351215
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 636.721331
+dist_row: 513.104155
+x: 180
+angle: 4.352415
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 638.750800
+dist_row: 512.872059
+x: 181
+angle: 4.353615
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 640.794174
+dist_row: 512.640912
+x: 182
+angle: 4.354815
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 642.851591
+dist_row: 512.410710
+x: 183
+angle: 4.356015
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 644.923194
+dist_row: 512.181452
+x: 184
+angle: 4.357214
+check row: 10 check column: 4
+check row: 9 check column: 5
+dist_col: 647.009126
+dist_row: 511.953136
+x: 185
+angle: 4.358414
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 649.109534
+dist_row: 511.725759
+x: 186
+angle: 4.359614
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 651.224563
+dist_row: 511.499321
+x: 187
+angle: 4.360814
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 653.354365
+dist_row: 511.273819
+x: 188
+angle: 4.362014
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 655.499089
+dist_row: 511.049251
+x: 189
+angle: 4.363214
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 657.658891
+dist_row: 510.825615
+x: 190
+angle: 4.364414
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 659.833926
+dist_row: 510.602910
+x: 191
+angle: 4.365614
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 662.024352
+dist_row: 510.381133
+x: 192
+angle: 4.366814
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 664.230328
+dist_row: 510.160284
+x: 193
+angle: 4.368014
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 666.452018
+dist_row: 509.940359
+x: 194
+angle: 4.369214
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 668.689586
+dist_row: 509.721357
+x: 195
+angle: 4.370414
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 670.943199
+dist_row: 509.503277
+x: 196
+angle: 4.371613
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 673.213025
+dist_row: 509.286116
+x: 197
+angle: 4.372813
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 675.499238
+dist_row: 509.069873
+x: 198
+angle: 4.374013
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 677.802010
+dist_row: 508.854545
+x: 199
+angle: 4.375213
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 680.121519
+dist_row: 508.640132
+x: 200
+angle: 4.376413
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 682.457944
+dist_row: 508.426631
+x: 201
+angle: 4.377613
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 684.811466
+dist_row: 508.214041
+x: 202
+angle: 4.378813
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 687.182270
+dist_row: 508.002359
+x: 203
+angle: 4.380013
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 689.570543
+dist_row: 507.791585
+x: 204
+angle: 4.381213
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 691.976474
+dist_row: 507.581716
+x: 205
+angle: 4.382413
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 694.400255
+dist_row: 507.372750
+x: 206
+angle: 4.383613
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 696.842083
+dist_row: 507.164686
+x: 207
+angle: 4.384812
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 699.302155
+dist_row: 506.957523
+x: 208
+angle: 4.386012
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 701.780672
+dist_row: 506.751258
+x: 209
+angle: 4.387212
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 704.277838
+dist_row: 506.545890
+x: 210
+angle: 4.388412
+check row: 11 check column: 4
+check row: 9 check column: 5
+dist_col: 706.793861
+dist_row: 506.341417
+x: 211
+angle: 4.389612
+check row: 9 check column: 5
+check row: 9 check column: 5
+dist_col: 507.564271
+dist_row: 506.137838
+x: 212
+angle: 4.390812
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 509.392063
+dist_row: 505.935150
+x: 213
+angle: 4.392012
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 511.233806
+dist_row: 505.733352
+x: 214
+angle: 4.393212
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 513.089657
+dist_row: 505.532443
+x: 215
+angle: 4.394412
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 514.959774
+dist_row: 505.332421
+x: 216
+angle: 4.395612
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 516.844321
+dist_row: 505.133284
+x: 217
+angle: 4.396812
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 518.743462
+dist_row: 504.935030
+x: 218
+angle: 4.398012
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 520.657363
+dist_row: 504.737659
+x: 219
+angle: 4.399211
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 522.586195
+dist_row: 504.541168
+x: 220
+angle: 4.400411
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 524.530128
+dist_row: 504.345555
+x: 221
+angle: 4.401611
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 526.489339
+dist_row: 504.150820
+x: 222
+angle: 4.402811
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 528.464005
+dist_row: 503.956961
+x: 223
+angle: 4.404011
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 530.454305
+dist_row: 503.763975
+x: 224
+angle: 4.405211
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 532.460423
+dist_row: 503.571863
+x: 225
+angle: 4.406411
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 534.482545
+dist_row: 503.380621
+x: 226
+angle: 4.407611
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 536.520860
+dist_row: 503.190248
+x: 227
+angle: 4.408811
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 538.575560
+dist_row: 503.000744
+x: 228
+angle: 4.410011
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 540.646839
+dist_row: 502.812105
+x: 229
+angle: 4.411211
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 542.734896
+dist_row: 502.624332
+x: 230
+angle: 4.412411
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 544.839931
+dist_row: 502.437422
+x: 231
+angle: 4.413610
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 546.962150
+dist_row: 502.251374
+x: 232
+angle: 4.414810
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 549.101759
+dist_row: 502.066186
+x: 233
+angle: 4.416010
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 551.258971
+dist_row: 501.881857
+x: 234
+angle: 4.417210
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 553.433999
+dist_row: 501.698385
+x: 235
+angle: 4.418410
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 555.627062
+dist_row: 501.515769
+x: 236
+angle: 4.419610
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 557.838381
+dist_row: 501.334008
+x: 237
+angle: 4.420810
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 560.068182
+dist_row: 501.153100
+x: 238
+angle: 4.422010
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 562.316692
+dist_row: 500.973043
+x: 239
+angle: 4.423210
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 564.584146
+dist_row: 500.793836
+x: 240
+angle: 4.424410
+check row: 9 check column: 5
+check row: 9 check column: 6
+dist_col: 566.870780
+dist_row: 500.615478
+x: 241
+angle: 4.425610
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 569.176834
+dist_row: 500.437967
+x: 242
+angle: 4.426809
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 571.502554
+dist_row: 500.261303
+x: 243
+angle: 4.428009
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 573.848187
+dist_row: 500.085482
+x: 244
+angle: 4.429209
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 576.213987
+dist_row: 499.910505
+x: 245
+angle: 4.430409
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 578.600211
+dist_row: 499.736369
+x: 246
+angle: 4.431609
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 581.007121
+dist_row: 499.563074
+x: 247
+angle: 4.432809
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 583.434984
+dist_row: 499.390617
+x: 248
+angle: 4.434009
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 585.884069
+dist_row: 499.218998
+x: 249
+angle: 4.435209
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 588.354653
+dist_row: 499.048216
+x: 250
+angle: 4.436409
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 590.847015
+dist_row: 498.878268
+x: 251
+angle: 4.437609
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 593.361441
+dist_row: 498.709154
+x: 252
+angle: 4.438809
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 595.898221
+dist_row: 498.540871
+x: 253
+angle: 4.440009
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 598.457651
+dist_row: 498.373420
+x: 254
+angle: 4.441208
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 601.040030
+dist_row: 498.206798
+x: 255
+angle: 4.442408
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 603.645666
+dist_row: 498.041005
+x: 256
+angle: 4.443608
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 606.274868
+dist_row: 497.876038
+x: 257
+angle: 4.444808
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 608.927954
+dist_row: 497.711897
+x: 258
+angle: 4.446008
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 611.605246
+dist_row: 497.548580
+x: 259
+angle: 4.447208
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 614.307074
+dist_row: 497.386086
+x: 260
+angle: 4.448408
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 617.033771
+dist_row: 497.224414
+x: 261
+angle: 4.449608
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 619.785678
+dist_row: 497.063563
+x: 262
+angle: 4.450808
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 622.563142
+dist_row: 496.903531
+x: 263
+angle: 4.452008
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 625.366516
+dist_row: 496.744316
+x: 264
+angle: 4.453208
+check row: 10 check column: 5
+check row: 9 check column: 6
+dist_col: 628.196160
+dist_row: 496.585919
+x: 265
+angle: 4.454408
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 631.052440
+dist_row: 496.428337
+x: 266
+angle: 4.455607
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 633.935729
+dist_row: 496.271569
+x: 267
+angle: 4.456807
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 636.846407
+dist_row: 496.115615
+x: 268
+angle: 4.458007
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 639.784863
+dist_row: 495.960472
+x: 269
+angle: 4.459207
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 642.751491
+dist_row: 495.806140
+x: 270
+angle: 4.460407
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 645.746693
+dist_row: 495.652617
+x: 271
+angle: 4.461607
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 648.770879
+dist_row: 495.499903
+x: 272
+angle: 4.462807
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 651.824468
+dist_row: 495.347995
+x: 273
+angle: 4.464007
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 654.907884
+dist_row: 495.196894
+x: 274
+angle: 4.465207
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 658.021563
+dist_row: 495.046597
+x: 275
+angle: 4.466407
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 661.165947
+dist_row: 494.897104
+x: 276
+angle: 4.467607
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 664.341488
+dist_row: 494.748413
+x: 277
+angle: 4.468806
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 667.548646
+dist_row: 494.600523
+x: 278
+angle: 4.470006
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 670.787889
+dist_row: 494.453434
+x: 279
+angle: 4.471206
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 674.059698
+dist_row: 494.307143
+x: 280
+angle: 4.472406
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 677.364561
+dist_row: 494.161650
+x: 281
+angle: 4.473606
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 680.702974
+dist_row: 494.016954
+x: 282
+angle: 4.474806
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 684.075448
+dist_row: 493.873053
+x: 283
+angle: 4.476006
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 687.482500
+dist_row: 493.729947
+x: 284
+angle: 4.477206
+check row: 11 check column: 5
+check row: 9 check column: 6
+dist_col: 690.924659
+dist_row: 493.587635
+x: 285
+angle: 4.478406
+check row: 12 check column: 5
+check row: 9 check column: 6
+dist_col: 694.402465
+dist_row: 493.446114
+x: 286
+angle: 4.479606
+check row: 12 check column: 5
+check row: 9 check column: 6
+dist_col: 697.916471
+dist_row: 493.305385
+x: 287
+angle: 4.480806
+check row: 12 check column: 5
+check row: 9 check column: 6
+dist_col: 701.467237
+dist_row: 493.165446
+x: 288
+angle: 4.482006
+check row: 12 check column: 5
+check row: 9 check column: 6
+dist_col: 705.055338
+dist_row: 493.026296
+x: 289
+angle: 4.483205
+check row: 12 check column: 5
+check row: 9 check column: 6
+dist_col: 708.681362
+dist_row: 492.887933
+x: 290
+angle: 4.484405
+check row: 12 check column: 5
+check row: 9 check column: 6
+dist_col: 712.345905
+dist_row: 492.750358
+x: 291
+angle: 4.485605
+check row: 12 check column: 5
+check row: 9 check column: 6
+dist_col: 716.049580
+dist_row: 492.613569
+x: 292
+angle: 4.486805
+check row: 12 check column: 5
+check row: 9 check column: 6
+dist_col: 719.793010
+dist_row: 492.477564
+x: 293
+angle: 4.488005
+check row: 12 check column: 5
+check row: 9 check column: 6
+dist_col: 723.576835
+dist_row: 492.342343
+x: 294
+angle: 4.489205
+check row: 12 check column: 5
+check row: 9 check column: 6
+dist_col: 727.401704
+dist_row: 492.207905
+x: 295
+angle: 4.490405
+check row: 12 check column: 5
+check row: 9 check column: 6
+dist_col: 731.268283
+dist_row: 492.074249
+x: 296
+angle: 4.491605
+check row: 12 check column: 5
+check row: 9 check column: 6
+dist_col: 735.177253
+dist_row: 491.941373
+x: 297
+angle: 4.492805
+check row: 12 check column: 5
+check row: 9 check column: 6
+dist_col: 739.129307
+dist_row: 491.809277
+x: 298
+angle: 4.494005
+check row: 12 check column: 5
+check row: 9 check column: 6
+dist_col: 743.125157
+dist_row: 491.677959
+x: 299
+angle: 4.495205
+check row: 12 check column: 5
+check row: 9 check column: 6
+dist_col: 747.165527
+dist_row: 491.547419
+x: 300
+angle: 4.496404
+check row: 12 check column: 5
+check row: 9 check column: 6
+dist_col: 751.251161
+dist_row: 491.417656
+x: 301
+angle: 4.497604
+check row: 13 check column: 5
+check row: 9 check column: 6
+dist_col: 755.382815
+dist_row: 491.288669
+x: 302
+angle: 4.498804
+check row: 13 check column: 5
+check row: 9 check column: 6
+dist_col: 759.561266
+dist_row: 491.160456
+x: 303
+angle: 4.500004
+check row: 13 check column: 5
+check row: 9 check column: 6
+dist_col: 763.787307
+dist_row: 491.033017
+x: 304
+angle: 4.501204
+check row: 13 check column: 5
+check row: 9 check column: 6
+dist_col: 768.061749
+dist_row: 490.906350
+x: 305
+angle: 4.502404
+check row: 13 check column: 5
+check row: 9 check column: 6
+dist_col: 772.385421
+dist_row: 490.780456
+x: 306
+angle: 4.503604
+check row: 13 check column: 5
+check row: 9 check column: 6
+dist_col: 776.759172
+dist_row: 490.655332
+x: 307
+angle: 4.504804
+check row: 13 check column: 5
+check row: 9 check column: 6
+dist_col: 781.183870
+dist_row: 490.530978
+x: 308
+angle: 4.506004
+check row: 13 check column: 5
+check row: 9 check column: 6
+dist_col: 785.660404
+dist_row: 490.407393
+x: 309
+angle: 4.507204
+check row: 13 check column: 5
+check row: 9 check column: 6
+dist_col: 790.189683
+dist_row: 490.284576
+x: 310
+angle: 4.508404
+check row: 13 check column: 5
+check row: 9 check column: 6
+dist_col: 794.772638
+dist_row: 490.162526
+x: 311
+angle: 4.509604
+check row: 13 check column: 5
+check row: 9 check column: 6
+dist_col: 799.410221
+dist_row: 490.041242
+x: 312
+angle: 4.510803
+check row: 13 check column: 5
+check row: 9 check column: 6
+dist_col: 804.103409
+dist_row: 489.920723
+x: 313
+angle: 4.512003
+check row: 13 check column: 5
+check row: 9 check column: 6
+dist_col: 808.853198
+dist_row: 489.800969
+x: 314
+angle: 4.513203
+check row: 9 check column: 6
+check row: 9 check column: 6
+dist_col: 490.217885
+dist_row: 489.681978
+x: 315
+angle: 4.514403
+check row: 9 check column: 6
+check row: 9 check column: 6
+dist_col: 493.149627
+dist_row: 489.563749
+x: 316
+angle: 4.515603
+check row: 9 check column: 6
+check row: 9 check column: 7
+dist_col: 496.117366
+dist_row: 489.446283
+x: 317
+angle: 4.516803
+check row: 9 check column: 6
+check row: 9 check column: 7
+dist_col: 499.121763
+dist_row: 489.329576
+x: 318
+angle: 4.518003
+check row: 9 check column: 6
+check row: 9 check column: 7
+dist_col: 502.163497
+dist_row: 489.213630
+x: 319
+angle: 4.519203
+check row: 9 check column: 6
+check row: 9 check column: 7
+dist_col: 505.243264
+dist_row: 489.098443
+x: 320
+angle: 4.520403
+check row: 9 check column: 6
+check row: 9 check column: 7
+dist_col: 508.361777
+dist_row: 488.984014
+x: 321
+angle: 4.521603
+check row: 9 check column: 6
+check row: 9 check column: 7
+dist_col: 511.519767
+dist_row: 488.870342
+x: 322
+angle: 4.522803
+check row: 9 check column: 6
+check row: 9 check column: 7
+dist_col: 514.717984
+dist_row: 488.757426
+x: 323
+angle: 4.524003
+check row: 9 check column: 6
+check row: 9 check column: 7
+dist_col: 517.957195
+dist_row: 488.645266
+x: 324
+angle: 4.525202
+check row: 9 check column: 6
+check row: 9 check column: 7
+dist_col: 521.238190
+dist_row: 488.533861
+x: 325
+angle: 4.526402
+check row: 9 check column: 6
+check row: 9 check column: 7
+dist_col: 524.561777
+dist_row: 488.423209
+x: 326
+angle: 4.527602
+check row: 9 check column: 6
+check row: 9 check column: 7
+dist_col: 527.928785
+dist_row: 488.313311
+x: 327
+angle: 4.528802
+check row: 9 check column: 6
+check row: 9 check column: 7
+dist_col: 531.340066
+dist_row: 488.204164
+x: 328
+angle: 4.530002
+check row: 9 check column: 6
+check row: 9 check column: 7
+dist_col: 534.796494
+dist_row: 488.095769
+x: 329
+angle: 4.531202
+check row: 9 check column: 6
+check row: 9 check column: 7
+dist_col: 538.298965
+dist_row: 487.988125
+x: 330
+angle: 4.532402
+check row: 9 check column: 6
+check row: 9 check column: 7
+dist_col: 541.848401
+dist_row: 487.881231
+x: 331
+angle: 4.533602
+check row: 9 check column: 6
+check row: 9 check column: 7
+dist_col: 545.445746
+dist_row: 487.775085
+x: 332
+angle: 4.534802
+check row: 9 check column: 6
+check row: 9 check column: 7
+dist_col: 549.091972
+dist_row: 487.669687
+x: 333
+angle: 4.536002
+check row: 10 check column: 6
+check row: 9 check column: 7
+dist_col: 552.788077
+dist_row: 487.565037
+x: 334
+angle: 4.537202
+check row: 10 check column: 6
+check row: 9 check column: 7
+dist_col: 556.535084
+dist_row: 487.461134
+x: 335
+angle: 4.538401
+check row: 10 check column: 6
+check row: 9 check column: 7
+dist_col: 560.334048
+dist_row: 487.357976
+x: 336
+angle: 4.539601
+check row: 10 check column: 6
+check row: 9 check column: 7
+dist_col: 564.186050
+dist_row: 487.255564
+x: 337
+angle: 4.540801
+check row: 10 check column: 6
+check row: 9 check column: 7
+dist_col: 568.092204
+dist_row: 487.153895
+x: 338
+angle: 4.542001
+check row: 10 check column: 6
+check row: 9 check column: 7
+dist_col: 572.053652
+dist_row: 487.052971
+x: 339
+angle: 4.543201
+check row: 10 check column: 6
+check row: 9 check column: 7
+dist_col: 576.071573
+dist_row: 486.952789
+x: 340
+angle: 4.544401
+check row: 10 check column: 6
+check row: 9 check column: 7
+dist_col: 580.147174
+dist_row: 486.853349
+x: 341
+angle: 4.545601
+check row: 10 check column: 6
+check row: 9 check column: 7
+dist_col: 584.281703
+dist_row: 486.754650
+x: 342
+angle: 4.546801
+check row: 10 check column: 6
+check row: 9 check column: 7
+dist_col: 588.476438
+dist_row: 486.656692
+x: 343
+angle: 4.548001
+check row: 10 check column: 6
+check row: 9 check column: 7
+dist_col: 592.732699
+dist_row: 486.559473
+x: 344
+angle: 4.549201
+check row: 10 check column: 6
+check row: 9 check column: 7
+dist_col: 597.051843
+dist_row: 486.462994
+x: 345
+angle: 4.550401
+check row: 10 check column: 6
+check row: 9 check column: 7
+dist_col: 601.435268
+dist_row: 486.367253
+x: 346
+angle: 4.551601
+check row: 10 check column: 6
+check row: 9 check column: 7
+dist_col: 605.884411
+dist_row: 486.272250
+x: 347
+angle: 4.552800
+check row: 10 check column: 6
+check row: 9 check column: 7
+dist_col: 610.400756
+dist_row: 486.177984
+x: 348
+angle: 4.554000
+check row: 10 check column: 6
+check row: 9 check column: 7
+dist_col: 614.985829
+dist_row: 486.084454
+x: 349
+angle: 4.555200
+check row: 11 check column: 6
+check row: 9 check column: 7
+dist_col: 619.641205
+dist_row: 485.991660
+x: 350
+angle: 4.556400
+check row: 11 check column: 6
+check row: 9 check column: 7
+dist_col: 624.368505
+dist_row: 485.899600
+x: 351
+angle: 4.557600
+check row: 11 check column: 6
+check row: 9 check column: 7
+dist_col: 629.169403
+dist_row: 485.808275
+x: 352
+angle: 4.558800
+check row: 11 check column: 6
+check row: 9 check column: 7
+dist_col: 634.045624
+dist_row: 485.717683
+x: 353
+angle: 4.560000
+check row: 11 check column: 6
+check row: 9 check column: 7
+dist_col: 638.998946
+dist_row: 485.627824
+x: 354
+angle: 4.561200
+check row: 11 check column: 6
+check row: 9 check column: 7
+dist_col: 644.031204
+dist_row: 485.538698
+x: 355
+angle: 4.562400
+check row: 11 check column: 6
+check row: 9 check column: 7
+dist_col: 649.144295
+dist_row: 485.450303
+x: 356
+angle: 4.563600
+check row: 11 check column: 6
+check row: 9 check column: 7
+dist_col: 654.340172
+dist_row: 485.362638
+x: 357
+angle: 4.564800
+check row: 11 check column: 6
+check row: 9 check column: 7
+dist_col: 659.620856
+dist_row: 485.275704
+x: 358
+angle: 4.565999
+check row: 11 check column: 6
+check row: 9 check column: 7
+dist_col: 664.988431
+dist_row: 485.189500
+x: 359
+angle: 4.567199
+check row: 11 check column: 6
+check row: 9 check column: 7
+dist_col: 670.445052
+dist_row: 485.104024
+x: 360
+angle: 4.568399
+check row: 11 check column: 6
+check row: 9 check column: 7
+dist_col: 675.992944
+dist_row: 485.019277
+x: 361
+angle: 4.569599
+check row: 12 check column: 6
+check row: 9 check column: 7
+dist_col: 681.634409
+dist_row: 484.935257
+x: 362
+angle: 4.570799
+check row: 12 check column: 6
+check row: 9 check column: 7
+dist_col: 687.371826
+dist_row: 484.851965
+x: 363
+angle: 4.571999
+check row: 12 check column: 6
+check row: 9 check column: 7
+dist_col: 693.207655
+dist_row: 484.769399
+x: 364
+angle: 4.573199
+check row: 12 check column: 6
+check row: 9 check column: 7
+dist_col: 699.144440
+dist_row: 484.687559
+x: 365
+angle: 4.574399
+check row: 12 check column: 6
+check row: 9 check column: 7
+dist_col: 705.184816
+dist_row: 484.606444
+x: 366
+angle: 4.575599
+check row: 12 check column: 6
+check row: 9 check column: 7
+dist_col: 711.331508
+dist_row: 484.526053
+x: 367
+angle: 4.576799
+check row: 12 check column: 6
+check row: 9 check column: 7
+dist_col: 717.587339
+dist_row: 484.446387
+x: 368
+angle: 4.577999
+check row: 12 check column: 6
+check row: 9 check column: 7
+dist_col: 723.955232
+dist_row: 484.367445
+x: 369
+angle: 4.579199
+check row: 12 check column: 6
+check row: 9 check column: 7
+dist_col: 730.438216
+dist_row: 484.289225
+x: 370
+angle: 4.580398
+check row: 12 check column: 6
+check row: 9 check column: 7
+dist_col: 737.039430
+dist_row: 484.211727
+x: 371
+angle: 4.581598
+check row: 13 check column: 6
+check row: 9 check column: 7
+dist_col: 743.762127
+dist_row: 484.134951
+x: 372
+angle: 4.582798
+check row: 13 check column: 6
+check row: 9 check column: 7
+dist_col: 750.609682
+dist_row: 484.058897
+x: 373
+angle: 4.583998
+check row: 13 check column: 6
+check row: 9 check column: 7
+dist_col: 757.585595
+dist_row: 483.983563
+x: 374
+angle: 4.585198
+check row: 13 check column: 6
+check row: 9 check column: 7
+dist_col: 764.693500
+dist_row: 483.908949
+x: 375
+angle: 4.586398
+check row: 13 check column: 6
+check row: 9 check column: 7
+dist_col: 771.937167
+dist_row: 483.835054
+x: 376
+angle: 4.587598
+check row: 13 check column: 6
+check row: 9 check column: 7
+dist_col: 779.320513
+dist_row: 483.761879
+x: 377
+angle: 4.588798
+check row: 13 check column: 6
+check row: 9 check column: 7
+dist_col: 786.847605
+dist_row: 483.689422
+x: 378
+angle: 4.589998
+check row: 13 check column: 6
+check row: 9 check column: 7
+dist_col: 794.522672
+dist_row: 483.617683
+x: 379
+angle: 4.591198
+check row: 13 check column: 6
+check row: 9 check column: 7
+dist_col: 802.350109
+dist_row: 483.546661
+x: 380
+angle: 4.592398
+check row: 14 check column: 6
+check row: 9 check column: 7
+dist_col: 810.334486
+dist_row: 483.476356
+x: 381
+angle: 4.593598
+check row: 14 check column: 6
+check row: 9 check column: 7
+dist_col: 818.480560
+dist_row: 483.406767
+x: 382
+angle: 4.594797
+check row: 14 check column: 6
+check row: 9 check column: 7
+dist_col: 826.793280
+dist_row: 483.337895
+x: 383
+angle: 4.595997
+check row: 14 check column: 6
+check row: 9 check column: 7
+dist_col: 835.277800
+dist_row: 483.269737
+x: 384
+angle: 4.597197
+check row: 14 check column: 6
+check row: 9 check column: 7
+dist_col: 843.939489
+dist_row: 483.202295
+x: 385
+angle: 4.598397
+check row: 14 check column: 6
+check row: 9 check column: 7
+dist_col: 852.783941
+dist_row: 483.135567
+x: 386
+angle: 4.599597
+check row: 14 check column: 6
+check row: 9 check column: 7
+dist_col: 861.816990
+dist_row: 483.069552
+x: 387
+angle: 4.600797
+check row: 15 check column: 6
+check row: 9 check column: 7
+dist_col: 871.044718
+dist_row: 483.004251
+x: 388
+angle: 4.601997
+check row: 15 check column: 6
+check row: 9 check column: 7
+dist_col: 880.473475
+dist_row: 482.939663
+x: 389
+angle: 4.603197
+check row: 15 check column: 6
+check row: 9 check column: 7
+dist_col: 890.109888
+dist_row: 482.875788
+x: 390
+angle: 4.604397
+check row: 15 check column: 6
+check row: 9 check column: 7
+dist_col: 899.960877
+dist_row: 482.812624
+x: 391
+angle: 4.605597
+check row: 15 check column: 6
+check row: 9 check column: 7
+dist_col: 910.033677
+dist_row: 482.750172
+x: 392
+angle: 4.606797
+check row: 15 check column: 6
+check row: 9 check column: 7
+dist_col: 920.335848
+dist_row: 482.688431
+x: 393
+angle: 4.607996
+check row: 15 check column: 6
+check row: 9 check column: 7
+dist_col: 930.875300
+dist_row: 482.627400
+x: 394
+angle: 4.609196
+check row: 16 check column: 6
+check row: 9 check column: 7
+dist_col: 941.660311
+dist_row: 482.567079
+x: 395
+angle: 4.610396
+check row: 16 check column: 6
+check row: 9 check column: 7
+dist_col: 952.699546
+dist_row: 482.507469
+x: 396
+angle: 4.611596
+check row: 16 check column: 6
+check row: 9 check column: 7
+dist_col: 964.002085
+dist_row: 482.448567
+x: 397
+angle: 4.612796
+check row: 16 check column: 6
+check row: 9 check column: 7
+dist_col: 975.577446
+dist_row: 482.390375
+x: 398
+angle: 4.613996
+check row: 16 check column: 6
+check row: 9 check column: 7
+dist_col: 987.435608
+dist_row: 482.332890
+x: 399
+angle: 4.615196
+check row: 17 check column: 6
+check row: 9 check column: 7
+dist_col: 999.587048
+dist_row: 482.276114
+x: 400
+angle: 4.616396
+check row: 17 check column: 6
+check row: 9 check column: 7
+dist_col: 1012.042761
+dist_row: 482.220045
+x: 401
+angle: 4.617596
+check row: 17 check column: 6
+check row: 9 check column: 7
+dist_col: 1024.814303
+dist_row: 482.164684
+x: 402
+angle: 4.618796
+check row: 17 check column: 6
+check row: 9 check column: 7
+dist_col: 1037.913821
+dist_row: 482.110029
+x: 403
+angle: 4.619996
+check row: 17 check column: 6
+check row: 9 check column: 7
+dist_col: 1051.354093
+dist_row: 482.056081
+x: 404
+angle: 4.621196
+check row: 18 check column: 6
+check row: 9 check column: 7
+dist_col: 1065.148570
+dist_row: 482.002838
+x: 405
+angle: 4.622395
+check row: 18 check column: 6
+check row: 9 check column: 7
+dist_col: 1079.311421
+dist_row: 481.950302
+x: 406
+angle: 4.623595
+check row: 18 check column: 6
+check row: 9 check column: 7
+dist_col: 1093.857578
+dist_row: 481.898470
+x: 407
+angle: 4.624795
+check row: 18 check column: 6
+check row: 9 check column: 7
+dist_col: 1108.802794
+dist_row: 481.847343
+x: 408
+angle: 4.625995
+check row: 18 check column: 6
+check row: 9 check column: 7
+dist_col: 1124.163697
+dist_row: 481.796921
+x: 409
+angle: 4.627195
+check row: 19 check column: 6
+check row: 9 check column: 7
+dist_col: 1139.957851
+dist_row: 481.747203
+x: 410
+angle: 4.628395
+check row: 19 check column: 6
+check row: 9 check column: 7
+dist_col: 1156.203824
+dist_row: 481.698188
+x: 411
+angle: 4.629595
+check row: 19 check column: 6
+check row: 9 check column: 7
+dist_col: 1172.921259
+dist_row: 481.649877
+x: 412
+angle: 4.630795
+check row: 20 check column: 6
+check row: 9 check column: 7
+dist_col: 1190.130957
+dist_row: 481.602269
+x: 413
+angle: 4.631995
+check row: 20 check column: 6
+check row: 9 check column: 7
+dist_col: 1207.854959
+dist_row: 481.555364
+x: 414
+angle: 4.633195
+check row: 20 check column: 6
+check row: 9 check column: 7
+dist_col: 1226.116642
+dist_row: 481.509161
+x: 415
+angle: 4.634395
+check row: 20 check column: 6
+check row: 9 check column: 7
+dist_col: 1244.940823
+dist_row: 481.463660
+x: 416
+angle: 4.635594
+check row: 21 check column: 6
+check row: 9 check column: 7
+dist_col: 1264.353869
+dist_row: 481.418861
+x: 417
+angle: 4.636794
+check row: 21 check column: 6
+check row: 9 check column: 7
+dist_col: 1284.383819
+dist_row: 481.374763
+x: 418
+angle: 4.637994
+c->col_inty: 538.761585
+c->col_int: 511.000000
+418: check row: 8 check column: 7
+mw: 19 mh: 10
+deltay: 858.689135
+c->col_inty: 1397.450720
+c->col_int: 447.000000
+418: check row: 21 check column: 6
+mw: 19 mh: 10
+check row: 21 check column: 6
+check row: 9 check column: 7
+dist_col: 1305.060526
+dist_row: 481.331366
+x: 419
+angle: 4.639194
+check row: 22 check column: 6
+check row: 9 check column: 7
+dist_col: 1326.415796
+dist_row: 481.288670
+x: 420
+angle: 4.640394
+check row: 22 check column: 6
+check row: 9 check column: 7
+dist_col: 1348.483557
+dist_row: 481.246674
+x: 421
+angle: 4.641594
+check row: 22 check column: 6
+check row: 9 check column: 7
+dist_col: 1371.300038
+dist_row: 481.205378
+x: 422
+angle: 4.642794
+check row: 23 check column: 6
+check row: 9 check column: 7
+dist_col: 1394.903965
+dist_row: 481.164782
+x: 423
+angle: 4.643994
+check row: 9 check column: 7
+check row: 9 check column: 7
+dist_col: 482.867153
+dist_row: 481.124886
+x: 424
+angle: 4.645194
+check row: 9 check column: 7
+check row: 9 check column: 7
+dist_col: 491.476450
+dist_row: 481.085688
+x: 425
+angle: 4.646394
+check row: 9 check column: 7
+check row: 9 check column: 8
+dist_col: 500.399052
+dist_row: 481.047190
+x: 426
+angle: 4.647594
+check row: 9 check column: 7
+check row: 9 check column: 8
+dist_col: 509.652367
+dist_row: 481.009391
+x: 427
+angle: 4.648794
+check row: 9 check column: 7
+check row: 9 check column: 8
+dist_col: 519.255113
+dist_row: 480.972289
+x: 428
+angle: 4.649993
+check row: 9 check column: 7
+check row: 9 check column: 8
+dist_col: 529.227450
+dist_row: 480.935886
+x: 429
+angle: 4.651193
+check row: 9 check column: 7
+check row: 9 check column: 8
+dist_col: 539.591118
+dist_row: 480.900181
+x: 430
+angle: 4.652393
+check row: 10 check column: 7
+check row: 9 check column: 8
+dist_col: 550.369598
+dist_row: 480.865173
+x: 431
+angle: 4.653593
+check row: 10 check column: 7
+check row: 9 check column: 8
+dist_col: 561.588286
+dist_row: 480.830863
+x: 432
+angle: 4.654793
+check row: 10 check column: 7
+check row: 9 check column: 8
+dist_col: 573.274695
+dist_row: 480.797250
+x: 433
+angle: 4.655993
+check row: 10 check column: 7
+check row: 9 check column: 8
+dist_col: 585.458679
+dist_row: 480.764334
+x: 434
+angle: 4.657193
+check row: 10 check column: 7
+check row: 9 check column: 8
+dist_col: 598.172690
+dist_row: 480.732114
+x: 435
+angle: 4.658393
+check row: 11 check column: 7
+check row: 9 check column: 8
+dist_col: 611.452061
+dist_row: 480.700591
+x: 436
+angle: 4.659593
+check row: 11 check column: 7
+check row: 9 check column: 8
+dist_col: 625.335341
+dist_row: 480.669763
+x: 437
+angle: 4.660793
+check row: 11 check column: 7
+check row: 9 check column: 8
+dist_col: 639.864662
+dist_row: 480.639632
+x: 438
+angle: 4.661993
+check row: 11 check column: 7
+check row: 9 check column: 8
+dist_col: 655.086171
+dist_row: 480.610197
+x: 439
+angle: 4.663193
+check row: 11 check column: 7
+check row: 9 check column: 8
+dist_col: 671.050515
+dist_row: 480.581457
+x: 440
+angle: 4.664392
+check row: 12 check column: 7
+check row: 9 check column: 8
+dist_col: 687.813406
+dist_row: 480.553412
+x: 441
+angle: 4.665592
+check row: 12 check column: 7
+check row: 9 check column: 8
+dist_col: 705.436272
+dist_row: 480.526062
+x: 442
+angle: 4.666792
+check row: 12 check column: 7
+check row: 9 check column: 8
+dist_col: 723.987005
+dist_row: 480.499407
+x: 443
+angle: 4.667992
+check row: 13 check column: 7
+check row: 9 check column: 8
+dist_col: 743.540838
+dist_row: 480.473447
+x: 444
+angle: 4.669192
+check row: 13 check column: 7
+check row: 9 check column: 8
+dist_col: 764.181362
+dist_row: 480.448182
+x: 445
+angle: 4.670392
+check row: 13 check column: 7
+check row: 9 check column: 8
+dist_col: 786.001721
+dist_row: 480.423611
+x: 446
+angle: 4.671592
+check row: 14 check column: 7
+check row: 9 check column: 8
+dist_col: 809.106021
+dist_row: 480.399733
+x: 447
+angle: 4.672792
+check row: 14 check column: 7
+check row: 9 check column: 8
+dist_col: 833.610981
+dist_row: 480.376550
+x: 448
+angle: 4.673992
+check row: 14 check column: 7
+check row: 9 check column: 8
+dist_col: 859.647914
+dist_row: 480.354061
+x: 449
+angle: 4.675192
+check row: 15 check column: 7
+check row: 9 check column: 8
+dist_col: 887.365075
+dist_row: 480.332265
+x: 450
+angle: 4.676392
+check row: 15 check column: 7
+check row: 9 check column: 8
+dist_col: 916.930488
+dist_row: 480.311163
+x: 451
+angle: 4.677591
+check row: 16 check column: 7
+check row: 9 check column: 8
+dist_col: 948.535350
+dist_row: 480.290755
+x: 452
+angle: 4.678791
+check row: 16 check column: 7
+check row: 9 check column: 8
+dist_col: 982.398174
+dist_row: 480.271039
+x: 453
+angle: 4.679991
+check row: 17 check column: 7
+check row: 9 check column: 8
+dist_col: 1018.769845
+dist_row: 480.252016
+x: 454
+angle: 4.681191
+check row: 18 check column: 7
+check row: 9 check column: 8
+dist_col: 1057.939844
+dist_row: 480.233687
+x: 455
+angle: 4.682391
+check row: 18 check column: 7
+check row: 9 check column: 8
+dist_col: 1100.243972
+dist_row: 480.216050
+x: 456
+angle: 4.683591
+check row: 19 check column: 7
+check row: 9 check column: 8
+dist_col: 1146.073994
+dist_row: 480.199106
+x: 457
+angle: 4.684791
+check row: 20 check column: 7
+check row: 9 check column: 8
+dist_col: 1195.889810
+dist_row: 480.182854
+x: 458
+angle: 4.685991
+check row: 21 check column: 7
+check row: 9 check column: 8
+dist_col: 1250.234936
+dist_row: 480.167295
+x: 459
+angle: 4.687191
+check row: 21 check column: 7
+check row: 9 check column: 8
+dist_col: 1309.756418
+dist_row: 480.152428
+x: 460
+angle: 4.688391
+check row: 22 check column: 7
+check row: 9 check column: 8
+dist_col: 1375.230708
+dist_row: 480.138253
+x: 461
+angle: 4.689591
+check row: 24 check column: 7
+check row: 9 check column: 8
+dist_col: 1447.597723
+dist_row: 480.124771
+x: 462
+angle: 4.690791
+check row: 25 check column: 7
+check row: 9 check column: 8
+dist_col: 1528.006252
+dist_row: 480.111980
+x: 463
+angle: 4.691990
+check row: 26 check column: 7
+check row: 9 check column: 8
+dist_col: 1617.875384
+dist_row: 480.099881
+x: 464
+angle: 4.693190
+check row: 28 check column: 7
+check row: 9 check column: 8
+dist_col: 1718.978982
+dist_row: 480.088474
+x: 465
+angle: 4.694390
+check row: 30 check column: 7
+check row: 9 check column: 8
+dist_col: 1833.563941
+dist_row: 480.077759
+x: 466
+angle: 4.695590
+check row: 32 check column: 7
+check row: 9 check column: 8
+dist_col: 1964.519123
+dist_row: 480.067736
+x: 467
+angle: 4.696790
+check row: 34 check column: 7
+check row: 9 check column: 8
+dist_col: 2115.622271
+dist_row: 480.058404
+x: 468
+angle: 4.697990
+check row: 37 check column: 7
+check row: 9 check column: 8
+dist_col: 2291.910377
+dist_row: 480.049764
+x: 469
+angle: 4.699190
+check row: 40 check column: 7
+check row: 9 check column: 8
+dist_col: 2500.252066
+dist_row: 480.041815
+x: 470
+angle: 4.700390
+check row: 44 check column: 7
+check row: 9 check column: 8
+dist_col: 2750.263413
+dist_row: 480.034557
+x: 471
+angle: 4.701590
+check row: 49 check column: 7
+check row: 9 check column: 8
+dist_col: 3055.834304
+dist_row: 480.027991
+x: 472
+angle: 4.702790
+check row: 55 check column: 7
+check row: 9 check column: 8
+dist_col: 3437.799568
+dist_row: 480.022116
+x: 473
+angle: 4.703990
+check row: 62 check column: 7
+check row: 9 check column: 8
+dist_col: 3928.899649
+dist_row: 480.016932
+x: 474
+angle: 4.705189
+check row: 73 check column: 7
+check row: 9 check column: 8
+dist_col: 4583.701958
+dist_row: 480.012440
+x: 475
+angle: 4.706389
+check row: 87 check column: 7
+check row: 9 check column: 8
+dist_col: 5500.427831
+dist_row: 480.008639
+x: 476
+angle: 4.707589
+check row: 108 check column: 7
+check row: 9 check column: 8
+dist_col: 6875.519940
+dist_row: 480.005529
+x: 477
+angle: 4.708789
+check row: 144 check column: 7
+check row: 9 check column: 8
+dist_col: 9167.344520
+dist_row: 480.003110
+x: 478
+angle: 4.709989
+check row: 216 check column: 7
+check row: 9 check column: 8
+dist_col: 13751.000282
+dist_row: 480.001382
+x: 479
+angle: 4.711189
+check row: 431 check column: 7
+check row: 9 check column: 8
+dist_col: 27501.980764
+dist_row: 480.000346
+x: 480
+angle: 4.712389
