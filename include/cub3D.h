@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/05 16:55:26 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/06 23:40:29 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ typedef struct	s_calc
 	double	pln_dist; //plane distance from player
 	double	px; //player spawn x(col) position in unit coordinates
 	double	py; //player spawn y(row) position in unit coordinates
-	int		pdir; //player direction in degrees
+	double	pdir; //player direction in degrees
 	double	ray_incr; //angle at which ray increments from right to left
 	double	angle; //angle used for calculations in degrees
 	double	rangle; //angle used for calculations in radians
@@ -132,11 +132,16 @@ void	parse_map(t_omap *omap_start, t_main *main);
 void	raycast(t_main *main);
 void	init_calc(t_main *main);
 
+/* mlx.c */
+void	ft_pixel_put(t_img *img, int x, int y, int color);
+void	mlx(t_main *main);
+
 /* test*/
 void	print_omap(t_omap *map);
 void	print_main_map(t_main *main);
 void	print_calc(t_main *main);
 void	print_main(t_main *main);
+
 
 /* identify.c */
 t_omap	*identify(t_omap *omap_start, t_main *main);
