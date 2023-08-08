@@ -72,13 +72,15 @@ void	recalc(t_main *main)
 	calc_step(main);
 }
 
-//integrate n, s, e, w wall colors
+/* for wall colors, if moving along column, can check for east and west colors
+if moving along row, can check for north/south colors */
 void	draw_wall(int x, t_main *main)
 {
 	double	start;
 	double	stop;
 	double	mid;
 	double	half_wall;
+	int		color;
 
 	mid = main->calc->pln_height / 2;
 	half_wall = main->calc->wall_height / 2;
@@ -88,9 +90,17 @@ void	draw_wall(int x, t_main *main)
 	stop = round(mid + half_wall);
 	if (stop >= main->calc->pln_height)
 		stop = main->calc->pln_height - 1;
+	if (main->calc->wall_face == NORTH)
+		color = 16711680; //RED
+	else if (main->calc->wall_face == SOUTH)
+		color = 65280; //GREEN
+	else if (main->calc->wall_face == EAST)
+		color = 255; //BLUE
+	else if (main->calc->wall_face == WEST)
+		color = 6553700 //PURPLE
 	while (start <= stop)
 	{
-		ft_pixel_put(&main->img, x, (int)start, 3093132);
+		ft_pixel_put(&main->img, x, (int)start, color);
 		start++;
 	}
 }
@@ -100,9 +110,15 @@ void	cast_hline(t_calc *c, t_main *main)
 	c->deltay = 0;
 	c->deltax = 64;
 	if (c->stepx == 1)
+	{
+		c->wall_face = WEST;
 		c->col_int = round_up(c->px / c->upg) * c->upg;
+	}
 	else if (c->stepx == -1)
+	{
+		c->wall_face = EAST;
 		c->col_int = round_down(c->px / c->upg) * c->upg - 1; 
+	}
 	c->col_inty = c->py;
 	while (c->col_inty > 0 && c->col_int > 0 &&
 		(int)(c->col_inty / c->upg) < main->map_height && 
@@ -117,9 +133,15 @@ void	cast_vline(t_calc *c, t_main *main)
 	c->deltay = 64;
 	c->deltax = 0;
 	if (c->stepy == 1)
+	{
+		c->wall_face = NORTH;
 		c->row_int = round_up(c->py / c->upg) * c->upg;
+	}
 	else if (c->stepy == -1)
+	{
+		c->wall_face = SOUTH;
 		c->row_int = round_down(c->py / c->upg) * c->upg - 1;
+	}
 	c->row_intx = c->px;
 	while (c->row_int > 0 && c->row_intx > 0 &&
 		(int)(c->row_int / c->upg) < main->map_height &&
@@ -167,9 +189,21 @@ void	cast_line(int x, t_calc *c, t_main *main)
 	c->dist_col = fabs((c->px - c->col_int) / cos(c->angle));
 	c->dist_row = fabs((c->px - c->row_intx) / cos(c->angle));
 	if (c->dist_col <= c->dist_row)
+	{
 		c->cor_dist = c->dist_col * cos((c->fov - (2 * x * c->ray_incr)) / 2);
+		if (c->stepx == 1)
+			c->wall_face = WEST;
+		else if (c->stepx == -1)
+			c->wall_face = EAST;
+	}	
 	else
+	{
 		c->cor_dist = c->dist_row * cos((c->fov - (2 * x * c->ray_incr)) / 2);
+		if (c->stepy == 1)
+			c->wall_face = NORTH;
+		else if (c->stepy == -1)
+			c->wall_face = SOUTH;
+	}
 
 }
 
