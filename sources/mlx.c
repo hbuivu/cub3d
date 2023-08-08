@@ -72,7 +72,7 @@ void	mlx(t_main *main)
 	// raycast(main);
 	// mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win, main->img.img, 0, 0);
 	// draw_floor_ceiling(main);
-	mlx_key_hook(main->mlx.mlx_win, ft_movement, main);
+	// mlx_key_hook(main->mlx.mlx_win, ft_movement, main);
 	mlx_hook(main->mlx.mlx_win, 17, 1L << 17, ft_close, main);
 	// mlx_loop(main->mlx.mlx_ptr);
 	
