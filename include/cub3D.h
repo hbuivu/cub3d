@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/08 16:45:36 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/08 21:01:11 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,38 @@
 # include <fcntl.h>
 # include <stdlib.h>
 
+// from KEYCODES minilibx for ASDW and keycode for arrow keys
+# define LEFT_KEY				123
+# define RIGHT_KEY				124
+# define UP_KEY					126
+# define DOWN_KEY				125
+# define A_KEY					0
+# define S_KEY					1
+# define D_KEY					2
+# define W_KEY					13
+# define ESC 					53
+// # define SIZE					100
+// # define GL_SILENCE_DEPRECATION
+
 enum	error
 {
+	IDENT_ERR,
+	NBR_IDENT_ERR,
+	XPM_ERR,
 	GNL_ERR,
 	MALLOC_ERR,
 	MAP_ERR,
 	MLX_ERR,
 	OPEN_ERR,
+	PLAYER_ERR,
+	WALL_ERR,
 	NONE
 };
 
 typedef struct s_queue
 {
-	char			content;
+	int				x;
+	int				y;
 	struct s_queue	*next;
 	struct s_queue	*prev;
 }	t_queue;
@@ -114,7 +133,8 @@ typedef struct s_main
 	double			w_angle;
 
 	/* zahra */
-	int				player_update;
+	int				*player_update;
+	char			**map_cpy;
 }	t_main;
 
 /* utils.c */
@@ -131,6 +151,7 @@ void	download_map(int fd, t_main *main);
 
 /* parse_map.c */
 void	parse_map(t_omap *omap_start, t_main *main);
+void	get_map(t_omap *ptr_map, t_main *main);
 
 /* raycasting.c */
 void	raycast(t_main *main);
@@ -139,6 +160,8 @@ void	init_calc(t_main *main);
 /* mlx.c */
 void	ft_pixel_put(t_img *img, int x, int y, int color);
 void	mlx(t_main *main);
+int		ft_close(t_main *main);
+int		ft_movement(int key_code, t_main *main);
 
 /* test*/
 void	print_omap(t_omap *map);
@@ -146,16 +169,14 @@ void	print_main_map(t_main *main);
 void	print_calc(t_main *main);
 void	print_main(t_main *main);
 
-
 /* identify.c */
 t_omap	*identify(t_omap *omap_start, t_main *main);
 void	visit(t_queue *ptr, t_main *main, int x, int y);
 void	check_walled_helper(t_queue *ptr, t_main *main);
 void	check_walled(t_main *main);
-t_queue	*ft_lstnew_dl(int *content);
+t_queue	*ft_lstnew_dl(int x, int y);
 t_queue	*ft_lstadd_back_dl(t_queue **queue, t_queue *new);
 void	*ft_dequeue(t_queue *enqueue);
 void	del(void *lst);
-void	change_space(t_main *map);
 
 #endif
