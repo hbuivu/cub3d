@@ -170,17 +170,13 @@ void	raycast(t_main *main)
 		printf("deltax: %lf\n", c->deltax);
 		// check for a wall jumping columns
 		printf("\n***COLUMN JUMPS***\n");
-		while ((int)(c->col_inty / c->upg) < main->map_height && 
+		while (c->col_inty > 0 && c->col_int > 0 &&
+			(int)(c->col_inty / c->upg) < main->map_height && 
 			(int)(c->col_int / c->upg) < main->map_width &&
 			(main->map[(int)(c->col_inty / c->upg)][(int)(c->col_int / c->upg)] != '1'))
 		{
 			c->col_int += c->stepx * c->upg;
 			c->col_inty += c->stepy * c->deltay;
-			if (c->col_inty < 0)
-				c->col_inty = 0;
-			if (c->col_int < 0)
-				c->col_int = 0;
-		
 			printf("deltay: %lf\n", c->deltay);
 			printf("c->col_inty: %lf\n", c->col_inty);
 			printf("c->col_int: %lf\n", c->col_int);
@@ -193,7 +189,8 @@ void	raycast(t_main *main)
 		// {
 		// 	printf("c at row: %i col: %i: %c\n", (int)(c->row_int / c->upg), (int)(c->row_intx / c->upg), main->map[(int)(c->row_int / c->upg)][(int)(c->row_intx / c->upg)]);
 		// }
-		while ((int)(c->row_int / c->upg) < main->map_height &&
+		while (c->row_int > 0 && c->row_intx > 0 &&
+			(int)(c->row_int / c->upg) < main->map_height &&
 			(int)(c->row_intx / c->upg) < main->map_width &&
 			main->map[(int)(c->row_int / c->upg)][(int)(c->row_intx / c->upg)] != '1')
 		{
@@ -202,9 +199,9 @@ void	raycast(t_main *main)
 			printf("deltax: %lf\n", c->deltax);
 			printf("c->row_intx: %lf\n", c->row_intx);
 			printf("c->row_int: %lf\n", c->row_int);
-			printf("%i: check row: %i check column: %i\n", x, (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
+			printf("%i: check row: %i check column: %i\n", x, (int)(c->row_int/ c->upg), (int)(c->row_intx / c->upg));
 		}
-
+		//here, if one direction goes out of bounds, we should ignore it
 		//find the point that is the shortest distance from original px and py
 		c->dist_col = fabs((c->px - c->col_int) / cos(c->angle));
 		c->dist_row = fabs((c->px - c->row_intx) / cos(c->angle));
