@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/05 15:21:39 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/08 21:55:51 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ typedef struct	s_mlx
 {
 	void	*mlx_ptr;
 	void	*mlx_win;
+	void	*img_no_wall;
+	void	*img_so_wall;
+	void	*img_we_wall;
+	void	*img_ea_wall;
 }	t_mlx;
 
 typedef struct s_omap
