@@ -7,6 +7,7 @@ void	init_main(t_main *main)
 	main->n_angle = M_PI / 2;
 	main->s_angle = (3 * M_PI) / 2;
 	main->e_angle = 2 * M_PI;
+	main->w_angle = M_PI;
 }
 
 int	main(int argc, char **argv)
