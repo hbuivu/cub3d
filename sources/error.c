@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:27:01 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/05 12:31:46 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/08 20:18:16 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	return_error(t_main *main, int err_msg)
 	i = -1;
 	//return err messages here
 	(void)err_msg;
-	perror("Return error\n");
+	// perror("Return error\n");
 	if (main)
 	{
 		if (main->omap)

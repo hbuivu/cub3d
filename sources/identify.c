@@ -52,130 +52,76 @@ int	check_main(t_main *main)
 t_omap	*identify(t_omap *omap_start, t_main *main)
 {
 	t_omap	*curr;
-	int		i;
 	t_omap	*ptr_map;
 
-	i = 0;
 	curr = omap_start;
 	while (curr)
 	{
 		if (curr->row[0] == 'F')
 		{
 			if (main->f_color != NULL)
-			{
-				perror("incorrect number of identifier");
-				exit(1);
-			}
+				return_error(main, NBR_IDENT_ERR);
 			if (ft_strncmp(curr->row, "F ", 2) != 0)
-			{
-				perror("Incorrect identifier");
-				exit(1);
-			}
+				return_error(main, IDENT_ERR);
 			main->f_color = to_int(curr->row + 2);
 		}
 		else if (curr->row[0] == 'C')
 		{
 			if (main->c_color != NULL)
-			{
-				perror("incorrect number of identifier");
-				exit(1);
-			}
+				return_error(main, NBR_IDENT_ERR);
 			if (ft_strncmp(curr->row, "C ", 2) != 0)
-			{
-				perror("Incorrect identifier");
-				exit(1);
-			}
+				return_error(main, IDENT_ERR);
 			main->c_color = to_int(curr->row + 2);
 		}
 		else if (curr->row[0] == 'N')
 		{
 			if (main->n_path != NULL)
-			{
-				perror("incorrect number of identifier");
-				exit(1);
-			}
+				return_error(main, NBR_IDENT_ERR);
 			if (ft_strncmp(curr->row, "NO ", 3) != 0)
-			{
-				perror("Incorrect identifier");
-				exit(1);
-			}
+				return_error(main, IDENT_ERR);
 			if (ft_strncmp(curr->row + ft_strlen(curr->row) - 4, ".xpm", 4) != 0)
-			{
-				perror("Error\n require .xpm file");
-				exit(1);
-			}
-			main->n_path = ft_calloc(ft_strlen(curr->row) - 2, sizeof(char));
+				return_error(main, XPM_ERR);
 			main->n_path = cub_strdup(curr->row + 3, main);
 		}
 		else if (curr->row[0] == 'S')
 		{
 			if (main->s_path != NULL)
-			{
-				perror("incorrect number of identifier");
-				exit(1);
-			}
+				return_error(main, NBR_IDENT_ERR);
 			if (ft_strncmp(curr->row, "SO ", 3) != 0)
-			{
-				perror("Incorrect identifier");
-				exit(1);
-			}
+				return_error(main, IDENT_ERR);
 			if (ft_strncmp(curr->row + ft_strlen(curr->row) - 4, ".xpm", 4) != 0)
-			{
-				perror("Error\n require .xpm file");
-				exit(1);
-			}
-			main->s_path = ft_calloc(ft_strlen(curr->row) - 2, sizeof(char));
+				return_error(main, XPM_ERR);
 			main->s_path = cub_strdup(curr->row + 3, main);
 		}
 		else if (curr->row[0] == 'E')
 		{
 			if (main->e_path != NULL)
-			{
-				perror("incorrect number of identifier");
-				exit(1);
-			}
+				return_error(main, NBR_IDENT_ERR);
 			if (ft_strncmp(curr->row, "EA ", 3) != 0)
-			{
-				perror("Incorrect identifier");
-				exit(1);
-			}
+				return_error(main, IDENT_ERR);
 			if (ft_strncmp(curr->row + ft_strlen(curr->row) - 4, ".xpm", 4) != 0)
-			{
-				perror("Error\n require .xpm file");
-				exit(1);
-			}
-			main->e_path = ft_calloc(ft_strlen(curr->row) - 2, sizeof(char));
+				return_error(main, XPM_ERR);
 			main->e_path = cub_strdup(curr->row + 3, main);
 		}
 		else if (curr->row[0] == 'W')
 		{
 			if (main->w_path != NULL)
-			{
-				perror("incorrect number of identifier");
-				exit(1);
-			}
+				return_error(main, NBR_IDENT_ERR);
 			if (ft_strncmp(curr->row, "WE ", 3) != 0)
-			{
-				perror("Incorrect identifier");
-				exit(1);
-			}
+				return_error(main, IDENT_ERR);
 			if (ft_strncmp(curr->row + ft_strlen(curr->row) - 4, ".xpm", 4) != 0)
-			{
-				perror("Error\n require .xpm file");
-				exit(1);
-			}
-			main->w_path = ft_calloc(ft_strlen(curr->row) - 2, sizeof(char));
+				return_error(main, XPM_ERR);
 			main->w_path = cub_strdup(curr->row + 3, main);
 		}
 		else if (ft_strchr(curr->row, '1') != NULL || ft_strchr(curr->row, '1') != NULL)
 		{
-			printf("%s\n%s\n%s\n%s\n", main->n_path, main->s_path, main->e_path, main->w_path);
-			i = 0;
-			while (main->f_color[i])
-			{
-				printf("%d\n%d\n", main->f_color[i], main->c_color[i]);
-				i++;
-			}
+			// printf("%s\n%s\n%s\n%s\n", main->n_path, main->s_path, main->e_path, main->w_path);
+			// int i = 0;
+			// while (main->f_color[i])
+			// {
+			// 	printf("%d\n%d\n", main->f_color[i], main->c_color[i]);
+			// 	i++;
+			// }
 			if (check_main(main) == 1)
 				return (NULL);
 			ptr_map = curr;

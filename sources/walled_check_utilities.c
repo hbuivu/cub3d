@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   walled_check_utilies.c                             :+:      :+:    :+:   */
+/*   walled_check_utilities.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 17:00:11 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/04 15:33:20 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/08 18:27:58 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,15 @@ void	del(void *lst)
 	free (lst);
 }
 
-t_queue	*ft_lstnew_dl(int *content)
+t_queue	*ft_lstnew_dl(int x, int y)
 {
 	t_queue	*new;
 
 	new = ft_calloc(1, sizeof(t_queue));
 	if (new == NULL)
 		return (0);
-	new -> content = content;
+	new -> x = x;
+	new ->y = y;
 	new -> next = NULL;
 	new -> prev = NULL;
 	return (new);
