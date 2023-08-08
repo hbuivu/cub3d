@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/08 13:02:40 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/08 16:45:36 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ typedef struct s_main
 	double			n_angle;
 	double			s_angle;
 	double			e_angle;
+	double			w_angle;
 
 	/* zahra */
 	int				player_update;
