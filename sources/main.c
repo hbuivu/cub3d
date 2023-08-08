@@ -6,8 +6,7 @@ void	init_main(t_main *main)
 	main->win_height = 600;
 	main->n_angle = M_PI / 2;
 	main->s_angle = (3 * M_PI) / 2;
-	printf("main->s_angle = %lf\n", main->s_angle);
-	printf("pi: %lf\n", M_PI);
+	main->e_angle = 2 * M_PI;
 }
 
 int	main(int argc, char **argv)
