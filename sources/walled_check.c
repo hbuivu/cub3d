@@ -46,7 +46,6 @@ void	check_walled_helper(t_queue *ptr, t_main *main, char **map_cpy)
 		main->player_pos[1] <= 0 || main->player_pos[1] >= main->map_height - 1)
 		return_error(main, WALL_ERR);
 	main->map_cpy[main->player_pos[1]][main->player_pos[0]] = 'V';
-	main->player_update = (int *)cub_malloc(2, sizeof(int), main);
 	main->player_update[0] = ptr->x;
 	main->player_update[1] = ptr->y;
 	if (ptr->x - 1 > 0 && ptr->x + 1 < main->map_width)
@@ -76,6 +75,7 @@ void	check_walled(t_main *main)
 	t_queue	*ptr;
 	char	**map_cpy;
 
+	main->player_update = (int *)cub_malloc(2, sizeof(int), main);
 	map_cpy = ft_calloc(main->map_height + 1, sizeof(char*));
 	i = 0;
 	while (main->map[i])
