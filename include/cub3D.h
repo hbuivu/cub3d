@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/09 13:36:29 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/09 16:47:40 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define D_KEY					2
 # define W_KEY					13
 # define ESC 					53
-// # define SIZE					100
+# define SIZE					100
 // # define GL_SILENCE_DEPRECATION
 
 enum	error
@@ -76,6 +76,14 @@ typedef struct	s_mlx
 {
 	void	*mlx_ptr;
 	void	*mlx_win;
+	void	*img_no;
+	void	*img_so;
+	void	*img_ea;
+	void	*img_we;
+	void	*img_spr1;
+	void	*img_spr2;
+	void	*img_door1;
+	void	*img_door2;
 }	t_mlx;
 
 typedef struct s_omap
@@ -149,6 +157,7 @@ typedef struct s_main
 void	*cub_calloc(size_t count, size_t size, t_main *main);
 void	*cub_malloc(size_t count, size_t size, t_main *main);
 char	*cub_strdup(const char *s1, t_main *main);
+int		ft_close(t_main *main);
 
 /* error.c */
 void	error_check(int argc, char **argv);
@@ -181,7 +190,7 @@ void	print_main(t_main *main);
 /* identify.c */
 t_omap	*identify(t_omap *omap_start, t_main *main);
 void	visit(t_queue *ptr, t_main *main, int x, int y);
-void	check_walled_helper(t_queue *ptr, t_main *main, char **map_cpy);
+void	check_walled_helper(t_queue *ptr, t_main *main);
 void	check_walled(t_main *main);
 t_queue	*ft_lstnew_dl(int x, int y);
 t_queue	*ft_lstadd_back_dl(t_queue **queue, t_queue *new);
