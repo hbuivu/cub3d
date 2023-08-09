@@ -27,12 +27,12 @@ int	main(int argc, char **argv)
 	parse_map(map_ptr, main); //fills out everything else in main
 	get_map(map_ptr, main);
 	// print_main_map(main);
-	// check_walled(main);
-	init_main(main);
-	init_calc(main);
+	check_walled(main);
+	// init_main(main);
+	// init_calc(main);
 	// print_main(main);
-	mlx(main);
-	raycast(main);
-	mlx_loop(main->mlx.mlx_ptr);
+	// mlx(main);
+	// raycast(main);
+	// mlx_loop(main->mlx.mlx_ptr);
 	// return_error(main, NONE);
 }

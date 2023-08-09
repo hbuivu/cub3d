@@ -97,7 +97,7 @@ void	draw_wall(int x, t_main *main)
 	else if (main->calc->wall_face == EAST)
 		color = 255; //BLUE
 	else if (main->calc->wall_face == WEST)
-		color = 6553700 //PURPLE
+		color = 6553700; //PURPLE
 	while (start <= stop)
 	{
 		ft_pixel_put(&main->img, x, (int)start, color);
@@ -117,11 +117,11 @@ void	cast_hline(t_calc *c, t_main *main)
 	else if (c->stepx == -1)
 	{
 		c->wall_face = EAST;
-		c->col_int = round_down(c->px / c->upg) * c->upg - 1; 
+		c->col_int = round_down(c->px / c->upg) * c->upg - 1;
 	}
 	c->col_inty = c->py;
 	while (c->col_inty > 0 && c->col_int > 0 &&
-		(int)(c->col_inty / c->upg) < main->map_height && 
+		(int)(c->col_inty / c->upg) < main->map_height &&
 		(int)(c->col_int / c->upg) < main->map_width &&
 		(main->map[(int)(c->col_inty / c->upg)][(int)(c->col_int / c->upg)] != '1'))
 		c->col_int += c->deltax;
@@ -160,7 +160,7 @@ void	cast_line(int x, t_calc *c, t_main *main)
 	if (c->stepx == 1)
 		c->col_int = round_up(c->px / c->upg) * c->upg;
 	else if (c->stepx == -1)
-		c->col_int = round_down(c->px / c->upg) * c->upg - 1; 
+		c->col_int = round_down(c->px / c->upg) * c->upg - 1;
 	c->col_inty = c->py + (c->stepy * fabs((c->col_int - c->px) * tan(c->angle)));
 	if (c->stepy == 1)
 		c->row_int = round_up(c->py / c->upg) * c->upg;
@@ -168,7 +168,7 @@ void	cast_line(int x, t_calc *c, t_main *main)
 		c->row_int = round_down(c->py / c->upg) * c->upg - 1;
 	c->row_intx = c->px + (c->stepx * fabs((c->row_int - c->py) / tan(c->angle)));
 	while (c->col_inty > 0 && c->col_int > 0 &&
-		(int)(c->col_inty / c->upg) < main->map_height && 
+		(int)(c->col_inty / c->upg) < main->map_height &&
 		(int)(c->col_int / c->upg) < main->map_width &&
 		(main->map[(int)(c->col_inty / c->upg)][(int)(c->col_int / c->upg)] != '1'))
 	{
@@ -195,7 +195,7 @@ void	cast_line(int x, t_calc *c, t_main *main)
 			c->wall_face = WEST;
 		else if (c->stepx == -1)
 			c->wall_face = EAST;
-	}	
+	}
 	else
 	{
 		c->cor_dist = c->dist_row * cos((c->fov - (2 * x * c->ray_incr)) / 2);
@@ -211,10 +211,10 @@ void	raycast(t_main *main)
 {
 	t_calc	*c;
 	int		x;
-	
+
 	c = main->calc;
 	x = 0;
-	
+
 	while (x < main->calc->pln_width)
 	{
 		if (ch_num(c->angle, 0) || ch_num(c->angle, main->w_angle) || ch_num(c->angle, main->e_angle))
@@ -229,5 +229,5 @@ void	raycast(t_main *main)
 		recalc(main);
 	}
 	mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win, main->img.img, 0, 0);
-}	
+}
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:27:01 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/08 20:18:16 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/09 09:38:40 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,30 @@ void	return_error(t_main *main, int err_msg)
 
 	i = -1;
 	//return err messages here
-	(void)err_msg;
+	//(void)err_msg;
+	if (err_msg == IDENT_ERR)
+		perror("incorrect identifier");
+	if (err_msg == NBR_IDENT_ERR)
+		perror("incorrect number of identifier");
+	if (err_msg == XPM_ERR)
+		perror("require .xpm file");
+	if (err_msg == GNL_ERR)
+		perror("gnl didn't get string");
+	if (err_msg == PLAYER_ERR)
+		perror("incorrect number of players");
+	if (err_msg == MALLOC_ERR)
+		perror("could not malloc");
+	if (err_msg == MAP_ERR)
+		perror("no map");
+	if (err_msg == MLX_ERR)
+		perror("missing map components");
+	if (err_msg == OPEN_ERR)
+		perror("not a file");
+	if (err_msg == WALL_ERR)
+		perror("map not surrounded by walls");
+	if (err_msg == NONE)
+		perror("the end");
+	// perror("Return error\n");
 	// perror("Return error\n");
 	if (main)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   walled_check_utilities.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 17:00:11 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/08 18:27:58 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/09 11:32:34 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ t_queue	*ft_lstnew_dl(int x, int y)
 	new -> x = x;
 	new ->y = y;
 	new -> next = NULL;
-	new -> prev = NULL;
 	return (new);
 }
 
@@ -45,7 +44,6 @@ t_queue	*ft_lstadd_back_dl(t_queue **queue, t_queue *new)
 		while (ptr->next)
 			ptr = ptr->next;
 		ptr->next = new;
-		new->prev = ptr;
 	}
 	return (*queue);
 }
