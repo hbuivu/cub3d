@@ -2,9 +2,12 @@
 
 void	init_main(t_main *main)
 {
-	main->win_width = 320;
-	main->win_height = 200;
-	main->calc = (t_calc *)cub_calloc(1, sizeof(t_calc), main);
+	main->win_width = 960;
+	main->win_height = 600;
+	main->n_angle = M_PI / 2;
+	main->s_angle = (3 * M_PI) / 2;
+	main->e_angle = 2 * M_PI;
+	main->w_angle = M_PI;
 }
 
 int	main(int argc, char **argv)
@@ -20,14 +23,16 @@ int	main(int argc, char **argv)
 	if (fd == -1)
 		return_error(main, OPEN_ERR);
 	download_map(fd, main); //fills out omap
-	// print_omap(main->omap);
-	map_ptr = identify(main->omap, main);//fills out everything else in main
-	parse_map(map_ptr, main); //puts map in main
+	map_ptr = identify(main->omap, main);
+	parse_map(map_ptr, main); //fills out everything else in main
 	get_map(map_ptr, main);
 	// print_main_map(main);
 	check_walled(main);
 	// init_main(main);
+	// init_calc(main);
+	// print_main(main);
+	// mlx(main);
 	// raycast(main);
-	// print_calc(main);
-	return_error(main, NONE);
+	// mlx_loop(main->mlx.mlx_ptr);
+	// return_error(main, NONE);
 }

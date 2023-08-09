@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:27:01 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/05 14:28:55 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/09 13:34:03 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	return_error(t_main *main, int err_msg)
 
 	i = -1;
 	//return err messages here
+	//(void)err_msg;
 	if (err_msg == IDENT_ERR)
 		perror("incorrect identifier");
 	if (err_msg == NBR_IDENT_ERR)
@@ -52,8 +53,11 @@ void	return_error(t_main *main, int err_msg)
 		perror("missing map components");
 	if (err_msg == OPEN_ERR)
 		perror("not a file");
+	if (err_msg == WALL_ERR)
+		perror("map not surrounded by walls");
 	if (err_msg == NONE)
 		perror("the end");
+	// perror("Return error\n");
 	// perror("Return error\n");
 	if (main)
 	{

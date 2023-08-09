@@ -52,10 +52,8 @@ int	check_main(t_main *main)
 t_omap	*identify(t_omap *omap_start, t_main *main)
 {
 	t_omap	*curr;
-	int		i;
 	t_omap	*ptr_map;
 
-	i = 0;
 	curr = omap_start;
 	while (curr)
 	{
@@ -118,7 +116,7 @@ t_omap	*identify(t_omap *omap_start, t_main *main)
 		else if (ft_strchr(curr->row, '1') != NULL || ft_strchr(curr->row, '1') != NULL)
 		{
 			// printf("%s\n%s\n%s\n%s\n", main->n_path, main->s_path, main->e_path, main->w_path);
-			// i = 0;
+			// int i = 0;
 			// while (main->f_color[i])
 			// {
 			// 	printf("%d\n%d\n", main->f_color[i], main->c_color[i]);
