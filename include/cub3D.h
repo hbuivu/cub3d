@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/08 21:01:11 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/09 01:50:10 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,14 @@ enum	error
 	WALL_ERR,
 	NONE
 };
+
+enum	compass
+{
+	NORTH,
+	SOUTH,
+	EAST,
+	WEST
+}
 
 typedef struct s_queue
 {
@@ -106,6 +114,7 @@ typedef struct	s_calc
 	double	dist_row; //distance squared of original point to first row intersect with wall
 	double	cor_dist; //corrected distance from point to closest 
 	double	wall_height; //projected wall height
+	int		wall_face; //NSEW
 }	t_calc;
 
 typedef struct s_main
