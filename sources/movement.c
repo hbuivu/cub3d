@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/09 01:37:40 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/09 12:30:37 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_movement(int key_code, t_main *main)
 	{
 		while (--i < 5)
 		{
-			if (main->calc->px % 64 == 0 && main->map[(int)(main->calc->py / 64)][(int)((main->calc->px / 64) - 1)] == '1')
+			if (fmod(main->calc->px, 64) == 0 && main->map[(int)(main->calc->py / 64)][(int)((main->calc->px / 64) - 1)] == '1')
 				break;
 			main->calc->px--;
 		}
@@ -67,7 +67,7 @@ int	ft_movement(int key_code, t_main *main)
 	{
 		while (--i < 5)
 		{
-			if (main->calc->py % 64 == 0 && main->map[(int)((main->calc->py / 64) - 1)][(int)(main->calc->px / 64)] == '1')
+			if (fmod(main->calc->py, 64) == 0 && main->map[(int)((main->calc->py / 64) - 1)][(int)(main->calc->px / 64)] == '1')
 				break;
 			main->calc->py--;
 		}
@@ -81,8 +81,8 @@ int	ft_movement(int key_code, t_main *main)
 			main->calc->py++;
 		}
 	}
-	mlx_clear_window(main->mlx->mlx_ptr, main->mlx->mlx_win);
-	mlx_destroy_image(main->mlx->mlx_ptr, main->img->img);
+	// mlx_clear_window(main->mlx.mlx_ptr, main->mlx.mlx_win);
+	// mlx_destroy_image(main->mlx.mlx_ptr, main->img.img);
 	raycast(main);
     return (0);
 }

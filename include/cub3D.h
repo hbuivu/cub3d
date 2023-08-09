@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/09 01:50:10 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/09 12:19:09 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ enum	compass
 	SOUTH,
 	EAST,
 	WEST
-}
+};
 
 typedef struct s_queue
 {
@@ -165,6 +165,7 @@ void	get_map(t_omap *ptr_map, t_main *main);
 /* raycasting.c */
 void	raycast(t_main *main);
 void	init_calc(t_main *main);
+void	calc_step(t_main *main);
 
 /* mlx.c */
 void	ft_pixel_put(t_img *img, int x, int y, int color);
