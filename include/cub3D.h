@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/11 01:25:05 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/11 02:12:53 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define D_KEY					2
 # define W_KEY					13
 # define ESC 					53
-// # define SIZE					100
+# define SIZE					100
 // # define GL_SILENCE_DEPRECATION
 
 enum	error
@@ -198,5 +198,8 @@ t_queue	*ft_lstnew_dl(int x, int y);
 t_queue	*ft_lstadd_back_dl(t_queue **queue, t_queue *new);
 void	*ft_dequeue(t_queue *enqueue);
 void	del(void *lst);
+
+void	get_textures(t_main *main);
+void	get_data_addr(t_main *main);
 
 #endif
