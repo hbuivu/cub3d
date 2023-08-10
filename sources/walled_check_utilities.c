@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 17:00:11 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/05 15:10:22 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/09 13:34:22 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ void	del(void *lst)
 	free (lst);
 }
 
-t_queue	*ft_lstnew_dl(int *content)
+t_queue	*ft_lstnew_dl(int x, int y)
 {
 	t_queue	*new;
 
 	new = ft_calloc(1, sizeof(t_queue));
 	if (new == NULL)
 		return (0);
-	new -> content = content;
+	new -> x = x;
+	new ->y = y;
 	new -> next = NULL;
-	new -> prev = NULL;
 	return (new);
 }
 
@@ -44,7 +44,6 @@ t_queue	*ft_lstadd_back_dl(t_queue **queue, t_queue *new)
 		while (ptr->next)
 			ptr = ptr->next;
 		ptr->next = new;
-		new->prev = ptr;
 	}
 	return (*queue);
 }
