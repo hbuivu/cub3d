@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 17:01:13 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/11 01:17:29 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/11 01:32:17 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,6 @@ void	visit(t_queue *ptr, t_main *main, int x, int y)
 	if (pos == '1' || pos == 'V')
 		return ;
 	if(pos != '1' || pos != 'V')
-	{
-		ft_lstadd_back_dl(&ptr, ft_lstnew_dl(x, y));
-		main->map_cpy[y][x] = 'V';
-	}
-}
-
-void	visit(t_queue *ptr, t_main *main, int x, int y)
-{
-	char	pos;
-
-	pos = main->map_cpy[y][x];
-	if ((pos != '1') && (x <= 0 || x >= main->map_width - 1 || y <= 0
-			|| y >= main->map_height - 1))
-		return_error(main, WALL_ERR);
-	if (pos == '1' || pos == 'V')
-		return ;
-	if (pos != '1' || pos != 'V')
 	{
 		ft_lstadd_back_dl(&ptr, ft_lstnew_dl(x, y));
 		main->map_cpy[y][x] = 'V';

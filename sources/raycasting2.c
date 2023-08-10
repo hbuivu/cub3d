@@ -118,19 +118,11 @@ void	cast_hline(t_calc *c, t_main *main)
 	else if (c->stepx == -1)
 	{
 		c->wall_face = EAST;
-<<<<<<< HEAD
 		c->col_int = round_down(c->px / c->upg) * c->upg - 1; 
 	}
 	c->col_inty = c->py;
 	while (c->col_inty > 0 && c->col_int > 0 &&
 		(int)(c->col_inty / c->upg) < main->map_height && 
-=======
-		c->col_int = round_down(c->px / c->upg) * c->upg - 1;
-	}
-	c->col_inty = c->py;
-	while (c->col_inty > 0 && c->col_int > 0 &&
-		(int)(c->col_inty / c->upg) < main->map_height &&
->>>>>>> b971e31899b93010532669ddb30f9932ac999ecc
 		(int)(c->col_int / c->upg) < main->map_width &&
 		(main->map[(int)(c->col_inty / c->upg)][(int)(c->col_int / c->upg)] != '1'))
 		c->col_int += c->deltax;
@@ -169,11 +161,7 @@ void	cast_line(int x, t_calc *c, t_main *main)
 	if (c->stepx == 1)
 		c->col_int = round_up(c->px / c->upg) * c->upg;
 	else if (c->stepx == -1)
-<<<<<<< HEAD
 		c->col_int = round_down(c->px / c->upg) * c->upg - 1; 
-=======
-		c->col_int = round_down(c->px / c->upg) * c->upg - 1;
->>>>>>> b971e31899b93010532669ddb30f9932ac999ecc
 	c->col_inty = c->py + (c->stepy * fabs((c->col_int - c->px) * tan(c->angle)));
 	if (c->stepy == 1)
 		c->row_int = round_up(c->py / c->upg) * c->upg;
@@ -181,11 +169,7 @@ void	cast_line(int x, t_calc *c, t_main *main)
 		c->row_int = round_down(c->py / c->upg) * c->upg - 1;
 	c->row_intx = c->px + (c->stepx * fabs((c->row_int - c->py) / tan(c->angle)));
 	while (c->col_inty > 0 && c->col_int > 0 &&
-<<<<<<< HEAD
 		(int)(c->col_inty / c->upg) < main->map_height && 
-=======
-		(int)(c->col_inty / c->upg) < main->map_height &&
->>>>>>> b971e31899b93010532669ddb30f9932ac999ecc
 		(int)(c->col_int / c->upg) < main->map_width &&
 		(main->map[(int)(c->col_inty / c->upg)][(int)(c->col_int / c->upg)] != '1'))
 	{
@@ -212,11 +196,7 @@ void	cast_line(int x, t_calc *c, t_main *main)
 			c->wall_face = WEST;
 		else if (c->stepx == -1)
 			c->wall_face = EAST;
-<<<<<<< HEAD
 	}	
-=======
-	}
->>>>>>> b971e31899b93010532669ddb30f9932ac999ecc
 	else
 	{
 		c->cor_dist = c->dist_row * cos((c->fov - (2 * x * c->ray_incr)) / 2);
@@ -225,8 +205,6 @@ void	cast_line(int x, t_calc *c, t_main *main)
 		else if (c->stepy == -1)
 			c->wall_face = SOUTH;
 	}
-<<<<<<< HEAD
-
 }
 
 void	raycast(t_main *main)
@@ -236,20 +214,6 @@ void	raycast(t_main *main)
 	
 	c = main->calc;
 	x = 0;
-	
-=======
-
-}
-
-void	raycast(t_main *main)
-{
-	t_calc	*c;
-	int		x;
-
-	c = main->calc;
-	x = 0;
-
->>>>>>> b971e31899b93010532669ddb30f9932ac999ecc
 	while (x < main->calc->pln_width)
 	{
 		if (ch_num(c->angle, 0) || ch_num(c->angle, main->w_angle) || ch_num(c->angle, main->e_angle))
@@ -264,12 +228,7 @@ void	raycast(t_main *main)
 		recalc(main);
 	}
 	mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win, main->img.img, 0, 0);
-<<<<<<< HEAD
 	mlx_key_hook(main->mlx.mlx_win, ft_movement, main);
 	mlx_hook(main->mlx.mlx_win, 17, 1L << 17, ft_close, main);
 	mlx_loop(main->mlx.mlx_ptr);
 }	
-=======
-}
-
->>>>>>> b971e31899b93010532669ddb30f9932ac999ecc
