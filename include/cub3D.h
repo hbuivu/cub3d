@@ -61,7 +61,6 @@ typedef struct s_queue
 	int				x;
 	int				y;
 	struct s_queue	*next;
-	struct s_queue	*prev;
 }	t_queue;
 
 typedef struct	s_img
