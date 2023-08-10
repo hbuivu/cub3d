@@ -74,7 +74,6 @@ void	mlx(t_main *main)
 	// draw_floor_ceiling(main);
 	mlx_key_hook(main->mlx.mlx_win, ft_movement, main);
 	mlx_hook(main->mlx.mlx_win, 17, 1L << 17, ft_close, main);
-	// draw_floor_ceiling(main);
-	mlx_loop(main->mlx.mlx_ptr);
+	// mlx_loop(main->mlx.mlx_ptr);
 	
 }

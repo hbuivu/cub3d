@@ -6,9 +6,10 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/11 00:39:22 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/11 01:06:56 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef CUB3D_H
 # define CUB3D_H
@@ -88,17 +89,20 @@ typedef struct s_omap
 typedef struct	s_calc
 {
 	double	upg; //units per grid
-	double	fov;
-	double	r_fov; //field of view in rad
+	double	fov; //field of view in rad
 	double	pln_height; //plane height (repeat of main win_height)
 	double	pln_width; //plane width (repeate of main win_width)
 	double	pln_dist; //plane distance from player
 	double	px; //player spawn x(col) position in unit coordinates
 	double	py; //player spawn y(row) position in unit coordinates
-	int		pdir; //player direction in degrees
+	double	pdir; //player direction in rad
 	double	ray_incr; //angle at which ray increments from right to left
+<<<<<<< HEAD
 	// double	r_angle; //angle of ray in radians
 	
+=======
+
+>>>>>>> b971e31899b93010532669ddb30f9932ac999ecc
 	/* recalculated each ray */
 	double	angle; //angle used for calculations in degrees
 	int		stepx; //direction in which x is going (-1 or 1)
@@ -106,9 +110,9 @@ typedef struct	s_calc
 
 	/* initiated to 0 at start */
 	double	col_int; //point where ray intersects a column line
-	double	col_int_y; //the y coordinate where ray intersects column line
+	double	col_inty; //the y coordinate where ray intersects column line
 	double	row_int; //point where ray intersects a row line
-	double	row_int_x; //the x coordinate where ray intersects a row line
+	double	row_intx; //the x coordinate where ray intersects a row line
 	double	deltax; //movement in x direction every time y moves by 1 grid
 	double	deltay; //movement in y direction every time x moves by 1 grid
 	double	dist_col; //distance squared of original point to first column intersect with wall
@@ -127,13 +131,16 @@ typedef struct s_main
 	char			player_dir;
 	int				map_width;
 	int				map_height;
-	char			**map; //final map
 	char			*n_path;
 	char			*s_path;
 	char			*w_path;
 	char			*e_path;
 	int				*f_color;
 	int				*c_color;
+<<<<<<< HEAD
+=======
+	char			**map; //final map, access via map[row][column]
+>>>>>>> b971e31899b93010532669ddb30f9932ac999ecc
 	t_mlx			mlx;
 	t_calc			*calc;
 	double			n_angle;

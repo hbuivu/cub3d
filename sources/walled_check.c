@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 17:01:13 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/10 18:07:11 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/11 01:17:29 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,22 @@ void	print_queue(t_queue *queue)
 	{
 		printf("queue x %d y %d\n", ptr->x, ptr->y);
 		ptr = ptr->next;
+	}
+}
+
+void	visit(t_queue *ptr, t_main *main, int x, int y)
+{
+	char pos;
+
+	pos = main->map_cpy[y][x];
+	if ((pos != '1') && (x <= 0 || x >= main->map_width - 1 || y <= 0 || y >= main->map_height - 1))
+		return_error(main, WALL_ERR);
+	if (pos == '1' || pos == 'V')
+		return ;
+	if(pos != '1' || pos != 'V')
+	{
+		ft_lstadd_back_dl(&ptr, ft_lstnew_dl(x, y));
+		main->map_cpy[y][x] = 'V';
 	}
 }
 
@@ -64,7 +80,16 @@ void	check_walled_helper(t_queue *ptr, t_main *main)
 	if (main->player_update[0] + 1 < main->map_width
 		&& main->player_update[1] + 1 < main->map_height)
 		visit(ptr, main, ptr->x + 1, ptr->y + 1);
-	if (main->player_update[1] - 1 > 0 && main->player_update[1] + 1 < main->map_height)
+	if (main->player_update[1] - 1 > 0 && main->player_update[1]  + 1 < main->map_height)
+	{
+		visit(ptr, main, ptr->x,ptr->y + 1);
+		visit(ptr, main, ptr->x, ptr->y - 1);
+	}
+	if (main->player_update[0] - 1 > 0  && main->player_update[1] - 1 > 0)
+		visit(ptr, main, ptr->x - 1,ptr->y - 1);
+	if (main->player_update[0] + 1 < main->map_width && main->player_update[1]  + 1 < main->map_height)
+		visit(ptr, main, ptr->x + 1, ptr->y + 1);
+	if (main->player_update[1] - 1 > 0 && main->player_update[1]  + 1 < main->map_height)
 		visit(ptr, main, ptr->x - 1, ptr->y + 1);
 	if (main->player_update[0] + 1 < main->map_width && main->player_update[1] - 1 > 0)
 		visit(ptr, main, ptr->x + 1, ptr->y - 1);
@@ -88,6 +113,7 @@ void	check_walled(t_main *main)
 	ptr = enqueue;
 	while (enqueue != NULL)
 	{
+
 		check_walled_helper(ptr, main);
 		ptr = ptr->next;
 		ft_dequeue(enqueue);
