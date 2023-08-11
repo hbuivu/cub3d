@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+         #
+#    By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/09 13:34:45 by zsyyida          ###   ########.fr        #
+#    Updated: 2023/08/11 01:49:29 by zsyyida          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ MLX = libmlx.a
 
 SRCS = test.c error.c main.c identify.c raycasting2.c mlx.c\
 	download.c utils.c parse_map.c walled_check.c\
-	walled_check_utilities.c movement.c
+	walled_check_utilities.c movement.c textures.c
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 

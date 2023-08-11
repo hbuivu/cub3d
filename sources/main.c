@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 	check_walled(main);
 	init_main(main);
 	init_calc(main);
-	print_main(main);
+	// print_main(main);
 	mlx(main);
 	raycast(main);
 	mlx_loop(main->mlx.mlx_ptr);
