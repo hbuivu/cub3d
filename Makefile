@@ -6,7 +6,7 @@
 #    By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/11 18:04:35 by hbui-vu          ###   ########.fr        #
+#    Updated: 2023/08/11 18:11:53 by hbui-vu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ MLX = libmlx.a
 
 SRCS = test.c error.c main.c identify.c raycasting2.c mlx.c\
 	download.c utils.c parse_map.c walled_check.c\
-	walled_check_utilities.c movement.c
+	walled_check_utilities.c movement.c textures.c
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 

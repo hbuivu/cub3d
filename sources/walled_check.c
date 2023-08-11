@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 17:01:13 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/11 18:05:04 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/11 18:11:41 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_queue(t_queue *queue)
 {
-	t_queue *ptr;
+	t_queue	*ptr;
 
 	ptr = queue;
 	while (ptr != NULL)
@@ -40,10 +40,10 @@ void	visit(t_queue *ptr, t_main *main, int x, int y)
 	}
 }
 
-void	check_walled_helper(t_queue *ptr, t_main *main, char **map_cpy)
+void	check_walled_helper(t_queue *ptr, t_main *main)
 {
-	if (main->player_pos[0] <= 0 || main->player_pos[0] >= main->map_width - 1 ||
-		main->player_pos[1] <= 0 || main->player_pos[1] >= main->map_height - 1)
+	if (main->player_pos[0] <= 0 || main->player_pos[0] >= main->map_width - 1
+		|| main->player_pos[1] <= 0 || main->player_pos[1] >= main->map_height - 1)
 		return_error(main, WALL_ERR);
 	main->map_cpy[main->player_pos[1]][main->player_pos[0]] = 'V';
 	main->player_update[0] = ptr->x;
@@ -53,6 +53,16 @@ void	check_walled_helper(t_queue *ptr, t_main *main, char **map_cpy)
 		visit(ptr, main, ptr->x + 1, ptr->y);
 		visit(ptr, main, ptr->x - 1, ptr->y);
 	}
+	if (main->player_update[1] - 1 > 0 && main->player_update[1] + 1 < main->map_height)
+	{
+		visit(ptr, main, ptr->x, ptr->y + 1);
+		visit(ptr, main, ptr->x, ptr->y - 1);
+	}
+	if (main->player_update[0] - 1 > 0 && main->player_update[1] - 1 > 0)
+		visit(ptr, main, ptr->x - 1, ptr->y - 1);
+	if (main->player_update[0] + 1 < main->map_width
+		&& main->player_update[1] + 1 < main->map_height)
+		visit(ptr, main, ptr->x + 1, ptr->y + 1);
 	if (main->player_update[1] - 1 > 0 && main->player_update[1]  + 1 < main->map_height)
 	{
 		visit(ptr, main, ptr->x,ptr->y + 1);
@@ -73,20 +83,13 @@ void	check_walled(t_main *main)
 	t_queue	*enqueue;
 	int		i;
 	t_queue	*ptr;
-	char	**map_cpy;
 
 	main->player_update = (int *)cub_malloc(2, sizeof(int), main);
-	map_cpy = ft_calloc(main->map_height + 1, sizeof(char*));
+	main->map_cpy = ft_calloc(main->map_height + 1, sizeof(char*));
 	i = 0;
 	while (main->map[i])
 	{
-		map_cpy[i] = ft_strdup(main->map[i]);
-		i++;
-	}
-	 i = 0;
-	while(map_cpy[i])
-	{
-		printf("%s\n", map_cpy[i]);
+		main->map_cpy[i] = ft_strdup(main->map[i]);
 		i++;
 	}
 	enqueue = ft_lstnew_dl(main->player_pos[0], main->player_pos[1]);
@@ -94,9 +97,9 @@ void	check_walled(t_main *main)
 	while (enqueue != NULL)
 	{
 
-			check_walled_helper(ptr, main);
-			ptr = ptr->next;
-			ft_dequeue(enqueue);
-			enqueue = ptr;
+		check_walled_helper(ptr, main);
+		ptr = ptr->next;
+		ft_dequeue(enqueue);
+		enqueue = ptr;
 	}
 }

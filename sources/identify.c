@@ -6,7 +6,6 @@
 2. Make sure NO, SO, WE, EA is there
 3. After that, is the map
 */
-// not going to next for some reason
 int	*to_int(char *s)
 {
 	char	**split;

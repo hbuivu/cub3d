@@ -6,7 +6,9 @@ SO textures/south.xpm
 EA textures/east.xpm
 WE textures/west.xpm
 
-1111
-1001
-10S1
-1111
+        1
+       101
+      1001
+     10S001
+    10010011
+   1111111111

@@ -21,6 +21,7 @@ void	mlx(t_main *main)
 	main->mlx.mlx_ptr = mlx_init();
 	if (!main->mlx.mlx_ptr)
 		return_error(main, MLX_ERR);
+	// get_textures(main);
 	main->mlx.mlx_win = mlx_new_window(main->mlx.mlx_ptr, main->win_width, main->win_height, "Cub3D");
 	if (!main->mlx.mlx_win)
 		return_error(main, MLX_ERR);
@@ -30,8 +31,8 @@ void	mlx(t_main *main)
 	main->img.addr = mlx_get_data_addr(main->img.img, &main->img.bpp, &main->img.line_length, &main->img.endian);
 	if (!main->img.addr)
 		return_error(main, MLX_ERR);
-	// raycast(main);
-	// mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win, main->img.img, 0, 0);
+	raycast(main);
+	mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win, main->img.img, 0, 0);
 	// draw_floor_ceiling(main);
 	// mlx_loop(main->mlx.mlx_ptr);
 	

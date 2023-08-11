@@ -279,7 +279,6 @@ void	cast_line(int x, t_calc *c, t_main *main)
 		else if (c->stepy == -1)
 			c->wall_face = SOUTH;
 	}
-
 }
 
 void	raycast(t_main *main)
@@ -321,4 +320,3 @@ void	raycast(t_main *main)
 	mlx_hook(main->mlx.mlx_win, 17, 1L << 17, ft_close, main);
 	mlx_loop(main->mlx.mlx_ptr);
 }	
-

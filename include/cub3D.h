@@ -6,9 +6,10 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/11 18:05:39 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/11 18:08:47 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef CUB3D_H
 # define CUB3D_H
@@ -23,14 +24,14 @@
 // from KEYCODES minilibx for ASDW and keycode for arrow keys
 # define LEFT_KEY				123
 # define RIGHT_KEY				124
-# define UP_KEY					126
-# define DOWN_KEY				125
 # define A_KEY					0
 # define S_KEY					1
 # define D_KEY					2
 # define W_KEY					13
 # define ESC 					53
-// # define SIZE					100
+# define TW				64	// width of the texture
+# define TH				64  //height of texture
+# define SIZE					1  //size of the texture		
 // # define GL_SILENCE_DEPRECATION
 
 enum	error
@@ -133,14 +134,23 @@ typedef struct s_main
 	int				*c_color;
 	char			**map; //final map, access via map[row][column]
 	t_mlx			mlx;
-	t_img			img;
 	t_calc			*calc;
 	double			n_angle;
 	double			s_angle;
 	double			e_angle;
 	double			w_angle;
 
+	t_img			img;
+	
 	/* zahra */
+	t_img			img_no_wall;
+	t_img			img_so_wall;
+	t_img			img_we_wall;
+	t_img			img_ea_wall;
+	t_img			img_spr1;
+	t_img			img_spr2;
+	t_img			img_door1;
+	t_img			img_door2;
 	int				*player_update;
 	char			**map_cpy;
 }	t_main;
@@ -181,11 +191,14 @@ void	print_main(t_main *main);
 /* identify.c */
 t_omap	*identify(t_omap *omap_start, t_main *main);
 void	visit(t_queue *ptr, t_main *main, int x, int y);
-void	check_walled_helper(t_queue *ptr, t_main *main, char **map_cpy);
+void	check_walled_helper(t_queue *ptr, t_main *main);
 void	check_walled(t_main *main);
 t_queue	*ft_lstnew_dl(int x, int y);
 t_queue	*ft_lstadd_back_dl(t_queue **queue, t_queue *new);
 void	*ft_dequeue(t_queue *enqueue);
 void	del(void *lst);
+
+void	get_textures(t_main *main);
+void	get_data_addr(t_main *main);
 
 #endif

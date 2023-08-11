@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	parse_map(map_ptr, main); //fills out everything else in main
 	get_map(map_ptr, main);
 	// print_main_map(main);
-	// check_walled(main);
+	check_walled(main);
 	init_main(main);
 	init_calc(main);
 	// print_main(main);
