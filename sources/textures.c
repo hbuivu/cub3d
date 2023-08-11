@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 21:19:55 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/11 20:41:01 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/11 21:08:25 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,32 +34,33 @@ void	print_buffer(t_main *main)
 	ptr = main->img_we_wall.addr;
 	while(i < main->img_we_wall.line_length)
 	{
-		printf("buffer\n");
 		printf("buff[i]%d \n", ptr[i]);
 		i++;
 	}
+	printf("%d\n", i);
 }
 
 void	get_textures(t_main *main)
 {
-	int img_height;
-	int img_width;
+	int size;
+	size = 100;
+
 	main->img_no_wall.img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
-			main->n_path, &img_width, &img_height);
+			main->n_path, &size, &size);
 	if (main->img_no_wall.img == NULL)
 		return_error(main, IMG_ERR);
-	// main->img_so_wall.img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
-	// 		"./textures/south.xpm", &size, &size);
-	// if (!main->img_so_wall.img)
-	// 	return_error(main, IMG_ERR);
-	// main->img_ea_wall.img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
-	// 		"./textures/east.xpm", &size, &size);
-	// if (!main->img_ea_wall.img)
-	// 	return_error(main, IMG_ERR);
-	// main->img_we_wall.img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
-	// 		"./textures/west.xpm", &size, &size);
-	// if (!main->img_we_wall.img)
-	// 	return_error(main, IMG_ERR);
+	main->img_so_wall.img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
+			main->s_path, &size, &size);
+	if (!main->img_so_wall.img)
+		return_error(main, IMG_ERR);
+	main->img_ea_wall.img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
+			main->e_path, &size, &size);
+	if (!main->img_ea_wall.img)
+		return_error(main, IMG_ERR);
+	main->img_we_wall.img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
+			main->e_path, &size, &size);
+	if (!main->img_we_wall.img)
+		return_error(main, IMG_ERR);
 	// main->img_spr1.img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
 	// 		"./textures/spr1.xpm", &size, &size);
 	// if (!main->img_spr1.img)
@@ -87,17 +88,17 @@ void	get_textures(t_main *main)
 void	get_data_addr(t_main *main)
 {
 	main->img_no_wall.addr = mlx_get_data_addr(main->img_no_wall.img, &main->img_no_wall.bpp, &main->img_no_wall.line_length, &main->img_no_wall.endian);
-	// if (!main->img_no_wall.addr)
-	// 	return_error(main, IMG_ERR);
-	// main->img_so_wall.addr = mlx_get_data_addr(main->img_so_wall.img, &main->img_so_wall.bpp, &main->img_so_wall.line_length, &main->img_so_wall.endian);
-	// if (!main->img_so_wall.addr)
-	// 	return_error(main, MLX_ERR);
-	// main->img_ea_wall.addr = mlx_get_data_addr(main->img_ea_wall.img, &main->img_ea_wall.bpp, &main->img_ea_wall.line_length, &main->img_ea_wall.endian);
-	// if (!main->img_ea_wall.addr)
-	// 	return_error(main, MLX_ERR);
-	// main->img_we_wall.addr = mlx_get_data_addr(main->img_we_wall.img, &main->img_we_wall.bpp, &main->img_we_wall.line_length, &main->img_we_wall.endian);
-	// if (!main->img_we_wall.addr)
-	// 	return_error(main, MLX_ERR);
+	if (!main->img_no_wall.addr)
+		return_error(main, IMG_ERR);
+	main->img_so_wall.addr = mlx_get_data_addr(main->img_so_wall.img, &main->img_so_wall.bpp, &main->img_so_wall.line_length, &main->img_so_wall.endian);
+	if (!main->img_so_wall.addr)
+		return_error(main, MLX_ERR);
+	main->img_ea_wall.addr = mlx_get_data_addr(main->img_ea_wall.img, &main->img_ea_wall.bpp, &main->img_ea_wall.line_length, &main->img_ea_wall.endian);
+	if (!main->img_ea_wall.addr)
+		return_error(main, MLX_ERR);
+	main->img_we_wall.addr = mlx_get_data_addr(main->img_we_wall.img, &main->img_we_wall.bpp, &main->img_we_wall.line_length, &main->img_we_wall.endian);
+	if (!main->img_we_wall.addr)
+		return_error(main, MLX_ERR);
 	//  main->img_spr1.addr = mlx_get_data_addr(main->img_spr1.img, &main->img_spr1.bpp, &main->img_spr1.line_length, &main->img_spr1.endian);
 	//  if (!main->img_spr1.addr)
 	 	// return_error(main, MLX_ERR);
