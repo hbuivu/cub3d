@@ -205,18 +205,27 @@ void	cast_vline(t_calc *c, t_main *main)
 //NOTE: create a variable for tan of angle so it only has to be calculated once
 void	cast_line(int x, t_calc *c, t_main *main)
 {
+	int	c_wall;
+	int	r_wall;
+
+	c_wall = 0;
+	r_wall = 0; 
+
 	c->deltay = fabs(c->upg * tan(c->angle));
 	c->deltax = fabs(c->upg / tan(c->angle));
 	if (c->stepx == 1)
 		c->col_int = round_up(c->px / c->upg) * c->upg;
 	else if (c->stepx == -1)
-		c->col_int = round_down(c->px / c->upg) * c->upg - 1; 
+		// c->col_int = round_down(c->px / c->upg) * c->upg - 1; 
+		// the -1 creates lines bc it takes the ray one step further than it ought to, this sometimes causes it to check the wrong grid
+		c->col_int = round_down(c->px / c->upg) * c->upg;
 	c->col_inty = c->py + (c->stepy * fabs((c->col_int - c->px) * tan(c->angle)));
 	
 	if (c->stepy == 1)
 		c->row_int = round_up(c->py / c->upg) * c->upg;
 	else if (c->stepy == -1)
-		c->row_int = round_down(c->py / c->upg) * c->upg - 1;
+		// c->row_int = round_down(c->py / c->upg) * c->upg - 1; //could have same issue here
+		c->row_int = round_down(c->py / c->upg) * c->upg; //could have same issue here
 	c->row_intx = c->px + (c->stepx * fabs((c->row_int - c->py) / tan(c->angle)));
 
 	printf("***BEGINNING***\n");
@@ -230,6 +239,8 @@ void	cast_line(int x, t_calc *c, t_main *main)
 		printf("deltax: %lf\n", c->deltax);
 
 	// printf("\n***COLUMN JUMPS***\n");
+	//have a check_map function here;
+	/* basically, if stepx/y is negative, we need to check 1 after the rounding */
 	while (c->col_inty > 0 && c->col_int > 0 &&
 		(int)(c->col_inty / c->upg) < main->map_height && 
 		(int)(c->col_int / c->upg) < main->map_width &&
@@ -291,6 +302,7 @@ void	raycast(t_main *main)
 	draw_floor_ceiling(main);
 	printf("pdir: %lf\n", c->pdir);
 	printf("angle_incr: %lf\n", c->ray_incr);
+	printf("px: %lf py: %lf\n", c->px, c->py);
 	while (x < main->calc->pln_width)
 	{
 		printf("x is: %i\n", x);

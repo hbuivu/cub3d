@@ -1,5 +1,6 @@
 pdir: 1.570796
 angle_incr: 0.000857
+px: 544.000000 py: 352.000000
 x is: 0
 angle: 0.994838
 ***BEGINNING***
@@ -44372,5 +44373,4 @@ wall_height: 294.340055
 x is: 1342
 angle: 2.145041
 ***BEGINNING***
-c->col_inty: 300.993252
-c->col_int: 511.000000
+c->col_inty: 300.
