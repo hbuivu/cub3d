@@ -2,8 +2,8 @@
 
 void	init_main(t_main *main)
 {
-	main->win_width = 960;
-	main->win_height = 600;
+	main->win_width = 1344;
+	main->win_height = 1000;
 	main->n_angle = M_PI / 2;
 	main->s_angle = (3 * M_PI) / 2;
 	main->e_angle = 2 * M_PI;
@@ -33,6 +33,5 @@ int	main(int argc, char **argv)
 	// print_main(main);
 	mlx(main);
 	raycast(main);
-	mlx_loop(main->mlx.mlx_ptr);
-	return_error(main, NONE);
+	// return_error(main, NONE);
 }

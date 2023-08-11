@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/11 18:40:33 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/11 19:12:23 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,8 +105,6 @@ typedef struct	s_calc
 	double	py; //player spawn y(row) position in unit coordinates
 	double	pdir; //player direction in rad
 	double	ray_incr; //angle at which ray increments from right to left
-	// double	r_angle; //angle of ray in radians
-
 	/* recalculated each ray */
 	double	angle; //angle used for calculations in degrees
 	int		stepx; //direction in which x is going (-1 or 1)
