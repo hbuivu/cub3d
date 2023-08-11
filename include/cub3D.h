@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/08/09 16:47:40 by zsyyida          ###   ########.fr       */
-=======
-/*   Updated: 2023/08/11 14:30:25 by zsyyida          ###   ########.fr       */
->>>>>>> fd11959a983f3670d2fff8e0ae32a786e57c9985
+/*   Updated: 2023/08/11 18:40:33 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +29,9 @@
 # define D_KEY					2
 # define W_KEY					13
 # define ESC 					53
-<<<<<<< HEAD
-# define SIZE					100
-=======
 # define TW				64	// width of the texture
 # define TH				64  //height of texture
-# define SIZE					1  //size of the texture		
->>>>>>> fd11959a983f3670d2fff8e0ae32a786e57c9985
+# define SIZE					1  //size of the texture
 // # define GL_SILENCE_DEPRECATION
 
 enum	error
@@ -114,7 +106,7 @@ typedef struct	s_calc
 	double	pdir; //player direction in rad
 	double	ray_incr; //angle at which ray increments from right to left
 	// double	r_angle; //angle of ray in radians
-	
+
 	/* recalculated each ray */
 	double	angle; //angle used for calculations in degrees
 	int		stepx; //direction in which x is going (-1 or 1)
@@ -158,7 +150,7 @@ typedef struct s_main
 	double			w_angle;
 
 	t_img			img;
-	
+
 	/* zahra */
 	t_img			img_no_wall;
 	t_img			img_so_wall;
