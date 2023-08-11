@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/09 09:48:29 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/11 17:55:59 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 int	ft_movement(int key_code, t_main *main)
 {
 	int	i = -1;
-
+	
 	if (key_code == ESC)
 		ft_close(main);
 	else if (key_code == LEFT_KEY)
@@ -47,12 +47,12 @@ int	ft_movement(int key_code, t_main *main)
 	}
 	else if (key_code == A_KEY)
 	{
-		// while (--i < 5)
-		// {
-		// 	if (main->calc->px % 64 == 0 && main->map[(int)(main->calc->py / 64)][(int)((main->calc->px / 64) - 1)] == '1')
-		// 		break;
-		// 	main->calc->px--;
-		// }
+		while (--i < 5)
+		{
+			if (fmod(main->calc->px, 64) == 0 && main->map[(int)(main->calc->py / 64)][(int)((main->calc->px / 64) - 1)] == '1')
+				break;
+			main->calc->px--;
+		}
 	}
 	else if (key_code == D_KEY)
 	{
@@ -65,12 +65,12 @@ int	ft_movement(int key_code, t_main *main)
 	}
 	else if (key_code == W_KEY)
 	{
-		// while (--i < 5)
-		// {
-		// 	if (main->calc->py % 64 == 0 && main->map[(int)((main->calc->py / 64) - 1)][(int)(main->calc->px / 64)] == '1')
-		// 		break;
-		// 	main->calc->py--;
-		// }
+		while (--i < 5)
+		{
+			if (fmod(main->calc->py, 64) == 0 && main->map[(int)((main->calc->py / 64) - 1)][(int)(main->calc->px / 64)] == '1')
+				break;
+			main->calc->py--;
+		}
 	}
 	else if (key_code == S_KEY)
 	{
@@ -81,8 +81,8 @@ int	ft_movement(int key_code, t_main *main)
 			main->calc->py++;
 		}
 	}
-	mlx_clear_window(main->mlx.mlx_ptr, main->mlx.mlx_win);
-	mlx_destroy_image(main->mlx.mlx_ptr, main->img.img);
+	// mlx_clear_window(main->mlx.mlx_ptr, main->mlx.mlx_win);
+	// mlx_destroy_image(main->mlx.mlx_ptr, main->img.img);
 	raycast(main);
     return (0);
 }

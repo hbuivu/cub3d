@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/09 11:32:44 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/11 17:53:20 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,12 @@ typedef struct	s_calc
 	double	py; //player spawn y(row) position in unit coordinates
 	double	pdir; //player direction in rad
 	double	ray_incr; //angle at which ray increments from right to left
-
+	
 	/* recalculated each ray */
 	double	angle; //angle used for calculations in degrees
 	int		stepx; //direction in which x is going (-1 or 1)
 	int		stepy; //direction in which y is going (-1 or 1)
-
+	
 	/* initiated to 0 at start */
 	double	col_int; //point where ray intersects a column line
 	double	col_inty; //the y coordinate where ray intersects column line
@@ -111,7 +111,7 @@ typedef struct	s_calc
 	double	deltay; //movement in y direction every time x moves by 1 grid
 	double	dist_col; //distance squared of original point to first column intersect with wall
 	double	dist_row; //distance squared of original point to first row intersect with wall
-	double	cor_dist; //corrected distance from point to closest
+	double	cor_dist; //corrected distance from point to closest 
 	double	wall_height; //projected wall height
 	int		wall_face; //NSEW
 }	t_calc;
