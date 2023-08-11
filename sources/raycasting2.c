@@ -167,11 +167,11 @@ void	cast_hline(t_calc *c, t_main *main)
 	else if (c->stepx == -1)
 	{
 		c->wall_face = EAST;
-		c->col_int = round_down(c->px / c->upg) * c->upg - 1; 
+		c->col_int = round_down(c->px / c->upg) * c->upg - 1;
 	}
 	c->col_inty = c->py;
 	while (c->col_inty > 0 && c->col_int > 0 &&
-		(int)(c->col_inty / c->upg) < main->map_height && 
+		(int)(c->col_inty / c->upg) < main->map_height &&
 		(int)(c->col_int / c->upg) < main->map_width &&
 		(main->map[(int)(c->col_inty / c->upg)][(int)(c->col_int / c->upg)] != '1'))
 		c->col_int += c->deltax;
@@ -210,37 +210,37 @@ void	cast_line(int x, t_calc *c, t_main *main)
 	if (c->stepx == 1)
 		c->col_int = round_up(c->px / c->upg) * c->upg;
 	else if (c->stepx == -1)
-		c->col_int = round_down(c->px / c->upg) * c->upg - 1; 
+		c->col_int = round_down(c->px / c->upg) * c->upg - 1;
 	c->col_inty = c->py + (c->stepy * fabs((c->col_int - c->px) * tan(c->angle)));
-	
+
 	if (c->stepy == 1)
 		c->row_int = round_up(c->py / c->upg) * c->upg;
 	else if (c->stepy == -1)
 		c->row_int = round_down(c->py / c->upg) * c->upg - 1;
 	c->row_intx = c->px + (c->stepx * fabs((c->row_int - c->py) / tan(c->angle)));
 
-	printf("***BEGINNING***\n");
-		printf("c->col_inty: %lf\n", c->col_inty);
-		printf("c->col_int: %lf\n", c->col_int);
-		printf("COL: %i: check row: %i check column: %i\n", x, (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
-		printf("c->row_int: %lf\n", c->row_int);
-		printf("c->row_intx: %lf\n", c->row_intx);
-		printf("ROW: %i: check row: %i check column: %i\n", x, (int)(c->row_int / c->upg), (int)(c->row_intx / c->upg));	
-		printf("deltay: %lf\n", c->deltay);
-		printf("deltax: %lf\n", c->deltax);
+	// printf("***BEGINNING***\n");
+	// 	printf("c->col_inty: %lf\n", c->col_inty);
+	// 	printf("c->col_int: %lf\n", c->col_int);
+	// 	printf("COL: %i: check row: %i check column: %i\n", x, (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
+	// 	printf("c->row_int: %lf\n", c->row_int);
+	// 	printf("c->row_intx: %lf\n", c->row_intx);
+	// 	printf("ROW: %i: check row: %i check column: %i\n", x, (int)(c->row_int / c->upg), (int)(c->row_intx / c->upg));
+	// 	printf("deltay: %lf\n", c->deltay);
+	// 	printf("deltax: %lf\n", c->deltax);
 
 	// printf("\n***COLUMN JUMPS***\n");
 	while (c->col_inty > 0 && c->col_int > 0 &&
-		(int)(c->col_inty / c->upg) < main->map_height && 
+		(int)(c->col_inty / c->upg) < main->map_height &&
 		(int)(c->col_int / c->upg) < main->map_width &&
 		(main->map[(int)(c->col_inty / c->upg)][(int)(c->col_int / c->upg)] != '1'))
 	{
 		c->col_int += c->stepx * c->upg;
 		c->col_inty += c->stepy * c->deltay;
-		printf("deltay: %lf\n", c->deltay);
-		printf("c->col_inty: %lf\n", c->col_inty);
-		printf("c->col_int: %lf\n", c->col_int);
-		printf("check row: %i check column: %i\n", (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
+		// printf("deltay: %lf\n", c->deltay);
+		// printf("c->col_inty: %lf\n", c->col_inty);
+		// printf("c->col_int: %lf\n", c->col_int);
+		// printf("check row: %i check column: %i\n", (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
 	}
 
 	// printf("\n***ROW JUMPS***\n");
@@ -251,10 +251,10 @@ void	cast_line(int x, t_calc *c, t_main *main)
 	{
 		c->row_int += c->stepy * c->upg;
 		c->row_intx += c->stepx * c->deltax;
-		printf("deltax: %lf\n", c->deltax);
-		printf("c->row_intx: %lf\n", c->row_intx);
-		printf("c->row_int: %lf\n", c->row_int);
-		printf("check row: %i check column: %i\n", (int)(c->row_int/ c->upg), (int)(c->row_intx / c->upg));
+		// printf("deltax: %lf\n", c->deltax);
+		// printf("c->row_intx: %lf\n", c->row_intx);
+		// printf("c->row_int: %lf\n", c->row_int);
+		// printf("check row: %i check column: %i\n", (int)(c->row_int/ c->upg), (int)(c->row_intx / c->upg));
 	}
 	//NOTE:here, if one direction goes out of bounds, we should ignore it
 	//NOTE:also no need to compare distances if the angle is perpendicular
@@ -269,7 +269,7 @@ void	cast_line(int x, t_calc *c, t_main *main)
 			c->wall_face = WEST;
 		else if (c->stepx == -1)
 			c->wall_face = EAST;
-	}	
+	}
 	else
 	{
 		// printf("\nUsing dist_row\n");
@@ -285,31 +285,31 @@ void	raycast(t_main *main)
 {
 	t_calc	*c;
 	int		x;
-	
+
 	c = main->calc;
 	x = 0;
 	draw_floor_ceiling(main);
-	printf("pdir: %lf\n", c->pdir);
-	printf("angle_incr: %lf\n", c->ray_incr);
+	// printf("pdir: %lf\n", c->pdir);
+	// printf("angle_incr: %lf\n", c->ray_incr);
 	while (x < main->calc->pln_width)
 	{
-		printf("x is: %i\n", x);
-		// if (x == 805 || x == 1147 || x == 1148 || x == 1149)
-		printf("angle: %lf\n", c->angle);
+		// printf("x is: %i\n", x);
+		// // if (x == 805 || x == 1147 || x == 1148 || x == 1149)
+		// printf("angle: %lf\n", c->angle);
 		if (ch_num(c->angle, 0) || ch_num(c->angle, main->w_angle) || ch_num(c->angle, main->e_angle))
 			cast_hline(c, main);
 		else if (ch_num (c->angle, main->n_angle) || ch_num(c->angle, main->s_angle))
 			cast_vline(c, main);
 		else
 			cast_line(x, c, main);
-		
+
 		c->wall_height = (c->upg / c->cor_dist) * c->pln_dist;
-		printf("COL: check row: %i check column: %i\n", (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
-		printf("ROW: check row: %i check column: %i\n", (int)(c->row_int / c->upg), (int)(c->row_intx / c->upg));
-		printf("dist_col: %lf\n", c->dist_col);
-		printf("dist_row: %lf\n", c->dist_row);
-		printf("cor_dist: %lf\n", c->cor_dist);
-		printf("wall_height: %lf\n", c->wall_height);
+		// printf("COL: check row: %i check column: %i\n", (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
+		// printf("ROW: check row: %i check column: %i\n", (int)(c->row_int / c->upg), (int)(c->row_intx / c->upg));
+		// printf("dist_col: %lf\n", c->dist_col);
+		// printf("dist_row: %lf\n", c->dist_row);
+		// printf("cor_dist: %lf\n", c->cor_dist);
+		// printf("wall_height: %lf\n", c->wall_height);
 
 		draw_wall(x, main);
 		x++;
@@ -319,4 +319,4 @@ void	raycast(t_main *main)
 	mlx_key_hook(main->mlx.mlx_win, ft_movement, main);
 	mlx_hook(main->mlx.mlx_win, 17, 1L << 17, ft_close, main);
 	mlx_loop(main->mlx.mlx_ptr);
-}	
+}

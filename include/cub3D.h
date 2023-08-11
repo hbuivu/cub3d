@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/11 19:12:23 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/11 20:36:17 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ enum	error
 	OPEN_ERR,
 	PLAYER_ERR,
 	WALL_ERR,
+	IMG_ERR,
 	NONE
 };
 
@@ -77,14 +78,6 @@ typedef struct	s_mlx
 {
 	void	*mlx_ptr;
 	void	*mlx_win;
-	void	*img_no;
-	void	*img_so;
-	void	*img_ea;
-	void	*img_we;
-	void	*img_spr1;
-	void	*img_spr2;
-	void	*img_door1;
-	void	*img_door2;
 }	t_mlx;
 
 typedef struct s_omap

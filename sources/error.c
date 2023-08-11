@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:27:01 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/11 18:04:50 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/11 20:37:55 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ void	return_error(t_main *main, int err_msg)
 	int		i;
 
 	i = -1;
-	//return err messages here
-	//(void)err_msg;
 	if (err_msg == IDENT_ERR)
 		perror("incorrect identifier");
 	if (err_msg == NBR_IDENT_ERR)
@@ -57,8 +55,8 @@ void	return_error(t_main *main, int err_msg)
 		perror("map not surrounded by walls");
 	if (err_msg == NONE)
 		perror("the end");
-	// perror("Return error\n");
-	// perror("Return error\n");
+	if (err_msg == IMG_ERR)
+		perror("error saving image");
 	if (main)
 	{
 		if (main->omap)
@@ -98,32 +96,3 @@ void	return_error(t_main *main, int err_msg)
 	}
 	exit(1);
 }
-
-// int	ft_strstr(char *h, char *n)
-// {
-// 	size_t	n_len;
-
-// 	if (*n == '\0')
-// 		return (1);
-// 	n_len = ft_strlen(n) + 1;
-// 	while (*h != '\0' && n_len > 0)
-// 	{
-// 		if (ft_strncmp(h, n, n_len) == 0 && *h == *n)
-// 			return (0);
-// 		h++;
-// 		n_len--;
-// 	}
-// 	return (1);
-// }
-
-// int	ft_is_cub(char **argv)
-// {
-// 	int	len;
-
-// 	len = ft_strlen(argv[1]);
-// 	if (len < 5)
-// 		return (1);
-// 	if (ft_strstr(argv[1], ".cub") == 0)
-// 		return (1);
-// 	return (0);
-// }
