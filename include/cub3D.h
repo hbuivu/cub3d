@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/11 02:12:53 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/11 14:30:25 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@
 // from KEYCODES minilibx for ASDW and keycode for arrow keys
 # define LEFT_KEY				123
 # define RIGHT_KEY				124
-# define UP_KEY					126
-# define DOWN_KEY				125
 # define A_KEY					0
 # define S_KEY					1
 # define D_KEY					2
 # define W_KEY					13
 # define ESC 					53
-# define SIZE					100
+# define TW				64	// width of the texture
+# define TH				64  //height of texture
+# define SIZE					1  //size of the texture		
 // # define GL_SILENCE_DEPRECATION
 
 enum	error
