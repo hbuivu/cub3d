@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 17:01:13 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/11 17:58:45 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/11 18:05:04 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,12 @@ void	visit(t_queue *ptr, t_main *main, int x, int y)
 	}
 }
 
-void	check_walled_helper(t_queue *ptr, t_main *main)
+void	check_walled_helper(t_queue *ptr, t_main *main, char **map_cpy)
 {
 	if (main->player_pos[0] <= 0 || main->player_pos[0] >= main->map_width - 1 ||
 		main->player_pos[1] <= 0 || main->player_pos[1] >= main->map_height - 1)
 		return_error(main, WALL_ERR);
 	main->map_cpy[main->player_pos[1]][main->player_pos[0]] = 'V';
-	main->player_update = (int *)cub_malloc(2, sizeof(int), main);
 	main->player_update[0] = ptr->x;
 	main->player_update[1] = ptr->y;
 	if (ptr->x - 1 > 0 && ptr->x + 1 < main->map_width)
@@ -74,12 +73,20 @@ void	check_walled(t_main *main)
 	t_queue	*enqueue;
 	int		i;
 	t_queue	*ptr;
+	char	**map_cpy;
 
-	main->map_cpy = ft_calloc(main->map_height + 1, sizeof(char*));
+	main->player_update = (int *)cub_malloc(2, sizeof(int), main);
+	map_cpy = ft_calloc(main->map_height + 1, sizeof(char*));
 	i = 0;
 	while (main->map[i])
 	{
-		main->map_cpy[i] = ft_strdup(main->map[i]);
+		map_cpy[i] = ft_strdup(main->map[i]);
+		i++;
+	}
+	 i = 0;
+	while(map_cpy[i])
+	{
+		printf("%s\n", map_cpy[i]);
 		i++;
 	}
 	enqueue = ft_lstnew_dl(main->player_pos[0], main->player_pos[1]);

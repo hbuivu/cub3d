@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/11 17:53:20 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/11 18:05:39 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,7 +181,7 @@ void	print_main(t_main *main);
 /* identify.c */
 t_omap	*identify(t_omap *omap_start, t_main *main);
 void	visit(t_queue *ptr, t_main *main, int x, int y);
-void	check_walled_helper(t_queue *ptr, t_main *main);
+void	check_walled_helper(t_queue *ptr, t_main *main, char **map_cpy);
 void	check_walled(t_main *main);
 t_queue	*ft_lstnew_dl(int x, int y);
 t_queue	*ft_lstadd_back_dl(t_queue **queue, t_queue *new);
