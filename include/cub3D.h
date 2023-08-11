@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/09 12:19:09 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/11 17:17:22 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_queue
 	int				x;
 	int				y;
 	struct s_queue	*next;
+	struct s_queue	*prev;
 }	t_queue;
 
 typedef struct	s_img
