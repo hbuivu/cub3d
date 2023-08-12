@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+         #
+#    By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/11 18:11:53 by hbui-vu          ###   ########.fr        #
+#    Updated: 2023/08/12 21:43:45 by zsyyida          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,13 +58,13 @@ all: $(NAME)
 clean:
 	$(MAKE) clean -C $(MLX_DIR)
 	$(MAKE) clean -C $(LIBFT_DIR)
-	#rm -rf *.o
 	$(RM) $(OBJ_DIR)
-
+	#rm -rf *.o
+	
 fclean: clean
-	#rm -rf $(NAME)
 	$(RM) $(NAME)
 	$(MAKE) fclean -C $(LIBFT_DIR)
+	#rm -rf $(NAME)
 
 re: fclean all
 

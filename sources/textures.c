@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 21:19:55 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/11 21:08:25 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/12 21:25:00 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,38 @@ since tile is a square can use same size for width and height
  @return	void*			the image instance, and NULL in case of error.
 */
 
-void	print_buffer(t_main *main)
+char	**get_buffer(t_main *main, t_img img)
 {
 	char 	*ptr;
+	int		x;
+	int		y;
 	int		i;
 
 	i = 0;
-	ptr = main->img_we_wall.addr;
-	while(i < main->img_we_wall.line_length)
+	ptr = img.addr;
+	// while (i < (img.line_length) * (img.line_length))
+	// {
+	// 	printf("%i\n", ptr[i]);
+	// 	i++;
+	// }
+	y = 0;
+	img.buff = cub_calloc(img.line_length, sizeof(char *), main);
+	while (y < img.line_length)
 	{
-		printf("buff[i]%d \n", ptr[i]);
-		i++;
+		x = 0;
+		while (x < img.line_length)
+		{
+			img.buff[y] = cub_calloc(img.line_length, sizeof(char), main);
+			img.buff[y][x] = ptr[i];
+			printf("img %i\n", ptr[i]);
+			printf("buff %i\n", img.buff[y][x]);
+			printf("i %i, x %x\n", i, x);
+			x++;
+			i++;
+		}
+		y++;
 	}
-	printf("%d\n", i);
+	return (main->img.buff);
 }
 
 void	get_textures(t_main *main)
@@ -111,20 +130,9 @@ void	get_data_addr(t_main *main)
 	//  main->img_door2.addr = mlx_get_data_addr(main->img_door2.img, &main->img_door2.bpp, &main->img_door2.line_length, &main->img_door2.endian);
 	//  if (!main->img_door2.addr)
 	 	// return_error(main, MLX_ERR);
-	print_buffer(main);
+	main->img_no_wall.buff = get_buffer(main, main->img_no_wall);
+	// main->img_so_wall.buff = get_buffer(main, main->img_so_wall);
+	// main->img_ea_wall.buff = get_buffer(main, main->img_ea_wall);
+	// main->img_we_wall.buff = get_buffer(main, main->img_we_wall);
 }
 
-//generate some textures
-// {
-// 	unsigned long TW;
-// 	unsigned long TH;
-
-// 	loadImage(texture[0], TW, TH, "textures/north.xpm");
-// 	loadImage(texture[1], TW, TH, "textures/south.xpm");
-// 	loadImage(texture[2], TW, TH, "textures/east.xpm");
-// 	loadImage(texture[3], TW, TH, "textures/west.xpm");
-// 	loadImage(texture[4], TW, TH, "textures/spr1.xpm");
-//  loadImage(texture[4], TW, TH, "textures/spr2.xpm");
-// 	loadImage(texture[4], TW, TH, "textures/door1.xpm");
-// 	loadImage(texture[4], TW, TH, "textures/door2.xpm");
-// }
