@@ -138,9 +138,9 @@ void	draw_wall(int x, t_main *main)
 	stop = round(mid + half_wall);
 	if (stop >= main->calc->pln_height)
 		stop = main->calc->pln_height - 1;
-	if (x == 805 || x == 1147 || x == 1148 || x == 1149)
-		color = 16737380; //pink
-	else if (main->calc->wall_face == NORTH)
+	// if (x == 672)
+	// 	color = 16737380; //pink
+	if (main->calc->wall_face == NORTH)
 		color = 16711680; //RED
 	else if (main->calc->wall_face == SOUTH)
 		color = 65280; //GREEN
@@ -155,6 +155,38 @@ void	draw_wall(int x, t_main *main)
 	}
 }
 
+int	check_coord(int jump, t_main *main)
+{
+	int		row;
+	int		col;
+	t_calc	*c;
+
+	c = main->calc;
+	if (jump == COL)
+	{
+		row = c->col_inty / c->upg;
+		if (c->stepx == -1)
+			col = (c->col_int / c->upg) - 1;
+		else
+			col = c->col_int / c->upg;
+		if (c->col_inty > 0 && c->col_int > 0 && row < main->map_height && 
+			col < main->map_width && main->map[row][col] != '1')
+			return (1);
+	}
+	else if (jump == ROW)
+	{
+		col = c->row_intx / c->upg;
+		if (c->stepy == -1)
+			row = (c->row_int / c->upg) - 1;
+		else
+			row = c->row_int / c->upg;
+		if (c->row_intx > 0 && c->row_int > 0 && row < main->map_height &&
+			col < main->map_width && main->map[row][col] != '1')
+			return (1);
+	}
+	return (0);
+}
+
 void	cast_hline(t_calc *c, t_main *main)
 {
 	c->deltay = 0;
@@ -167,15 +199,27 @@ void	cast_hline(t_calc *c, t_main *main)
 	else if (c->stepx == -1)
 	{
 		c->wall_face = EAST;
-		c->col_int = round_down(c->px / c->upg) * c->upg - 1; 
+		// c->col_int = round_down(c->px / c->upg) * c->upg - 1; 
+		c->col_int = round_down(c->px / c->upg) * c->upg; 
+
 	}
 	c->col_inty = c->py;
-	while (c->col_inty > 0 && c->col_int > 0 &&
-		(int)(c->col_inty / c->upg) < main->map_height && 
-		(int)(c->col_int / c->upg) < main->map_width &&
-		(main->map[(int)(c->col_inty / c->upg)][(int)(c->col_int / c->upg)] != '1'))
-		c->col_int += c->deltax;
+		printf("***BEGINNING***\n");
+			printf("c->col_inty: %lf\n", c->col_inty);
+			printf("c->col_int: %lf\n", c->col_int);
+			printf("COL: check row: %i check column: %i\n", (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
+			printf("deltax: %lf\n", c->deltax);
+	// while (c->col_inty > 0 && c->col_int > 0 &&
+	// 	(int)(c->col_inty / c->upg) < main->map_height && 
+	// 	(int)(c->col_int / c->upg) < main->map_width &&
+	// 	(main->map[(int)(c->col_inty / c->upg)][(int)(c->col_int / c->upg)] != '1'))
+	while (check_coord(COL, main))
+	{
+		c->col_int += c->stepx * c->deltax;
+		printf("col_int: %lf\n", c->col_int);
+	}
 	c->cor_dist = fabs(c->col_int - c->px);
+	printf("cor_dist: %lf\n", c->cor_dist);
 }
 
 void	cast_vline(t_calc *c, t_main *main)
@@ -190,14 +234,16 @@ void	cast_vline(t_calc *c, t_main *main)
 	else if (c->stepy == -1)
 	{
 		c->wall_face = SOUTH;
-		c->row_int = round_down(c->py / c->upg) * c->upg - 1;
+		// c->row_int = round_down(c->py / c->upg) * c->upg - 1;
+		c->row_int = round_down(c->py / c->upg) * c->upg;
 	}
 	c->row_intx = c->px;
-	while (c->row_int > 0 && c->row_intx > 0 &&
-		(int)(c->row_int / c->upg) < main->map_height &&
-		(int)(c->row_intx / c->upg) < main->map_width &&
-		main->map[(int)(c->row_int / c->upg)][(int)(c->row_intx / c->upg)] != '1')
-		c->row_int += c->deltay;
+	// while (c->row_int > 0 && c->row_intx > 0 &&
+	// 	(int)(c->row_int / c->upg) < main->map_height &&
+	// 	(int)(c->row_intx / c->upg) < main->map_width &&
+	// 	main->map[(int)(c->row_int / c->upg)][(int)(c->row_intx / c->upg)] != '1')
+	while (check_coord(ROW, main))
+		c->row_int += c->stepy * c->deltay;
 	c->cor_dist = fabs(c->row_int - c->py);
 
 }
@@ -205,12 +251,6 @@ void	cast_vline(t_calc *c, t_main *main)
 //NOTE: create a variable for tan of angle so it only has to be calculated once
 void	cast_line(int x, t_calc *c, t_main *main)
 {
-	int	c_wall;
-	int	r_wall;
-
-	c_wall = 0;
-	r_wall = 0; 
-
 	c->deltay = fabs(c->upg * tan(c->angle));
 	c->deltax = fabs(c->upg / tan(c->angle));
 	if (c->stepx == 1)
@@ -228,44 +268,54 @@ void	cast_line(int x, t_calc *c, t_main *main)
 		c->row_int = round_down(c->py / c->upg) * c->upg; //could have same issue here
 	c->row_intx = c->px + (c->stepx * fabs((c->row_int - c->py) / tan(c->angle)));
 
-	printf("***BEGINNING***\n");
-		printf("c->col_inty: %lf\n", c->col_inty);
-		printf("c->col_int: %lf\n", c->col_int);
-		printf("COL: %i: check row: %i check column: %i\n", x, (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
-		printf("c->row_int: %lf\n", c->row_int);
-		printf("c->row_intx: %lf\n", c->row_intx);
-		printf("ROW: %i: check row: %i check column: %i\n", x, (int)(c->row_int / c->upg), (int)(c->row_intx / c->upg));	
-		printf("deltay: %lf\n", c->deltay);
-		printf("deltax: %lf\n", c->deltax);
-
-	// printf("\n***COLUMN JUMPS***\n");
+	if (x == 672)
+	{
+		printf("***BEGINNING***\n");
+			printf("c->col_inty: %lf\n", c->col_inty);
+			printf("c->col_int: %lf\n", c->col_int);
+			printf("COL: %i: check row: %i check column: %i\n", x, (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
+			printf("c->row_int: %lf\n", c->row_int);
+			printf("c->row_intx: %lf\n", c->row_intx);
+			printf("ROW: %i: check row: %i check column: %i\n", x, (int)(c->row_int / c->upg), (int)(c->row_intx / c->upg));	
+			printf("deltay: %lf\n", c->deltay);
+			printf("deltax: %lf\n", c->deltax);
+		printf("\n***COLUMN JUMPS***\n");
+	}
 	//have a check_map function here;
 	/* basically, if stepx/y is negative, we need to check 1 after the rounding */
-	while (c->col_inty > 0 && c->col_int > 0 &&
-		(int)(c->col_inty / c->upg) < main->map_height && 
-		(int)(c->col_int / c->upg) < main->map_width &&
-		(main->map[(int)(c->col_inty / c->upg)][(int)(c->col_int / c->upg)] != '1'))
+	// while (c->col_inty > 0 && c->col_int > 0 &&
+	// 	(int)(c->col_inty / c->upg) < main->map_height && 
+	// 	(int)(c->col_int / c->upg) < main->map_width &&
+	// 	(main->map[(int)(c->col_inty / c->upg)][(int)(c->col_int / c->upg)] != '1'))
+	while (check_coord(COL, main))
 	{
 		c->col_int += c->stepx * c->upg;
 		c->col_inty += c->stepy * c->deltay;
-		printf("deltay: %lf\n", c->deltay);
-		printf("c->col_inty: %lf\n", c->col_inty);
-		printf("c->col_int: %lf\n", c->col_int);
-		printf("check row: %i check column: %i\n", (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
+		if (x == 672)
+		{
+			printf("deltay: %lf\n", c->deltay);
+			printf("c->col_inty: %lf\n", c->col_inty);
+			printf("c->col_int: %lf\n", c->col_int);
+			printf("check row: %i check column: %i\n", (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
+		}
 	}
-
-	// printf("\n***ROW JUMPS***\n");
-	while (c->row_int > 0 && c->row_intx > 0 &&
-		(int)(c->row_int / c->upg) < main->map_height &&
-		(int)(c->row_intx / c->upg) < main->map_width &&
-		main->map[(int)(c->row_int / c->upg)][(int)(c->row_intx / c->upg)] != '1')
+	if (x == 672)
+		printf("\n***ROW JUMPS***\n");
+	// while (c->row_int > 0 && c->row_intx > 0 &&
+	// 	(int)(c->row_int / c->upg) < main->map_height &&
+	// 	(int)(c->row_intx / c->upg) < main->map_width &&
+	// 	main->map[(int)(c->row_int / c->upg)][(int)(c->row_intx / c->upg)] != '1')
+	while (check_coord(ROW, main))
 	{
 		c->row_int += c->stepy * c->upg;
 		c->row_intx += c->stepx * c->deltax;
-		printf("deltax: %lf\n", c->deltax);
-		printf("c->row_intx: %lf\n", c->row_intx);
-		printf("c->row_int: %lf\n", c->row_int);
-		printf("check row: %i check column: %i\n", (int)(c->row_int/ c->upg), (int)(c->row_intx / c->upg));
+		if (x == 672)
+		{
+			printf("deltax: %lf\n", c->deltax);
+			printf("c->row_intx: %lf\n", c->row_intx);
+			printf("c->row_int: %lf\n", c->row_int);
+			printf("check row: %i check column: %i\n", (int)(c->row_int/ c->upg), (int)(c->row_intx / c->upg));
+		}
 	}
 	//NOTE:here, if one direction goes out of bounds, we should ignore it
 	//NOTE:also no need to compare distances if the angle is perpendicular
@@ -274,7 +324,7 @@ void	cast_line(int x, t_calc *c, t_main *main)
 	c->dist_row = fabs((c->px - c->row_intx) / cos(c->angle));
 	if (c->dist_col <= c->dist_row)
 	{
-		// printf("\nUsing dist_col\n");
+		printf("\nUsing dist_col\n");
 		c->cor_dist = c->dist_col * cos((c->fov - (2 * x * c->ray_incr)) / 2);
 		if (c->stepx == 1)
 			c->wall_face = WEST;
@@ -283,7 +333,7 @@ void	cast_line(int x, t_calc *c, t_main *main)
 	}	
 	else
 	{
-		// printf("\nUsing dist_row\n");
+		printf("\nUsing dist_row\n");
 		c->cor_dist = c->dist_row * cos((c->fov - (2 * x * c->ray_incr)) / 2);
 		if (c->stepy == 1)
 			c->wall_face = NORTH;
@@ -300,28 +350,34 @@ void	raycast(t_main *main)
 	c = main->calc;
 	x = 0;
 	draw_floor_ceiling(main);
-	printf("pdir: %lf\n", c->pdir);
-	printf("angle_incr: %lf\n", c->ray_incr);
-	printf("px: %lf py: %lf\n", c->px, c->py);
+	// printf("pdir: %lf\n", c->pdir);
+	// printf("angle_incr: %lf\n", c->ray_incr);
+	// printf("px: %lf py: %lf\n", c->px, c->py);
 	while (x < main->calc->pln_width)
 	{
 		printf("x is: %i\n", x);
 		// if (x == 805 || x == 1147 || x == 1148 || x == 1149)
 		printf("angle: %lf\n", c->angle);
 		if (ch_num(c->angle, 0) || ch_num(c->angle, main->w_angle) || ch_num(c->angle, main->e_angle))
+		{
+			printf("casting horizontal line\n");
 			cast_hline(c, main);
+		}
 		else if (ch_num (c->angle, main->n_angle) || ch_num(c->angle, main->s_angle))
 			cast_vline(c, main);
 		else
 			cast_line(x, c, main);
 		
 		c->wall_height = (c->upg / c->cor_dist) * c->pln_dist;
-		printf("COL: check row: %i check column: %i\n", (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
-		printf("ROW: check row: %i check column: %i\n", (int)(c->row_int / c->upg), (int)(c->row_intx / c->upg));
-		printf("dist_col: %lf\n", c->dist_col);
-		printf("dist_row: %lf\n", c->dist_row);
-		printf("cor_dist: %lf\n", c->cor_dist);
-		printf("wall_height: %lf\n", c->wall_height);
+		if (x == 672)
+		{
+			printf("COL: check row: %i check column: %i\n", (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
+			printf("ROW: check row: %i check column: %i\n", (int)(c->row_int / c->upg), (int)(c->row_intx / c->upg));
+			printf("dist_col: %lf\n", c->dist_col);
+			printf("dist_row: %lf\n", c->dist_row);
+			printf("cor_dist: %lf\n", c->cor_dist);
+			printf("wall_height: %lf\n", c->wall_height);
+		}
 
 		draw_wall(x, main);
 		x++;
