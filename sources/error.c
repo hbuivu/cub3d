@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:27:01 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/11 20:37:55 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/14 16:24:49 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	return_error(t_main *main, int err_msg)
 	if (err_msg == MALLOC_ERR)
 		perror("could not malloc");
 	if (err_msg == MAP_ERR)
-		perror("no map");
+		perror("error in map");
 	if (err_msg == MLX_ERR)
 		perror("missing map components");
 	if (err_msg == OPEN_ERR)

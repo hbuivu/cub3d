@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:13:12 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/09 16:13:21 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/14 16:07:41 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,31 +60,35 @@ int	check_main(t_main *main)
 }
 
 // add free and exit
-t_omap	*identify(t_omap *omap_start, t_main *main)
+t_omap	*identify(t_omap *omap, t_main *main)
 {
 	t_omap	*curr;
 	t_omap	*ptr_map;
+	int		i;
 
-	curr = omap_start;
+	curr = omap;
+	i = 0;
 	while (curr)
 	{
-		if (curr->row[0] == 'F')
+		// while (curr->row[i] == ' ' || curr->row[i] == '\t')
+		// 	i++;
+		if (curr->row[i] == 'F')
 		{
 			if (main->f_color != NULL)
 				return_error(main, NBR_IDENT_ERR);
 			if (ft_strncmp(curr->row, "F ", 2) != 0)
 				return_error(main, IDENT_ERR);
-			main->f_color = to_int(curr->row + 2);
+			main->f_color = to_int(curr->row + i + 2);
 		}
-		else if (curr->row[0] == 'C')
+		else if (curr->row[i] == 'C')
 		{
 			if (main->c_color != NULL)
 				return_error(main, NBR_IDENT_ERR);
 			if (ft_strncmp(curr->row, "C ", 2) != 0)
 				return_error(main, IDENT_ERR);
-			main->c_color = to_int(curr->row + 2);
+			main->c_color = to_int(curr->row + i + 2);
 		}
-		else if (curr->row[0] == 'N')
+		else if (curr->row[i] == 'N')
 		{
 			if (main->n_path != NULL)
 				return_error(main, NBR_IDENT_ERR);
@@ -92,9 +96,9 @@ t_omap	*identify(t_omap *omap_start, t_main *main)
 				return_error(main, IDENT_ERR);
 			if (ft_strncmp(curr->row + ft_strlen(curr->row) - 4, ".xpm", 4) != 0)
 				return_error(main, XPM_ERR);
-			main->n_path = cub_strdup(curr->row + 3, main);
+			main->n_path = cub_strdup(curr->row + i + 3, main);
 		}
-		else if (curr->row[0] == 'S')
+		else if (curr->row[i] == 'S')
 		{
 			if (main->s_path != NULL)
 				return_error(main, NBR_IDENT_ERR);
@@ -102,9 +106,9 @@ t_omap	*identify(t_omap *omap_start, t_main *main)
 				return_error(main, IDENT_ERR);
 			if (ft_strncmp(curr->row + ft_strlen(curr->row) - 4, ".xpm", 4) != 0)
 				return_error(main, XPM_ERR);
-			main->s_path = cub_strdup(curr->row + 3, main);
+			main->s_path = cub_strdup(curr->row + i + 3, main);
 		}
-		else if (curr->row[0] == 'E')
+		else if (curr->row[i] == 'E')
 		{
 			if (main->e_path != NULL)
 				return_error(main, NBR_IDENT_ERR);
@@ -112,9 +116,9 @@ t_omap	*identify(t_omap *omap_start, t_main *main)
 				return_error(main, IDENT_ERR);
 			if (ft_strncmp(curr->row + ft_strlen(curr->row) - 4, ".xpm", 4) != 0)
 				return_error(main, XPM_ERR);
-			main->e_path = cub_strdup(curr->row + 3, main);
+			main->e_path = cub_strdup(curr->row + i + 3, main);
 		}
-		else if (curr->row[0] == 'W')
+		else if (curr->row[i] == 'W')
 		{
 			if (main->w_path != NULL)
 				return_error(main, NBR_IDENT_ERR);
@@ -122,9 +126,9 @@ t_omap	*identify(t_omap *omap_start, t_main *main)
 				return_error(main, IDENT_ERR);
 			if (ft_strncmp(curr->row + ft_strlen(curr->row) - 4, ".xpm", 4) != 0)
 				return_error(main, XPM_ERR);
-			main->w_path = cub_strdup(curr->row + 3, main);
+			main->w_path = cub_strdup(curr->row + i + 3, main);
 		}
-		else if (ft_strchr(curr->row, '1') != NULL || ft_strchr(curr->row, '1') != NULL)
+		else if (ft_strchr(curr->row, '1') != NULL || ft_strchr(curr->row, '0') != NULL || ft_strchr(curr->row, ' ') != NULL)
 		{
 			// printf("%s\n%s\n%s\n%s\n", main->n_path, main->s_path, main->e_path, main->w_path);
 			// int i = 0;

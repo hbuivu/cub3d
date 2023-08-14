@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/12 18:18:36 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/14 15:49:26 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,7 +191,7 @@ void	print_calc(t_main *main);
 void	print_main(t_main *main);
 
 /* identify.c */
-t_omap	*identify(t_omap *omap_start, t_main *main);
+t_omap	*identify(t_omap *omap, t_main *main);
 void	visit(t_queue *ptr, t_main *main, int x, int y);
 void	check_walled_helper(t_queue *ptr, t_main *main);
 void	check_walled(t_main *main);

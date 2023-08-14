@@ -6,15 +6,30 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:14:26 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/09 13:34:08 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/14 16:30:12 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
+// checks for anything after map (after a line with only spaces)
+void	check_map(t_main *main)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y + 1 < main->map_height)
+	{
+		x = 0;
+		if ((ft_strchr("NSEW01", main->map[y][x++]) == 0) &&
+			(ft_strchr("NSEW01", main->map[y + 1][x++]) != 0))
+			return_error(main, MAP_ERR);
+		y++;
+	}
+}
 //does not check for if there are multiple spaces after end of map
 //-> delete all spaces at the end in download.c
-
 //second iteration
 void	get_map(t_omap *ptr_map, t_main *main)
 {
@@ -43,6 +58,7 @@ void	get_map(t_omap *ptr_map, t_main *main)
 		i++;
 		cur = cur->next;
 	}
+	check_map(main);
 }
 
 void	parse_map(t_omap *omap_start, t_main *main)
