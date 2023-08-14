@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:13:12 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/14 16:07:41 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/14 21:21:19 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,6 @@
 2. Make sure NO, SO, WE, EA is there
 3. After that, is the map
 */
-int	*to_int(char *s)
-{
-	char	**split;
-	int		*color;
-	int		i;
-
-	color = ft_calloc(4, sizeof(int));
-	split = ft_split(s, ',');
-	i = 0;
-	while (split[i])
-	{
-		color[i] = ft_atoi(split[i]);
-		if (color[i] < 0 || color[i] > 255)
-		{
-			perror("Not a valid color");
-			exit(1);
-		}
-		i++;
-	}
-	return (color);
-}
 
 int	check_main(t_main *main)
 {
@@ -59,6 +38,13 @@ int	check_main(t_main *main)
 	return (0);
 }
 
+// printf("%s\n%s\n%s\n%s\n", main->n_path, main->s_path, main->e_path, main->w_path);
+// int i = 0;
+// while (main->f_color[i])
+// {
+// 	printf("%d\n%d\n", main->f_color[i], main->c_color[i]);
+// 	i++;
+// }
 // add free and exit
 t_omap	*identify(t_omap *omap, t_main *main)
 {
@@ -70,73 +56,22 @@ t_omap	*identify(t_omap *omap, t_main *main)
 	i = 0;
 	while (curr)
 	{
-		// while (curr->row[i] == ' ' || curr->row[i] == '\t')
-		// 	i++;
+		while (curr->row[i] == ' ' || curr->row[i] == '\t')
+			i++;
 		if (curr->row[i] == 'F')
-		{
-			if (main->f_color != NULL)
-				return_error(main, NBR_IDENT_ERR);
-			if (ft_strncmp(curr->row, "F ", 2) != 0)
-				return_error(main, IDENT_ERR);
-			main->f_color = to_int(curr->row + i + 2);
-		}
+			floor_colour(main, i, curr->row);
 		else if (curr->row[i] == 'C')
-		{
-			if (main->c_color != NULL)
-				return_error(main, NBR_IDENT_ERR);
-			if (ft_strncmp(curr->row, "C ", 2) != 0)
-				return_error(main, IDENT_ERR);
-			main->c_color = to_int(curr->row + i + 2);
-		}
+			ceiling_colour(main, i, curr->row);
 		else if (curr->row[i] == 'N')
-		{
-			if (main->n_path != NULL)
-				return_error(main, NBR_IDENT_ERR);
-			if (ft_strncmp(curr->row, "NO ", 3) != 0)
-				return_error(main, IDENT_ERR);
-			if (ft_strncmp(curr->row + ft_strlen(curr->row) - 4, ".xpm", 4) != 0)
-				return_error(main, XPM_ERR);
-			main->n_path = cub_strdup(curr->row + i + 3, main);
-		}
+			n_path_identity(main, i, curr->row, "NO");
 		else if (curr->row[i] == 'S')
-		{
-			if (main->s_path != NULL)
-				return_error(main, NBR_IDENT_ERR);
-			if (ft_strncmp(curr->row, "SO ", 3) != 0)
-				return_error(main, IDENT_ERR);
-			if (ft_strncmp(curr->row + ft_strlen(curr->row) - 4, ".xpm", 4) != 0)
-				return_error(main, XPM_ERR);
-			main->s_path = cub_strdup(curr->row + i + 3, main);
-		}
+			s_path_identity(main, i, curr->row, "SO");
 		else if (curr->row[i] == 'E')
-		{
-			if (main->e_path != NULL)
-				return_error(main, NBR_IDENT_ERR);
-			if (ft_strncmp(curr->row, "EA ", 3) != 0)
-				return_error(main, IDENT_ERR);
-			if (ft_strncmp(curr->row + ft_strlen(curr->row) - 4, ".xpm", 4) != 0)
-				return_error(main, XPM_ERR);
-			main->e_path = cub_strdup(curr->row + i + 3, main);
-		}
+			e_path_identity(main, i, curr->row, "EA");
 		else if (curr->row[i] == 'W')
-		{
-			if (main->w_path != NULL)
-				return_error(main, NBR_IDENT_ERR);
-			if (ft_strncmp(curr->row, "WE ", 3) != 0)
-				return_error(main, IDENT_ERR);
-			if (ft_strncmp(curr->row + ft_strlen(curr->row) - 4, ".xpm", 4) != 0)
-				return_error(main, XPM_ERR);
-			main->w_path = cub_strdup(curr->row + i + 3, main);
-		}
+			w_path_identity(main, i, curr->row, "WE");
 		else if (ft_strchr(curr->row, '1') != NULL || ft_strchr(curr->row, '0') != NULL || ft_strchr(curr->row, ' ') != NULL)
 		{
-			// printf("%s\n%s\n%s\n%s\n", main->n_path, main->s_path, main->e_path, main->w_path);
-			// int i = 0;
-			// while (main->f_color[i])
-			// {
-			// 	printf("%d\n%d\n", main->f_color[i], main->c_color[i]);
-			// 	i++;
-			// }
 			if (check_main(main) == 1)
 				return (NULL);
 			ptr_map = curr;

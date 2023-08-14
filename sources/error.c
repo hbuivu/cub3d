@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:27:01 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/14 16:24:49 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/14 20:09:19 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,10 @@ void	return_error(t_main *main, int err_msg)
 		perror("the end");
 	if (err_msg == IMG_ERR)
 		perror("error saving image");
+	if (err_msg == COMMA_ERR)
+		perror("wrong number of commas");
+	if (err_msg == INT_ERR)
+		perror("require integer");
 	if (main)
 	{
 		if (main->omap)

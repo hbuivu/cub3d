@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/14 15:49:26 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/14 21:10:51 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ enum	error
 	PLAYER_ERR,
 	WALL_ERR,
 	IMG_ERR,
+	COMMA_ERR,
+	INT_ERR,
 	NONE
 };
 
@@ -192,6 +194,16 @@ void	print_main(t_main *main);
 
 /* identify.c */
 t_omap	*identify(t_omap *omap, t_main *main);
+
+void	floor_colour(t_main *main, int i, char *ptr);
+void	ceiling_colour(t_main *main, int i, char *ptr);
+int		*to_int(char *s, t_main *main);
+
+void	n_path_identity(t_main *main, int i, char *s, char *id);
+void	s_path_identity(t_main *main, int i, char *s, char *id);
+void	w_path_identity(t_main *main, int i, char *s, char *id);
+void	e_path_identity(t_main *main, int i, char *s, char *id);
+
 void	visit(t_queue *ptr, t_main *main, int x, int y);
 void	check_walled_helper(t_queue *ptr, t_main *main);
 void	check_walled(t_main *main);

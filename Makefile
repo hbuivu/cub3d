@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+         #
+#    By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/12 21:43:45 by zsyyida          ###   ########.fr        #
+#    Updated: 2023/08/14 20:53:36 by zsyyida          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ MLX = libmlx.a
 
 SRCS = test.c error.c main.c identify.c raycasting2.c mlx.c\
 	download.c utils.c parse_map.c walled_check.c\
-	walled_check_utilities.c movement.c textures.c
+	walled_check_utilities.c movement.c textures.c\
+	identify_colour.c identify_path.c
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
@@ -60,7 +61,7 @@ clean:
 	$(MAKE) clean -C $(LIBFT_DIR)
 	$(RM) $(OBJ_DIR)
 	#rm -rf *.o
-	
+
 fclean: clean
 	$(RM) $(NAME)
 	$(MAKE) fclean -C $(LIBFT_DIR)
