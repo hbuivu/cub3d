@@ -32,6 +32,6 @@ int	main(int argc, char **argv)
 	init_calc(main);
 	// print_main(main);
 	mlx(main);
-	raycast(main);
+	// raycast(main);
 	// return_error(main, NONE);
 }

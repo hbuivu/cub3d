@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 21:19:55 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/12 21:25:00 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/14 17:56:06 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	**get_buffer(t_main *main, t_img img)
 void	get_textures(t_main *main)
 {
 	int size;
-	size = 100;
+	size = 200;
 
 	main->img_no_wall.img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
 			main->n_path, &size, &size);

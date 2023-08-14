@@ -14,7 +14,7 @@ int main(void)
 {
 	void	*mlx;
 	void	*img;
-	char	*relative_path = "../textures/east-_1__.xpm";
+	char	*relative_path = "textures/east.xpm";
 	int		img_width;
 	int		img_height;
 
@@ -31,6 +31,7 @@ int main(void)
 		printf("error img\n");
 	else
 		printf("imgw: %i imgh: %i\n", img_width, img_height);
+	mlx_loop(mlx);
 }
 
 

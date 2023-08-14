@@ -6,7 +6,7 @@
 #    By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/14 17:33:33 by hbui-vu          ###   ########.fr        #
+#    Updated: 2023/08/14 17:57:46 by hbui-vu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 CC = cc
 RM	= rm -rf
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror 
+# -fsanitize=address
 MLX_FLAGS = -Lmlx -lmlx -Ofast -framework OpenGL -g -framework AppKit
 # MLX_FLAGS = -g -Lmlx_linux -lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -Ofast -lm
 

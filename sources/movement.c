@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/14 16:45:53 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/14 17:45:09 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int	ft_movement(int key_code, t_main *main)
 		{
 			if (fmod(main->calc->px, 64) == 0 && main->map[(int)(main->calc->py / 64)][(int)((main->calc->px / 64) - 1)] == '1')
 				break;
-			if (fmod(main->calc->px, 64) == 0 && fmod(main->calc->py, 64) == 0)
-				if (main->map[])
+			// if (fmod(main->calc->px, 64) == 0 && fmod(main->calc->py, 64) == 0)
+			// 	if (main->map[])
 			main->calc->px--;
 		}
 	}

@@ -199,7 +199,6 @@ void	cast_hline(t_calc *c, t_main *main)
 	else if (c->stepx == -1)
 	{
 		c->wall_face = EAST;
-<<<<<<< HEAD
 		// c->col_int = round_down(c->px / c->upg) * c->upg - 1; 
 		c->col_int = round_down(c->px / c->upg) * c->upg; 
 
@@ -219,16 +218,6 @@ void	cast_hline(t_calc *c, t_main *main)
 		c->col_int += c->stepx * c->deltax;
 		printf("col_int: %lf\n", c->col_int);
 	}
-=======
-		c->col_int = round_down(c->px / c->upg) * c->upg - 1;
-	}
-	c->col_inty = c->py;
-	while (c->col_inty > 0 && c->col_int > 0 &&
-		(int)(c->col_inty / c->upg) < main->map_height &&
-		(int)(c->col_int / c->upg) < main->map_width &&
-		(main->map[(int)(c->col_inty / c->upg)][(int)(c->col_int / c->upg)] != '1'))
-		c->col_int += c->deltax;
->>>>>>> Zahra
 	c->cor_dist = fabs(c->col_int - c->px);
 	printf("cor_dist: %lf\n", c->cor_dist);
 }
@@ -267,13 +256,9 @@ void	cast_line(int x, t_calc *c, t_main *main)
 	if (c->stepx == 1)
 		c->col_int = round_up(c->px / c->upg) * c->upg;
 	else if (c->stepx == -1)
-<<<<<<< HEAD
 		// c->col_int = round_down(c->px / c->upg) * c->upg - 1; 
 		// the -1 creates lines bc it takes the ray one step further than it ought to, this sometimes causes it to check the wrong grid
 		c->col_int = round_down(c->px / c->upg) * c->upg;
-=======
-		c->col_int = round_down(c->px / c->upg) * c->upg - 1;
->>>>>>> Zahra
 	c->col_inty = c->py + (c->stepy * fabs((c->col_int - c->px) * tan(c->angle)));
 
 	if (c->stepy == 1)
@@ -283,7 +268,6 @@ void	cast_line(int x, t_calc *c, t_main *main)
 		c->row_int = round_down(c->py / c->upg) * c->upg; //could have same issue here
 	c->row_intx = c->px + (c->stepx * fabs((c->row_int - c->py) / tan(c->angle)));
 
-<<<<<<< HEAD
 	if (x == 672)
 	{
 		printf("***BEGINNING***\n");
@@ -314,30 +298,6 @@ void	cast_line(int x, t_calc *c, t_main *main)
 			printf("c->col_int: %lf\n", c->col_int);
 			printf("check row: %i check column: %i\n", (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
 		}
-=======
-	// printf("***BEGINNING***\n");
-	// 	printf("c->col_inty: %lf\n", c->col_inty);
-	// 	printf("c->col_int: %lf\n", c->col_int);
-	// 	printf("COL: %i: check row: %i check column: %i\n", x, (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
-	// 	printf("c->row_int: %lf\n", c->row_int);
-	// 	printf("c->row_intx: %lf\n", c->row_intx);
-	// 	printf("ROW: %i: check row: %i check column: %i\n", x, (int)(c->row_int / c->upg), (int)(c->row_intx / c->upg));
-	// 	printf("deltay: %lf\n", c->deltay);
-	// 	printf("deltax: %lf\n", c->deltax);
-
-	// printf("\n***COLUMN JUMPS***\n");
-	while (c->col_inty > 0 && c->col_int > 0 &&
-		(int)(c->col_inty / c->upg) < main->map_height &&
-		(int)(c->col_int / c->upg) < main->map_width &&
-		(main->map[(int)(c->col_inty / c->upg)][(int)(c->col_int / c->upg)] != '1'))
-	{
-		c->col_int += c->stepx * c->upg;
-		c->col_inty += c->stepy * c->deltay;
-		// printf("deltay: %lf\n", c->deltay);
-		// printf("c->col_inty: %lf\n", c->col_inty);
-		// printf("c->col_int: %lf\n", c->col_int);
-		// printf("check row: %i check column: %i\n", (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
->>>>>>> Zahra
 	}
 	if (x == 672)
 		printf("\n***ROW JUMPS***\n");
@@ -349,7 +309,6 @@ void	cast_line(int x, t_calc *c, t_main *main)
 	{
 		c->row_int += c->stepy * c->upg;
 		c->row_intx += c->stepx * c->deltax;
-<<<<<<< HEAD
 		if (x == 672)
 		{
 			printf("deltax: %lf\n", c->deltax);
@@ -357,12 +316,6 @@ void	cast_line(int x, t_calc *c, t_main *main)
 			printf("c->row_int: %lf\n", c->row_int);
 			printf("check row: %i check column: %i\n", (int)(c->row_int/ c->upg), (int)(c->row_intx / c->upg));
 		}
-=======
-		// printf("deltax: %lf\n", c->deltax);
-		// printf("c->row_intx: %lf\n", c->row_intx);
-		// printf("c->row_int: %lf\n", c->row_int);
-		// printf("check row: %i check column: %i\n", (int)(c->row_int/ c->upg), (int)(c->row_intx / c->upg));
->>>>>>> Zahra
 	}
 	//NOTE:here, if one direction goes out of bounds, we should ignore it
 	//NOTE:also no need to compare distances if the angle is perpendicular
@@ -399,10 +352,7 @@ void	raycast(t_main *main)
 	draw_floor_ceiling(main);
 	// printf("pdir: %lf\n", c->pdir);
 	// printf("angle_incr: %lf\n", c->ray_incr);
-<<<<<<< HEAD
 	// printf("px: %lf py: %lf\n", c->px, c->py);
-=======
->>>>>>> Zahra
 	while (x < main->calc->pln_width)
 	{
 		// printf("x is: %i\n", x);
@@ -419,7 +369,6 @@ void	raycast(t_main *main)
 			cast_line(x, c, main);
 
 		c->wall_height = (c->upg / c->cor_dist) * c->pln_dist;
-<<<<<<< HEAD
 		if (x == 672)
 		{
 			printf("COL: check row: %i check column: %i\n", (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
@@ -429,14 +378,6 @@ void	raycast(t_main *main)
 			printf("cor_dist: %lf\n", c->cor_dist);
 			printf("wall_height: %lf\n", c->wall_height);
 		}
-=======
-		// printf("COL: check row: %i check column: %i\n", (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
-		// printf("ROW: check row: %i check column: %i\n", (int)(c->row_int / c->upg), (int)(c->row_intx / c->upg));
-		// printf("dist_col: %lf\n", c->dist_col);
-		// printf("dist_row: %lf\n", c->dist_row);
-		// printf("cor_dist: %lf\n", c->cor_dist);
-		// printf("wall_height: %lf\n", c->wall_height);
->>>>>>> Zahra
 
 		draw_wall(x, main);
 		x++;
