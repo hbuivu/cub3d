@@ -6,7 +6,7 @@
 #    By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/14 16:12:43 by hbui-vu          ###   ########.fr        #
+#    Updated: 2023/08/14 17:33:33 by hbui-vu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,13 +60,13 @@ all: $(NAME)
 clean:
 	$(MAKE) clean -C $(MLX_DIR)
 	$(MAKE) clean -C $(LIBFT_DIR)
-	#rm -rf *.o
 	$(RM) $(OBJ_DIR)
-
+	#rm -rf *.o
+	
 fclean: clean
-	#rm -rf $(NAME)
 	$(RM) $(NAME)
 	$(MAKE) fclean -C $(LIBFT_DIR)
+	#rm -rf $(NAME)
 
 re: fclean all
 

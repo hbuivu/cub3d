@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/13 19:19:45 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/14 17:33:41 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define ESC 					53
 # define TW				64	// width of the texture
 # define TH				64  //height of texture
-# define SIZE					1  //size of the texture		
+# define SIZE					1  //size of the texture
 // # define GL_SILENCE_DEPRECATION
 
 enum	error
@@ -46,6 +46,7 @@ enum	error
 	OPEN_ERR,
 	PLAYER_ERR,
 	WALL_ERR,
+	IMG_ERR,
 	NONE
 };
 
@@ -73,6 +74,7 @@ typedef struct	s_img
 	int		bpp;
 	int		line_length;
 	int		endian;
+	char	**buff;
 }	t_img;
 
 typedef struct	s_mlx
@@ -99,12 +101,11 @@ typedef struct	s_calc
 	double	py; //player spawn y(row) position in unit coordinates
 	double	pdir; //player direction in rad
 	double	ray_incr; //angle at which ray increments from right to left
-	
 	/* recalculated each ray */
 	double	angle; //angle used for calculations in degrees
 	int		stepx; //direction in which x is going (-1 or 1)
 	int		stepy; //direction in which y is going (-1 or 1)
-	
+
 	/* initiated to 0 at start */
 	double	col_int; //point where ray intersects a column line
 	double	col_inty; //the y coordinate where ray intersects column line
@@ -114,7 +115,7 @@ typedef struct	s_calc
 	double	deltay; //movement in y direction every time x moves by 1 grid
 	double	dist_col; //distance squared of original point to first column intersect with wall
 	double	dist_row; //distance squared of original point to first row intersect with wall
-	double	cor_dist; //corrected distance from point to closest 
+	double	cor_dist; //corrected distance from point to closest
 	double	wall_height; //projected wall height
 	int		wall_face; //NSEW
 }	t_calc;
@@ -143,7 +144,7 @@ typedef struct s_main
 	double			w_angle;
 
 	t_img			img;
-	
+
 	/* zahra */
 	t_img			img_no_wall;
 	t_img			img_so_wall;
@@ -161,6 +162,7 @@ typedef struct s_main
 void	*cub_calloc(size_t count, size_t size, t_main *main);
 void	*cub_malloc(size_t count, size_t size, t_main *main);
 char	*cub_strdup(const char *s1, t_main *main);
+int		ft_close(t_main *main);
 
 /* error.c */
 void	error_check(int argc, char **argv);
