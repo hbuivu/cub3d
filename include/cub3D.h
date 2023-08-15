@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/14 17:33:41 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/15 16:24:18 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ typedef struct	s_calc
 	double	cor_dist; //corrected distance from point to closest
 	double	wall_height; //projected wall height
 	int		wall_face; //NSEW
+	int		wall_slice;
 }	t_calc;
 
 typedef struct s_main
