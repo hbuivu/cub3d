@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:14:26 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/14 16:30:12 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/15 20:04:18 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ void	parse_map(t_omap *omap_start, t_main *main)
 	//check for presence of player
 	if (main->player_dir == '\0')
 		return_error(main, MAP_ERR);
+		// return_error(main, MAP_ERR);
 	//check for presence of map in previous parse function
 	//when returning a pointer to the first node that contains a line of the map - if line doesn't exist, return error there
 }

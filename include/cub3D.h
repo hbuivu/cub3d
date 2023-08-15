@@ -6,10 +6,9 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/15 13:44:05 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/15 19:58:25 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef CUB3D_H
 # define CUB3D_H
@@ -34,7 +33,7 @@
 # define SIZE					1  //size of the texture
 // # define GL_SILENCE_DEPRECATION
 
-enum	error
+enum	e_error
 {
 	IDENT_ERR,
 	NBR_IDENT_ERR,
@@ -49,10 +48,11 @@ enum	error
 	IMG_ERR,
 	COMMA_ERR,
 	INT_ERR,
+	COMMA_PLACE_ERR,
 	NONE
 };
 
-enum	compass
+enum	e_compass
 {
 	NORTH,
 	SOUTH,
@@ -69,7 +69,7 @@ typedef struct s_queue
 	struct s_queue	*next;
 }	t_queue;
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void	*img;
 	char	*addr;
@@ -79,7 +79,7 @@ typedef struct	s_img
 	char	**buff;
 }	t_img;
 
-typedef struct	s_mlx
+typedef struct s_mlx
 {
 	void	*mlx_ptr;
 	void	*mlx_win;
@@ -181,6 +181,7 @@ void	get_map(t_omap *ptr_map, t_main *main);
 void	raycast(t_main *main);
 void	init_calc(t_main *main);
 void	calc_step(t_main *main);
+void	draw_floor_ceiling(t_main *main);
 
 /* mlx.c */
 void	ft_pixel_put(t_img *img, int x, int y, int color);
@@ -201,10 +202,10 @@ void	floor_colour(t_main *main, int i, char *ptr);
 void	ceiling_colour(t_main *main, int i, char *ptr);
 int		*to_int(char *s, t_main *main);
 
-void	n_path_identity(t_main *main, int i, char *s, char *id);
-void	s_path_identity(t_main *main, int i, char *s, char *id);
-void	w_path_identity(t_main *main, int i, char *s, char *id);
-void	e_path_identity(t_main *main, int i, char *s, char *id);
+void	n_path_identity(t_main *main, char *s, char *id);
+void	s_path_identity(t_main *main, char *s, char *id);
+void	w_path_identity(t_main *main, char *s, char *id);
+void	e_path_identity(t_main *main, char *s, char *id);
 
 void	visit(t_queue *ptr, t_main *main, int x, int y);
 void	check_walled_helper(t_queue *ptr, t_main *main);

@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 18:45:40 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/14 21:04:05 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/15 19:06:58 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,12 @@ void	check_comma(char *s, t_main *main)
 	while (s[i])
 	{
 		if (s[i] == ',')
+		{
 			comma++;
+			if (!(s[i - 1] >= '0' && s[i - 1] <= '9')
+				|| !(s[i + 1] >= '0' && s[i + 1] <= '9'))
+				return_error(main, COMMA_PLACE_ERR);
+		}
 		else if (!(s[i] >= '0' && s[i] <= '9'))
 			return_error(main, INT_ERR);
 		i++;

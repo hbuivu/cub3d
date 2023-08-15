@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:27:01 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/14 20:09:19 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/15 18:44:05 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	error_check(int argc, char **argv)
 		perror("Error\n wrong number of arguments");
 		exit (0);
 	}
-	// if (ft_is_cub(argv) == 1)
 	if (ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4, ".cub", 4) != 0)
 	{
 		perror("Error\n require .cub argument");
@@ -61,6 +60,8 @@ void	return_error(t_main *main, int err_msg)
 		perror("wrong number of commas");
 	if (err_msg == INT_ERR)
 		perror("require integer");
+	if (err_msg == COMMA_PLACE_ERR)
+		perror("wrong placement of comma");
 	if (main)
 	{
 		if (main->omap)

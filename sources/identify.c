@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:13:12 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/14 21:21:19 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/15 20:03:11 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,24 +56,26 @@ t_omap	*identify(t_omap *omap, t_main *main)
 	i = 0;
 	while (curr)
 	{
-		while (curr->row[i] == ' ' || curr->row[i] == '\t')
+		while (curr->row[i] == ' ')
 			i++;
 		if (curr->row[i] == 'F')
-			floor_colour(main, i, curr->row);
+			floor_colour(main, i, &curr->row[i]);
 		else if (curr->row[i] == 'C')
-			ceiling_colour(main, i, curr->row);
+			ceiling_colour(main, i, &curr->row[i]);
 		else if (curr->row[i] == 'N')
-			n_path_identity(main, i, curr->row, "NO");
+			n_path_identity(main, &curr->row[i], "NO");
 		else if (curr->row[i] == 'S')
-			s_path_identity(main, i, curr->row, "SO");
+			s_path_identity(main, &curr->row[i], "SO");
 		else if (curr->row[i] == 'E')
-			e_path_identity(main, i, curr->row, "EA");
+			e_path_identity(main, &curr->row[i], "EA");
 		else if (curr->row[i] == 'W')
-			w_path_identity(main, i, curr->row, "WE");
+			w_path_identity(main, &curr->row[i], "WE");
 		else if (ft_strchr(curr->row, '1') != NULL || ft_strchr(curr->row, '0') != NULL || ft_strchr(curr->row, ' ') != NULL)
 		{
 			if (check_main(main) == 1)
+			{
 				return (NULL);
+			}
 			ptr_map = curr;
 			return (ptr_map);
 		}
