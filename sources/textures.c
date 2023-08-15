@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 21:19:55 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/14 15:50:56 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/15 13:44:50 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	**get_buffer(t_main *main, t_img img)
 void	get_textures(t_main *main)
 {
 	int size;
-	size = 100;
+	size = 200;
 
 	main->img_no_wall.img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
 			main->n_path, &size, &size);

@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/14 21:10:51 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/15 13:44:05 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ enum	compass
 	NORTH,
 	SOUTH,
 	EAST,
-	WEST
+	WEST,
+	COL,
+	ROW
 };
 
 typedef struct s_queue

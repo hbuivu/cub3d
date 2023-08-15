@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:13:40 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/14 19:08:55 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/15 13:46:00 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void	mlx(t_main *main)
 		return_error(main, MLX_ERR);
 	raycast(main);
 	mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win, main->img.img, 0, 0);
-	// draw_floor_ceiling(main);
-	// mlx_loop(main->mlx.mlx_ptr);
+	// mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win, main->img_no_wall.img, 0, 0);
+	draw_floor_ceiling(main);
+	mlx_loop(main->mlx.mlx_ptr);
 
 }
