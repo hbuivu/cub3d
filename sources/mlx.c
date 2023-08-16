@@ -11,9 +11,9 @@ void	ft_pixel_put(t_img *img, int x, int y, int color)
 }
 
 //what about alpha channel
-int	encode_rgb(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha)
+int	encode_rgb(uint8_t red, uint8_t green, uint8_t blue)
 {
-    return (red << 24 | green << 15 | blue << 8 | alpha);
+    return (red << 16 | green << 8 | blue);
 }
 
 void	mlx(t_main *main)
@@ -34,7 +34,6 @@ void	mlx(t_main *main)
 	raycast(main);
 	mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win, main->img.img, 0, 0);
 	// mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win, main->img_no_wall.img, 0, 0);
-	draw_floor_ceiling(main);
 	mlx_loop(main->mlx.mlx_ptr);
 
 }

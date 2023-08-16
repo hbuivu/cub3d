@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/15 16:24:18 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/16 18:12:51 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,25 @@ typedef struct	s_mlx
 	void	*mlx_win;
 }	t_mlx;
 
+typedef struct s_pix
+{
+	int		x;
+	int		y;
+	uint8_t	r;
+	uint8_t	g;
+	uint8_t	b;
+}	t_pix;
+
+typedef struct s_point
+{
+	double	scale; //scale against 64 pixels
+	double	orig_x; //column slice of wall
+	double	orig_y; //how the point would transalte on original image y axis
+	double	y_dist; //the distance of orig_y from y1
+	t_pix	p1; //value of color at (x1, y1)
+	t_pix	p2; //value of color at (x2, y2)
+}	t_point;
+
 typedef struct s_omap
 {
 	char			*row;
@@ -117,7 +136,7 @@ typedef struct	s_calc
 	double	dist_row; //distance squared of original point to first row intersect with wall
 	double	cor_dist; //corrected distance from point to closest
 	double	wall_height; //projected wall height
-	int		wall_face; //NSEW
+	t_img	wall_face; //NSEW
 	int		wall_slice;
 }	t_calc;
 
@@ -186,6 +205,10 @@ void	ft_pixel_put(t_img *img, int x, int y, int color);
 void	mlx(t_main *main);
 int		ft_close(t_main *main);
 int		ft_movement(int key_code, t_main *main);
+int		encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
+
+/* resize.c*/
+void	draw_wall(int x, t_main *main);
 
 /* test*/
 void	print_omap(t_omap *map);

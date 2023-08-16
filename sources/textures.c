@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 21:19:55 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/14 17:56:06 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/17 00:23:07 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ void	get_data_addr(t_main *main)
 	//  main->img_door2.addr = mlx_get_data_addr(main->img_door2.img, &main->img_door2.bpp, &main->img_door2.line_length, &main->img_door2.endian);
 	//  if (!main->img_door2.addr)
 	 	// return_error(main, MLX_ERR);
-	main->img_no_wall.buff = get_buffer(main, main->img_no_wall);
+	// main->img_no_wall.buff = get_buffer(main, main->img_no_wall);
 	// main->img_so_wall.buff = get_buffer(main, main->img_so_wall);
 	// main->img_ea_wall.buff = get_buffer(main, main->img_ea_wall);
 	// main->img_we_wall.buff = get_buffer(main, main->img_we_wall);

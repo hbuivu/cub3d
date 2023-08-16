@@ -121,59 +121,40 @@ void	draw_floor_ceiling(t_main *main)
 	// printf("c: %i\n", rgb_to_int(main->c_color));
 }
 
-void	paint_wall(t_img texture, t_main *main)
-{
-	double	scale;
-	t_point	*p;
-
-	scale = main->calc->wall_height / main->calc->upg;
-	p = (t_point *)cub_calloc(1, sizeof(t_point), main);
-	//go to the column of the texture that corresponds to the column of the wall
-	
-
-}
 /* for wall colors, if moving along column, can check for east and west colors
 if moving along row, can check for north/south colors */
-void	draw_wall(int x, t_main *main)
-{
-	double	start;
-	double	stop;
-	double	mid;
-	double	half_wall;
-	int		color;
+// void	draw_wall(int x, t_main *main)
+// {
+// 	double	start;
+// 	double	stop;
+// 	double	mid;
+// 	double	half_wall;
+// 	int		color;
 
-	mid = main->calc->pln_height / 2;
-	half_wall = main->calc->wall_height / 2;
-	start = round(mid - half_wall);
-	if (start < 0)
-		start = 0;
-	stop = round(mid + half_wall);
-	if (stop >= main->calc->pln_height)
-		stop = main->calc->pln_height - 1;
-	if (main->calc->wall_face == NORTH)
-		paint_wall(main->img_no_wall, main);
-	else if (main->calc->wall_face == SOUTH)
-		paint_wall(main->img_so_wall, main);
-	else if (main->calc->wall_face == EAST)
-		paint_wall(main->img_ea_wall, main);
-	else if (main->calc->wall_face == WEST)
-		paint_wall(main->img_we_wall, main);
-	// if (x == 672)
-	// 	color = 16737380; //pink
-	// if (main->calc->wall_face == NORTH)
-	// 	color = 16711680; //RED
-	// else if (main->calc->wall_face == SOUTH)
-	// 	color = 65280; //GREEN
-	// else if (main->calc->wall_face == EAST)
-	// 	color = 255; //BLUE
-	// else if (main->calc->wall_face == WEST)
-	// 	color = 6553700; //PURPLE
-	// while (start <= stop)
-	// {
-	// 	ft_pixel_put(&main->img, x, (int)start, color);
-	// 	start++;
-	// }
-}
+// 	mid = main->calc->pln_height / 2;
+// 	half_wall = main->calc->wall_height / 2;
+// 	start = round(mid - half_wall);
+// 	if (start < 0)
+// 		start = 0;
+// 	stop = round(mid + half_wall);
+// 	if (stop >= main->calc->pln_height)
+// 		stop = main->calc->pln_height - 1;
+// 	// if (x == 672)
+// 	// 	color = 16737380; //pink
+// 	if (main->calc->wall_face == NORTH)
+// 		color = 16711680; //RED
+// 	else if (main->calc->wall_face == SOUTH)
+// 		color = 65280; //GREEN
+// 	else if (main->calc->wall_face == EAST)
+// 		color = 255; //BLUE
+// 	else if (main->calc->wall_face == WEST)
+// 		color = 6553700; //PURPLE
+// 	while (start <= stop)
+// 	{
+// 		ft_pixel_put(&main->img, x, (int)start, color);
+// 		start++;
+// 	}
+// }
 
 int	check_coord(int jump, t_main *main)
 {
@@ -213,12 +194,12 @@ void	cast_hline(t_calc *c, t_main *main)
 	c->deltax = 64;
 	if (c->stepx == 1)
 	{
-		c->wall_face = WEST;
+		c->wall_face = main->img_we_wall; //WEST
 		c->col_int = round_up(c->px / c->upg) * c->upg;
 	}
 	else if (c->stepx == -1)
 	{
-		c->wall_face = EAST;
+		c->wall_face = main->img_ea_wall; //EAST
 		// c->col_int = round_down(c->px / c->upg) * c->upg - 1; 
 		c->col_int = round_down(c->px / c->upg) * c->upg; 
 
@@ -239,7 +220,7 @@ void	cast_hline(t_calc *c, t_main *main)
 		// printf("col_int: %lf\n", c->col_int);
 	}
 	c->cor_dist = fabs(c->col_int - c->px);
-	c->wall_slice = (int)c->col_int % 64;
+	c->wall_slice = (int)c->col_inty % 64;
 	// printf("cor_dist: %lf\n", c->cor_dist);
 }
 
@@ -249,12 +230,12 @@ void	cast_vline(t_calc *c, t_main *main)
 	c->deltax = 0;
 	if (c->stepy == 1)
 	{
-		c->wall_face = NORTH;
+		c->wall_face = main->img_no_wall; //NORTH
 		c->row_int = round_up(c->py / c->upg) * c->upg;
 	}
 	else if (c->stepy == -1)
 	{
-		c->wall_face = SOUTH;
+		c->wall_face = main->img_so_wall; //SOUTH
 		// c->row_int = round_down(c->py / c->upg) * c->upg - 1;
 		c->row_int = round_down(c->py / c->upg) * c->upg;
 	}
@@ -266,7 +247,7 @@ void	cast_vline(t_calc *c, t_main *main)
 	while (check_coord(ROW, main))
 		c->row_int += c->stepy * c->deltay;
 	c->cor_dist = fabs(c->row_int - c->py);
-	c->wall_slice = (int)c->row_int % 64;
+	c->wall_slice = (int)c->row_intx % 64;
 
 }
 
@@ -290,20 +271,6 @@ void	cast_line(int x, t_calc *c, t_main *main)
 		c->row_int = round_down(c->py / c->upg) * c->upg; //could have same issue here
 	c->row_intx = c->px + (c->stepx * fabs((c->row_int - c->py) / tan(c->angle)));
 
-	// if (x == 672)
-	// {
-	// 	printf("***BEGINNING***\n");
-	// 		printf("c->col_inty: %lf\n", c->col_inty);
-	// 		printf("c->col_int: %lf\n", c->col_int);
-	// 		printf("COL: %i: check row: %i check column: %i\n", x, (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
-	// 		printf("c->row_int: %lf\n", c->row_int);
-	// 		printf("c->row_intx: %lf\n", c->row_intx);
-	// 		printf("ROW: %i: check row: %i check column: %i\n", x, (int)(c->row_int / c->upg), (int)(c->row_intx / c->upg));	
-	// 		printf("deltay: %lf\n", c->deltay);
-	// 		printf("deltax: %lf\n", c->deltax);
-	// 	printf("\n***COLUMN JUMPS***\n");
-	// }
-	//have a check_map function here;
 	/* basically, if stepx/y is negative, we need to check 1 after the rounding */
 	// while (c->col_inty > 0 && c->col_int > 0 &&
 	// 	(int)(c->col_inty / c->upg) < main->map_height && 
@@ -313,16 +280,7 @@ void	cast_line(int x, t_calc *c, t_main *main)
 	{
 		c->col_int += c->stepx * c->upg;
 		c->col_inty += c->stepy * c->deltay;
-		// if (x == 672)
-		// {
-		// 	printf("deltay: %lf\n", c->deltay);
-		// 	printf("c->col_inty: %lf\n", c->col_inty);
-		// 	printf("c->col_int: %lf\n", c->col_int);
-		// 	printf("check row: %i check column: %i\n", (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
-		// }
 	}
-	// if (x == 672)
-	// 	printf("\n***ROW JUMPS***\n");
 	// while (c->row_int > 0 && c->row_intx > 0 &&
 	// 	(int)(c->row_int / c->upg) < main->map_height &&
 	// 	(int)(c->row_intx / c->upg) < main->map_width &&
@@ -331,13 +289,6 @@ void	cast_line(int x, t_calc *c, t_main *main)
 	{
 		c->row_int += c->stepy * c->upg;
 		c->row_intx += c->stepx * c->deltax;
-		// if (x == 672)
-		// {
-		// 	printf("deltax: %lf\n", c->deltax);
-		// 	printf("c->row_intx: %lf\n", c->row_intx);
-		// 	printf("c->row_int: %lf\n", c->row_int);
-		// 	printf("check row: %i check column: %i\n", (int)(c->row_int/ c->upg), (int)(c->row_intx / c->upg));
-		// }
 	}
 	//NOTE:here, if one direction goes out of bounds, we should ignore it
 	//NOTE:also no need to compare distances if the angle is perpendicular
@@ -347,23 +298,21 @@ void	cast_line(int x, t_calc *c, t_main *main)
 	//what happens when dist_col == dist_row <- that is a hit at a corner most likely
 	if (c->dist_col <= c->dist_row)
 	{
-		// printf("\nUsing dist_col\n");
-		c->wall_slice = (int)c->col_int % 64;
+		c->wall_slice = (int)c->col_inty % 64;
 		c->cor_dist = c->dist_col * cos((c->fov - (2 * x * c->ray_incr)) / 2);
 		if (c->stepx == 1)
-			c->wall_face = WEST;
+			c->wall_face = main->img_we_wall; //WEST
 		else if (c->stepx == -1)
-			c->wall_face = EAST;
+			c->wall_face = main->img_ea_wall; //EAST
 	}
 	else
 	{
-		// printf("\nUsing dist_row\n");
-		c->wall_slice = (int)c->row_int % 64;
+		c->wall_slice = (int)c->row_intx % 64;
 		c->cor_dist = c->dist_row * cos((c->fov - (2 * x * c->ray_incr)) / 2);
 		if (c->stepy == 1)
-			c->wall_face = NORTH;
+			c->wall_face = main->img_no_wall; //NORTH
 		else if (c->stepy == -1)
-			c->wall_face = SOUTH;
+			c->wall_face = main->img_so_wall; //SOUTH
 	}
 }
 
@@ -389,7 +338,7 @@ void	raycast(t_main *main)
 			cast_vline(c, main);
 		else
 			cast_line(x, c, main);
-
+		printf("wall slice: %i\n", c->wall_slice);
 		c->wall_height = (c->upg / c->cor_dist) * c->pln_dist;
 		// if (x == 672)
 		// {
