@@ -59,7 +59,7 @@ typedef struct s_point
 	t_pix	*p4; //value of color at (y2, x2)
 }	t_point;
 
-#define SCALE	0.5
+#define SCALE	5
 
 void	find_pix_color(t_mlxz *mlx, t_pix *pix)
 {
@@ -132,7 +132,7 @@ int main(void)
 {
 	t_mlxz	*mlx;
 	t_point	*p;
-	char	*relative_path = "textures/north.xpm";
+	char	*relative_path = "textures/sprt1.xpm";
 
 	mlx = NULL;
 	p = NULL;

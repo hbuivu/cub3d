@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:13:40 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/15 13:46:00 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/17 14:41:53 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	mlx(t_main *main)
 	main->mlx.mlx_ptr = mlx_init();
 	if (!main->mlx.mlx_ptr)
 		return_error(main, MLX_ERR);
-	// get_textures(main);
+	get_textures(main);
 	main->mlx.mlx_win = mlx_new_window(main->mlx.mlx_ptr, main->win_width, main->win_height, "Cub3D");
 	if (!main->mlx.mlx_win)
 		return_error(main, MLX_ERR);

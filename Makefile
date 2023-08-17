@@ -6,7 +6,7 @@
 #    By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/17 13:10:15 by hbui-vu          ###   ########.fr        #
+#    Updated: 2023/08/17 14:28:25 by hbui-vu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ SRCS = test.c error.c main.c identify.c raycasting2.c mlx.c\
 	download.c utils.c parse_map.c walled_check.c\
 	walled_check_utilities.c movement.c textures.c resize.c\
 	identify_colour.c identify_path.c
+
+# SRCS = resize_ex.c
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 

@@ -338,7 +338,7 @@ void	raycast(t_main *main)
 			cast_vline(c, main);
 		else
 			cast_line(x, c, main);
-		printf("wall slice: %i\n", c->wall_slice);
+		// printf("wall slice: %i\n", c->wall_slice);
 		c->wall_height = (c->upg / c->cor_dist) * c->pln_dist;
 		// if (x == 672)
 		// {
@@ -349,11 +349,11 @@ void	raycast(t_main *main)
 		// 	printf("cor_dist: %lf\n", c->cor_dist);
 		// 	printf("wall_height: %lf\n", c->wall_height);
 		// }
-
 		draw_wall(x, main);
 		x++;
 		recalc(main);
 	}
+	
 	mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win, main->img.img, 0, 0);
 	mlx_key_hook(main->mlx.mlx_win, ft_movement, main);
 	mlx_hook(main->mlx.mlx_win, 17, 1L << 17, ft_close, main);

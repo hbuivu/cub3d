@@ -9,7 +9,6 @@ void	find_pix_color(t_pix *pix, t_main *main)
 	texture = main->calc->wall_face;
 	offset = pix->y * texture.line_length + pix->x * (texture.bpp / 8);
 	addr = texture.addr + offset;
-
 	// if (*((uint8_t *)addr) < 0)
 	// 	pix->r = 256 + *((uint8_t *)addr);
 	// else
@@ -24,7 +23,6 @@ void	find_pix_color(t_pix *pix, t_main *main)
 	pix->g = *((uint8_t *)addr);
 	addr++;
 	pix->b = *((uint8_t *)addr);
-	// printf("r: %i g: %i b: %i\n", pix->r, pix->g, pix->b);
 }
 
 void	get_nearest_pix(t_point *p, t_main *main)

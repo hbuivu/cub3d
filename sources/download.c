@@ -1,5 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   download.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/17 16:37:22 by hbui-vu           #+#    #+#             */
+/*   Updated: 2023/08/17 16:44:46 by hbui-vu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/cub3D.h"
+
 //download omap for parsing
+
 void	download_map(int fd, t_main *main)
 {
 	char	*str;
@@ -31,10 +45,10 @@ void	download_map(int fd, t_main *main)
 			node->prev = cur;
 			cur->next = node;
 		}
-		cur = node;
-		free(str);
-		str = get_next_line(fd);
-	}
+			cur = node;
+			free(str);
+			str = get_next_line(fd);
+		}
 	free(str);
 	close(fd);
 }

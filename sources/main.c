@@ -23,16 +23,13 @@ int	main(int argc, char **argv)
 	if (fd == -1)
 		return_error(main, OPEN_ERR);
 	download_map(fd, main); //fills out omap
-	map_ptr = identify(main->omap, main); //fills out everything else in main
-
-	parse_map(map_ptr, main);
-	get_map(map_ptr, main);
-	// print_main_map(main);
-	check_walled(main);
-	init_main(main);
-	init_calc(main);
-	// print_main(main);
-	mlx(main);
-	raycast(main);
-	// return_error(main, NONE);
+	map_ptr = identify(main->omap, main); //fills out everything else in mainm combine with parse map
+	parse_map(map_ptr, main); //parse main map
+	get_map(map_ptr, main); //combine with parse map
+	check_walled(main); //combine with parse map
+	init_main(main); 
+	init_calc(main); //combine with init_main
+	mlx(main); //creates all mlx instances
+	raycast(main); //game function
+	// return_error(main, NONE); //free everything and return;
 }
