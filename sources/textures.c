@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 21:19:55 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/17 19:02:46 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/17 21:06:38 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ since tile is a square can use same size for width and height
 
 void	get_textures(t_main *main)
 {
-	int size;
-	size = 200;
+	int	size;
 
+	size = 200;
 	main->img_no_wall.img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
 			main->n_path, &size, &size);
 	if (main->img_no_wall.img == NULL)
@@ -106,8 +106,8 @@ void	get_data_addr(t_main *main)
 	if (!main->img_ea_wall.addr)
 		return_error(main, MLX_ERR);
 	main->img_we_wall.addr = mlx_get_data_addr(main->img_we_wall.img,
-			 &main->img_we_wall.bpp, &main->img_we_wall.line_length,
-			 	 &main->img_we_wall.endian);
+			&main->img_we_wall.bpp, &main->img_we_wall.line_length,
+			&main->img_we_wall.endian);
 	if (!main->img_we_wall.addr)
 		return_error(main, MLX_ERR);
 	// main->img_no_wall.buff = get_buffer(main, main->img_no_wall);
