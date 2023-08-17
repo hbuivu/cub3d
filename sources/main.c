@@ -24,7 +24,6 @@ int	main(int argc, char **argv)
 		return_error(main, OPEN_ERR);
 	download_map(fd, main); //fills out omap
 	map_ptr = identify(main->omap, main); //fills out everything else in main
-
 	parse_map(map_ptr, main);
 	get_map(map_ptr, main);
 	// print_main_map(main);

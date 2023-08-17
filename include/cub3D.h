@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/17 13:09:08 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/17 19:19:59 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,8 +222,8 @@ void	print_main(t_main *main);
 /* identify.c */
 t_omap	*identify(t_omap *omap, t_main *main);
 
-void	floor_colour(t_main *main, int i, char *ptr);
-void	ceiling_colour(t_main *main, int i, char *ptr);
+void	floor_colour(t_main *main, char *ptr);
+void	ceiling_colour(t_main *main, char *ptr);
 int		*to_int(char *s, t_main *main);
 
 void	n_path_identity(t_main *main, char *s, char *id);

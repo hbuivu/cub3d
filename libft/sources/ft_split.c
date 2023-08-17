@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 11:20:56 by hbui-vu           #+#    #+#             */
-/*   Updated: 2022/09/27 15:37:17 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/17 20:57:23 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int	num_strs(char const *s, char c)
 {
@@ -56,6 +57,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
+	printf("s %s\n", s);
 	strs = num_strs(s, c);
 	buffer = (char **)malloc(sizeof(char *) * strs);
 	if (!buffer)
@@ -63,14 +65,17 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (i < strs - 1)
 	{
+		printf("i , (strs - 1) %d  %d\n", i , strs - 1);
 		while (*s == c)
 			s++;
 		buffer[i] = cpystr(s, c);
+	printf("buffer[i] in split %s\n", buffer[i]);
 		if (!buffer[i])
 			return (NULL);
 		i++;
 		s = ft_strchr(s, c);
 	}
 	buffer[i] = NULL;
+	printf("buffer %s\n", buffer[0]);
 	return (buffer);
 }

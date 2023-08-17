@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:13:12 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/15 20:03:11 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/17 19:20:30 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ t_omap	*identify(t_omap *omap, t_main *main)
 		while (curr->row[i] == ' ')
 			i++;
 		if (curr->row[i] == 'F')
-			floor_colour(main, i, &curr->row[i]);
+			floor_colour(main, &curr->row[i]);
 		else if (curr->row[i] == 'C')
-			ceiling_colour(main, i, &curr->row[i]);
+			ceiling_colour(main, &curr->row[i]);
 		else if (curr->row[i] == 'N')
 			n_path_identity(main, &curr->row[i], "NO");
 		else if (curr->row[i] == 'S')
@@ -70,7 +70,9 @@ t_omap	*identify(t_omap *omap, t_main *main)
 			e_path_identity(main, &curr->row[i], "EA");
 		else if (curr->row[i] == 'W')
 			w_path_identity(main, &curr->row[i], "WE");
-		else if (ft_strchr(curr->row, '1') != NULL || ft_strchr(curr->row, '0') != NULL || ft_strchr(curr->row, ' ') != NULL)
+		else if (ft_strchr(curr->row, '1') != NULL
+			|| ft_strchr(curr->row, '0') != NULL
+			|| ft_strchr(curr->row, ' ') != NULL)
 		{
 			if (check_main(main) == 1)
 			{

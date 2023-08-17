@@ -200,8 +200,8 @@ void	cast_hline(t_calc *c, t_main *main)
 	else if (c->stepx == -1)
 	{
 		c->wall_face = main->img_ea_wall; //EAST
-		// c->col_int = round_down(c->px / c->upg) * c->upg - 1; 
-		c->col_int = round_down(c->px / c->upg) * c->upg; 
+		// c->col_int = round_down(c->px / c->upg) * c->upg - 1;
+		c->col_int = round_down(c->px / c->upg) * c->upg;
 
 	}
 	c->col_inty = c->py;
@@ -338,7 +338,7 @@ void	raycast(t_main *main)
 			cast_vline(c, main);
 		else
 			cast_line(x, c, main);
-		printf("wall slice: %i\n", c->wall_slice);
+		// printf("wall slice: %i\n", c->wall_slice);
 		c->wall_height = (c->upg / c->cor_dist) * c->pln_dist;
 		// if (x == 672)
 		// {
