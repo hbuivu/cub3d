@@ -4,11 +4,14 @@
 4. calloc main struct
 5. download map into initial linked list (omap = original map)
 6. parse beginning elements
+	remove spaces
 	-check that labels are correct (ex: NO not NORTH or no);
 	-check that there are no duplicates (if element in main struct !NULL when you try to access, then it's an error)
 	-for textures, add string containing just the path to main struct
 		-check that string ends in correct ending (.xpm)
 	-for F and C, create an int *array of 3 nums and add to main struct
+		check number of commas
+		check that they are digits before atoi
 		-check that ints are between 0 and 255
 	-return a pointer to the node that contains the first row of the actual map in the linked list
 		-ft_strchr 1 or 0 (only check for this after checking for all other element conditions ->see in identify func)
@@ -23,6 +26,8 @@
 				if player_dir !NULL in main, return error
 		-if any chars that are not " NSEW01", return error
 		-if there are any empty lines, return error
+		check there is nothing after map
+		check for rights to opencheck it isnt a directory
 	-create a 2d char array (possibly a linked list if we want to use floodfill to check map)
 		-copy over string, and if any leftover space, copy over space (except for last element which should be NULL)
 		-based on the way the string was copied (top to bottom), the graph will look like this
@@ -32,15 +37,15 @@
 			|
 			v
 			y+
-				 
+
 			  (0, -1)
-				 N 
+				 N
 				 ^
 			     |
 	(-1, 0)	W <--0--> E (1, 0)
 				 |
 				 v
-				 S 
+				 S
 			   (0, 1)
 
 	-check for presence of player

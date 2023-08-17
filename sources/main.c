@@ -23,8 +23,9 @@ int	main(int argc, char **argv)
 	if (fd == -1)
 		return_error(main, OPEN_ERR);
 	download_map(fd, main); //fills out omap
-	map_ptr = identify(main->omap, main);
-	parse_map(map_ptr, main); //fills out everything else in main
+	map_ptr = identify(main->omap, main); //fills out everything else in main
+
+	parse_map(map_ptr, main);
 	get_map(map_ptr, main);
 	// print_main_map(main);
 	check_walled(main);

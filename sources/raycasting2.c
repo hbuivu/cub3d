@@ -170,7 +170,7 @@ int	check_coord(int jump, t_main *main)
 			col = (c->col_int / c->upg) - 1;
 		else
 			col = c->col_int / c->upg;
-		if (c->col_inty > 0 && c->col_int > 0 && row < main->map_height && 
+		if (c->col_inty > 0 && c->col_int > 0 && row < main->map_height &&
 			col < main->map_width && main->map[row][col] != '1')
 			return (1);
 	}
@@ -211,7 +211,7 @@ void	cast_hline(t_calc *c, t_main *main)
 		// 	printf("COL: check row: %i check column: %i\n", (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
 		// 	printf("deltax: %lf\n", c->deltax);
 	// while (c->col_inty > 0 && c->col_int > 0 &&
-	// 	(int)(c->col_inty / c->upg) < main->map_height && 
+	// 	(int)(c->col_inty / c->upg) < main->map_height &&
 	// 	(int)(c->col_int / c->upg) < main->map_width &&
 	// 	(main->map[(int)(c->col_inty / c->upg)][(int)(c->col_int / c->upg)] != '1'))
 	while (check_coord(COL, main))
@@ -259,7 +259,7 @@ void	cast_line(int x, t_calc *c, t_main *main)
 	if (c->stepx == 1)
 		c->col_int = round_up(c->px / c->upg) * c->upg;
 	else if (c->stepx == -1)
-		// c->col_int = round_down(c->px / c->upg) * c->upg - 1; 
+		// c->col_int = round_down(c->px / c->upg) * c->upg - 1;
 		// the -1 creates lines bc it takes the ray one step further than it ought to, this sometimes causes it to check the wrong grid
 		c->col_int = round_down(c->px / c->upg) * c->upg;
 	c->col_inty = c->py + (c->stepy * fabs((c->col_int - c->px) * tan(c->angle)));
@@ -273,7 +273,7 @@ void	cast_line(int x, t_calc *c, t_main *main)
 
 	/* basically, if stepx/y is negative, we need to check 1 after the rounding */
 	// while (c->col_inty > 0 && c->col_int > 0 &&
-	// 	(int)(c->col_inty / c->upg) < main->map_height && 
+	// 	(int)(c->col_inty / c->upg) < main->map_height &&
 	// 	(int)(c->col_int / c->upg) < main->map_width &&
 	// 	(main->map[(int)(c->col_inty / c->upg)][(int)(c->col_int / c->upg)] != '1'))
 	while (check_coord(COL, main))
