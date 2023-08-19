@@ -89,12 +89,12 @@ void	draw_floor_ceiling(t_main *main)
 			ft_pixel_put(&main->img, col, row, encode_rgb(c[0], c[1], c[2]));
 		col = -1;
 	}
-	row--;
 	col = -1;
-	while (++row < WIN_HEIGHT)
+	while (row < WIN_HEIGHT)
 	{
 		while (++col < WIN_WIDTH)
 			ft_pixel_put(&main->img, col, row, encode_rgb(f[0], f[1], f[2]));
 		col = -1;
+		row++;
 	}
 }

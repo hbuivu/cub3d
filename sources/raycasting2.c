@@ -1,19 +1,8 @@
+
 /* NOTES:
 -what happens when you hit a corner?
 */
 #include "../include/cub3D.h"
-
-int	rgb_to_int(int *rgb)
-{
-	int	red;
-	int	green;
-	int	blue;
-
-	red = rgb[0];
-	green = rgb[1];
-	blue = rgb[2];
-	return (red << 16 | green << 8 | blue);
-}
 
 /* for wall colors, if moving along column, can check for east and west colors
 if moving along row, can check for north/south colors */
@@ -40,10 +29,7 @@ int	check_coord(int jump, t_main *main)
 	{
 		col = c->row_intx / c->upg;
 		if (c->stepy == -1)
-			row = (c->row_int / c->upg) - 1;
 		else
-			row = c->row_int / c->upg;
-		if (c->row_intx > 0 && c->row_int > 0 && row < main->map_height &&
 			col < main->map_width && main->map[row][col] != '1')
 			return (1);
 	}
@@ -62,20 +48,10 @@ void	cast_hline(t_calc *c, t_main *main)
 	else if (c->stepx == -1)
 	{
 		c->wall_face = main->img_ea_wall; //EAST
-		// c->col_int = floor(c->px / c->upg) * c->upg - 1; 
 		c->col_int = floor(c->px / c->upg) * c->upg; 
 
 	}
 	c->col_inty = c->py;
-		// printf("***BEGINNING***\n");
-		// 	printf("c->col_inty: %lf\n", c->col_inty);
-		// 	printf("c->col_int: %lf\n", c->col_int);
-		// 	printf("COL: check row: %i check column: %i\n", (int)(c->col_inty / c->upg), (int)(c->col_int / c->upg));
-		// 	printf("deltax: %lf\n", c->deltax);
-	// while (c->col_inty > 0 && c->col_int > 0 &&
-	// 	(int)(c->col_inty / c->upg) < main->map_height &&
-	// 	(int)(c->col_int / c->upg) < main->map_width &&
-	// 	(main->map[(int)(c->col_inty / c->upg)][(int)(c->col_int / c->upg)] != '1'))
 	while (check_coord(COL, main))
 		c->col_int += c->stepx * c->deltax;
 	c->cor_dist = fabs(c->col_int - c->px);
@@ -89,22 +65,13 @@ void	cast_vline(t_calc *c, t_main *main)
 	if (c->stepy == 1)
 	{
 		c->wall_face = main->img_no_wall; //NORTH
-		c->row_int = ceil(c->py / c->upg) * c->upg;
 	}
 	else if (c->stepy == -1)
 	{
 		c->wall_face = main->img_so_wall; //SOUTH
-		// c->row_int = floor(c->py / c->upg) * c->upg - 1;
-		c->row_int = floor(c->py / c->upg) * c->upg;
 	}
 	c->row_intx = c->px;
-	// while (c->row_int > 0 && c->row_intx > 0 &&
-	// 	(int)(c->row_int / c->upg) < main->map_height &&
-	// 	(int)(c->row_intx / c->upg) < main->map_width &&
-	// 	main->map[(int)(c->row_int / c->upg)][(int)(c->row_intx / c->upg)] != '1')
 	while (check_coord(ROW, main))
-		c->row_int += c->stepy * c->deltay;
-	c->cor_dist = fabs(c->row_int - c->py);
 	c->wall_slice = (int)c->row_intx % 64;
 
 }
@@ -123,29 +90,17 @@ void	cast_line(int x, t_calc *c, t_main *main)
 	c->col_inty = c->py + (c->stepy * fabs((c->col_int - c->px) * tan(c->angle)));
 
 	if (c->stepy == 1)
-		c->row_int = ceil(c->py / c->upg) * c->upg;
 	else if (c->stepy == -1)
-		// c->row_int = floor(c->py / c->upg) * c->upg - 1; //could have same issue here
-		c->row_int = floor(c->py / c->upg) * c->upg; //could have same issue here
-	c->row_intx = c->px + (c->stepx * fabs((c->row_int - c->py) / tan(c->angle)));
 
 	/* basically, if stepx/y is negative, we need to check 1 after the rounding */
-	// while (c->col_inty > 0 && c->col_int > 0 &&
-	// 	(int)(c->col_inty / c->upg) < main->map_height &&
-	// 	(int)(c->col_int / c->upg) < main->map_width &&
-	// 	(main->map[(int)(c->col_inty / c->upg)][(int)(c->col_int / c->upg)] != '1'))
 	while (check_coord(COL, main))
 	{
 		c->col_int += c->stepx * c->upg;
 		c->col_inty += c->stepy * c->deltay;
 	}
-	// while (c->row_int > 0 && c->row_intx > 0 &&
-	// 	(int)(c->row_int / c->upg) < main->map_height &&
 	// 	(int)(c->row_intx / c->upg) < main->map_width &&
-	// 	main->map[(int)(c->row_int / c->upg)][(int)(c->row_intx / c->upg)] != '1')
 	while (check_coord(ROW, main))
 	{
-		c->row_int += c->stepy * c->upg;
 		c->row_intx += c->stepx * c->deltax;
 	}
 	//NOTE:here, if one direction goes out of bounds, we should ignore it
@@ -200,5 +155,18 @@ void	raycast(t_main *main)
 	
 	// mlx_key_hook(main->mlx.mlx_win, ft_movement, main);
 	// mlx_hook(main->mlx.mlx_win, 17, 1L << 17, ft_close, main);
-	mlx_loop(main->mlx.mlx_ptr);
+	
 }
+
+
+// int	rgb_to_int(int *rgb)
+// {
+// 	int	red;
+// 	int	green;
+// 	int	blue;
+
+// 	red = rgb[0];
+// 	green = rgb[1];
+// 	blue = rgb[2];
+// 	return (red << 16 | green << 8 | blue);
+// }
