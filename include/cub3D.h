@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/18 00:12:34 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/19 16:33:23 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 # define TH				64  //height of texture
 # define SIZE					1  //size of the texture
 // # define GL_SILENCE_DEPRECATION
+# define WIN_WIDTH				1344
+# define WIN_HEIGHT				1000
 
 enum	e_error
 {
@@ -108,11 +110,14 @@ typedef struct s_omap
 {
 	char			*row;
 	struct s_omap	*next;
-	struct s_omap	*prev;
+	// struct s_omap	*prev;
 }	t_omap;
 
 typedef struct	s_calc
 {
+	double	rad_90;
+	double	rad_270;
+	double	rad_360;
 	double	upg; //units per grid
 	double	fov; //field of view in rad
 	double	pln_height; //plane height (repeat of main win_height)
@@ -145,8 +150,9 @@ typedef struct	s_calc
 typedef struct s_main
 {
 	t_omap			*omap; //original map (linked list)
-	int				win_width;
-	int				win_height;
+	t_mlx			mlx;
+	t_calc			*calc;
+	t_img			img;
 	int				*player_pos; //(column, row)
 	char			player_dir;
 	int				map_width;
@@ -158,14 +164,6 @@ typedef struct s_main
 	int				*f_color;
 	int				*c_color;
 	char			**map; //final map, access via map[row][column]
-	t_mlx			mlx;
-	t_calc			*calc;
-	double			n_angle;
-	double			s_angle;
-	double			e_angle;
-	double			w_angle;
-
-	t_img			img;
 
 	/* zahra */
 	t_img			img_no_wall;
@@ -184,17 +182,20 @@ typedef struct s_main
 void	*cub_calloc(size_t count, size_t size, t_main *main);
 void	*cub_malloc(size_t count, size_t size, t_main *main);
 char	*cub_strdup(const char *s1, t_main *main);
+int		ch_num(double angle, double comp);
 
 /* error.c */
 void	error_check(int argc, char **argv);
 void	return_error(t_main *main, int err_msg);
 
-/* download.c */
-void	download_map(int fd, t_main *main);
-
 /* parse_map.c */
+void	download_map(int fd, t_main *main);
 void	parse_map(t_omap *omap_start, t_main *main);
 void	get_map(t_omap *ptr_map, t_main *main);
+
+/* calc.c */
+void	init_calc(t_main *main);
+void	recalc(t_main *main);
 
 /* raycasting.c */
 void	raycast(t_main *main);
@@ -209,8 +210,9 @@ int		ft_close(t_main *main);
 int		ft_movement(int key_code, t_main *main);
 int		encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
 
-/* resize.c*/
+/* draw.c*/
 void	draw_wall(int x, t_main *main);
+void	draw_floor_ceiling(t_main *main);
 
 /* test*/
 void	print_omap(t_omap *map);

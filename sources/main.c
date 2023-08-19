@@ -1,13 +1,14 @@
 #include "../include/cub3D.h"
 
-void	init_main(t_main *main)
+void	parse_cub(int fd, t_main *main)
 {
-	main->win_width = 1344;
-	main->win_height = 1000;
-	main->n_angle = M_PI / 2;
-	main->s_angle = (3 * M_PI) / 2;
-	main->e_angle = 2 * M_PI;
-	main->w_angle = M_PI;
+	t_omap	*begin_map;
+
+	download_map(fd, main);
+	begin_map = identify(main->omap, main); //check all elements
+	check_map(begin_map, main); //check map
+	get_map(begin_map, main); 
+	check_walled(main);
 }
 
 int	main(int argc, char **argv)
@@ -22,14 +23,10 @@ int	main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		return_error(main, OPEN_ERR);
-	download_map(fd, main); //fills out omap
-	map_ptr = identify(main->omap, main); //fills out everything else in mainm combine with parse map
-	parse_map(map_ptr, main); //parse main map
-	// get_map(map_ptr, main); //combine with parse map
-	check_walled(main); //combine with parse map
-	init_main(main); 
-	init_calc(main); //combine with init_main
+	parse_cub(fd, main);
+	init_calc(main); 
 	mlx(main); //creates all mlx instances
 	raycast(main); //game function
+	mlx_loop(main->mlx.mlx_ptr);
 	// return_error(main, NONE); //free everything and return;
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/19 16:11:15 by hbui-vu           #+#    #+#             */
+/*   Updated: 2023/08/19 16:25:49 by hbui-vu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/cub3D.h"
 
 void	*cub_calloc(size_t count, size_t size, t_main *main)
@@ -34,4 +46,22 @@ char	*cub_strdup(const char *s1, t_main *main)
 		i++;
 	}
 	return (ret_str);
+}
+
+/*bc there are inconsistencies with floats, 
+this will get the approx value of float*/
+int	ch_num(double angle, double comp)
+{
+	double	tolerance;
+
+	tolerance = 0.000001;
+	if (fabs(angle - comp) <= tolerance)
+		return (1);
+	return (0);
+}
+
+//what about alpha channel
+int	encode_rgb(uint8_t red, uint8_t green, uint8_t blue)
+{
+    return (red << 16 | green << 8 | blue);
 }

@@ -9,15 +9,6 @@ void	find_pix_color(t_pix *pix, t_main *main)
 	texture = main->calc->wall_face;
 	offset = pix->y * texture.line_length + pix->x * (texture.bpp / 8);
 	addr = texture.addr + offset;
-	// if (*((uint8_t *)addr) < 0)
-	// 	pix->r = 256 + *((uint8_t *)addr);
-	// else
-	// if (*((uint8_t *)addr) < 0)
-	// 	pix->g = 256 + *((uint8_t *)addr);
-	// else
-	// if (*((uint8_t *)addr) < 0)
-	// 	pix->b = 256 + *((uint8_t *)addr);
-	// else
 	pix->r = *((uint8_t *)addr);
 	addr++;
 	pix->g = *((uint8_t *)addr);
@@ -54,6 +45,7 @@ void	interpolate(int x, int y, t_point *p, t_main *main)
 	*(unsigned int *)dst = avg_color;
 }
 
+//note try floor/ceiling on this too
 void	draw_wall(int x, t_main *main)
 {
 	int		row;
@@ -62,7 +54,6 @@ void	draw_wall(int x, t_main *main)
 	t_point	p;
 	
 	row = 0;
-	//note try floor/ceiling on this too
 	start = (int)(round((main->calc->pln_height / 2) - (main->calc->wall_height / 2)));
 	if (start < 0)
 		start = 0;
@@ -79,5 +70,31 @@ void	draw_wall(int x, t_main *main)
 		row++;
 		start++;
 	}
+}
 
+void	draw_floor_ceiling(t_main *main)
+{
+	int	row;
+	int	col;
+	int	*c;
+	int	*f;
+
+	row = -1;
+	col = -1;
+	c = main->c_color;
+	f = main->f_color;
+	while (++row < WIN_HEIGHT/2)
+	{
+		while (++col < WIN_WIDTH)
+			ft_pixel_put(&main->img, col, row, encode_rgb(c[0], c[1], c[2]));
+		col = -1;
+	}
+	row--;
+	col = -1;
+	while (++row < WIN_HEIGHT)
+	{
+		while (++col < WIN_WIDTH)
+			ft_pixel_put(&main->img, col, row, encode_rgb(f[0], f[1], f[2]));
+		col = -1;
+	}
 }
