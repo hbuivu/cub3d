@@ -1,0 +1,15 @@
+Parsing rules:
+-As long as the player is surrounded by walls, it is a valid map
+-Spaces are considered movable spaces
+-map content cannot be separated by a new line -> but if there are spaces in the extra line, it should still continue to be evaluated
+-extra new lines after the map are not valid
+-extra new lines with spaces after the map are valid
+
+parse_map.c
+Parsing map:
+1. check 
+2. check for empty line (null or \n)
+3. check for nonvalid characters (not " NSEW01")
+4. check for player position and direction
+5. determine map height and map width 
+6. check that player exists

@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	download_map(fd, main); //fills out omap
 	map_ptr = identify(main->omap, main); //fills out everything else in mainm combine with parse map
 	parse_map(map_ptr, main); //parse main map
-	get_map(map_ptr, main); //combine with parse map
+	// get_map(map_ptr, main); //combine with parse map
 	check_walled(main); //combine with parse map
 	init_main(main); 
 	init_calc(main); //combine with init_main

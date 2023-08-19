@@ -24,7 +24,16 @@ int	round_up(double num)
 
 int main(void)
 {
-	int i = open("./maps/cub3.cub", O_RDONLY);
-	printf("%i\n", i);
-	return 0;
+	// int i = open("./maps/cub3.cub", O_RDONLY);
+	// printf("%i\n", i);
+	// return 0;
+	int j = -1;
+	while (++j < 5)
+		printf("%i\n", j);
+	printf("j is: %i\n", j);
+	while (j < 10)
+	{
+		printf("%i\n", j);
+		j++;
+	}
 }

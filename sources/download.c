@@ -3,16 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   download.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 16:37:22 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/17 16:44:46 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/18 02:20:22 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
 //download omap for parsing
+void	create_node(t_omap *node, char *str, int fd, t_main *main)
+{
+	node = ft_calloc(1, sizeof(t_omap));
+	if (!node)
+	{
+		free(str);
+		close(fd);
+		return_error(main, MALLOC_ERR);
+	}
+	node->row = cub_strdup(str, main);
+}
 
 void	download_map(int fd, t_main *main)
 {
@@ -26,18 +37,9 @@ void	download_map(int fd, t_main *main)
 		close(fd);
 		return_error(main, GNL_ERR);
 	}
-	node = NULL;
-	cur = NULL;
 	while (str)
 	{
-		node = ft_calloc(1, sizeof(t_omap));
-		if (!node)
-		{
-			free(str);
-			close(fd);
-			return_error(main, MALLOC_ERR);
-		}
-		node->row = cub_strdup(str, main);
+		create_node(node, str, fd, main);
 		if (main->omap == NULL)
 			main->omap = node;
 		else
@@ -45,12 +47,10 @@ void	download_map(int fd, t_main *main)
 			node->prev = cur;
 			cur->next = node;
 		}
-			cur = node;
-			free(str);
-			str = get_next_line(fd);
-		}
+		cur = node;
+		free(str);
+		str = get_next_line(fd);
+	}
 	free(str);
 	close(fd);
 }
-
-//do we need a clean_omap if there are extra spaces after the map ends?

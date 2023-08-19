@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/15 14:10:29 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/17 23:39:28 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	ft_close(t_main *main)
 	exit(0);
 }
 
+
 /* change to print new image on top after updating x and y
 	ft_printf("keycode = %d\n", key_code);
  do not use else if or game stops
@@ -33,13 +34,13 @@ int	ft_close(t_main *main)
 
 //NOTE: Check if this works w floats
 
-int	ft_movement(int key_code, t_main *main)
+int	key_press(int key_code, t_main *main)
 {
 	int	i = -1;
 
 	if (key_code == ESC)
 		ft_close(main);
-	else if (key_code == LEFT_KEY)
+	if (key_code == LEFT_KEY)
 	{
 		main->calc->pdir -= 0.0349066; //2 degrees
 		if (main->calc->pdir < 0)

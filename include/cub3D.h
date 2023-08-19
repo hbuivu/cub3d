@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/17 14:28:47 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/18 00:12:34 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,7 +184,6 @@ typedef struct s_main
 void	*cub_calloc(size_t count, size_t size, t_main *main);
 void	*cub_malloc(size_t count, size_t size, t_main *main);
 char	*cub_strdup(const char *s1, t_main *main);
-int		ft_close(t_main *main);
 
 /* error.c */
 void	error_check(int argc, char **argv);
@@ -218,6 +217,13 @@ void	print_omap(t_omap *map);
 void	print_main_map(t_main *main);
 void	print_calc(t_main *main);
 void	print_main(t_main *main);
+
+/* movement.c */
+int	esc_press(int key, t_main *main);
+int		ft_close(t_main *main);
+int	key_press(int key_code, t_main *main);
+
+
 
 /* identify.c */
 t_omap	*identify(t_omap *omap, t_main *main);

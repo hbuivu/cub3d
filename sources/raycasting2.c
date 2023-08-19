@@ -14,16 +14,6 @@ int	ch_num(double angle, double comp)
 	return (0);
 }
 
-int	round_down(double num)
-{
-	return (num);
-}
-
-int	round_up(double num)
-{
-	return (num + 1);
-}
-
 void	calc_step(t_main *main)
 {
 	if (ch_num(main->calc->angle, main->n_angle) || ch_num(main->calc->angle, main->s_angle))
@@ -195,13 +185,13 @@ void	cast_hline(t_calc *c, t_main *main)
 	if (c->stepx == 1)
 	{
 		c->wall_face = main->img_we_wall; //WEST
-		c->col_int = round_up(c->px / c->upg) * c->upg;
+		c->col_int = ceiling(c->px / c->upg) * c->upg;
 	}
 	else if (c->stepx == -1)
 	{
 		c->wall_face = main->img_ea_wall; //EAST
-		// c->col_int = round_down(c->px / c->upg) * c->upg - 1; 
-		c->col_int = round_down(c->px / c->upg) * c->upg; 
+		// c->col_int = floor(c->px / c->upg) * c->upg - 1; 
+		c->col_int = floor(c->px / c->upg) * c->upg; 
 
 	}
 	c->col_inty = c->py;
@@ -231,13 +221,13 @@ void	cast_vline(t_calc *c, t_main *main)
 	if (c->stepy == 1)
 	{
 		c->wall_face = main->img_no_wall; //NORTH
-		c->row_int = round_up(c->py / c->upg) * c->upg;
+		c->row_int = ceiling(c->py / c->upg) * c->upg;
 	}
 	else if (c->stepy == -1)
 	{
 		c->wall_face = main->img_so_wall; //SOUTH
-		// c->row_int = round_down(c->py / c->upg) * c->upg - 1;
-		c->row_int = round_down(c->py / c->upg) * c->upg;
+		// c->row_int = floor(c->py / c->upg) * c->upg - 1;
+		c->row_int = floor(c->py / c->upg) * c->upg;
 	}
 	c->row_intx = c->px;
 	// while (c->row_int > 0 && c->row_intx > 0 &&
@@ -257,18 +247,18 @@ void	cast_line(int x, t_calc *c, t_main *main)
 	c->deltay = fabs(c->upg * tan(c->angle));
 	c->deltax = fabs(c->upg / tan(c->angle));
 	if (c->stepx == 1)
-		c->col_int = round_up(c->px / c->upg) * c->upg;
+		c->col_int = ceiling(c->px / c->upg) * c->upg;
 	else if (c->stepx == -1)
-		// c->col_int = round_down(c->px / c->upg) * c->upg - 1;
+		// c->col_int = floor(c->px / c->upg) * c->upg - 1;
 		// the -1 creates lines bc it takes the ray one step further than it ought to, this sometimes causes it to check the wrong grid
-		c->col_int = round_down(c->px / c->upg) * c->upg;
+		c->col_int = floor(c->px / c->upg) * c->upg;
 	c->col_inty = c->py + (c->stepy * fabs((c->col_int - c->px) * tan(c->angle)));
 
 	if (c->stepy == 1)
-		c->row_int = round_up(c->py / c->upg) * c->upg;
+		c->row_int = ceiling(c->py / c->upg) * c->upg;
 	else if (c->stepy == -1)
-		// c->row_int = round_down(c->py / c->upg) * c->upg - 1; //could have same issue here
-		c->row_int = round_down(c->py / c->upg) * c->upg; //could have same issue here
+		// c->row_int = floor(c->py / c->upg) * c->upg - 1; //could have same issue here
+		c->row_int = floor(c->py / c->upg) * c->upg; //could have same issue here
 	c->row_intx = c->px + (c->stepx * fabs((c->row_int - c->py) / tan(c->angle)));
 
 	/* basically, if stepx/y is negative, we need to check 1 after the rounding */
@@ -355,7 +345,10 @@ void	raycast(t_main *main)
 	}
 	
 	mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win, main->img.img, 0, 0);
-	mlx_key_hook(main->mlx.mlx_win, ft_movement, main);
-	mlx_hook(main->mlx.mlx_win, 17, 1L << 17, ft_close, main);
+	mlx_hook(main->mlx.mlx_win, 17, 1L<<17, ft_close, &main->mlx);
+	mlx_hook(main->mlx.mlx_win, 2, 1L<<0, key_press, &main->mlx);
+	
+	// mlx_key_hook(main->mlx.mlx_win, ft_movement, main);
+	// mlx_hook(main->mlx.mlx_win, 17, 1L << 17, ft_close, main);
 	mlx_loop(main->mlx.mlx_ptr);
 }
