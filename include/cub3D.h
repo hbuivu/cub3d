@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/19 16:33:23 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/19 16:35:57 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <math.h>
 # include <fcntl.h>
 # include <stdlib.h>
+# include <inttypes.h>
 
 // from KEYCODES minilibx for ASDW and keycode for arrow keys
 # define LEFT_KEY				123
