@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 11:20:56 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/17 21:25:10 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/20 13:50:28 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	printf("s %s\n", s);
 	strs = num_strs(s, c);
 	buffer = (char **)malloc(sizeof(char *) * strs);
 	if (!buffer)
@@ -65,17 +64,14 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (i < strs - 1)
 	{
-		printf("i , (strs - 1) %d  %d\n", i , strs - 1);
 		while (*s == c)
 			s++;
 		buffer[i] = cpystr(s, c);
-	printf("buffer[i] in split %s\n", buffer[i]);
 		if (!buffer[i])
 			return (NULL);
 		i++;
 		s = ft_strchr(s, c);
 	}
 	buffer[i] = NULL;
-	printf("buffer %s\n", buffer[0]);
 	return (buffer);
 }

@@ -6,7 +6,7 @@
 #    By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/20 13:40:32 by zsyyida          ###   ########.fr        #
+#    Updated: 2023/08/20 13:50:55 by zsyyida          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ MLX = libmlx.a
 SRCS = test.c error.c main.c identify.c raycasting2.c mlx.c\
 	download.c utils.c parse_map.c walled_check.c\
 	walled_check_utilities.c movement.c textures.c resize.c\
-	identify_colour.c identify_path.c
+	identify_colour.c identify_path.c minimap.c
+
+#SRCS = test_mlx.c
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
@@ -32,7 +34,7 @@ CC = cc
 RM	= rm -rf
 
 CFLAGS = -Wall -Wextra -Werror
-# -fsanitize=address
+#-fsanitize=address
 MLX_FLAGS = -Lmlx -lmlx -Ofast -framework OpenGL -g -framework AppKit
 # MLX_FLAGS = -g -Lmlx_linux -lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -Ofast -lm
 
