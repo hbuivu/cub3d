@@ -1,3 +1,4 @@
+
 #include "../include/cub3D.h"
 
 void	print_omap(t_omap *map)
