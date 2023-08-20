@@ -6,12 +6,11 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 11:20:56 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/20 13:50:28 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/20 13:52:51 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#include "../include/libft.h"
 
 static int	num_strs(char const *s, char c)
 {

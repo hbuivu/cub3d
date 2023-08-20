@@ -351,8 +351,8 @@ void	raycast(t_main *main)
 		// 	printf("wall_height: %lf\n", c->wall_height);
 		// }
 
-		draw_minimap(main);
 		draw_wall(x, main);
+		draw_minimap(main);
 		x++;
 		// draw_sprite(x, main);
 		recalc(main);
