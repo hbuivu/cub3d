@@ -3,32 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   identify_path.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 18:49:12 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/17 19:04:55 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/20 15:42:10 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
-char	*trim_trailing_spaces(char *s)
+char	*trim_trailing_spaces(char *s, t_main *main)
 {
 	char	*temp;
-	int		a;
+	// int		a;
 	int		j;
+	int		i;
 
-	temp = ft_calloc((int)ft_strlen(s) + 1, sizeof(char));
+	temp = cub_calloc((int)ft_strlen(s) + 1, sizeof(char), main);
 	j = 0;
-	while (s[j] != 'x' || s[j + 1] != 'p' || s[j + 2] != 'm')
-	{
-		temp[j] = s[j];
+	i = 0;
+	while (s[j] && s[j] == ' ')
 		j++;
-	}
-	a = j + 3;
-	while (j <= a)
+	while (s[j] && s[j] != ' ')
 	{
-		temp[j] = s[j];
+		temp[i] = s[j];
+		j++;
+		i++;
+	}
+	while (s[j])
+	{
+		if (s[j] != ' ')
+			return_error(main, MAP_ERR);
 		j++;
 	}
 	return (temp);
@@ -41,7 +46,7 @@ void	n_path_identity(t_main *main, char *s, char *id)
 	if (ft_strncmp(s, id, 2) != 0)
 		return_error(main, IDENT_ERR);
 	s = s + 2;
-	s = trim_trailing_spaces(s);
+	s = trim_trailing_spaces(s, main);
 	if (ft_strncmp(s + ft_strlen(s) - 4, ".xpm", 4) != 0)
 		return_error(main, XPM_ERR);
 	while (*s == ' ')
@@ -56,7 +61,7 @@ void	s_path_identity(t_main *main, char *s, char *id)
 	if (ft_strncmp(s, id, 2) != 0)
 		return_error(main, IDENT_ERR);
 	s = s + 2;
-	s = trim_trailing_spaces(s);
+	s = trim_trailing_spaces(s, main);
 	if (ft_strncmp(s + ft_strlen(s) - 4, ".xpm", 4) != 0)
 		return_error(main, XPM_ERR);
 	while (*s == ' ')
@@ -71,7 +76,7 @@ void	e_path_identity(t_main *main, char *s, char *id)
 	if (ft_strncmp(s, id, 2) != 0)
 		return_error(main, IDENT_ERR);
 	s = s + 2;
-	s = trim_trailing_spaces(s);
+	s = trim_trailing_spaces(s, main);
 	if (ft_strncmp(s + ft_strlen(s) - 4, ".xpm", 4) != 0)
 		return_error(main, XPM_ERR);
 	while (*s == ' ')
@@ -86,7 +91,7 @@ void	w_path_identity(t_main *main, char *s, char *id)
 	if (ft_strncmp(s, id, 2) != 0)
 		return_error(main, IDENT_ERR);
 	s = s + 2;
-	s = trim_trailing_spaces(s);
+	s = trim_trailing_spaces(s, main);
 	if (ft_strncmp(s + ft_strlen(s) - 4, ".xpm", 4) != 0)
 		return_error(main, XPM_ERR);
 	while (*s == ' ')

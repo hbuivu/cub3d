@@ -53,7 +53,8 @@ void	interpolate(int x, int y, t_point *p, t_main *main)
 	avg_color = encode_rgb((int)r, (int)g, (int)b);
 	offset = y * main->img.line_length + x * (main->img.bpp / 8);
 	dst = main->img.addr + offset;
-	*(unsigned int *)dst = avg_color;
+	if (avg_color != 0) //if color is not black, print out pixel
+		*(unsigned int *)dst = avg_color;
 }
 
 void	draw_wall(int x, t_main *main)

@@ -59,7 +59,7 @@ typedef struct s_point
 	t_pix	*p4; //value of color at (y2, x2)
 }	t_point;
 
-#define SCALE	0.5
+#define SCALE	5
 
 void	find_pix_color(t_mlxz *mlx, t_pix *pix)
 {
@@ -69,21 +69,18 @@ void	find_pix_color(t_mlxz *mlx, t_pix *pix)
 	offset = pix->y * mlx->x_line_length + pix->x * (mlx->x_bpp / 8);
 	addr = mlx->x_addr + offset;
 
-	if (*((uint8_t *)addr) < 0)
-		pix->r = 256 + *((uint8_t *)addr);
-	else
-		pix->r = *((uint8_t *)addr);
+	pix->r = *((uint8_t *)addr);
 	addr++;
-	if (*((uint8_t *)addr) < 0)
-		pix->g = 256 + *((uint8_t *)addr);
-	else
+	// if (*((uint8_t *)addr) < 0)
+	// 	pix->g = 256 + *((uint8_t *)addr);
+	// else
 		pix->g = *((uint8_t *)addr);
 	addr++;
-	if (*((uint8_t *)addr) < 0)
-		pix->b = 256 + *((uint8_t *)addr);
-	else
+	// if (*((uint8_t *)addr) < 0)
+	// 	pix->b = 256 + *((uint8_t *)addr);
+	// else
 		pix->b = *((uint8_t *)addr);
-	// printf("r: %i g: %i b: %i\n", pix->r, pix->g, pix->b);
+	printf("r: %i g: %i b: %i\n", pix->r, pix->g, pix->b);
 }
 
 int	encode_rgb(uint8_t red, uint8_t green, uint8_t blue)
@@ -132,7 +129,7 @@ int main(void)
 {
 	t_mlxz	*mlx;
 	t_point	*p;
-	char	*relative_path = "textures/north.xpm";
+	char	*relative_path = "textures/spr1.xpm";
 
 	mlx = NULL;
 	p = NULL;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   identify.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:13:12 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/17 19:20:30 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/20 15:29:20 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,15 @@ t_omap	*identify(t_omap *omap, t_main *main)
 	t_omap	*curr;
 	t_omap	*ptr_map;
 	int		i;
+	int		j;
 
 	curr = omap;
 	i = 0;
+	j = 0;
 	while (curr)
 	{
+		// printf("j: %i\n", j);
+		// print_omap(main->omap);
 		while (curr->row[i] == ' ')
 			i++;
 		if (curr->row[i] == 'F')
@@ -82,6 +86,7 @@ t_omap	*identify(t_omap *omap, t_main *main)
 			return (ptr_map);
 		}
 		curr = curr->next;
+		j++;
 	}
 	return (NULL);
 }
