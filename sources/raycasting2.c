@@ -41,7 +41,6 @@ void	cast_vline(t_calc *c, t_main *main)
 	else if (c->stepy == -1)
 	{
 		c->wall_face = main->img_so_wall; //SOUTH
-		// c->row_int = floor(c->py / c->upg) * c->upg - 1;
 		c->row_int = floor(c->py / c->upg) * c->upg;
 	}
 	c->row_intx = c->px;

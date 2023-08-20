@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/19 16:35:57 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/20 12:22:20 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,12 +191,15 @@ void	return_error(t_main *main, int err_msg);
 
 /* parse_map.c */
 void	download_map(int fd, t_main *main);
-void	parse_map(t_omap *omap_start, t_main *main);
+void	check_map(t_omap *omap_start, t_main *main);
 void	get_map(t_omap *ptr_map, t_main *main);
 
 /* calc.c */
 void	init_calc(t_main *main);
 void	recalc(t_main *main);
+
+/* coord_check.c */
+int	check_coord(int jump, t_main *main);
 
 /* raycasting.c */
 void	raycast(t_main *main);
