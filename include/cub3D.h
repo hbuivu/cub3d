@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/20 12:22:20 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/20 16:59:39 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@
 # define TH				64  //height of texture
 # define SIZE					1  //size of the texture
 // # define GL_SILENCE_DEPRECATION
-# define WIN_WIDTH				1344
-# define WIN_HEIGHT				1000
+# define WIN_WIDTH				1920
+# define WIN_HEIGHT				1024
 
 enum	e_error
 {
