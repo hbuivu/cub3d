@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/17 19:19:59 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/19 17:50:31 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 # define D_KEY					2
 # define W_KEY					13
 # define ESC 					53
-# define TW				64	// width of the texture
-# define TH				64  //height of texture
+# define TW						64	// width of the texture
+# define TH						64  //height of texture
 # define SIZE					1  //size of the texture
 // # define GL_SILENCE_DEPRECATION
 
@@ -168,6 +168,7 @@ typedef struct s_main
 	t_img			img;
 
 	/* zahra */
+	t_img			img_minimap;
 	t_img			img_no_wall;
 	t_img			img_so_wall;
 	t_img			img_we_wall;
@@ -204,6 +205,7 @@ void	calc_step(t_main *main);
 void	draw_floor_ceiling(t_main *main);
 
 /* mlx.c */
+int		rgb_to_int(int *rgb);
 void	ft_pixel_put(t_img *img, int x, int y, int color);
 void	mlx(t_main *main);
 int		ft_close(t_main *main);
@@ -241,5 +243,7 @@ void	del(void *lst);
 
 void	get_textures(t_main *main);
 void	get_data_addr(t_main *main);
+
+void	draw_minimap(t_main *main);
 
 #endif

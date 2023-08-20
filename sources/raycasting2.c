@@ -87,6 +87,7 @@ int	rgb_to_int(int *rgb)
 	return (red << 16 | green << 8 | blue);
 }
 
+
 void	draw_floor_ceiling(t_main *main)
 {
 	int	row;
@@ -350,8 +351,10 @@ void	raycast(t_main *main)
 		// 	printf("wall_height: %lf\n", c->wall_height);
 		// }
 
+		draw_minimap(main);
 		draw_wall(x, main);
 		x++;
+		// draw_sprite(x, main);
 		recalc(main);
 	}
 	mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win, main->img.img, 0, 0);

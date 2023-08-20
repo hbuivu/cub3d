@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 21:19:55 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/17 21:06:38 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/18 14:48:23 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,10 @@ void	get_textures(t_main *main)
 	get_data_addr(main);
 }
 
+// main->img_no_wall.buff = get_buffer(main, main->img_no_wall);
+	// main->img_so_wall.buff = get_buffer(main, main->img_so_wall);
+	// main->img_ea_wall.buff = get_buffer(main, main->img_ea_wall);
+	// main->img_we_wall.buff = get_buffer(main, main->img_we_wall);
 /*
 	** After creating an image, we can call `mlx_get_data_addr`, we pass
 	** `bits_per_pixel`, `line_length`, and `endian` by reference. These will
@@ -110,9 +114,5 @@ void	get_data_addr(t_main *main)
 			&main->img_we_wall.endian);
 	if (!main->img_we_wall.addr)
 		return_error(main, MLX_ERR);
-	// main->img_no_wall.buff = get_buffer(main, main->img_no_wall);
-	// main->img_so_wall.buff = get_buffer(main, main->img_so_wall);
-	// main->img_ea_wall.buff = get_buffer(main, main->img_ea_wall);
-	// main->img_we_wall.buff = get_buffer(main, main->img_we_wall);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   identify_colour.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 18:45:40 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/17 20:42:00 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/19 01:51:33 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,7 @@ char	*remove_spaces(char *s, t_main *main)
 			i++;
 	}
 	number[j] = '\0';
-	s = number;
-	free (number);
-	return (s);
+	return (number);
 }
 
 char	*check_comma(char *s, t_main *main)
@@ -75,16 +73,11 @@ int	*to_int(char *s, t_main *main)
 
 	color = cub_calloc(4, sizeof(int), main);
 	s = check_comma(s, main);
-	printf("after calloc s %s\n", s);
 	split = ft_split(s, ',');
-	printf("after split  %s\n", split[0]);
 	i = 0;
 	while (split[i])
 	{
-		// not going in this loop
-		printf("split[i]%s\n", split[i]);
 		color[i] = ft_atoi(split[i]);
-		printf("color %d\n", color[i]);
 		if (color[i] < 0 || color[i] > 255)
 		{
 			perror("Not a valid color");
@@ -92,6 +85,8 @@ int	*to_int(char *s, t_main *main)
 		}
 		i++;
 	}
+	if (!color[3])
+		color[3] = 255;
 	return (color);
 }
 
