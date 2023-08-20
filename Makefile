@@ -6,7 +6,7 @@
 #    By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/20 16:05:35 by hbui-vu          ###   ########.fr        #
+#    Updated: 2023/08/20 16:20:55 by hbui-vu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,10 +21,12 @@ LIBFT = libft.a
 MLX_DIR = mlx
 MLX = libmlx.a
 
-SRCS = test.c error.c main.c identify.c raycasting2.c mlx.c\
-	download.c utils.c parse_map.c walled_check.c\
-	walled_check_utilities.c movement.c textures.c resize.c\
-	identify_colour.c identify_path.c minimap.c
+# SRCS = test.c error.c main.c identify.c raycasting2.c mlx.c\
+# 	download.c utils.c parse_map.c walled_check.c\
+# 	walled_check_utilities.c movement.c textures.c resize.c\
+# 	identify_colour.c identify_path.c minimap.c
+
+SRCS = resize_ex.c
 
 #SRCS = test_mlx.c
 

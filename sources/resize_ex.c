@@ -37,6 +37,7 @@ typedef struct s_pix
 	uint8_t	r;
 	uint8_t	g;
 	uint8_t	b;
+
 }	t_pix;
 
 typedef struct s_point
@@ -66,20 +67,28 @@ void	find_pix_color(t_mlxz *mlx, t_pix *pix)
 	int		offset;
 	void	*addr;
 
+
 	offset = pix->y * mlx->x_line_length + pix->x * (mlx->x_bpp / 8);
 	addr = mlx->x_addr + offset;
+	pix->r = *((uint32_t *)addr) >> 16;
+	pix->g =  *((uint32_t *)addr) >> 8 & 255;
+	pix->b = *((uint32_t *)addr) & 255;
 
-	pix->r = *((uint8_t *)addr);
-	addr++;
-	// if (*((uint8_t *)addr) < 0)
-	// 	pix->g = 256 + *((uint8_t *)addr);
-	// else
-		pix->g = *((uint8_t *)addr);
-	addr++;
-	// if (*((uint8_t *)addr) < 0)
-	// 	pix->b = 256 + *((uint8_t *)addr);
-	// else
-		pix->b = *((uint8_t *)addr);
+	// pix->r = *((uint32_t *)addr) >> 16;
+	// pix->g =  (*((uint32_t *)addr)- (pix->r << 16)) >> 8;
+	// pix->b = (*((uint32_t *)addr) - (pix->r << 16) - (pix->g << 8));
+
+	// pix->r = *((uint8_t *)addr);
+	// addr++;
+	// // if (*((uint8_t *)addr) < 0)
+	// // 	pix->g = 256 + *((uint8_t *)addr);
+	// // else
+	// 	pix->g = *((uint8_t *)addr);
+	// addr++;
+	// // if (*((uint8_t *)addr) < 0)
+	// // 	pix->b = 256 + *((uint8_t *)addr);
+	// // else
+	// 	pix->b = *((uint8_t *)addr);
 	printf("r: %i g: %i b: %i\n", pix->r, pix->g, pix->b);
 }
 
