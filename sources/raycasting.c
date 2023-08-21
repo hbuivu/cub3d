@@ -114,8 +114,6 @@ void	raycast(t_main *main)
 	draw_floor_ceiling(main);
 	while (x < main->calc->pln_width)
 	{
-		if(x == 0)
-			print_calc(main);
 		if (ch_num(c->angle, 0) || ch_num(c->angle, M_PI))
 		{
 			printf("angle: %lf\n", c->angle);

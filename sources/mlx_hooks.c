@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 18:23:19 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 18:29:39 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,16 +73,22 @@ int	key_press(int key_code, t_main *main)
 		if (main->calc->angle < 0)
 			main->calc->angle += main->calc->rad_360;
 		calc_step(main);
+		printf("pdir: %lf\n", main->calc->pdir);
+		printf("angle: %lf\n", main->calc->angle);
+		printf("stepx: %i stepy: %i\n", main->calc->stepx, main->calc->stepy);
 	}
 	else if (key_code == RIGHT_KEY)
 	{
 		main->calc->pdir += 0.0349066; //2 degrees
-		if (main->calc->pdir > main->calc->rad_360)
+		if (ch_num(main->calc->pdir, main->calc->rad_360) || main->calc->pdir > main->calc->rad_360)
 			main->calc->pdir -= main->calc->rad_360;
 		main->calc->angle = main->calc->pdir - (main->calc->fov / 2);
 		if (main->calc->angle < 0)
 			main->calc->angle += main->calc->rad_360;
 		calc_step(main);
+		printf("pdir: %lf\n", main->calc->pdir);
+		printf("angle: %lf\n", main->calc->angle);
+		printf("stepx: %i stepy: %i\n", main->calc->stepx, main->calc->stepy);
 	}
 	else if (key_code == W_KEY || key_code == S_KEY || key_code == A_KEY || key_code == D_KEY)
 		move(key_code, main);
