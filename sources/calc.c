@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calc.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:31:03 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/19 16:18:13 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/20 22:14:51 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ void	recalc(t_main *main)
 		c->angle += c->rad_360;
 	else if (c->angle > c->rad_360 || ch_num(c->angle, c->rad_360))
 		c->angle -= c->rad_360;
+	c->tan_angle = tan(c->angle);
 	calc_step(main);
 }

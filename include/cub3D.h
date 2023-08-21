@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/20 16:59:39 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/20 22:18:21 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ typedef struct	s_calc
 	double	angle; //angle used for calculations in degrees
 	int		stepx; //direction in which x is going (-1 or 1)
 	int		stepy; //direction in which y is going (-1 or 1)
-
+	double	tan_angle; //tangent of angle for calculations;
 	/* initiated to 0 at start */
 	double	col_int; //point where ray intersects a column line
 	double	col_inty; //the y coordinate where ray intersects column line
@@ -210,9 +210,9 @@ void	draw_floor_ceiling(t_main *main);
 /* mlx.c */
 void	ft_pixel_put(t_img *img, int x, int y, int color);
 void	mlx(t_main *main);
+int		encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
 int		ft_close(t_main *main);
 int		ft_movement(int key_code, t_main *main);
-int		encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
 
 /* draw.c*/
 void	draw_wall(int x, t_main *main);
@@ -226,7 +226,7 @@ void	print_main(t_main *main);
 
 /* movement.c */
 int	esc_press(int key, t_main *main);
-int		ft_close(t_main *main);
+int	ft_close(t_main *main);
 int	key_press(int key_code, t_main *main);
 
 

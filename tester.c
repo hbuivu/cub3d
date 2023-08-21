@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <fcntl.h>
+#include <math.h>
 
 int	round_down(double num)
 {
@@ -27,13 +28,14 @@ int main(void)
 	// int i = open("./maps/cub3.cub", O_RDONLY);
 	// printf("%i\n", i);
 	// return 0;
-	int j = -1;
-	while (++j < 5)
-		printf("%i\n", j);
-	printf("j is: %i\n", j);
-	while (j < 10)
-	{
-		printf("%i\n", j);
-		j++;
-	}
+	// int j = -1;
+	// while (++j < 5)
+	// 	printf("%i\n", j);
+	// printf("j is: %i\n", j);
+	// while (j < 10)
+	// {
+	// 	printf("%i\n", j);
+	// 	j++;
+	// }
+	printf("%lf\n", ceil(639.99999999/64.0));
 }

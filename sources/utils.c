@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 16:11:15 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/19 16:25:49 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 09:02:52 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,13 @@ char	*cub_strdup(const char *s1, t_main *main)
 
 /*bc there are inconsistencies with floats, 
 this will get the approx value of float*/
-int	ch_num(double angle, double comp)
+//returns 1 if the numbers are equal
+int	ch_num(double num, double comp)
 {
 	double	tolerance;
 
 	tolerance = 0.000001;
-	if (fabs(angle - comp) <= tolerance)
+	if (fabs(num - comp) <= tolerance)
 		return (1);
 	return (0);
-}
-
-//what about alpha channel
-int	encode_rgb(uint8_t red, uint8_t green, uint8_t blue)
-{
-    return (red << 16 | green << 8 | blue);
 }
