@@ -6,7 +6,7 @@
 #    By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/21 15:01:00 by zsyyida          ###   ########.fr        #
+#    Updated: 2023/08/21 15:32:39 by zsyyida          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ NAME = cub3D
 
 INC_DIR = include
 SRC_DIR = sources
+BSRC_DIR = sources_b
 OBJ_DIR = object
+BOBJ_DIR = object_b
 LIBFT_DIR = libft
 LIBFT = libft.a
 # MLX_DIR = mlx_linux
@@ -28,9 +30,16 @@ SRCS = error.c utils.c test.c \
 	calc.c coord_check.c draw.c draw_utils.c raycasting.c \
 	main.c
 
+BSRCS = error.c utils.c test.c \
+	identify.c identify_colour.c identify_path.c parse_map.c \
+	walled_check.c walled_check_utilities.c \
+	mlx_hooks.c mlx_imgs.c  \
+	calc.c coord_check.c draw.c draw_utils.c raycasting.c \
+	main.c minimap.c
 # SRCS = resize_ex.c
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
+BOBJS = $(addprefix $(BOBJ_DIR)/, $(BSRCS:.c=.o))
 
 CC = cc
 RM	= rm -rf
@@ -40,7 +49,6 @@ CFLAGS = -Wall -Wextra -Werror
 MLX_FLAGS = -Lmlx -lmlx -Ofast -framework OpenGL -g -framework AppKit
 # MLX_FLAGS = -g -Lmlx_linux -lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -Ofast -lm
 
-#BOBJS = $(addprefix $(BOBJ_DIR)/, $(BSRCS:.c=.o))
 
 #to create all of the .o files from files in SRC_DIR in OBJ_DIR
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
@@ -48,18 +56,24 @@ $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	@$(CC) $(CFLAGS) -I $(INC_DIR) -I $(LIBFT_DIR)/$(INC_DIR) -I $(MLX_DIR) -c $< -o $@
 #because the include directory for libft  is in libft.
 
+(BOBJ_DIR)/%.o : $(BSRC_DIR)/%.c
+	@mkdir -p $(BOBJ_DIR)
+	@$(CC) $(CFLAGS) -I $(INC_DIR) -I $(LIBFT_DIR)/$(INC_DIR) -I $(MLX_DIR) -c $< -o $@
+
 $(NAME): $(OBJS)
 	$(MAKE) -C $(LIBFT_DIR)
 	$(MAKE) -C $(MLX_DIR)
 	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(OBJS) -Llibft -lft -o $(NAME)
 	#@$(CC) $(OBJS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(CFLAGS) $(MLX_FLAGS) -Llibft -lft -o $(NAME)
 
-all: $(NAME)
 
-# bonus: $(NAME) $(BOBJS)
-# 	$(MAKE) -C $(MLX_DIR)
-# 	$(MAKE) -C $(LIBFT_DIR)
-# 	$(CC) $(LIBS) $(MLX_FLAGS) $(BOBJS) -o $(NAME)
+bonus: $(NAME) $(BOBJS)
+	$(MAKE) -C $(LIBFT_DIR)
+	$(MAKE) -C $(MLX_DIR)
+	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(BOBJS) -Llibft -lft -o $(NAME)
+# $(CC) $(LIBS) $(MLX_FLAGS) $(BOBJS) -o $(NAME)
+
+all: $(NAME)
 
 clean:
 	$(MAKE) clean -C $(MLX_DIR)
@@ -72,4 +86,6 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+rebonus:	fclean bonus
+
+.PHONY: all clean fclean re rebonus
