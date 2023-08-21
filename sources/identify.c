@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   identify.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:13:12 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/15 20:03:11 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/20 15:29:20 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,21 @@ t_omap	*identify(t_omap *omap, t_main *main)
 	t_omap	*curr;
 	t_omap	*ptr_map;
 	int		i;
+	int		j;
 
 	curr = omap;
 	i = 0;
+	j = 0;
 	while (curr)
 	{
+		// printf("j: %i\n", j);
+		// print_omap(main->omap);
 		while (curr->row[i] == ' ')
 			i++;
 		if (curr->row[i] == 'F')
-			floor_colour(main, i, &curr->row[i]);
+			floor_colour(main, &curr->row[i]);
 		else if (curr->row[i] == 'C')
-			ceiling_colour(main, i, &curr->row[i]);
+			ceiling_colour(main, &curr->row[i]);
 		else if (curr->row[i] == 'N')
 			n_path_identity(main, &curr->row[i], "NO");
 		else if (curr->row[i] == 'S')
@@ -70,7 +74,9 @@ t_omap	*identify(t_omap *omap, t_main *main)
 			e_path_identity(main, &curr->row[i], "EA");
 		else if (curr->row[i] == 'W')
 			w_path_identity(main, &curr->row[i], "WE");
-		else if (ft_strchr(curr->row, '1') != NULL || ft_strchr(curr->row, '0') != NULL || ft_strchr(curr->row, ' ') != NULL)
+		else if (ft_strchr(curr->row, '1') != NULL
+			|| ft_strchr(curr->row, '0') != NULL
+			|| ft_strchr(curr->row, ' ') != NULL)
 		{
 			if (check_main(main) == 1)
 			{
@@ -80,6 +86,7 @@ t_omap	*identify(t_omap *omap, t_main *main)
 			return (ptr_map);
 		}
 		curr = curr->next;
+		j++;
 	}
 	return (NULL);
 }

@@ -92,6 +92,7 @@ void	draw_wall(int x, t_main *main)
 	{
 		while (start <= stop)
 		{
+			// if((16711680 & 0x00FFFFFF) != 0)
 			ft_pixel_put(&main->img, x, (int)start, 16711680);
 			start++;
 		}
@@ -100,6 +101,7 @@ void	draw_wall(int x, t_main *main)
 	{
 		while (start <= stop)
 		{
+			// if((3093132 & 0x00FFFFFF) != 0)
 			ft_pixel_put(&main->img, x, (int)start, 3093132);
 			start++;
 		}

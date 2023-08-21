@@ -6,7 +6,11 @@
 /*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/08/21 12:08:46 by hbui-vu          ###   ########.fr       */
+=======
+/*   Updated: 2023/08/20 16:21:24 by hbui-vu          ###   ########.fr       */
+>>>>>>> Zahra
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +33,8 @@
 # define D_KEY					2
 # define W_KEY					13
 # define ESC 					53
-# define TW				64	// width of the texture
-# define TH				64  //height of texture
+# define TW						64	// width of the texture
+# define TH						64  //height of texture
 # define SIZE					1  //size of the texture
 // # define GL_SILENCE_DEPRECATION
 # define WIN_WIDTH				1920
@@ -88,24 +92,24 @@ typedef struct s_mlx
 	void	*mlx_win;
 }	t_mlx;
 
-typedef struct s_pix
-{
-	int		x;
-	int		y;
-	uint8_t	r;
-	uint8_t	g;
-	uint8_t	b;
-}	t_pix;
+// typedef struct s_pix
+// {
+// 	int		x;
+// 	int		y;
+// 	uint8_t	r;
+// 	uint8_t	g;
+// 	uint8_t	b;
+// }	t_pix;
 
-typedef struct s_point
-{
-	double	scale; //scale against 64 pixels
-	double	orig_x; //column slice of wall
-	double	orig_y; //how the point would transalte on original image y axis
-	double	y_dist; //the distance of orig_y from y1
-	t_pix	p1; //value of color at (x1, y1)
-	t_pix	p2; //value of color at (x2, y2)
-}	t_point;
+// typedef struct s_point
+// {
+// 	double	scale; //scale against 64 pixels
+// 	double	orig_x; //column slice of wall
+// 	double	orig_y; //how the point would transalte on original image y axis
+// 	double	y_dist; //the distance of orig_y from y1
+// 	t_pix	p1; //value of color at (x1, y1)
+// 	t_pix	p2; //value of color at (x2, y2)
+// }	t_point;
 
 typedef struct s_omap
 {
@@ -167,6 +171,7 @@ typedef struct s_main
 	char			**map; //final map, access via map[row][column]
 
 	/* zahra */
+	t_img			img_minimap;
 	t_img			img_no_wall;
 	t_img			img_so_wall;
 	t_img			img_we_wall;
@@ -198,7 +203,16 @@ int		ft_close(t_main *main);
 int		key_press(int key_code, t_main *main);
 
 /* mlx.c */
+<<<<<<< HEAD
 void	mlx(t_main *main);
+=======
+int		rgb_to_int(int *rgb);
+void	ft_pixel_put(t_img *img, int x, int y, int color);
+void	mlx(t_main *main);
+int		ft_close(t_main *main);
+int		ft_movement(int key_code, t_main *main);
+// int		encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
+>>>>>>> Zahra
 
 /* calc.c */
 void	calc_step(t_main *main);
@@ -229,8 +243,8 @@ void	print_main(t_main *main);
 /* identify.c */
 t_omap	*identify(t_omap *omap, t_main *main);
 
-void	floor_colour(t_main *main, int i, char *ptr);
-void	ceiling_colour(t_main *main, int i, char *ptr);
+void	floor_colour(t_main *main, char *ptr);
+void	ceiling_colour(t_main *main, char *ptr);
 int		*to_int(char *s, t_main *main);
 
 void	n_path_identity(t_main *main, char *s, char *id);
@@ -248,5 +262,7 @@ void	del(void *lst);
 
 void	get_textures(t_main *main);
 void	get_data_addr(t_main *main);
+
+void	draw_minimap(t_main *main);
 
 #endif
