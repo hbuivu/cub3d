@@ -131,4 +131,8 @@ void	raycast(t_main *main)
 		recalc(main);
 	}
 	mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win, main->img.img, 0, 0);	
+	mlx_key_hook(main->mlx.mlx_win, key_press, main);
+	// mlx_hook(main->mlx.mlx_win, 17, 1L<<17, ft_close, &main->mlx);
+	mlx_hook(main->mlx.mlx_win, 17, 1L << 17, ft_close, main);
+	mlx_loop(main->mlx.mlx_ptr);
 }

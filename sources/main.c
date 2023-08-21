@@ -26,9 +26,6 @@ int	main(int argc, char **argv)
 	init_calc(main); 
 	mlx(main); //creates all mlx instances
 	raycast(main); //game function
-	mlx_key_hook(main->mlx.mlx_win, key_press, main);
-	mlx_hook(main->mlx.mlx_win, 17, 1L<<17, ft_close, &main->mlx);
-	mlx_loop(main->mlx.mlx_ptr);
 	//mlx_destroy_window
 	//mlx_destroy_imgs
 	//return_error(main, NONE)
