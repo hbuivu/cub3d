@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 21:19:55 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/17 13:11:31 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 11:19:32 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,39 +25,6 @@ since tile is a square can use same size for width and height
  @return	void*			the image instance, and NULL in case of error.
 */
 
-char	**get_buffer(t_main *main, t_img img)
-{
-	char 	*ptr;
-	int		x;
-	int		y;
-	int		i;
-
-	i = 0;
-	ptr = img.addr;
-	// while (i < (img.line_length) * (img.line_length))
-	// {
-	// 	printf("%i\n", ptr[i]);
-	// 	i++;
-	// }
-	y = 0;
-	img.buff = cub_calloc(img.line_length, sizeof(char *), main);
-	while (y < img.line_length)
-	{
-		x = 0;
-		while (x < img.line_length)
-		{
-			img.buff[y] = cub_calloc(img.line_length, sizeof(char), main);
-			img.buff[y][x] = ptr[i];
-			printf("img %i\n", ptr[i]);
-			printf("buff %i\n", img.buff[y][x]);
-			printf("i %i, x %x\n", i, x);
-			x++;
-			i++;
-		}
-		y++;
-	}
-	return (main->img.buff);
-}
 
 void	get_textures(t_main *main)
 {

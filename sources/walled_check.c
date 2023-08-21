@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   walled_check.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 17:01:13 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/17 16:48:54 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 10:19:39 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	check_walled(t_main *main)
 	int		i;
 	t_queue	*ptr;
 
-	main->player_update = (int *)cub_malloc(2, sizeof(int), main);
+	main->player_update = (int *)cub_calloc(2, sizeof(int), main);
 	main->map_cpy = ft_calloc(main->map_height + 1, sizeof(char*));
 	i = 0;
 	while (main->map[i])

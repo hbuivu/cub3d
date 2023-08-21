@@ -78,7 +78,7 @@ void	cast_line(int x, t_calc *c, t_main *main)
 	calc_intercepts(c, main);
 	c->dist_col = fabs((c->px - c->col_int) / cos(c->angle));
 	c->dist_row = fabs((c->px - c->row_intx) / cos(c->angle));
-	else if (c->dist_col <= c->dist_row)
+	if (c->dist_col <= c->dist_row)
 	{
 		c->wall_slice = (int)c->col_inty % 64;
 		c->cor_dist = c->dist_col * cos((c->fov - (2 * x * c->ray_incr)) / 2);

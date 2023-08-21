@@ -15,7 +15,6 @@ int	main(int argc, char **argv)
 {
 	int		fd;
 	t_main	*main;
-	t_omap	*map_ptr;
 
 	error_check(argc, argv);
 	main = NULL;
@@ -27,6 +26,11 @@ int	main(int argc, char **argv)
 	init_calc(main); 
 	mlx(main); //creates all mlx instances
 	raycast(main); //game function
+	mlx_hook(main->mlx.mlx_win, 17, 1L<<17, ft_close, &main->mlx);
+	mlx_hook(main->mlx.mlx_win, 2, 1L<<0, key_press, &main->mlx);
 	mlx_loop(main->mlx.mlx_ptr);
-	// return_error(main, NONE); //free everything and return;
+	//mlx_destroy_window
+	//mlx_destroy_imgs
+	//return_error(main, NONE)
+	return (0);
 }

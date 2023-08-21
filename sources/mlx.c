@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:13:40 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/20 22:23:01 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 11:13:25 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,4 @@ void	mlx(t_main *main)
 	if (!main->img.addr)
 		return_error(main, MLX_ERR);
 	get_textures(main);
-	mlx_hook(main->mlx.mlx_win, 17, 1L<<17, ft_close, &main->mlx);
-	mlx_hook(main->mlx.mlx_win, 2, 1L<<0, key_press, &main->mlx);
 }

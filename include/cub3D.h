@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/20 22:18:21 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 12:08:46 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <math.h>
 # include <fcntl.h>
 # include <stdlib.h>
-# include <inttypes.h>
+# include <X11/keysym.h>
 
 // from KEYCODES minilibx for ASDW and keycode for arrow keys
 # define LEFT_KEY				123
@@ -179,56 +179,51 @@ typedef struct s_main
 	char			**map_cpy;
 }	t_main;
 
-/* utils.c */
-void	*cub_calloc(size_t count, size_t size, t_main *main);
-void	*cub_malloc(size_t count, size_t size, t_main *main);
-char	*cub_strdup(const char *s1, t_main *main);
-int		ch_num(double angle, double comp);
-
 /* error.c */
 void	error_check(int argc, char **argv);
 void	return_error(t_main *main, int err_msg);
+
+/* utils.c */
+void	*cub_calloc(size_t count, size_t size, t_main *main);
+char	*cub_strdup(const char *s1, t_main *main);
+int		ch_num(double angle, double comp);
 
 /* parse_map.c */
 void	download_map(int fd, t_main *main);
 void	check_map(t_omap *omap_start, t_main *main);
 void	get_map(t_omap *ptr_map, t_main *main);
 
+/* mlx_hooks.c */
+int		ft_close(t_main *main);
+int		key_press(int key_code, t_main *main);
+
+/* mlx.c */
+void	mlx(t_main *main);
+
 /* calc.c */
+void	calc_step(t_main *main);
 void	init_calc(t_main *main);
 void	recalc(t_main *main);
 
 /* coord_check.c */
 int	check_coord(int jump, t_main *main);
 
-/* raycasting.c */
-void	raycast(t_main *main);
-void	init_calc(t_main *main);
-void	calc_step(t_main *main);
-void	draw_floor_ceiling(t_main *main);
-
-/* mlx.c */
-void	ft_pixel_put(t_img *img, int x, int y, int color);
-void	mlx(t_main *main);
-int		encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
-int		ft_close(t_main *main);
-int		ft_movement(int key_code, t_main *main);
-
-/* draw.c*/
+/* draw.c */
 void	draw_wall(int x, t_main *main);
 void	draw_floor_ceiling(t_main *main);
+
+/* draw_utils.c */
+int		encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
+void	ft_pixel_put(t_img *img, int x, int y, int color);
+
+/* raycasting.c */
+void	raycast(t_main *main);
 
 /* test*/
 void	print_omap(t_omap *map);
 void	print_main_map(t_main *main);
 void	print_calc(t_main *main);
 void	print_main(t_main *main);
-
-/* movement.c */
-int	esc_press(int key, t_main *main);
-int	ft_close(t_main *main);
-int	key_press(int key_code, t_main *main);
-
 
 
 /* identify.c */

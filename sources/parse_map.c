@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:14:26 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/19 15:42:16 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 10:19:49 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	check_row(t_omap *cur, t_main *main)
 			if (main->player_dir != '\0' || main->player_pos != NULL)
 				return_error(main, PLAYER_ERR);
 			main->player_dir = cur->row[i];
-			main->player_pos = (int *)cub_malloc(2, sizeof(int), main);
+			main->player_pos = (int *)cub_calloc(2, sizeof(int), main);
 			main->player_pos[0] = i;
 			main->player_pos[1] = main->map_height;
 		}

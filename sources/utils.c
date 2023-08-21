@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 16:11:15 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/21 09:02:52 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 10:54:12 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,6 @@ void	*cub_calloc(size_t count, size_t size, t_main *main)
 	void	*buf;
 
 	buf = ft_calloc(count, size);
-	if (!buf)
-		return_error(main, MALLOC_ERR);
-	return (buf);
-}
-
-void	*cub_malloc(size_t count, size_t size, t_main *main)
-{
-	void	*buf;
-
-	buf = malloc(count * size);
 	if (!buf)
 		return_error(main, MALLOC_ERR);
 	return (buf);

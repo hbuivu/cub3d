@@ -26,7 +26,7 @@ int	col_jump(t_main *main)
 	if (c->col_inty > 0 && c->col_int > 0 && row < main->map_height &&
 		col < main->map_width && main->map[row][col] != '1')
 		return (1);
-	reurn (0);
+	return(0);
 }
 
 int	row_jump(t_main *main)
@@ -40,8 +40,8 @@ int	row_jump(t_main *main)
 		ch_num(fmod(c->row_int, c->upg), 0) &&
 		ch_num(fmod(c->row_intx, c->upg), 0))
 	{
-		row = (c->row_inty / c->upg) - 1;
-		col = c->row_int / c->upg; 
+		row = (c->row_int / c->upg) - 1;
+		col = c->row_intx / c->upg; 
 	}
 	else
 	{

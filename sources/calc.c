@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:31:03 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/20 22:14:51 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 10:57:13 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,18 @@ void	calc_step(t_main *main)
 
 void	calc_rad(t_main *main)
 {
-	t_calc	*c;
-
-	c = main->calc;
-	c->rad_90 = M_PI / 2;
-	c->rad_270 = (3 * M_PI) / 2;
-	c->rad_360 = M_PI * 2;
+	main->calc->rad_90 = M_PI / 2;
+	main->calc->rad_270 = (3 * M_PI) / 2;
+	main->calc->rad_360 = M_PI * 2;
 }
 
 void	init_calc(t_main *main)
 {
 	t_calc	*c;
 
+	main->calc = (t_calc *)cub_calloc(1, sizeof(t_calc), main);
 	c = main->calc;
 	calc_rad(main);
-	c = (t_calc *)cub_calloc(1, sizeof(t_calc), main);
 	c->upg = 64;
 	c->fov = 66 * (M_PI / 180);
 	c->pln_width = WIN_WIDTH;

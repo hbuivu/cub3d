@@ -60,8 +60,8 @@ void	print_main(t_main *main)
 	printf("********* ORIGINAL CUB FILE *********\n");
 	print_omap(main->omap);
 	printf("********* MAIN STRUCT *********\n");
-	printf("win_width: %i\n", main->win_width);
-	printf("win_height: %i\n", main->win_height);
+	printf("win_width: %i\n", WIN_WIDTH);
+	printf("win_height: %i\n", WIN_HEIGHT);
 	printf("player position (row, col): %i, %i\n", main->player_pos[0], main->player_pos[1]);
 	printf("player dir: %c\n", main->player_dir);
 	printf("map_width: %i\n", main->map_width);
