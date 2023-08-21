@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 12:27:52 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 14:49:59 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 int	ft_close(t_main *main)
 {
 	mlx_destroy_window(main->mlx.mlx_ptr, main->mlx.mlx_win);
-	return_error(main, NONE);
+	// return_error(main, NONE);
 	exit(0);
 }
 
