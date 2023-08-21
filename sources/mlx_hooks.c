@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 14:49:59 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 16:57:48 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	key_press(int key_code, t_main *main)
 			main->calc->angle += main->calc->rad_360;
 		calc_step(main);
 	}
+	
 	else
 		return (0);
 	//check for every step if it takes you into a wall
