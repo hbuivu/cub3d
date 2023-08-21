@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 12:20:54 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 13:37:03 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ int	ft_close(t_main *main)
 
 int	key_press(int key_code, t_main *main)
 {
-	printf("entering keypress\n");
 	if (key_code == XK_Escape)
 		ft_close(main);
-	if (key_code == LEFT_KEY)
+	if (key_code == XK_Left)
 	{
 		main->calc->pdir -= 0.0349066; //2 degrees
 		if (main->calc->pdir < 0)
@@ -34,9 +33,10 @@ int	key_press(int key_code, t_main *main)
 		main->calc->angle = main->calc->pdir - (main->calc->fov / 2);
 		if (main->calc->angle < 0)
 			main->calc->angle += main->calc->rad_360;
+		main->calc->tan_angle = tan(main->calc->angle);
 		calc_step(main);
 	}
-	else if (key_code == RIGHT_KEY)
+	else if (key_code == XK_Right)
 	{
 		main->calc->pdir += 0.0349066; //2 degrees
 		if (main->calc->pdir > main->calc->rad_360)
@@ -44,7 +44,27 @@ int	key_press(int key_code, t_main *main)
 		main->calc->angle = main->calc->pdir - (main->calc->fov / 2);
 		if (main->calc->angle < 0)
 			main->calc->angle += main->calc->rad_360;
+		main->calc->tan_angle = tan(main->calc->angle);
 		calc_step(main);
+	}
+	else if (key_code == XK_w)
+	{
+			// if (ch_num(fmod(main->calc->px, 64.0), 0))
+			// 	if (!check_coord(COL, main))
+			// 		break;
+			// else if (ch_num(fmod(main->calc->py, 64.0), 0))
+			// 	if (check_coord(ROW, main))
+			// 		break;
+			// main->calc->px += fabs(cos(main->calc->pdir)) * main->calc->stepx;
+			// main->calc->py += fabs(sin(main->calc->pdir)) * main->calc->stepy;
+			main->calc->angle = main->calc->pdir - (main->calc->fov / 2);
+			if (main->calc->angle < 0)
+				main->calc->angle += main->calc->rad_360;
+			else if (main->calc->angle > main->calc->rad_360 || ch_num(main->calc->angle, main->calc->rad_360))
+				main->calc->angle -= main->calc->rad_360;
+			main->calc->tan_angle = tan(main->calc->angle);
+			main->calc->px++;
+			main->calc->py++;	
 	}
 	else
 		return (0);

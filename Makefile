@@ -6,7 +6,7 @@
 #    By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/21 11:55:34 by hbui-vu          ###   ########.fr        #
+#    Updated: 2023/08/21 12:28:17 by hbui-vu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ MLX = libmlx.a
 SRCS = error.c utils.c test.c \
 	identify.c identify_colour.c identify_path.c parse_map.c \
 	walled_check.c walled_check_utilities.c \
-	textures.c mlx_hooks.c mlx.c  \
+	textures.c mlx_hooks_linux.c mlx.c  \
 	calc.c coord_check.c draw.c draw_utils.c raycasting.c \
 	main.c 
 	

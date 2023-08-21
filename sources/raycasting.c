@@ -78,6 +78,12 @@ void	cast_line(int x, t_calc *c, t_main *main)
 	calc_intercepts(c, main);
 	c->dist_col = fabs((c->px - c->col_int) / cos(c->angle));
 	c->dist_row = fabs((c->px - c->row_intx) / cos(c->angle));
+	// if (x == 0)
+	// {
+	// 	printf("dist_col: %lf\n", c->dist_col);
+	// 	printf("dist_row: %lf\n", c->dist_row);
+	// 	printf("angle: %lf\n", c->angle);
+	// }
 	if (c->dist_col <= c->dist_row)
 	{
 		c->wall_slice = (int)c->col_inty % 64;
@@ -108,8 +114,13 @@ void	raycast(t_main *main)
 	draw_floor_ceiling(main);
 	while (x < main->calc->pln_width)
 	{
+		if(x == 0)
+			print_calc(main);
 		if (ch_num(c->angle, 0) || ch_num(c->angle, M_PI))
+		{
+			printf("angle: %lf\n", c->angle);
 			cast_hline(c, main);
+		}
 		else if (ch_num(c->angle, main->calc->rad_90) || ch_num(c->angle, main->calc->rad_270))
 			cast_vline(c, main);
 		else
