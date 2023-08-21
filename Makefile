@@ -6,7 +6,7 @@
 #    By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/21 16:07:42 by zsyyida          ###   ########.fr        #
+#    Updated: 2023/08/21 17:01:30 by zsyyida          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,11 +73,11 @@ bonus: $(NAME) $(BOBJS)
 	$(MAKE) -C $(MLX_DIR)
 	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(BOBJS) -Llibft -lft -o $(NAME)
 
-
 clean:
 	$(MAKE) clean -C $(MLX_DIR)
 	$(MAKE) clean -C $(LIBFT_DIR)
 	$(RM) $(OBJ_DIR)
+	$(RM) $(BOBJ_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
