@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 16:57:48 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 17:49:52 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,17 @@ int	key_press(int key_code, t_main *main)
 		if (main->calc->angle < 0)
 			main->calc->angle += main->calc->rad_360;
 		calc_step(main);
+	}
+	else if(key_code == W_KEY)
+	{
+		main->calc->angle = main->calc->pdir - (main->calc->fov / 2);
+		if (main->calc->angle < 0)
+			main->calc->angle += main->calc->rad_360;
+		else if (main->calc->angle > main->calc->rad_360 || ch_num(main->calc->angle, main->calc->rad_360))
+			main->calc->angle -= main->calc->rad_360;
+		main->calc->tan_angle = tan(main->calc->angle);
+		main->calc->px += fabs(cos(main->calc->pdir)) * main->calc->stepx * WALK;
+		main->calc->py += fabs(sin(main->calc->pdir)) * main->calc->stepy * WALK;
 	}
 	
 	else

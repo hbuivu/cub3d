@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/08/21 16:59:34 by hbui-vu          ###   ########.fr       */
-=======
-/*   Updated: 2023/08/21 15:00:44 by zsyyida          ###   ########.fr       */
->>>>>>> Zahra
+/*   Updated: 2023/08/21 17:50:21 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +35,7 @@
 // # define GL_SILENCE_DEPRECATION
 # define WIN_WIDTH				1920
 # define WIN_HEIGHT				1024
+# define WALK					4
 
 enum	e_error
 {

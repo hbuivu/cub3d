@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 14:37:46 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/21 14:37:49 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 17:22:15 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	get_textures(t_main *main)
 	if (!main->img_ea_wall.img)
 		return_error(main, IMG_ERR);
 	main->img_we_wall.img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
-			main->e_path, &size, &size);
+			main->w_path, &size, &size);
 	if (!main->img_we_wall.img)
 		return_error(main, IMG_ERR);
 	get_data_addr(main);
