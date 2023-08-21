@@ -3,10 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+<<<<<<< HEAD
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 21:19:55 by zsyyida           #+#    #+#             */
 /*   Updated: 2023/08/21 16:59:15 by hbui-vu          ###   ########.fr       */
+=======
+<<<<<<< HEAD:sources/textures.c
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/08 21:19:55 by zsyyida           #+#    #+#             */
+/*   Updated: 2023/08/20 13:49:45 by zsyyida          ###   ########.fr       */
+=======
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/08 21:19:55 by zsyyida           #+#    #+#             */
+/*   Updated: 2023/08/21 14:31:11 by hbui-vu          ###   ########.fr       */
+>>>>>>> Huong:drafts/textures.c
+>>>>>>> Zahra
 /*                                                                            */
 /* ************************************************************************** */
 

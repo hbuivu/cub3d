@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   walled_check.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 17:01:13 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 17:03:17 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 15:02:08 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,21 +72,6 @@ void	check_walled_helper(t_queue *ptr, t_main *main)
 		visit(ptr, main, ptr->x, ptr->y + 1);
 		visit(ptr, main, ptr->x, ptr->y - 1);
 	}
-<<<<<<< HEAD
-<<<<<<< HEAD
-	// if (main->player_update[0] - 1 > 0 && main->player_update[1] - 1 > 0)
-	// 	visit(ptr, main, ptr->x - 1, ptr->y - 1);
-	// if (main->player_update[0] + 1 < main->map_width
-	// 	&& main->player_update[1] + 1 < main->map_height)
-	// 	visit(ptr, main, ptr->x + 1, ptr->y + 1);
-	// if (main->player_update[1] - 1 > 0 && main->player_update[1] + 1 < main->map_height)
-	// 	visit(ptr, main, ptr->x - 1, ptr->y + 1);
-	// if (main->player_update[0] + 1 < main->map_width && main->player_update[1] - 1 > 0)
-	// 	visit(ptr, main, ptr->x + 1, ptr->y - 1);
-=======
->>>>>>> Zahra
-=======
->>>>>>> Zahra
 }
 
 void	check_walled(t_main *main)
@@ -95,18 +80,8 @@ void	check_walled(t_main *main)
 	int		i;
 	t_queue	*ptr;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 	main->player_update = (int *)cub_calloc(2, sizeof(int), main);
 	main->map_cpy = ft_calloc(main->map_height + 1, sizeof(char*));
-=======
-	main->player_update = (int *)cub_malloc(2, sizeof(int), main);
-	main->map_cpy = ft_calloc(main->map_height + 1, sizeof(char *));
->>>>>>> Zahra
-=======
-	main->player_update = (int *)cub_calloc(2, sizeof(int), main);
-	main->map_cpy = ft_calloc(main->map_height + 1, sizeof(char*));
->>>>>>> Zahra
 	i = 0;
 	while (main->map[i])
 	{
