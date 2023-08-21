@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:13:40 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 11:13:25 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 14:29:24 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
 //ADD TEXTURES HERE
+
+
 
 void	mlx(t_main *main)
 {
