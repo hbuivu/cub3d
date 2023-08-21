@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 11:51:49 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 15:18:06 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/21 16:09:05 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,60 +84,60 @@
 // 		return_error(main, MLX_ERR);
 // }
 
-int get_color_minimap(t_main *main, int row, int col, int color)
-{
+// int get_color_minimap(t_main *main, int row, int col, int color)
+// {
 
-    printf("color");
-    if (row < 0 || col < 0 || row >= main->win_height/5 || col >= main->win_width/5)
-        color = 0;
-    else if (main->map[row][col] == '2')
-		color = 14924287;
-    // printf("color %i\n", color);
-        // color = &(int){166,137, 225};
-	else if (main->map[row][col] == '3')
-		color = 14009505;
-        // color = &(int){229, 170, 112};
-	else if (main->map[row][col] != '1')
-		color = 15761536;
-        // color = &(int){240,128,128};
-    else
-		color = 4251856;
-        // color = &(int){64,224,205};
-    return (color);
-}
+//     printf("color");
+//     if (row < 0 || col < 0 || row >= main->win_height/5 || col >= main->win_width/5)
+//         color = 0;
+//     else if (main->map[row][col] == '2')
+// 		color = 14924287;
+//     // printf("color %i\n", color);
+//         // color = &(int){166,137, 225};
+// 	else if (main->map[row][col] == '3')
+// 		color = 14009505;
+//         // color = &(int){229, 170, 112};
+// 	else if (main->map[row][col] != '1')
+// 		color = 15761536;
+//         // color = &(int){240,128,128};
+//     else
+// 		color = 4251856;
+//         // color = &(int){64,224,205};
+//     return (color);
+// }
 
-int *get_minimap_coordinate(t_main *main, int row, int col, int *coordinate)
-{
-    if (row < main->win_height / 10)
-    {
-        coordinate[0] = main->calc->py + row - main->win_height / 5;;
-        coordinate[1] = main->calc->px + col - main->win_width / 5;;
-    }
-    return (coordinate);
-}
+// int *get_minimap_coordinate(t_main *main, int row, int col, int *coordinate)
+// {
+//     if (row < main->win_height / 10)
+//     {
+//         coordinate[0] = main->calc->py + row - main->win_height / 5;;
+//         coordinate[1] = main->calc->px + col - main->win_width / 5;;
+//     }
+//     return (coordinate);
+// }
 
-void    draw_player_circle(t_main * main, int x, int y, int r)
-{
-    int     *color;
-    int     i;
-    int     angle;
-    int     x1;
-    int     y1;
+// void    draw_player_circle(t_main * main, int x, int y, int r)
+// {
+//     int     *color;
+//     int     i;
+//     int     angle;
+//     int     x1;
+//     int     y1;
 
-    color = cub_calloc(3, sizeof(int), main);
-    color[0] = 255;
-    color[1] = 36;
-    color[2] = 0;
-    i = 0;
-    while(i < 360)
-    {
-          angle = i;
-          x1 = r * cos(angle * M_PI / 180);
-          y1 = r * sin(angle * M_PI / 180);
-          ft_pixel_put(&main->img, x + x1, y + y1, rgb_to_int(color));
-          i = i + 0.1;
-    }
-}
+//     color = cub_calloc(3, sizeof(int), main);
+//     color[0] = 255;
+//     color[1] = 36;
+//     color[2] = 0;
+//     i = 0;
+//     while(i < 360)
+//     {
+//           angle = i;
+//           x1 = r * cos(angle * M_PI / 180);
+//           y1 = r * sin(angle * M_PI / 180);
+//           ft_pixel_put(&main->img, x + x1, y + y1, rgb_to_int(color));
+//           i = i + 0.1;
+//     }
+// }
 
 void    draw_minimap(t_main * main)
 {
@@ -150,14 +150,13 @@ void    draw_minimap(t_main * main)
     color[1] = 224;
     color[2] = 205;
 	row = 0;
-	while (row < main->map_height * 8)
+	while (row < main->map_height * 24)
 	{
 	    col = 0;
-		while (col < main->map_width * 8)
+		while (col < main->map_width * 24)
 		{
-            ft_pixel_put(&main->img, col, row, rgb_to_int(color));
+            ft_pixel_put(&main->img, col, row, encode_rgb(color[0], color[1], color[2]));
 			col++;
-
 	    }
 		row++;
     }

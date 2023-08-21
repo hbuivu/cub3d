@@ -6,7 +6,7 @@
 #    By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/21 15:32:39 by zsyyida          ###   ########.fr        #
+#    Updated: 2023/08/21 16:07:42 by zsyyida          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,14 +28,14 @@ SRCS = error.c utils.c test.c \
 	walled_check.c walled_check_utilities.c \
 	mlx_hooks.c mlx_imgs.c  \
 	calc.c coord_check.c draw.c draw_utils.c raycasting.c \
-	main.c
+	main.c \
 
 BSRCS = error.c utils.c test.c \
 	identify.c identify_colour.c identify_path.c parse_map.c \
 	walled_check.c walled_check_utilities.c \
 	mlx_hooks.c mlx_imgs.c  \
 	calc.c coord_check.c draw.c draw_utils.c raycasting.c \
-	main.c minimap.c
+	main.c minimap.c \
 # SRCS = resize_ex.c
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
@@ -56,7 +56,7 @@ $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	@$(CC) $(CFLAGS) -I $(INC_DIR) -I $(LIBFT_DIR)/$(INC_DIR) -I $(MLX_DIR) -c $< -o $@
 #because the include directory for libft  is in libft.
 
-(BOBJ_DIR)/%.o : $(BSRC_DIR)/%.c
+$(BOBJ_DIR)/%.o : $(BSRC_DIR)/%.c
 	@mkdir -p $(BOBJ_DIR)
 	@$(CC) $(CFLAGS) -I $(INC_DIR) -I $(LIBFT_DIR)/$(INC_DIR) -I $(MLX_DIR) -c $< -o $@
 
@@ -64,16 +64,15 @@ $(NAME): $(OBJS)
 	$(MAKE) -C $(LIBFT_DIR)
 	$(MAKE) -C $(MLX_DIR)
 	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(OBJS) -Llibft -lft -o $(NAME)
-	#@$(CC) $(OBJS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(CFLAGS) $(MLX_FLAGS) -Llibft -lft -o $(NAME)
+#@$(CC) $(OBJS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(CFLAGS) $(MLX_FLAGS) -Llibft -lft -o $(NAME)
 
+all: $(NAME)
 
 bonus: $(NAME) $(BOBJS)
 	$(MAKE) -C $(LIBFT_DIR)
 	$(MAKE) -C $(MLX_DIR)
 	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(BOBJS) -Llibft -lft -o $(NAME)
-# $(CC) $(LIBS) $(MLX_FLAGS) $(BOBJS) -o $(NAME)
 
-all: $(NAME)
 
 clean:
 	$(MAKE) clean -C $(MLX_DIR)
