@@ -6,7 +6,7 @@
 #    By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/20 17:37:50 by zsyyida          ###   ########.fr        #
+#    Updated: 2023/08/21 15:01:00 by zsyyida          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,14 +21,14 @@ LIBFT = libft.a
 MLX_DIR = mlx
 MLX = libmlx.a
 
-SRCS = test.c error.c main.c identify.c raycasting2.c mlx.c\
-	download.c utils.c parse_map.c walled_check.c\
-	walled_check_utilities.c movement.c textures.c resize.c\
-	identify_colour.c identify_path.c minimap.c
+SRCS = error.c utils.c test.c \
+	identify.c identify_colour.c identify_path.c parse_map.c \
+	walled_check.c walled_check_utilities.c \
+	mlx_hooks.c mlx_imgs.c  \
+	calc.c coord_check.c draw.c draw_utils.c raycasting.c \
+	main.c
 
-#SRCS = resize_ex.c
-
-#SRCS = test_mlx.c
+# SRCS = resize_ex.c
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
@@ -65,12 +65,10 @@ clean:
 	$(MAKE) clean -C $(MLX_DIR)
 	$(MAKE) clean -C $(LIBFT_DIR)
 	$(RM) $(OBJ_DIR)
-	#rm -rf *.o
 
 fclean: clean
 	$(RM) $(NAME)
 	$(MAKE) fclean -C $(LIBFT_DIR)
-	#rm -rf $(NAME)
 
 re: fclean all
 

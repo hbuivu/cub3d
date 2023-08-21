@@ -257,6 +257,17 @@ void	raycast(t_main *main)
 }	
 
 
+// int	rgb_to_int(int *rgb)
+// {
+// 	int	red;
+// 	int	green;
+// 	int	blue;
+
+// 	red = rgb[0];
+// 	green = rgb[1];
+// 	blue = rgb[2];
+// 	return (red << 16 | green << 8 | blue);
+// }
 
 
 

@@ -138,7 +138,11 @@ int main(void)
 {
 	t_mlxz	*mlx;
 	t_point	*p;
+<<<<<<< HEAD:drafts/resize_ex.c
+	char	*relative_path = "textures/sprt1.xpm";
+=======
 	char	*relative_path = "textures/spr1.xpm";
+>>>>>>> Zahra:sources/resize_ex.c
 
 	mlx = NULL;
 	p = NULL;

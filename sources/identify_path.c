@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 18:49:12 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/20 15:42:10 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 14:33:57 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 char	*trim_trailing_spaces(char *s, t_main *main)
 {
 	char	*temp;
-	// int		a;
 	int		j;
 	int		i;
 

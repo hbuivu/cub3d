@@ -9,6 +9,7 @@ Map Parsing
 5. If .cub map can't be open, an error should be returned
 6. find length of longest row
 7. character position is valid
+8. new lines after 
 
 if the first row has 0
 
