@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 18:45:40 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/20 15:42:48 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 14:41:04 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*remove_spaces(char *s, t_main *main)
 	i = 0;
 	while (s[i] == ' ')
 		i++;
-	number = cub_malloc(((int)ft_strlen(s) - i + 1), sizeof(char), main);
+	number = cub_calloc(((int)ft_strlen(s) - i + 1), sizeof(char), main);
 	i = 0;
 	j = 0;
 	while (s[i])

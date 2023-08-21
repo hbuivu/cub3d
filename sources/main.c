@@ -22,7 +22,6 @@ int	main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		return_error(main, OPEN_ERR);
-<<<<<<< HEAD
 	parse_cub(fd, main);
 	init_calc(main); 
 	mlx(main); //creates all mlx instances
@@ -34,18 +33,4 @@ int	main(int argc, char **argv)
 	//mlx_destroy_imgs
 	//return_error(main, NONE)
 	return (0);
-=======
-	download_map(fd, main); //fills out omap
-	map_ptr = identify(main->omap, main); //fills out everything else in main
-	parse_map(map_ptr, main);
-	get_map(map_ptr, main);
-	// print_main_map(main);
-	check_walled(main);
-	init_main(main);
-	init_calc(main);
-	// print_main(main);
-	mlx(main);
-	raycast(main);
-	// return_error(main, NONE);
->>>>>>> Zahra
 }

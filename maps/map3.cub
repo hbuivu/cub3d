@@ -2,7 +2,7 @@ C 5,236,255
 
 F 139,99,58
 
-NO textures/sprt1.xpm
+NO textures/spr1.xpm
 SO textures/south.xpm
 EA textures/east.xpm
 WE textures/west.xpm

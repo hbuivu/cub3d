@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/08/21 12:08:46 by hbui-vu          ###   ########.fr       */
-=======
-/*   Updated: 2023/08/20 16:21:24 by hbui-vu          ###   ########.fr       */
->>>>>>> Zahra
+/*   Updated: 2023/08/21 14:41:56 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +19,7 @@
 # include <math.h>
 # include <fcntl.h>
 # include <stdlib.h>
-# include <X11/keysym.h>
+// # include <X11/keysym.h>
 
 // from KEYCODES minilibx for ASDW and keycode for arrow keys
 # define LEFT_KEY				123
@@ -92,30 +88,29 @@ typedef struct s_mlx
 	void	*mlx_win;
 }	t_mlx;
 
-// typedef struct s_pix
-// {
-// 	int		x;
-// 	int		y;
-// 	uint8_t	r;
-// 	uint8_t	g;
-// 	uint8_t	b;
-// }	t_pix;
+typedef struct s_pix
+{
+	int		x;
+	int		y;
+	uint8_t	r;
+	uint8_t	g;
+	uint8_t	b;
+}	t_pix;
 
-// typedef struct s_point
-// {
-// 	double	scale; //scale against 64 pixels
-// 	double	orig_x; //column slice of wall
-// 	double	orig_y; //how the point would transalte on original image y axis
-// 	double	y_dist; //the distance of orig_y from y1
-// 	t_pix	p1; //value of color at (x1, y1)
-// 	t_pix	p2; //value of color at (x2, y2)
-// }	t_point;
+typedef struct s_point
+{
+	double	scale; //scale against 64 pixels
+	double	orig_x; //column slice of wall
+	double	orig_y; //how the point would transalte on original image y axis
+	double	y_dist; //the distance of orig_y from y1
+	t_pix	p1; //value of color at (x1, y1)
+	t_pix	p2; //value of color at (x2, y2)
+}	t_point;
 
 typedef struct s_omap
 {
 	char			*row;
 	struct s_omap	*next;
-	// struct s_omap	*prev;
 }	t_omap;
 
 typedef struct	s_calc
@@ -202,17 +197,10 @@ void	get_map(t_omap *ptr_map, t_main *main);
 int		ft_close(t_main *main);
 int		key_press(int key_code, t_main *main);
 
-/* mlx.c */
-<<<<<<< HEAD
+/* mlx_imgs.c */
 void	mlx(t_main *main);
-=======
-int		rgb_to_int(int *rgb);
-void	ft_pixel_put(t_img *img, int x, int y, int color);
-void	mlx(t_main *main);
-int		ft_close(t_main *main);
-int		ft_movement(int key_code, t_main *main);
-// int		encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
->>>>>>> Zahra
+void	get_textures(t_main *main);
+void	get_data_addr(t_main *main);
 
 /* calc.c */
 void	calc_step(t_main *main);
@@ -259,9 +247,6 @@ t_queue	*ft_lstnew_dl(int x, int y);
 t_queue	*ft_lstadd_back_dl(t_queue **queue, t_queue *new);
 void	*ft_dequeue(t_queue *enqueue);
 void	del(void *lst);
-
-void	get_textures(t_main *main);
-void	get_data_addr(t_main *main);
 
 void	draw_minimap(t_main *main);
 
