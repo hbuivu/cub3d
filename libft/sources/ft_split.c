@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 11:20:56 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/19 01:13:10 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/20 13:52:51 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#include "../include/libft.h"
 
 static int	num_strs(char const *s, char c)
 {

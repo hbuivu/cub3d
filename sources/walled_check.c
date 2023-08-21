@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   walled_check.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 17:01:13 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 10:19:39 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 17:00:13 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,22 @@ void	visit(t_queue *ptr, t_main *main, int x, int y)
 	}
 }
 
+	// if (main->player_update[0] - 1 > 0 && main->player_update[1] - 1 > 0)
+	// 	visit(ptr, main, ptr->x - 1, ptr->y - 1);
+	// if (main->player_update[0] + 1 < main->map_width
+	// 	&& main->player_update[1] + 1 < main->map_height)
+	// 	visit(ptr, main, ptr->x + 1, ptr->y + 1);
+	// if (main->player_update[1] - 1 > 0
+	// && main->player_update[1] + 1 < main->map_height)
+	// 	visit(ptr, main, ptr->x - 1, ptr->y + 1);
+	// if (main->player_update[0] + 1 < main->map_width
+	// && main->player_update[1] - 1 > 0)
+	// 	visit(ptr, main, ptr->x + 1, ptr->y - 1);
 void	check_walled_helper(t_queue *ptr, t_main *main)
 {
 	if (main->player_pos[0] <= 0 || main->player_pos[0] >= main->map_width - 1
-		|| main->player_pos[1] <= 0 || main->player_pos[1] >= main->map_height - 1)
+		|| main->player_pos[1] <= 0
+		|| main->player_pos[1] >= main->map_height - 1)
 		return_error(main, WALL_ERR);
 	main->map_cpy[main->player_pos[1]][main->player_pos[0]] = 'V';
 	main->player_update[0] = ptr->x;
@@ -54,11 +66,13 @@ void	check_walled_helper(t_queue *ptr, t_main *main)
 		visit(ptr, main, ptr->x + 1, ptr->y);
 		visit(ptr, main, ptr->x - 1, ptr->y);
 	}
-	if (main->player_update[1] - 1 > 0 && main->player_update[1] + 1 < main->map_height)
+	if (main->player_update[1] - 1 > 0
+		&& main->player_update[1] + 1 < main->map_height)
 	{
 		visit(ptr, main, ptr->x, ptr->y + 1);
 		visit(ptr, main, ptr->x, ptr->y - 1);
 	}
+<<<<<<< HEAD
 	// if (main->player_update[0] - 1 > 0 && main->player_update[1] - 1 > 0)
 	// 	visit(ptr, main, ptr->x - 1, ptr->y - 1);
 	// if (main->player_update[0] + 1 < main->map_width
@@ -68,6 +82,8 @@ void	check_walled_helper(t_queue *ptr, t_main *main)
 	// 	visit(ptr, main, ptr->x - 1, ptr->y + 1);
 	// if (main->player_update[0] + 1 < main->map_width && main->player_update[1] - 1 > 0)
 	// 	visit(ptr, main, ptr->x + 1, ptr->y - 1);
+=======
+>>>>>>> Zahra
 }
 
 void	check_walled(t_main *main)
@@ -76,8 +92,13 @@ void	check_walled(t_main *main)
 	int		i;
 	t_queue	*ptr;
 
+<<<<<<< HEAD
 	main->player_update = (int *)cub_calloc(2, sizeof(int), main);
 	main->map_cpy = ft_calloc(main->map_height + 1, sizeof(char*));
+=======
+	main->player_update = (int *)cub_malloc(2, sizeof(int), main);
+	main->map_cpy = ft_calloc(main->map_height + 1, sizeof(char *));
+>>>>>>> Zahra
 	i = 0;
 	while (main->map[i])
 	{

@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 21:19:55 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 14:31:11 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 16:59:15 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	get_textures(t_main *main)
 	get_data_addr(main);
 }
 
-// main->img_no_wall.buff = get_buffer(main, main->img_no_wall);
+	// main->img_no_wall.buff = get_buffer(main, main->img_no_wall);
 	// main->img_so_wall.buff = get_buffer(main, main->img_so_wall);
 	// main->img_ea_wall.buff = get_buffer(main, main->img_ea_wall);
 	// main->img_we_wall.buff = get_buffer(main, main->img_we_wall);
@@ -115,4 +115,3 @@ void	get_data_addr(t_main *main)
 	if (!main->img_we_wall.addr)
 		return_error(main, MLX_ERR);
 }
-
