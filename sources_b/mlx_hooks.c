@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 14:49:59 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 17:30:36 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ int	ft_close(t_main *main)
 	exit(0);
 }
 
+// Mouse code for MacOS:
+// Left click: 1
+// Right click: 2
+// Middle click: 3
+// Scroll up: 4
+// Scroll down : 5
 int	key_press(int key_code, t_main *main)
 {
 	if (key_code == ESC)
@@ -64,9 +70,9 @@ int	key_press(int key_code, t_main *main)
 	// 			if (check_coord(ROW, main))
 	// 				break;
 	// 		main->calc->px += fabs(cos(main->calc->pdir)) * main->calc->stepx;
-	// 		main->calc->py += fabs(sin(main->calc->pdir)) * main->calc->stepy;			
+	// 		main->calc->py += fabs(sin(main->calc->pdir)) * main->calc->stepy;
 	// 	}
-		
+
 	// }
 	// else if (key_code == S_KEY) //SOUTH
 	// {

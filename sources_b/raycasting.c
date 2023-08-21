@@ -114,11 +114,11 @@ void	raycast(t_main *main)
 	draw_floor_ceiling(main);
 	while (x < main->calc->pln_width)
 	{
-		if(x == 0)
-			print_calc(main);
+		// if(x == 0)
+		// 	print_calc(main);
 		if (ch_num(c->angle, 0) || ch_num(c->angle, M_PI))
 		{
-			printf("angle: %lf\n", c->angle);
+			// printf("angle: %lf\n", c->angle);
 			cast_hline(c, main);
 		}
 		else if (ch_num(c->angle, main->calc->rad_90) || ch_num(c->angle, main->calc->rad_270))
@@ -133,7 +133,8 @@ void	raycast(t_main *main)
 	draw_minimap(main);
 	mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win, main->img.img, 0, 0);
 	mlx_key_hook(main->mlx.mlx_win, key_press, main);
-	// mlx_hook(main->mlx.mlx_win, 17, 1L<<17, ft_close, &main->mlx);
+	mlx_hook(main->mlx.mlx_win, 2, 1L << 0, key_press, main);
+	// mlx_mouse_hook(main->mlx.mlx_win, mouse_hook, main);
 	mlx_hook(main->mlx.mlx_win, 17, 1L << 17, ft_close, main);
 	mlx_loop(main->mlx.mlx_ptr);
 }

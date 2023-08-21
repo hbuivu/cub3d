@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 15:00:44 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/21 18:13:59 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,6 +217,7 @@ void	draw_floor_ceiling(t_main *main);
 /* draw_utils.c */
 int		encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
 void	ft_pixel_put(t_img *img, int x, int y, int color);
+void	find_pix_color(t_pix *pix, t_main *main);
 
 /* raycasting.c */
 void	raycast(t_main *main);

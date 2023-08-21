@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:14:26 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/21 10:19:49 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/21 17:13:03 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ int	check_row(t_omap *cur, t_main *main)
 	only_spaces = 1;
 	while (cur->row[++i])
 	{
-		if (!ft_strchr(" NSEW01", cur->row[i]))
+		if (!ft_strchr(" NSEW0123", cur->row[i]))
 			return_error(main, MAP_ERR);
-		if (ft_strchr("NSEW01", cur->row[i]))
+		if (ft_strchr("NSEW0123", cur->row[i]))
 			only_spaces = 0;
 		if (ft_strchr("NSEW", cur->row[i]))
 		{

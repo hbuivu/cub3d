@@ -51,7 +51,7 @@ void	draw_wall(int x, t_main *main)
 	int		start;
 	int		stop;
 	t_point	p;
-	
+
 	row = 0;
 	start = (int)(round((main->calc->pln_height / 2) - (main->calc->wall_height / 2)));
 	if (start < 0)

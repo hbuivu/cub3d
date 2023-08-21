@@ -6,12 +6,22 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 11:51:49 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 16:09:05 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/21 18:40:21 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
+// int	*decode_rgb(int color, t_main *main)
+// {
+// 	int *rgb;
+
+// 	rgb = cub_calloc(3, sizeof(int), main);
+// 	rgb[0] = color >> 16;
+// 	rgb[1] = color >> 8 & 255;
+// 	rgb[2] = color & 255;
+// 	return (rgb);
+// }
 // void	cub_miniview(t_game *g)
 // {
 // 	int	xy[2];
@@ -89,7 +99,7 @@
 
 //     printf("color");
 //     if (row < 0 || col < 0 || row >= main->win_height/5 || col >= main->win_width/5)
-//         color = 0;
+//         color = find_pix_color(0, main);
 //     else if (main->map[row][col] == '2')
 // 		color = 14924287;
 //     // printf("color %i\n", color);
@@ -143,19 +153,18 @@ void    draw_minimap(t_main * main)
 {
 	int	row;
 	int	col;
-    int *color;
 
-    color = cub_calloc(3, sizeof(int), main);
-    color[0] = 64;
-    color[1] = 224;
-    color[2] = 205;
 	row = 0;
 	while (row < main->map_height * 24)
 	{
 	    col = 0;
 		while (col < main->map_width * 24)
 		{
-            ft_pixel_put(&main->img, col, row, encode_rgb(color[0], color[1], color[2]));
+			// if (main->map[row][col] == '1')
+			// 	ft_pixel_put(&main->img, col + 1, row + 1, 15761536);
+				// ft_pixel_wall_put(&main->img, col * 24, row * 24 );
+			// else
+				ft_pixel_put(&main->img, col, row, 4251856);
 			col++;
 	    }
 		row++;

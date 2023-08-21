@@ -15,7 +15,7 @@ void	cast_hline(t_calc *c, t_main *main)
 	else if (c->stepx == -1)
 	{
 		c->wall_face = main->img_ea_wall;
-		c->col_int = floor(c->px / c->upg) * c->upg; 
+		c->col_int = floor(c->px / c->upg) * c->upg;
 
 	}
 	c->col_inty = c->py;
@@ -130,9 +130,12 @@ void	raycast(t_main *main)
 		x++;
 		recalc(main);
 	}
-	mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win, main->img.img, 0, 0);	
+	mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win, main->img.img, 0, 0);
 	mlx_key_hook(main->mlx.mlx_win, key_press, main);
-	// mlx_hook(main->mlx.mlx_win, 17, 1L<<17, ft_close, &main->mlx);
+	mlx_hook(main->mlx.mlx_win, 2, 1L << 0, key_press, main);
 	mlx_hook(main->mlx.mlx_win, 17, 1L << 17, ft_close, main);
 	mlx_loop(main->mlx.mlx_ptr);
 }
+
+// 	mlx_hook(cub->s_mlx.win, 3, 1L << 1, key_release, (void *)cub);
+// 	mlx_loop_hook(cub->s_mlx.mlx, action_loop, (void *)cub);
