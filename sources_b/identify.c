@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   identify.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:13:12 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/20 15:29:20 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/22 12:36:49 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_omap	*identify(t_omap *omap, t_main *main)
 	j = 0;
 	while (curr)
 	{
-		// printf("j: %i\n", j);
+		printf("j: %i\n", j);
 		// print_omap(main->omap);
 		while (curr->row[i] == ' ')
 			i++;
