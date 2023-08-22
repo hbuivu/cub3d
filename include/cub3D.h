@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/22 03:45:26 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/22 04:46:40 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,6 +223,9 @@ int	check_coord(int jump, t_main *main);
 /* draw.c */
 void	draw_wall(int x, t_main *main);
 void	draw_floor_ceiling(t_main *main);
+void	get_nearest_pix(t_point *p, t_main *main);
+void	interpolate(int x, int y, t_point *p, t_main *main);
+void	draw_sprite(int x, t_main *main);
 
 /* draw_utils.c */
 int		encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
