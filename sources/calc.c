@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:31:03 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/22 12:47:32 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/22 14:06:43 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,10 @@ void	init_calc(t_main *main)
 	else if (c->angle > c->rad_360 || ch_num(c->angle, c->rad_360))
 		c->angle -= c->rad_360;
 	c->tan_angle = tan(c->angle);
+	c->tan_pdir = tan(c->pdir);
 	c->ray_incr = c->fov / c->pln_width;
 	calc_step(main);
+	calc_pdir_step(main);
 }
 
 void	recalc(t_main *main)

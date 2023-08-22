@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/22 12:47:51 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/22 14:57:37 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@
 # define WIN_WIDTH				1920
 # define WIN_HEIGHT				1024
 # define WALK					4
+# define RUN					32
+# define ANGLE_ROT				2
 
 enum	e_error
 {
@@ -132,9 +134,17 @@ typedef struct	s_calc
 	double	angle; //angle used for calculations in degrees
 	int		stepx; //direction in which x is going for angle (-1 or 1)
 	int		stepy; //direction in which y is going for angle (-1 or 1)
+	double	tan_angle; //tangent of angle for calculations;
+	/* used for walking */
 	int		pdir_stepx; //direction in which x is going for pdir (-1 or 1)
 	int		pdir_stepy; //direction in which y is going for pdir (-1 or 1)
-	double	tan_angle; //tangent of angle for calculations;
+	double	tan_pdir; //tangent of pdir for walking calculations
+	double	x_walk; //how much player moves in x direction when walking
+	double	y_walk; //how much player moves in y direction when walking
+	double	x_run; //how much player moves in x direction when running
+	double	y_run; //how much player moves in y direction when running
+	double	walk_dist; //how far player moves each time they walk;
+	double	run_dist; //how far player moves each time they run;
 	/* initiated to 0 at start */
 	double	col_int; //point where ray intersects a column line
 	double	col_inty; //the y coordinate where ray intersects column line
