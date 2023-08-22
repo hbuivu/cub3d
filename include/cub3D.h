@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 18:13:59 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/22 03:45:26 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,16 @@
 # define ESC 					53
 # define TW						64	// width of the texture
 # define TH						64  //height of texture
-# define SIZE					1  //size of the texture
+// # define SIZE					1  //size of the texture
 // # define GL_SILENCE_DEPRECATION
 # define WIN_WIDTH				1920
 # define WIN_HEIGHT				1024
+# define MM_PLAYER				0XFF5733
+# define MM_WALL				0XF08080
+# define MM_DOOR				0X8B4513
+# define MM_SPRITE				0Xca8dfd
+# define MM_FLOOR				0x00FFFF
+# define MM_TILE_SIZE			24
 
 enum	e_error
 {
@@ -177,6 +183,7 @@ typedef struct s_main
 	t_img			img_door2;
 	int				*player_update;
 	char			**map_cpy;
+	int				mouse_x;
 }	t_main;
 
 /* error.c */
@@ -196,11 +203,14 @@ void	get_map(t_omap *ptr_map, t_main *main);
 /* mlx_hooks.c */
 int		ft_close(t_main *main);
 int		key_press(int key_code, t_main *main);
+int		mouse_move(int x, int y, t_main *main);
 
 /* mlx_imgs.c */
 void	mlx(t_main *main);
 void	get_textures(t_main *main);
 void	get_data_addr(t_main *main);
+void	get_textures_bonus(t_main *main);
+void	get_data_addr_bonus(t_main *main);
 
 /* calc.c */
 void	calc_step(t_main *main);
@@ -250,5 +260,8 @@ void	*ft_dequeue(t_queue *enqueue);
 void	del(void *lst);
 
 void	draw_minimap(t_main *main);
+void    init_minimap(t_main *main);
+int 	get_color_minimap(t_main *main, int row, int col);
+void	ft_pixel_box_put(t_main *main, int col, int row, int color);
 
 #endif

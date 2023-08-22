@@ -127,6 +127,7 @@ void	raycast(t_main *main)
 			cast_line(x, c, main);
 		c->wall_height = (c->upg / c->cor_dist) * c->pln_dist;
 		draw_wall(x, main);
+		// draw_sprite(main);
 		x++;
 		recalc(main);
 	}

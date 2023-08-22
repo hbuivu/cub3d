@@ -3,14 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 11:51:49 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 18:40:21 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/22 04:11:46 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
+
+void    init_minimap(t_main *main)
+{
+    int size;
+
+    size = 100;
+    main->img_minimap.img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
+			"./textures/spr1.xpm", &size, &size);
+    if (!main->img_minimap.img)
+		return_error(main, IMG_ERR);
+    main->img_minimap.addr = mlx_get_data_addr(main->img_minimap.img,
+			&main->img_minimap.bpp, &main->img_minimap.line_length,
+			&main->img_minimap.endian);
+    if (!main->img_minimap.addr)
+		return_error(main, MLX_ERR);
+}
 
 // int	*decode_rgb(int color, t_main *main)
 // {
@@ -78,31 +94,16 @@
 // 	}
 // }
 
-// void    init_minimap(t_main *main)
+
+// int get_color_minimap(t_main *main, int row, int col)
 // {
-//     int size;
-
-//     size = 100;
-//     main->img_minimap.img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
-// 			"./textures/spr1.xpm", &size, &size);
-//     if (!main->img_minimap.img)
-// 		return_error(main, IMG_ERR);
-//     main->img_minimap.addr = mlx_get_data_addr(main->img_minimap.img,
-// 			&main->img_minimap.bpp, &main->img_minimap.line_length,
-// 			&main->img_minimap.endian);
-//     if (!main->img_minimap.addr)
-// 		return_error(main, MLX_ERR);
-// }
-
-// int get_color_minimap(t_main *main, int row, int col, int color)
-// {
-
-//     printf("color");
-//     if (row < 0 || col < 0 || row >= main->win_height/5 || col >= main->win_width/5)
-//         color = find_pix_color(0, main);
+//     // printf("row %d col %d\n)", row, col);
+// 	// printf(" \n%c\n", main->map[row][col]);
+// 	if (main->map[row][col] == 'N' || main->map[row][col] == 'S' 
+// 		|| main->map[row][col] == 'E' || main->map[row][col] == 'W')
+// 		color = 255;
 //     else if (main->map[row][col] == '2')
 // 		color = 14924287;
-//     // printf("color %i\n", color);
 //         // color = &(int){166,137, 225};
 // 	else if (main->map[row][col] == '3')
 // 		color = 14009505;
@@ -110,20 +111,10 @@
 // 	else if (main->map[row][col] != '1')
 // 		color = 15761536;
 //         // color = &(int){240,128,128};
-//     else
-// 		color = 4251856;
+//      	// color = 4251856;
 //         // color = &(int){64,224,205};
+//     printf("color %i\n", color);
 //     return (color);
-// }
-
-// int *get_minimap_coordinate(t_main *main, int row, int col, int *coordinate)
-// {
-//     if (row < main->win_height / 10)
-//     {
-//         coordinate[0] = main->calc->py + row - main->win_height / 5;;
-//         coordinate[1] = main->calc->px + col - main->win_width / 5;;
-//     }
-//     return (coordinate);
 // }
 
 // void    draw_player_circle(t_main * main, int x, int y, int r)
@@ -149,55 +140,47 @@
 //     }
 // }
 
+void	ft_pixel_tile_put(t_main *main, int col, int row, int color)
+{
+	int x;
+	int y;
+
+	y = 1;
+	while (y < MM_TILE_SIZE - 1)
+	{
+		x = 1;
+		while (x < MM_TILE_SIZE - 1)
+		{
+			ft_pixel_put(&main->img, col + x, row + y, color);
+			x++;
+		}
+		y++;
+	}
+}
+
 void    draw_minimap(t_main * main)
 {
 	int	row;
 	int	col;
 
 	row = 0;
-	while (row < main->map_height * 24)
+	while (row < main->map_height)
 	{
 	    col = 0;
-		while (col < main->map_width * 24)
+		while (col < main->map_width)
 		{
-			// if (main->map[row][col] == '1')
-			// 	ft_pixel_put(&main->img, col + 1, row + 1, 15761536);
-				// ft_pixel_wall_put(&main->img, col * 24, row * 24 );
-			// else
-				ft_pixel_put(&main->img, col, row, 4251856);
+			// ft_pixel_put(&main->img, col, row, 16777215);
+			if (main->map[row][col] == '1')
+				ft_pixel_tile_put(main, col * MM_TILE_SIZE, row * MM_TILE_SIZE, MM_WALL);
+			else if (main->map[row][col] == '2')
+				ft_pixel_tile_put(main, col * MM_TILE_SIZE, row * MM_TILE_SIZE, MM_SPRITE);
+			else if (main->map[row][col] == '3')
+				ft_pixel_tile_put(main, col * MM_TILE_SIZE, row * MM_TILE_SIZE, MM_DOOR);
+			else if (main->map[row][col] == 'N' || main->map[row][col] == 'S' 
+				|| main->map[row][col] == 'E' || main->map[row][col] == 'W')
+				ft_pixel_tile_put(main, col * MM_TILE_SIZE, row * MM_TILE_SIZE, MM_PLAYER);
 			col++;
 	    }
 		row++;
     }
-    // draw_player_circle(main, main->win_width / 2, main->map_height / 2, 1);
 }
-
-// void	draw_minimap(t_main *main)
-// {
-// 	int	row;
-// 	int	col;
-//     int color;
-//     int *coordinate;
-
-//     // color = cub_calloc(4, sizeof(int), main);
-//     coordinate = cub_calloc(2, sizeof(int), main);
-//     // init_minimap(main);
-// 	row = 0;
-// 	while (row < main->win_height/5)
-// 	{
-// 	    col = 0;
-// 		while (col < main->win_width/5)
-// 		{
-// 	        coordinate = get_minimap_coordinate(main, col, row, coordinate);
-//             if (row < 0 || col < 0 || row >= main->win_height/5 || col >= main->win_width/5)
-//                 // {color = {0,0,0};
-//                 color = 0;
-//             else
-//                 color = get_color_minimap(main, coordinate[0], coordinate[1], color);
-//             ft_pixel_put(&main->img, coordinate[0], coordinate[1], color);
-// 			col++;
-// 		}
-// 		col = 0;
-// 		row++;
-// 	}
-// }

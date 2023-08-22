@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 17:30:36 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/22 02:54:39 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@
 */
 
 //do we need to destroy all images before closing
+
+int	mouse_move(int x, int y, t_main *main)
+{
+	if (y != -1)
+		main->calc->angle += (x - main->mouse_x) / 3;
+	main->mouse_x = x;
+	return (0);
+}
 
 int	ft_close(t_main *main)
 {

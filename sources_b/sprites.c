@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 02:32:42 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/20 02:39:17 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/21 21:39:48 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,3 +84,30 @@ After it all is drawn, the screen is updated, and the input keys are handled.
     //move forward if no wall in front of you
     if (keyDown(SDLK_UP))
     {
+
+void	draw_sprite(t_main *main)
+{
+	int		row;
+	int		start;
+	int		stop;
+	t_point	p;
+
+	row = 0;
+	start = (int)(round((main->calc->pln_height / 4) - (main->calc->wall_height / 4)));
+	if (start < 0)
+		start = 0;
+	stop = (int)(round(start + main->calc->wall_height/2));
+	if (stop >= main->calc->pln_height/2)
+		stop = (main->calc->pln_height - 1)/2;
+	p.scale = main->calc->wall_height/2 / main->calc->upg;
+	p.orig_x = main->calc->wall_slice;
+	while (row < (int)main->calc->wall_height/2 && start <= stop)
+	{
+		p.orig_y = row / p.scale;
+    ft_pixel_put(&main->img, col, row, encode_rgb(c[0], c[1], c[2]));
+		// get_nearest_pix(&p, main);
+		// interpolate(x, start, &p, main);
+		row++;
+		start++;
+	}
+}

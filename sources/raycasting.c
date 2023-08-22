@@ -134,7 +134,16 @@ void	raycast(t_main *main)
 	mlx_key_hook(main->mlx.mlx_win, key_press, main);
 	mlx_hook(main->mlx.mlx_win, 2, 1L << 0, key_press, main);
 	mlx_hook(main->mlx.mlx_win, 17, 1L << 17, ft_close, main);
+	mlx_hook(main->mlx.mlx_win, 06, 1L << 6, mouse_move, main);
 	mlx_loop(main->mlx.mlx_ptr);
+}
+
+int	mouse_move(int x, int y, t_main *main)
+{
+	if (y != -1)
+		main->calc->angle += (x - main->mouse_x) / 3;
+	main->mouse_x = x;
+	return (0);
 }
 
 // 	mlx_hook(cub->s_mlx.win, 3, 1L << 1, key_release, (void *)cub);

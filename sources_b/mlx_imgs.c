@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_imgs.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 14:37:46 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/21 17:17:22 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/21 23:45:57 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	get_data_addr(t_main *main)
 			&main->img_we_wall.endian);
 	if (!main->img_we_wall.addr)
 		return_error(main, MLX_ERR);
+	get_textures_bonus(main);
 }
 
 
