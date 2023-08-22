@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/22 02:54:39 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/22 12:42:50 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,37 @@ int	ft_close(t_main *main)
 	mlx_destroy_window(main->mlx.mlx_ptr, main->mlx.mlx_win);
 	// return_error(main, NONE);
 	exit(0);
+}
+
+int	move(int key_code, t_main *main)
+{
+	main->calc->angle = main->calc->pdir - (main->calc->fov / 2);
+	if (main->calc->angle < 0)
+		main->calc->angle += main->calc->rad_360;
+	else if (main->calc->angle > main->calc->rad_360 || ch_num(main->calc->angle, main->calc->rad_360))
+		main->calc->angle -= main->calc->rad_360;
+	main->calc->tan_angle = tan(main->calc->angle);
+	if (key_code == W_KEY)
+	{
+		main->calc->px += fabs(cos(main->calc->pdir)) * main->calc->stepx * WALK;
+		main->calc->py += fabs(sin(main->calc->pdir)) * main->calc->stepy * WALK;
+	}
+	else if (key_code == S_KEY)
+	{
+		main->calc->px += fabs(cos(main->calc->pdir)) * main->calc->stepx * -1 * WALK;
+		main->calc->py += fabs(sin(main->calc->pdir)) * main->calc->stepy * -1 * WALK;
+	}
+	else if (key_code == A_KEY)
+	{
+		main->calc->px += fabs(sin(main->calc->pdir)) * main->calc->stepy * -1 * WALK;
+		main->calc->py += fabs(cos(main->calc->pdir)) * main->calc->stepx * WALK;
+	}
+	else if (key_code == D_KEY)
+	{
+		main->calc->px += fabs(sin(main->calc->pdir)) * main->calc->stepy * WALK;
+		main->calc->py += fabs(cos(main->calc->pdir)) * main->calc->stepx * -1 * WALK;
+	}
+	return (0);
 }
 
 // Mouse code for MacOS:
