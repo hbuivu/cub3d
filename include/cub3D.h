@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 17:50:21 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/22 12:47:51 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,8 +130,10 @@ typedef struct	s_calc
 	double	ray_incr; //angle at which ray increments from right to left
 	/* recalculated each ray */
 	double	angle; //angle used for calculations in degrees
-	int		stepx; //direction in which x is going (-1 or 1)
-	int		stepy; //direction in which y is going (-1 or 1)
+	int		stepx; //direction in which x is going for angle (-1 or 1)
+	int		stepy; //direction in which y is going for angle (-1 or 1)
+	int		pdir_stepx; //direction in which x is going for pdir (-1 or 1)
+	int		pdir_stepy; //direction in which y is going for pdir (-1 or 1)
 	double	tan_angle; //tangent of angle for calculations;
 	/* initiated to 0 at start */
 	double	col_int; //point where ray intersects a column line
@@ -207,6 +209,7 @@ void	get_data_addr(t_main *main);
 void	calc_step(t_main *main);
 void	init_calc(t_main *main);
 void	recalc(t_main *main);
+void    calc_pdir_step(t_main *main);
 
 /* coord_check.c */
 int	check_coord(int jump, t_main *main);

@@ -115,10 +115,7 @@ void	raycast(t_main *main)
 	while (x < main->calc->pln_width)
 	{
 		if (ch_num(c->angle, 0) || ch_num(c->angle, M_PI))
-		{
-			printf("angle: %lf\n", c->angle);
 			cast_hline(c, main);
-		}
 		else if (ch_num(c->angle, main->calc->rad_90) || ch_num(c->angle, main->calc->rad_270))
 			cast_vline(c, main);
 		else

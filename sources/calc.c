@@ -6,11 +6,30 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:31:03 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/21 14:41:26 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/22 12:47:32 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
+
+void    calc_pdir_step(t_main *main)
+{
+    t_calc  *c;
+
+    c = main->calc;
+    if (ch_num(c->pdir, c->rad_90) || ch_num(c->pdir, c->rad_270))
+        c->pdir_stepx = 0;
+    else if (c->pdir < c->rad_90 || c->pdir > c->rad_270)
+        c->pdir_stepx = 1;
+    else if (c->pdir > c->rad_90 && c->pdir < c->rad_270)
+        c->pdir_stepx = -1;
+    if (ch_num(c->pdir, 0) || ch_num(c->pdir, M_PI))
+        c->pdir_stepy = 0;
+    else if (c->pdir > 0 && c->pdir < M_PI)
+        c->pdir_stepy = -1;
+    else if (c->pdir > M_PI && c->pdir < c->rad_360)
+        c->pdir_stepy = 1;
+}
 
 void	calc_step(t_main *main)
 {
