@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/22 04:46:40 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/22 12:00:15 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@
 # define MM_SPRITE				0Xca8dfd
 # define MM_FLOOR				0x00FFFF
 # define MM_TILE_SIZE			24
+# define WALK					4
+
 
 enum	e_error
 {
