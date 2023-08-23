@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/22 12:00:15 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/23 17:41:42 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@
 # define MM_FLOOR				0x00FFFF
 # define MM_TILE_SIZE			24
 # define WALK					4
+# define NUM_SPRITES			2
 
 
 enum	e_error
@@ -120,6 +121,13 @@ typedef struct s_omap
 	char			*row;
 	struct s_omap	*next;
 }	t_omap;
+
+struct s_sprite
+{
+  double x;
+  double y;
+  int texture;
+}	t_sprite;
 
 typedef struct	s_calc
 {

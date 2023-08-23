@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:58:42 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 23:30:19 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/23 17:41:27 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	get_textures_bonus(t_main *main)
 {
+	// int	textures[4];
 	int	size;
 
 	size = 200;

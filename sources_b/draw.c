@@ -40,7 +40,7 @@ void	interpolate(int x, int y, t_point *p, t_main *main)
 	avg_color = encode_rgb((int)r, (int)g, (int)b);
 	offset = y * main->img.line_length + x * (main->img.bpp / 8);
 	dst = main->img.addr + offset;
-	if (avg_color != 0) //if color is not black, print out pixel
+	// if (avg_color != 0) //if color is not black, print out pixel
 		*(unsigned int *)dst = avg_color;
 }
 
@@ -54,8 +54,8 @@ void	draw_wall(int x, t_main *main)
 
 	row = 0;
 	start = (int)(round((main->calc->pln_height / 2) - (main->calc->wall_height / 2)));
-	if (start < 0)
-		start = 0;
+	// if (start < 0)
+	// 	start = 0;
 	stop = (int)(round(start + main->calc->wall_height));
 	if (stop >= main->calc->pln_height)
 		stop = main->calc->pln_height - 1;
@@ -63,9 +63,12 @@ void	draw_wall(int x, t_main *main)
 	p.orig_x = main->calc->wall_slice;
 	while (row < (int)main->calc->wall_height && start <= stop)
 	{
-		p.orig_y = row / p.scale;
-		get_nearest_pix(&p, main);
-		interpolate(x, start, &p, main);
+		if (start >= 0)
+		{
+			p.orig_y = row / p.scale;
+			get_nearest_pix(&p, main);
+			interpolate(x, start, &p, main);
+		}
 		row++;
 		start++;
 	}
