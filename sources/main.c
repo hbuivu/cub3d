@@ -24,6 +24,7 @@ int	main(int argc, char **argv)
 		return_error(main, OPEN_ERR);
 	parse_cub(fd, main);
 	init_calc(main); 
+	printf("ORIG px: %lf py: %lf\n", main->calc->px, main->calc->py);
 	mlx(main); //creates all mlx instances
 	raycast(main); //game function
 	//mlx_destroy_window

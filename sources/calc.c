@@ -6,11 +6,30 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:31:03 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/21 14:41:26 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/23 13:34:19 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
+
+void    calc_pdir_step(t_main *main)
+{
+    t_calc  *c;
+
+    c = main->calc;
+    if (ch_num(c->pdir, c->rad_90) || ch_num(c->pdir, c->rad_270))
+        c->pdir_stepx = 0;
+    else if (c->pdir < c->rad_90 || c->pdir > c->rad_270)
+        c->pdir_stepx = 1;
+    else if (c->pdir > c->rad_90 && c->pdir < c->rad_270)
+        c->pdir_stepx = -1;
+    if (ch_num(c->pdir, 0) || ch_num(c->pdir, M_PI))
+        c->pdir_stepy = 0;
+    else if (c->pdir > 0 && c->pdir < M_PI)
+        c->pdir_stepy = -1;
+    else if (c->pdir > M_PI && c->pdir < c->rad_360)
+        c->pdir_stepy = 1;
+}
 
 void	calc_step(t_main *main)
 {
@@ -46,7 +65,7 @@ void	init_calc(t_main *main)
 	c = main->calc;
 	calc_rad(main);
 	c->upg = 64;
-	c->fov = 66 * (M_PI / 180);
+	c->fov = FOV * (M_PI / 180);
 	c->pln_width = WIN_WIDTH;
 	c->pln_height = WIN_HEIGHT;
 	c->pln_dist = (c->pln_width / 2) / tan(c->fov / 2);
@@ -66,8 +85,10 @@ void	init_calc(t_main *main)
 	else if (c->angle > c->rad_360 || ch_num(c->angle, c->rad_360))
 		c->angle -= c->rad_360;
 	c->tan_angle = tan(c->angle);
+	c->tan_pdir = tan(c->pdir);
 	c->ray_incr = c->fov / c->pln_width;
 	calc_step(main);
+	calc_pdir_step(main);
 }
 
 void	recalc(t_main *main)

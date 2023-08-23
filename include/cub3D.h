@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/23 17:41:42 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/23 18:34:48 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@
 # define WALK					4
 # define NUM_SPRITES			2
 
+# define RUN					32
+# define WALL_BUFF				10
+# define ANGLE_ROT				2
+# define FOV					66
 
 enum	e_error
 {
@@ -145,9 +149,19 @@ typedef struct	s_calc
 	double	ray_incr; //angle at which ray increments from right to left
 	/* recalculated each ray */
 	double	angle; //angle used for calculations in degrees
-	int		stepx; //direction in which x is going (-1 or 1)
-	int		stepy; //direction in which y is going (-1 or 1)
+	int		stepx; //direction in which x is going for angle (-1 or 1)
+	int		stepy; //direction in which y is going for angle (-1 or 1)
 	double	tan_angle; //tangent of angle for calculations;
+	/* used for walking */
+	int		pdir_stepx; //direction in which x is going for pdir (-1 or 1)
+	int		pdir_stepy; //direction in which y is going for pdir (-1 or 1)
+	double	tan_pdir; //tangent of pdir for walking calculations
+	double	x_walk; //how much player moves in x direction when walking
+	double	y_walk; //how much player moves in y direction when walking
+	double	x_run; //how much player moves in x direction when running
+	double	y_run; //how much player moves in y direction when running
+	double	walk_dist; //how far player moves each time they walk;
+	double	run_dist; //how far player moves each time they run;
 	/* initiated to 0 at start */
 	double	col_int; //point where ray intersects a column line
 	double	col_inty; //the y coordinate where ray intersects column line
@@ -210,6 +224,9 @@ void	download_map(int fd, t_main *main);
 void	check_map(t_omap *omap_start, t_main *main);
 void	get_map(t_omap *ptr_map, t_main *main);
 
+/* wall_collisions */
+void	check_collision(int	key, t_main *main);
+
 /* mlx_hooks.c */
 int		ft_close(t_main *main);
 int		key_press(int key_code, t_main *main);
@@ -226,6 +243,7 @@ void	get_data_addr_bonus(t_main *main);
 void	calc_step(t_main *main);
 void	init_calc(t_main *main);
 void	recalc(t_main *main);
+void    calc_pdir_step(t_main *main);
 
 /* coord_check.c */
 int	check_coord(int jump, t_main *main);

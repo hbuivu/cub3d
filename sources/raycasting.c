@@ -78,12 +78,6 @@ void	cast_line(int x, t_calc *c, t_main *main)
 	calc_intercepts(c, main);
 	c->dist_col = fabs((c->px - c->col_int) / cos(c->angle));
 	c->dist_row = fabs((c->px - c->row_intx) / cos(c->angle));
-	// if (x == 0)
-	// {
-	// 	printf("dist_col: %lf\n", c->dist_col);
-	// 	printf("dist_row: %lf\n", c->dist_row);
-	// 	printf("angle: %lf\n", c->angle);
-	// }
 	if (c->dist_col <= c->dist_row)
 	{
 		c->wall_slice = (int)c->col_inty % 64;
@@ -115,11 +109,8 @@ void	raycast(t_main *main)
 	while (x < main->calc->pln_width)
 	{
 		if (ch_num(c->angle, 0) || ch_num(c->angle, M_PI))
-		{
-			printf("angle: %lf\n", c->angle);
 			cast_hline(c, main);
-		}
-		else if (ch_num(c->angle, main->calc->rad_90) || ch_num(c->angle, main->calc->rad_270))
+		else if (ch_num(c->angle, c->rad_90) || ch_num(c->angle, c->rad_270))
 			cast_vline(c, main);
 		else
 			cast_line(x, c, main);
@@ -129,8 +120,9 @@ void	raycast(t_main *main)
 		recalc(main);
 	}
 	mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win, main->img.img, 0, 0);
-	mlx_key_hook(main->mlx.mlx_win, key_press, main);
+	// mlx_key_hook(main->mlx.mlx_win, key_press, main);
 	mlx_hook(main->mlx.mlx_win, 2, 1L << 0, key_press, main);
+	// mlx_hook(main->mlx.mlx_win, 17, 1L<<17, ft_close, &main->mlx);
 	mlx_hook(main->mlx.mlx_win, 17, 1L << 17, ft_close, main);
 	mlx_hook(main->mlx.mlx_win, 06, 1L << 6, mouse_move, main);
 	mlx_loop(main->mlx.mlx_ptr);
