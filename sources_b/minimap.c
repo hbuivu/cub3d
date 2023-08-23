@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 11:51:49 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/22 04:18:41 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/22 23:28:42 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,18 @@ void    draw_minimap(t_main * main)
 {
 	int	row;
 	int	col;
+	int	player[2];
+	// int	row_player;
+	// int col_player;
 
 	row = 0;
+	player[1] = (main->calc->py + .5) * MM_TILE_SIZE ;
 	while (row < main->map_height)
 	{
+		// row_player = (int)abs((int)main->calc->py / MM_TILE_SIZE * MM_TILE_SIZE) * -1;
+		// col_player = (int)abs((int)main->calc->px / MM_TILE_SIZE * MM_TILE_SIZE) * -1;
 	    col = 0;
+		player[0] = (main->calc->px + .5) * MM_TILE_SIZE ;
 		while (col < main->map_width)
 		{
 			if (main->map[row][col] == '1')
@@ -65,7 +72,10 @@ void    draw_minimap(t_main * main)
 				ft_pixel_tile_put(main, col * MM_TILE_SIZE, row * MM_TILE_SIZE, MM_DOOR);
 			else if (main->map[row][col] == 'N' || main->map[row][col] == 'S' 
 				|| main->map[row][col] == 'E' || main->map[row][col] == 'W')
+			// else if (row == row_player && col == col_player))
 				ft_pixel_tile_put(main, col * MM_TILE_SIZE, row * MM_TILE_SIZE, MM_PLAYER);
+			else
+				ft_pixel_tile_put(main, col * MM_TILE_SIZE, row * MM_TILE_SIZE, MM_FLOOR);
 			col++;
 	    }
 		row++;

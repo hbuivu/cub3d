@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 14:37:46 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/21 23:45:57 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/22 20:38:35 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	mlx(t_main *main)
 		return_error(main, MLX_ERR);
 	main->img.img = mlx_new_image(main->mlx.mlx_ptr, WIN_WIDTH, WIN_HEIGHT);
 	if (!main->img.img)
-		return_error(main, MLX_ERR);
+		return_error(main, IMG_ERR);
 	main->img.addr = mlx_get_data_addr(main->img.img, &main->img.bpp, &main->img.line_length, &main->img.endian);
 	if (!main->img.addr)
 		return_error(main, MLX_ERR);

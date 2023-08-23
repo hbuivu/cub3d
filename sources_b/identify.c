@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:13:12 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/22 12:52:41 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/22 12:59:23 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ t_omap	*identify(t_omap *omap, t_main *main)
 	t_omap	*curr;
 	t_omap	*ptr_map;
 	int		i;
-	// int		j;
+	int		j;
 
 	curr = omap;
 	i = 0;
-	// j = 0;
+	j = 0;
 	while (curr)
 	{
 		printf("j: %i\n", j);
@@ -86,7 +86,7 @@ t_omap	*identify(t_omap *omap, t_main *main)
 			return (ptr_map);
 		}
 		curr = curr->next;
-		// j++;
+		j++;
 	}
 	return (NULL);
 }

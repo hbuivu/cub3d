@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/22 12:53:29 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/22 13:06:36 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ int	key_press(int key_code, t_main *main)
 			main->calc->angle += main->calc->rad_360;
 		calc_step(main);
 	}
+	else if (key_code == W_KEY || key_code == S_KEY || key_code == A_KEY || key_code == D_KEY)
+		move(key_code, main);
 	else
 		return (0);
 	//check for every step if it takes you into a wall
