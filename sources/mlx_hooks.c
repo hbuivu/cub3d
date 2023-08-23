@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/22 14:41:02 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/23 09:56:35 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,11 @@
 */
 
 //do we need to destroy all images before closing
-//need to implement wall collision and corner collision
-// void	wall_collision(t_main *main)
-// {
-// 	//make sure to check for corner collision too
-// 	//use a single ray to check, but ray does not need to be very long
-// }
+
 int	ft_close(t_main *main)
 {
 	mlx_destroy_window(main->mlx.mlx_ptr, main->mlx.mlx_win);
-	// return_error(main, NONE);
+	return_error(main, NONE);
 	exit(0);
 }
 
@@ -52,9 +47,55 @@ int	rotate(int key_code, t_main *main)
 		c->angle -= c->rad_360;
 	calc_step(main);
 	calc_pdir_step(main);
-	
+	return (0);
 }
-//still need to implement wall collision
+
+//when pdir changes, reset angle calculations 
+void	reset_pdir(t_main *main)
+{
+	t_calc *c;
+
+	c = main->calc;
+	c->angle = c->pdir - (c->fov / 2);
+	if (c->angle < 0)
+		c->angle += c->rad_360;
+	else if (c->angle > c->rad_360 || ch_num(c->angle, c->rad_360))
+		c->angle -= c->rad_360;
+	c->tan_angle = tan(c->angle);
+	calc_step(main);
+}
+
+int	move(int key_code, t_main *main)
+{	
+	t_calc *c;
+
+	c = main->calc;
+	reset_pdir(main);
+	check_collision(key_code, main);
+	if (key_code == W_KEY)
+	{
+		c->px += c->x_walk * c->pdir_stepx;
+		c->py += c->y_walk * c->pdir_stepy;
+	}
+	else if (key_code == S_KEY)
+	{
+		c->px += c->x_walk * c->pdir_stepx * -1;
+		c->py += c->y_walk * c->pdir_stepy * -1;
+	}
+	else if (key_code == A_KEY)
+	{
+		c->px += c->x_walk * c->pdir_stepx * -1;
+		c->py += c->y_walk * c->pdir_stepy;
+	}
+	else if (key_code == D_KEY)
+	{
+		c->px += c->x_walk * c->pdir_stepx;
+		c->py += c->y_walk * c->pdir_stepy * -1;
+	}
+	raycast(main);
+	return (0);
+}
+
 int	key_press(int key_code, t_main *main)
 {
 	if (key_code == ESC)
