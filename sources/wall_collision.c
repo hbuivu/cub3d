@@ -9,6 +9,12 @@
 	-if player-to-wall-dist - buff < player-walk-dist =>
 		walk only the amount of steps possible up until wall-buff*/
 
+/* second idea
+1. move player to new px and py position
+2. check px and py to see if it is in a wall
+3. if it's in a wall, return player to original position
+*/
+
 double	cast_pdir_hv_ray(char line_dir, t_calc *c, t_main *main)
 {
 	if (line_dir == 'h')
@@ -79,8 +85,10 @@ void	calc_move_dist(int key_code, t_main *main)
 		c->y_walk = fabs(sin(c->pdir)) * WALK;
 		c->x_run = fabs(cos(c->pdir)) * RUN;
 		c->y_run = fabs(sin(c->pdir)) * RUN;
-		c->walk_dist = c->x_walk ;
-		c->run_dist = c->x_run * fabs(cos(c->pdir));
+		// c->walk_dist = c->x_walk * fabs(cos(c->pdir));
+		// c->run_dist = c->x_run * fabs(cos(c->pdir));
+		c->walk_dist = 
+		c->run_dist = RUN;
 	}
 	else if (key_code == A_KEY || key_code == D_KEY)
 	{
@@ -106,9 +114,10 @@ void	check_collision(int key_code, t_main *main)
 	else
 		wall_dist = cast_pdir_ray(c, main);
 	calc_move_dist(key_code, main);
-	if (c->walk_dist > wall_dist - 4)
+	printf("wall_dist: %lf walk_dist: %lf\n", wall_dist, c->walk_dist);
+	if (c->walk_dist > wall_dist - WALL_BUFF)
 	{
-		c->walk_dist =  wall_dist - 4;
+		c->walk_dist =  wall_dist - WALL_BUFF;
 		if (key_code == W_KEY || key_code == S_KEY)
 		{
 			c->x_walk = fabs(cos(c->pdir)) * c->walk_dist;
@@ -120,9 +129,9 @@ void	check_collision(int key_code, t_main *main)
 			c->y_walk = fabs(cos(c->pdir)) * c->walk_dist;
 		}
 	}
-	if (c->run_dist > wall_dist - 4)
+	if (c->run_dist > wall_dist - WALL_BUFF)
 	{
-		c->run_dist = wall_dist - 4;
+		c->run_dist = wall_dist - WALL_BUFF;
 		if (key_code == W_KEY || key_code == S_KEY)
 		{
 			c->x_walk = fabs(cos(c->pdir)) * c->run_dist;

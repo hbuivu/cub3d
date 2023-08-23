@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:31:03 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/22 14:06:43 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/23 13:34:19 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	init_calc(t_main *main)
 	c = main->calc;
 	calc_rad(main);
 	c->upg = 64;
-	c->fov = 66 * (M_PI / 180);
+	c->fov = FOV * (M_PI / 180);
 	c->pln_width = WIN_WIDTH;
 	c->pln_height = WIN_HEIGHT;
 	c->pln_dist = (c->pln_width / 2) / tan(c->fov / 2);

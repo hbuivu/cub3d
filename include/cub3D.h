@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/23 08:40:38 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/23 18:01:10 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@
 # define WIN_HEIGHT				1024
 # define WALK					4
 # define RUN					32
+# define WALL_BUFF				10
 # define ANGLE_ROT				2
+# define FOV					66
 
 enum	e_error
 {
@@ -207,7 +209,7 @@ void	check_map(t_omap *omap_start, t_main *main);
 void	get_map(t_omap *ptr_map, t_main *main);
 
 /* wall_collisions */
-void	check_collision(int key_code, t_main *main);
+void	check_collision(int	key, t_main *main);
 
 /* mlx_hooks.c */
 int		ft_close(t_main *main);
