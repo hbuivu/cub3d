@@ -34,8 +34,8 @@ void	print_main_map(t_main *main)
 // 	printf("pln_height: %lf\n", main->calc->pln_height);
 // 	printf("pln_width: %lf\n", main->calc->pln_width);
 // 	printf("pln_dist: %lf\n", main->calc->pln_dist);
-// 	printf("px: %lf\n", main->calc->px);
-// 	printf("py: %lf\n", main->calc->py);
+// printf("px: %lf\n", main->calc->px);
+// printf("py: %lf\n", main->calc->py);
 // 	printf("pdir: %lf\n", main->calc->pdir);
 // 	printf("ray_incr: %lf\n", main->calc->ray_incr);
 // 	printf("angle: %lf\n", main->calc->angle);
