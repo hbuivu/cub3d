@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/24 03:07:53 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/24 23:33:35 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ enum	e_error
 	COMMA_ERR,
 	INT_ERR,
 	COMMA_PLACE_ERR,
+	INVALID_COLOR,
 	NONE
 };
 

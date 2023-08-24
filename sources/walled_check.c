@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   walled_check.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 17:01:13 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/22 12:04:56 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/24 00:00:40 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,14 @@ void	check_walled(t_main *main)
 	int		i;
 	t_queue	*ptr;
 
-	main->player_update = (int *)cub_calloc(2, sizeof(int), main);
-	main->map_cpy = ft_calloc(main->map_height + 1, sizeof(char*));
+	// main->player_update = (int *)cub_calloc(2, sizeof(int), main);
+	// main->map_cpy = ft_calloc(main->map_height + 1, sizeof(char*));
 
+	// main->player_update = (int *)cub_calloc(2, sizeof(int), main);
+	// main->map_cpy = ft_calloc(main->map_height + 1, sizeof(char *));
+	
 	main->player_update = (int *)cub_calloc(2, sizeof(int), main);
-	main->map_cpy = ft_calloc(main->map_height + 1, sizeof(char *));
-
-	main->player_update = (int *)cub_calloc(2, sizeof(int), main);
-	main->map_cpy = ft_calloc(main->map_height + 1, sizeof(char*));
+	main->map_cpy = (char **)cub_calloc(main->map_height + 1, sizeof(char*), main);
 	i = 0;
 	while (main->map[i])
 	{

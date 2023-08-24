@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/23 17:01:39 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/23 18:46:11 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ void	reset_pdir(t_main *main)
 
 int	move(int key, t_main *main)
 {	
-	t_calc *c;
+	// t_calc *c;
 
-	c = main->calc;
+	// c = main->calc;
 	reset_pdir(main);
 	check_collision(key, main);
 	// if (key == W_KEY)
