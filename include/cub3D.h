@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/23 18:34:48 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/24 01:12:40 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ enum	e_error
 	COMMA_ERR,
 	INT_ERR,
 	COMMA_PLACE_ERR,
+	INVALID_COLOR,
 	NONE
 };
 
@@ -126,12 +127,12 @@ typedef struct s_omap
 	struct s_omap	*next;
 }	t_omap;
 
-struct s_sprite
-{
-  double x;
-  double y;
-  int texture;
-}	t_sprite;
+// struct s_sprite
+// {
+//   double x;
+//   double y;
+//   int texture;
+// }	t_sprite;
 
 typedef struct	s_calc
 {

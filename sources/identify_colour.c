@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   identify_colour.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 18:45:40 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 17:02:59 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/24 01:15:03 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,23 @@ char	*check_comma(char *s, t_main *main)
 			comma++;
 			if (!(s[i - 1] >= '0' && s[i - 1] <= '9')
 				|| (!(s[i + 1] >= '0' && s[i + 1] <= '9')))
+			{
+				free(s);
 				return_error(main, COMMA_PLACE_ERR);
+			}
 		}
 		else if (!(s[i] >= '0' && s[i] <= '9'))
+		{
+			free(s);
 			return_error(main, INT_ERR);
+		}
 		i++;
 	}
 	if (comma != 2)
+	{
+		free(s);
 		return_error(main, COMMA_ERR);
+	}
 	return (s);
 }
 
@@ -80,13 +89,21 @@ int	*to_int(char *s, t_main *main)
 		color[i] = ft_atoi(split[i]);
 		if (color[i] < 0 || color[i] > 255)
 		{
-			perror("Not a valid color");
-			exit(1);
+			free(s);
+			free(split);
+			return_error(main, INVALID_COLOR);
+			
+			// exit(1);
 		}
 		i++;
 	}
 	if (!color[3])
 		color[3] = 255;
+	free(s);
+	i = -1;
+	while (split[++i])
+		free(split[i]);
+	free(split);
 	return (color);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:27:01 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/20 15:28:07 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/24 01:15:10 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,32 @@ void	error_check(int argc, char **argv)
 		perror("Error\n require .cub argument");
 		exit(0);
 	}
+}
+
+void	destroy_mlx(t_main *main)
+{
+	if (main->img.img)
+		mlx_destroy_image(main->mlx.mlx_ptr, main->img.img);
+	if (main->img_minimap.img)
+		mlx_destroy_image(main->mlx.mlx_ptr, main->img_minimap.img);
+	if (main->img_no_wall.img)
+		mlx_destroy_image(main->mlx.mlx_ptr, main->img_no_wall.img);
+	if (main->img_so_wall.img)
+		mlx_destroy_image(main->mlx.mlx_ptr, main->img_so_wall.img);	
+	if (main->img_we_wall.img)
+		mlx_destroy_image(main->mlx.mlx_ptr, main->img_we_wall.img);
+	if (main->img_ea_wall.img)
+		mlx_destroy_image(main->mlx.mlx_ptr, main->img_ea_wall.img);
+	if (main->img_spr1.img)
+		mlx_destroy_image(main->mlx.mlx_ptr, main->img_spr1.img);
+	if (main->img_spr2.img)
+		mlx_destroy_image(main->mlx.mlx_ptr, main->img_spr2.img);
+	if (main->img_door1.img)
+		mlx_destroy_image(main->mlx.mlx_ptr, main->img_door1.img);
+	if (main->img_door2.img)
+		mlx_destroy_image(main->mlx.mlx_ptr, main->img_door2.img);
+	// if(main->mlx.mlx_win)
+		// mlx_destroy_window(main->mlx.mlx_ptr, main->mlx.mlx_win);
 }
 
 void	return_error(t_main *main, int err_msg)
@@ -62,6 +88,8 @@ void	return_error(t_main *main, int err_msg)
 		perror("require integer");
 	if (err_msg == COMMA_PLACE_ERR)
 		perror("wrong placement of comma");
+	if (err_msg == INVALID_COLOR)
+		perror("Not a valid color");
 	if (main)
 	{
 		if (main->omap)
@@ -89,14 +117,24 @@ void	return_error(t_main *main, int err_msg)
 			free(main->f_color);
 		if (main->c_color)
 			free(main->c_color);
+		if (main->player_update)
+			free(main->player_update);
 		if (main->map)
 		{
 			while (main->map[++i])
 				free(main->map[i]);
 			free(main->map);
 		}
+		i = -1;
+		if (main->map_cpy)
+		{
+			while (main->map_cpy[++i])
+				free(main->map_cpy[i]);
+			free(main->map_cpy);
+		}
 		if (main->calc)
 			free(main->calc);
+		destroy_mlx(main);
 		free(main);
 	}
 	exit(1);
