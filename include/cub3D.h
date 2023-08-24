@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/23 18:34:48 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/24 03:07:53 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 # define MM_FLOOR				0x00FFFF
 # define MM_TILE_SIZE			24
 # define WALK					4
-# define NUM_SPRITES			2
+# define NUM_SPRITES			4
 
 # define RUN					32
 # define WALL_BUFF				10
@@ -128,9 +128,18 @@ typedef struct s_omap
 
 struct s_sprite
 {
-  double x;
-  double y;
-  int texture;
+	double x;
+	double y;
+	int texture;
+	double		transform_x;
+	double		transform_y;
+	int			screen_x;
+	int			height;
+	int			draw_start_y;
+	int			draw_end_y;
+	int			width;
+	int			draw_start_x;
+	int			draw_end_x;
 }	t_sprite;
 
 typedef struct	s_calc
@@ -208,6 +217,9 @@ typedef struct s_main
 	int				*player_update;
 	char			**map_cpy;
 	int				mouse_x;
+	t_sprite		*sprite;
+	double			*z_buffer;
+	double			*pl_to_sp_dist;
 }	t_main;
 
 /* error.c */
