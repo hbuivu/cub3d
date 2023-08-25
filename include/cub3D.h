@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/25 11:54:38 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/26 10:17:13 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,10 @@ typedef struct s_wall
 	double			wall_height;
 	double			wall_slice;
 	t_img			wall_face;
+	int				start;
+	int				stop;
 	struct s_wall	*next;
+	struct s_wall	*prev;
 } 	t_wall;
 
 enum	e_error
@@ -128,7 +131,7 @@ typedef struct s_point
 {
 	double	scale; //scale against 64 pixels
 	double	orig_x; //column slice of wall
-	double	orig_y; //how the point would transalte on original image y axis
+	double	orig_y; //how the point would translate on original image y axis
 	double	y_dist; //the distance of orig_y from y1
 	t_pix	p1; //value of color at (x1, y1)
 	t_pix	p2; //value of color at (x2, y2)
@@ -193,6 +196,8 @@ typedef struct	s_calc
 
 	//BONUS
 	int		ray;
+	double	castback_px;
+	double	castback_py;
 	t_wall	*wall_list;
 	t_wall	*wall_list_cur;
 }	t_calc;

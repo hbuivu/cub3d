@@ -41,10 +41,18 @@ void	record_wall_info(int x, int jump, t_main *main)
 			node->wall_face = main->img_so_wall;
 	}
 	node->cor_dist = node->dist * fabs(cos((c->fov - (2 * x * c->ray_incr)) / 2));
+	node->wall_height = (c->upg / c->cor_dist) * c->pln_dist;
+	node->start = (int)(round((c->pln_height / 2) - (node->wall_height / 2)));
+	node->end =  (int)(round(node->start + node->wall_height));
+	if (node->end > c->pln_height || ch_num(node->end, c->pln_height))
+		node->stop = c->pln_height - 1;
 	if (c->wall_list == NULL)
 		c->wall_list = node;
 	else 
+	{
+		node->prev = c->wall_list_cur;
 		c->wall_list_cur->next = node;
+	}
 	c->wall_list_cur = node;
 }
 
@@ -97,10 +105,27 @@ void	calc_intercepts(t_main *main)
 void	sort_wall_list(t_main *main)
 {
 	t_wall *w;
-	t_wall	*cur;
+	t_wall	*temp;
 
 	w = main->calc->wall_list;
-	while ()
+	while (w)
+	{
+		if (w->dist > w->next->dist || 
+			(w->dist == w->next->dist && w->ray < w->next->ray))
+		{
+			temp = w->next;
+			w->next->prev = w->prev;
+			if (w->prev)
+				w->prev->next = w->next;
+			w->prev = w->next;
+			w->next = w->next->next;
+			temp->next->prev = w;
+			temp->next = w;
+			w = main->calc->wall_list;
+		}
+		else
+			w = w->next;
+	}
 }
 
 void	free_wall_list(t_main *main)
@@ -125,9 +150,10 @@ void	cast_line(int x, t_main *main)
 	c = main->calc;
 	calc_delta(main);
 	calc_intercepts(main);
+	c->ray = 1;
 	//calc all wall hits for columns
 	while (c->col_int >= 0  && c->col_int < WIN_WIDTH &&
-		ch_num(c->angle, c->rad_90) && ch_num(c->angle, c->rad_270))
+		!ch_num(c->angle, c->rad_90) && !ch_num(c->angle, c->rad_270))
 	{
 		if (check_coord(COL, main) == 0)
 			record_wall_info(x, COL, main);
@@ -136,18 +162,82 @@ void	cast_line(int x, t_main *main)
 	}
 	//calculate all wall hits for rows
 	while (c->row_int >= 0 && c->row_int < WIN_HEIGHT &&
-		ch_num(c->angle, 0) && ch_num(c->angle, M_PI))
+		!ch_num(c->angle, 0) && !ch_num(c->angle, M_PI))
 	{
 		if (check_coord(ROW, main) == 0)
 			record_wall_info(x, ROW, main);
 		c->row_int += c->stepy * c->upg;
 		c->row_intx += c->stepx * c->deltax;
 	}
-	sort_wall_list(main);
-
+	//take column and row back into bounds of the map
+	if (c->col_int < 0 || c->col_int > WIN_WIDTH || ch_num(c->col_int, WIN_WIDTH))
+	{
+		c->col_int -= c->stepx * c->upg;
+		c->col_inty -= c->stepy * c->deltay;
+	}
+	if (c->row_int < 0 || c->row_int > WIN_HEIGHT || ch_num(c->row_int, WIN_HEIGHT))
+	{
+		c->row_int += c->stepy * c->upg;
+		c->row_intx += c->stepx * c->deltax;
+	}
 }
 
-void	raycast(t_main *main)
+void	cast_back_line(int x, t_main *main)
+{
+	t_calc *c;
+
+	c = main->calc;
+	c->ray = 2;
+	c->deltax *= -1;
+	c->deltay *= -1;
+	while (c->col_int > c->px &&
+		!ch_num(c->angle, c->rad_90) && !ch_num(c->angle, c->rad_270))
+	{
+		if (check_coord(COL, main) == 0)
+			record_wall_info(x, COL, main);
+		c->col_int += c->stepx * c->upg;
+		c->col_inty += c->stepy * c->deltay;
+	}
+	while (c->row_int > c->py &&
+		!ch_num(c->angle, 0) && !ch_num(c->angle, M_PI))
+	{
+		if (check_coord(ROW, main) == 0)
+			record_wall_info(x, ROW, main);
+		c->row_int += c->stepy * c->upg;
+		c->row_intx += c->stepx * c->deltax;
+	}
+}
+
+void	draw_wall_list(int x, t_main *main)
+{
+	t_calc *c;
+	t_wall	*w;
+	t_point	p;
+	int		y;
+
+	w = main->calc->wall_list;
+	c = main->calc;
+	while (w)
+	{
+		y = 0;
+		p.scale = w->wall_height / c->upg;
+		p.orig_x = w->wall_slice;
+		while (y < (int)w->wall_height && w->start <= w->end)
+		{
+			if (w->start >= 0)
+			{
+				p.orig_y = y / p.scale;
+				get_nearest_pix(&p, main);
+				interpolate(x, w->start, &p, main);
+			}
+			y++;
+			w->start++;
+		}
+		w = w->next;
+	}
+}
+
+void	double_raycast(t_main *main)
 {
 	t_calc	*c;
 	int		x;
@@ -158,7 +248,9 @@ void	raycast(t_main *main)
 	while (x < main->calc->pln_width)
 	{
 		cast_line(x, c, main);
-		draw_wall(x, main);
+		cast_back_line(x, c, main);
+		sort_wall_list(main);
+		draw_wall_list(main);
 		x++;
 		recalc(main);
 		//free wall_list
@@ -180,6 +272,7 @@ int	mouse_move(int x, int y, t_main *main)
 	main->mouse_x = x;
 	return (0);
 }
+
 
 // 	mlx_hook(cub->s_mlx.win, 3, 1L << 1, key_release, (void *)cub);
 // 	mlx_loop_hook(cub->s_mlx.mlx, action_loop, (void *)cub);
@@ -234,3 +327,29 @@ int	mouse_move(int x, int y, t_main *main)
 // 	c->wall_slice = (int)c->row_intx % 64;
 
 // }
+
+// if (ch_num(c->angle, 0) || ch_num(c->angle, M_PI))
+// 	{
+// 		c->dist_col = fabs(c->px - c->col_int);
+// 		c->dist_row = 0;
+// 	}
+// 	else if (ch_num(c->angle, c->rad_90) || ch_num(c->angle, c->rad_270))
+// 	{
+// 		c->dist_row = fabs(c->py - c->row_int);
+// 		c->dist_col = 0;
+// 	}
+// 	else
+// 	{
+// 		c->dist_row = fabs((c->px - c->col_int) / cos(c->angle));
+// 		c->dist_col = fabs((c->py - c->row_int) / sin(c->angle));
+// 	}
+// 	if (c->dist_col < c->dist_row)
+// 	{
+// 		c->castback_px = c->col_int;
+// 		c->castback_py = c->col_inty;
+// 	}
+// 	else
+// 	{
+// 		c->castback_py = c->row_int;
+// 		c->castback_px = c->row_intx;
+// 	}
