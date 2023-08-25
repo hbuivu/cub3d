@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/24 01:12:40 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/25 11:54:38 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,19 @@
 # define WALL_BUFF				10
 # define ANGLE_ROT				2
 # define FOV					66
+
+
+//BONUS
+typedef struct s_wall
+{
+	int				ray;
+	double			dist;
+	double			cor_dist;
+	double			wall_height;
+	double			wall_slice;
+	t_img			wall_face;
+	struct s_wall	*next;
+} 	t_wall;
 
 enum	e_error
 {
@@ -134,6 +147,7 @@ typedef struct s_omap
 //   int texture;
 // }	t_sprite;
 
+
 typedef struct	s_calc
 {
 	double	rad_90;
@@ -176,6 +190,11 @@ typedef struct	s_calc
 	double	wall_height; //projected wall height
 	t_img	wall_face; //NSEW
 	int		wall_slice;
+
+	//BONUS
+	int		ray;
+	t_wall	*wall_list;
+	t_wall	*wall_list_cur;
 }	t_calc;
 
 typedef struct s_main
