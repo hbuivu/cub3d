@@ -92,7 +92,30 @@ void	calc_intercepts(t_main *main)
 		c->row_intx = c->px;
 	else
 		c->row_intx = c->px + (c->stepx * fabs((c->row_int - c->py) / c->tan_angle));
+}
 
+void	sort_wall_list(t_main *main)
+{
+	t_wall *w;
+	t_wall	*cur;
+
+	w = main->calc->wall_list;
+	while ()
+}
+
+void	free_wall_list(t_main *main)
+{
+	t_wall *w;
+	t_wall	*cur;
+
+	w = main->calc->wall_list;
+	cur = w;
+	while (cur)
+	{
+		w = w->next;
+		free(cur);
+		cur = w;
+	}
 }
 
 void	cast_line(int x, t_main *main)
