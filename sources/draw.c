@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/26 15:43:26 by hbui-vu           #+#    #+#             */
+/*   Updated: 2023/08/26 15:48:28 by hbui-vu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/cub3D.h"
 
 void	find_pix_color(t_pix *pix, t_main *main)
@@ -30,36 +42,34 @@ void	interpolate(int x, int y, t_point *p, t_main *main)
 	double	r;
 	double	g;
 	double	b;
-	int		avg_color;
 	int		offset;
 	void	*dst;
 
 	r = (p->p1.r * (1 - p->y_dist)) + (p->p2.r * p->y_dist);
 	g = (p->p1.g * (1 - p->y_dist)) + (p->p2.g * p->y_dist);
 	b = (p->p1.b * (1 - p->y_dist)) + (p->p2.b * p->y_dist);
-	avg_color = encode_rgb((int)r, (int)g, (int)b);
 	offset = y * main->img.line_length + x * (main->img.bpp / 8);
 	dst = main->img.addr + offset;
-	if (avg_color != 0) //if color is not black, print out pixel
-		*(unsigned int *)dst = avg_color;
+	*(unsigned int *)dst = encode_rgb((int)r, (int)g, (int)b);
 }
 
-//note try floor/ceiling on this too
 void	draw_wall(int x, t_main *main)
 {
 	int		row;
 	int		start;
 	int		stop;
 	t_point	p;
-	
+	t_calc	*c;
+
+	c = main->calc;
 	row = 0;
-	start = (int)(round((main->calc->pln_height / 2) - (main->calc->wall_height / 2)));
-	stop = (int)(round(start + main->calc->wall_height));
-	if (stop >= main->calc->pln_height)
-		stop = main->calc->pln_height - 1;
-	p.scale = main->calc->wall_height / main->calc->upg;
-	p.orig_x = main->calc->wall_slice;
-	while (row < (int)main->calc->wall_height && start <= stop)
+	start = (int)(round((c->pln_height / 2) - (c->wall_height / 2)));
+	stop = (int)(round(start + c->wall_height));
+	if (stop >= c->pln_height)
+		stop = c->pln_height - 1;
+	p.scale = c->wall_height / c->upg;
+	p.orig_x = c->wall_slice;
+	while (row < (int)c->wall_height && start <= stop)
 	{
 		if (start >= 0)
 		{
@@ -83,7 +93,7 @@ void	draw_floor_ceiling(t_main *main)
 	col = -1;
 	c = main->c_color;
 	f = main->f_color;
-	while (++row < WIN_HEIGHT/2)
+	while (++row < WIN_HEIGHT / 2)
 	{
 		while (++col < WIN_WIDTH)
 			ft_pixel_put(&main->img, col, row, encode_rgb(c[0], c[1], c[2]));

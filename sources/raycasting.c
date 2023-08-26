@@ -1,6 +1,15 @@
-/* NOTES:
--what happens when you hit a corner?
-*/
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   raycasting.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/26 15:56:51 by hbui-vu           #+#    #+#             */
+/*   Updated: 2023/08/26 16:07:55 by hbui-vu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/cub3D.h"
 
 void	cast_hline(t_calc *c, t_main *main)
@@ -16,12 +25,11 @@ void	cast_hline(t_calc *c, t_main *main)
 	{
 		c->wall_face = main->img_ea_wall;
 		c->col_int = floor(c->px / c->upg) * c->upg;
-
 	}
 	c->col_inty = c->py;
 	while (check_coord(COL, main))
 		c->col_int += c->stepx * c->deltax;
-	c->cor_dist = fabs(c->col_int - c->px); //this is wrong
+	c->cor_dist = c->dist_col * cos((c->fov - (2 * x * c->ray_incr)) / 2);
 	c->wall_slice = (int)c->col_inty % 64;
 }
 
@@ -42,9 +50,8 @@ void	cast_vline(t_calc *c, t_main *main)
 	c->row_intx = c->px;
 	while (check_coord(ROW, main))
 		c->row_int += c->stepy * c->deltay;
-	c->cor_dist = fabs(c->row_int - c->py); //this is wrong
+	c->cor_dist = c->dist_row * cos((c->fov - (2 * x * c->ray_incr)) / 2);
 	c->wall_slice = (int)c->row_intx % 64;
-
 }
 
 void	calc_intercepts(t_calc *c, t_main *main)
@@ -55,12 +62,14 @@ void	calc_intercepts(t_calc *c, t_main *main)
 		c->col_int = ceil(c->px / c->upg) * c->upg;
 	else if (c->stepx == -1)
 		c->col_int = floor(c->px / c->upg) * c->upg;
-	c->col_inty = c->py + (c->stepy * fabs((c->col_int - c->px) * c->tan_angle));
+	c->col_inty = c->py + (c->stepy 
+			* fabs((c->col_int - c->px) * c->tan_angle));
 	if (c->stepy == 1)
 		c->row_int = ceil(c->py / c->upg) * c->upg;
 	else if (c->stepy == -1)
 		c->row_int = floor(c->py / c->upg) * c->upg;
-	c->row_intx = c->px + (c->stepx * fabs((c->row_int - c->py) / c->tan_angle));
+	c->row_intx = c->px + (c->stepx
+			* fabs((c->row_int - c->py) / c->tan_angle));
 	while (check_coord(COL, main))
 	{
 		c->col_int += c->stepx * c->upg;
@@ -120,22 +129,10 @@ void	raycast(t_main *main)
 		x++;
 		recalc(main);
 	}
-	mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win, main->img.img, 0, 0);
-	// mlx_key_hook(main->mlx.mlx_win, key_press, main);
+	mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win,
+		main->img.img, 0, 0);
 	mlx_hook(main->mlx.mlx_win, 2, 1L << 0, key_press, main);
-	// mlx_hook(main->mlx.mlx_win, 17, 1L<<17, ft_close, &main->mlx);
 	mlx_hook(main->mlx.mlx_win, 17, 1L << 17, ft_close, main);
 	mlx_hook(main->mlx.mlx_win, 06, 1L << 6, mouse_move, main);
 	mlx_loop(main->mlx.mlx_ptr);
 }
-
-int	mouse_move(int x, int y, t_main *main)
-{
-	if (y != -1)
-		main->calc->angle += (x - main->mouse_x) / 3;
-	main->mouse_x = x;
-	return (0);
-}
-
-// 	mlx_hook(cub->s_mlx.win, 3, 1L << 1, key_release, (void *)cub);
-// 	mlx_loop_hook(cub->s_mlx.mlx, action_loop, (void *)cub);
