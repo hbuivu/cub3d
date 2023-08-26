@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprites.c                                          :+:      :+:    :+:   */
+/*   sprites_calc.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 02:32:42 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/24 03:05:19 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/26 12:43:18 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
-//translate sprite position to relative to camera
+//translate sprite position to relative to camera or player
 // sqrt of pl_to_sp distance not taken bc not needed bc used to find order whih stays same
 static void		calc_pl_to_sp_dist(t_main *main)
 {
@@ -22,10 +22,10 @@ static void		calc_pl_to_sp_dist(t_main *main)
 	while (i < NUM_SPRITES)
 	{
 		main->pl_to_sp_dist[i] = (
-		(main->calc->px - main->sprite[i]->x) *
-		(main->calc->px - main->sprite[i]->x) +
-		(main->calc->py - main->sprite[i]->y) *
-		(main->calc->py- main->sprite[i]->y));
+		(main->calc->px / 64 - main->texture[i]->x) *
+		(main->calc->px / 64 - main->texture[i]->x) +
+		(main->calc->py / 64 - main->texture[i]->y) *
+		(main->calc->py / 64 - main->texture[i]->y));
 		i++;
 	}
 }
@@ -40,10 +40,12 @@ void	calc_sprite_transform(t_main *main)
 	double inv_det;
 	int sprite_screen_x;
 	
+	// normalized_sprite.x = sprite.x - game->player.pos.x;
+	// normalized_sprite.y = sprite.y - game->player.pos.y;
 	inv_det = 1.0 / (planeX * dirY - dirX * planeY); //required for correct matrix multiplication
-	main->sprite->transform_x = inv_det * (dirY * main->sprite->x - dirX * main->sprite->y);
-  	main->sprite->transform_y = inv_det * (-planeY * main->sprite->x + planeX * main->sprite->y); //this is actually the depth inside the screen, that what Z is in 3D
-	main->sprite->sprite_screen_x = (int)((main->map_width / 2) * (1 + main->sprite->transform_x / main->sprite->transform_y));
+	main->texture->transform_x = inv_det * (dirY * main->texture->x - dirX * main->texture->y);
+  	main->texture->transform_y = inv_det * (-planeY * main->texture->x + planeX * main->texture->y); //this is actually the depth inside the screen, that what Z is in 3D
+	main->texture->sprite_screen_x = (int)((main->map_width / 2) * (1 + main->texture->transform_x / main->texture->transform_y));
 }
 
 //       //calculate height of the sprite on screen
@@ -52,22 +54,22 @@ void	calc_sprite_transform(t_main *main)
 void	calc_sprite(t_main *main)
 {   
 	calc_sprite_transform(main);
-	main->sprite->screen_x = (int)((WIN_WIDTH / 2) *
-		(1.0 + main->sprite->transform_x / main->sprite->transform_y));
-	main->sprite->sprite_height = ABS((int)(WIN_HEIGHT/(main->sprite->transform_y))); //using 'transformY' instead of the real distance prevents fisheye
-    main->sprite->draw_start_y =  main->map_height/2 - main->sprite->height / 2  ;
-    if(main->sprite->draw_start_y < 0)
-		main->sprite->draw_start_y = 0;
-    main->sprite->draw_end_y = main->sprite->height / 2 + WIN_HEIGHT / 2;
-    if(main->sprite->draw_end_y >= WIN_HEIGHT / 2)
-		main->sprite->draw_end_y = WIN_HEIGHT / 2 - 1;
-    main->sprite->width = ABS( (int)(main->map_width / (main->sprite->transform_y)));
-    main->sprite->draw_start_x = main->sprite->sprite_screen_x - main->sprite->width / 2;
-    if(main->sprite->draw_start_x < 0)
-		main->sprite->draw_start_x = 0;
-    main->sprite->draw_end_x = main->sprite->width / 2 + main->sprite->sprite_screen_x;
-    if(main->sprite->draw_end_x  >= WIN_WIDTH)
-		main->sprite->draw_end_x  = WIN_WIDTH - 1;
+	main->texture->screen_x = (int)((WIN_WIDTH / 2) *
+		(1.0 + main->texture->transform_x / main->texture->transform_y));
+	main->texture->sprite_height = ABS((int)(WIN_HEIGHT/(main->texture->transform_y))); //using 'transformY' instead of the real distance prevents fisheye
+    main->texture->draw_start_y =  main->map_height/2 - main->texture->height / 2  ;
+    if(main->texture->draw_start_y < 0)
+		main->texture->draw_start_y = 0;
+    main->texture->draw_end_y = main->texture->height / 2 + WIN_HEIGHT / 2;
+    if(main->texture->draw_end_y >= WIN_HEIGHT / 2)
+		main->texture->draw_end_y = WIN_HEIGHT / 2 - 1;
+    main->texture->width = ABS( (int)(main->map_width / (main->texture->transform_y)));
+    main->texture->draw_start_x = main->texture->sprite_screen_x - main->texture->width / 2;
+    if(main->texture->draw_start_x < 0)
+		main->texture->draw_start_x = 0;
+    main->texture->draw_end_x = main->texture->width / 2 + main->texture->sprite_screen_x;
+    if(main->texture->draw_end_x  >= WIN_WIDTH)
+		main->texture->draw_end_x  = WIN_WIDTH - 1;
 }
 
 //       //loop through every vertical stripe of the sprite on screen

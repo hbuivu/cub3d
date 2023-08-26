@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:58:42 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/23 17:41:27 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/26 13:02:47 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 void	get_textures_bonus(t_main *main)
 {
-	// int	textures[4];
+	// t_texture	texture[8];
 	int	size;
 
 	size = 200;
+	// texture = (t_texture *)cub_calloc(8, sizeof(t_texture), main);
 	main->img_spr1.img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
 			"./textures/spr1.xpm", &size, &size);
 	if (!main->img_spr1.img)

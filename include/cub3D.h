@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/24 23:49:23 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/26 12:51:05 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ typedef struct s_omap
 	struct s_omap	*next;
 }	t_omap;
 
-struct s_sprite
+struct s_texture
 {
 	double x;
 	double y;
@@ -141,7 +141,7 @@ struct s_sprite
 	int			width;
 	int			draw_start_x;
 	int			draw_end_x;
-}	t_sprite;
+}	t_texture;
 
 typedef struct	s_calc
 {
@@ -218,7 +218,7 @@ typedef struct s_main
 	int				*player_update;
 	char			**map_cpy;
 	int				mouse_x;
-	// t_sprite		*sprite;
+	// t_sprite		*texture;
 	double			*z_buffer;
 	double			*pl_to_sp_dist;
 }	t_main;

@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/22 13:06:36 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/26 12:05:57 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	mouse_move(int x, int y, t_main *main)
 int	ft_close(t_main *main)
 {
 	mlx_destroy_window(main->mlx.mlx_ptr, main->mlx.mlx_win);
-	// return_error(main, NONE);
+	return_error(main, NONE);
 	exit(0);
 }
 

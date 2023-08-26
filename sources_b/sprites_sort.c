@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprites2.c                                         :+:      :+:    :+:   */
+/*   sprites_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 03:22:27 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/24 03:41:03 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/26 12:45:42 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
-static void		swap_sprite(t_main *main, int a, int b)
+void		swap_sprite(t_main *main, int a, int b)
 {
 	double	    tmp;
-	t_sprite	*tmp_sprite;
+	t_texture	tmp_texture;
 
-    tmp_sprite = NULL;
+    tmp_texture = NULL;
 	tmp = main->pl_to_sp_dist[a];
 	main->pl_to_sp_dist[a] = main->pl_to_sp_dist[b];
 	main->pl_to_sp_dist[b] = tmp;
-	tmp_sprite = main->sprite[a];
-	main->sprite[a] = main->sprite[b];
-	main->sprite[b] = tmp_sprite;
+	tmp_texture = main->texture[a];
+	main->texture[a] = main->texture[b];
+	main->texture[b] = tmp_texture;
 }
 
 void			sort_sprites(t_main *main)
