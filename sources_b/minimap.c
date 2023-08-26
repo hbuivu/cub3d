@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 11:51:49 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/26 19:58:43 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/27 00:34:11 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	ft_pixel_tile_put_pl(t_main *main, int col, int row, int color)
 		while (x < MM_TILE_SIZE - 1)
 		{
 			if (x > 5 && x < MM_TILE_SIZE - 6 && y > 5 && y < MM_TILE_SIZE - 6)
-			// if (main->calc->py /32 && main->calc->px / 32)
 				ft_pixel_put(&main->img, col + x, row + y, color);
 			else
 				ft_pixel_put(&main->img, col + x, row + y, MM_FLOOR);
@@ -87,11 +86,11 @@ void	draw_minimap(t_main * main)
 				ft_pixel_tile_put(main, col * MM_TILE_SIZE, row * MM_TILE_SIZE, MM_SPRITE);
 			else if (main->map[row][col] == '3')
 				ft_pixel_tile_put(main, col * MM_TILE_SIZE, row * MM_TILE_SIZE, MM_DOOR);
-			else if (row == (int)main->calc->py / TH
-				&& col == (int)main->calc->px / TW && main->map[row][col] != '1')
-				ft_pixel_tile_put_pl(main, col * MM_TILE_SIZE, row * MM_TILE_SIZE, MM_PLAYER);
 			else
 				ft_pixel_tile_put(main, col * MM_TILE_SIZE, row * MM_TILE_SIZE, MM_FLOOR);
+			if (row == (int)main->calc->py / TH
+				&& col == (int)main->calc->px / TW && main->map[row][col] != '1')
+				ft_pixel_tile_put_pl(main, col * MM_TILE_SIZE, row * MM_TILE_SIZE, MM_PLAYER);
 			col++;
 		}
 		row++;

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+         #
+#    By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/26 19:38:55 by zsyyida          ###   ########.fr        #
+#    Updated: 2023/08/26 23:47:22 by zsyyida          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,8 @@ BSRCS = error.c utils.c test.c \
 	main.c minimap.c wall_collision2.c\
 # SRCS = resize_ex.c
 
-OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
-BOBJS = $(addprefix $(BOBJ_DIR)/, $(BSRCS:.c=.o))
+OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
+BOBJS := $(addprefix $(BOBJ_DIR)/, $(BSRCS:.c=.o))
 
 CC = cc
 RM	= rm -rf
@@ -61,30 +61,31 @@ $(BOBJ_DIR)/%.o : $(BSRC_DIR)/%.c
 	@$(CC) $(CFLAGS) -I $(INC_DIR) -I $(LIBFT_DIR)/$(INC_DIR) -I $(MLX_DIR) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(MAKE) -C $(LIBFT_DIR)
-	$(MAKE) -C $(MLX_DIR)
+	make -C $(LIBFT_DIR)
+	make -C $(MLX_DIR)
 	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(OBJS) -Llibft -lft -o $(NAME)
 	# @$(CC) $(OBJS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(CFLAGS) $(MLX_FLAGS) -Llibft -lft -o $(NAME)
 
 all: $(NAME)
 
 bonus: $(NAME) $(BOBJS)
-	$(MAKE) -C $(LIBFT_DIR)
-	$(MAKE) -C $(MLX_DIR)
+	make -C $(LIBFT_DIR)
+	make -C $(MLX_DIR)
 	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(BOBJS) -Llibft -lft -o $(NAME)
 
 clean:
-	$(MAKE) clean -C $(MLX_DIR)
-	$(MAKE) clean -C $(LIBFT_DIR)
+	make clean -C $(MLX_DIR)
+	make clean -C $(LIBFT_DIR)
 	$(RM) $(OBJ_DIR)
 	$(RM) $(BOBJ_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
-	$(MAKE) fclean -C $(LIBFT_DIR)
+	make fclean -C $(LIBFT_DIR)
+	$(RM) $(MLX)
 
 re: fclean all
 
 rebonus:	fclean bonus
 
-.PHONY: all clean fclean re rebonus
+.PHONY: all clean fclean re rebonus .c.o

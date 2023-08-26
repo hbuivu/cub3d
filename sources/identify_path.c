@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   identify_path.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 18:49:12 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/26 18:25:10 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/27 01:59:00 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ char	*trim_trailing_spaces(char *s, t_main *main)
 
 void	n_path_identity(t_main *main, char *s, char *id)
 {
-	printf("%s\n", s);
 	if (main->n_path != NULL)
 		return_error(main, NBR_IDENT_ERR);
 	if (ft_strncmp(s, id, 2) != 0)
@@ -57,7 +56,6 @@ void	n_path_identity(t_main *main, char *s, char *id)
 
 void	s_path_identity(t_main *main, char *s, char *id)
 {
-	printf("%s\n", s);
 	if (main->s_path != NULL)
 		return_error(main, NBR_IDENT_ERR);
 	if (ft_strncmp(s, id, 2) != 0)
@@ -74,7 +72,6 @@ void	s_path_identity(t_main *main, char *s, char *id)
 
 void	e_path_identity(t_main *main, char *s, char *id)
 {
-	printf("%s\n", s);
 	if (main->e_path != NULL)
 		return_error(main, NBR_IDENT_ERR);
 	if (ft_strncmp(s, id, 2) != 0)
@@ -91,7 +88,6 @@ void	e_path_identity(t_main *main, char *s, char *id)
 
 void	w_path_identity(t_main *main, char *s, char *id)
 {
-	printf("%s\n", s);
 	if (main->w_path != NULL)
 		return_error(main, NBR_IDENT_ERR);
 	if (ft_strncmp(s, id, 2) != 0)
