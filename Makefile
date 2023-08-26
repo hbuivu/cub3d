@@ -6,7 +6,7 @@
 #    By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/26 17:01:08 by zsyyida          ###   ########.fr        #
+#    Updated: 2023/08/26 19:38:55 by zsyyida          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRCS = error.c free.c utils.c test.c \
 	main.c \
 
 BSRCS = error.c utils.c test.c \
-	identify.c identify_colour.c identify_color2.c identify_path.c parse_map.c \
+	identify.c identify_colour.c identify_path.c parse_map.c \
 	walled_check.c walled_check_utilities.c \
 	mlx_hooks.c mlx_imgs.c textures_bonus.c \
 	calc.c coord_check.c draw.c draw_utils.c raycasting.c \
