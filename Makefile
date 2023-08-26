@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+         #
+#    By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/23 22:17:48 by hbui-vu          ###   ########.fr        #
+#    Updated: 2023/08/26 15:38:06 by hbui-vu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,15 +19,15 @@ OBJ_DIR = object
 BOBJ_DIR = object_b
 LIBFT_DIR = libft
 LIBFT = libft.a
-MLX_DIR = mlx_linux
-# MLX_DIR = mlx
+# MLX_DIR = mlx_linux
+MLX_DIR = mlx
 MLX = libmlx.a
 
 SRCS = error.c utils.c test.c \
 	identify.c identify_colour.c identify_path.c parse_map.c \
 	walled_check.c walled_check_utilities.c \
 	mlx_hooks.c mlx_imgs.c  \
-	calc.c coord_check.c draw.c draw_utils.c raycasting.c wall_collision2.c\
+	calc.c calc2.c coord_check.c draw.c draw_utils.c raycasting.c wall_collision.c\
 	main.c \
 
 BSRCS = error.c utils.c test.c \
@@ -46,8 +46,8 @@ RM	= rm -rf
 
 CFLAGS = -Wall -Wextra -Werror
 #-fsanitize=address
-# MLX_FLAGS = -Lmlx -lmlx -Ofast -framework OpenGL -g -framework AppKit
-MLX_FLAGS = -g -Lmlx_linux -lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -Ofast -lm
+MLX_FLAGS = -Lmlx -lmlx -Ofast -framework OpenGL -g -framework AppKit
+# MLX_FLAGS = -g -Lmlx_linux -lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -Ofast -lm
 
 
 #to create all of the .o files from files in SRC_DIR in OBJ_DIR
@@ -63,8 +63,8 @@ $(BOBJ_DIR)/%.o : $(BSRC_DIR)/%.c
 $(NAME): $(OBJS)
 	$(MAKE) -C $(LIBFT_DIR)
 	$(MAKE) -C $(MLX_DIR)
-# @$(CC) $(CFLAGS) $(MLX_FLAGS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(OBJS) -Llibft -lft -o $(NAME)
-	@$(CC) $(OBJS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(CFLAGS) $(MLX_FLAGS) -Llibft -lft -o $(NAME)
+	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(OBJS) -Llibft -lft -o $(NAME)
+# @$(CC) $(OBJS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(CFLAGS) $(MLX_FLAGS) -Llibft -lft -o $(NAME)
 
 all: $(NAME)
 

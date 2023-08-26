@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/26 10:17:13 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/26 17:37:59 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,19 @@
 
 
 //BONUS
-typedef struct s_wall
-{
-	int				ray;
-	double			dist;
-	double			cor_dist;
-	double			wall_height;
-	double			wall_slice;
-	t_img			wall_face;
-	int				start;
-	int				stop;
-	struct s_wall	*next;
-	struct s_wall	*prev;
-} 	t_wall;
+// typedef struct s_wall
+// {
+// 	int				ray;
+// 	double			dist;
+// 	double			cor_dist;
+// 	double			wall_height;
+// 	double			wall_slice;
+// 	t_img			wall_face;
+// 	int				start;
+// 	int				stop;
+// 	struct s_wall	*next;
+// 	struct s_wall	*prev;
+// } 	t_wall;
 
 enum	e_error
 {
@@ -109,7 +109,6 @@ typedef struct s_img
 	int		bpp;
 	int		line_length;
 	int		endian;
-	char	**buff;
 }	t_img;
 
 typedef struct s_mlx
@@ -194,12 +193,12 @@ typedef struct	s_calc
 	t_img	wall_face; //NSEW
 	int		wall_slice;
 
-	//BONUS
-	int		ray;
-	double	castback_px;
-	double	castback_py;
-	t_wall	*wall_list;
-	t_wall	*wall_list_cur;
+	// //BONUS
+	// int		ray;
+	// double	castback_px;
+	// double	castback_py;
+	// t_wall	*wall_list;
+	// t_wall	*wall_list_cur;
 }	t_calc;
 
 typedef struct s_main

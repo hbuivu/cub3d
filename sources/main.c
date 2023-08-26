@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/26 16:22:23 by hbui-vu           #+#    #+#             */
+/*   Updated: 2023/08/26 17:39:34 by hbui-vu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/cub3D.h"
 
 void	parse_cub(int fd, t_main *main)
@@ -5,12 +17,13 @@ void	parse_cub(int fd, t_main *main)
 	t_omap	*begin_map;
 
 	download_map(fd, main);
-	begin_map = identify(main->omap, main); //check all elements
-	check_map(begin_map, main); //check map
+	begin_map = identify(main->omap, main);
+	check_map(begin_map, main);
 	get_map(begin_map, main); 
 	check_walled(main);
 }
 
+//don't forget to destroy windows and images
 int	main(int argc, char **argv)
 {
 	int		fd;
@@ -24,11 +37,9 @@ int	main(int argc, char **argv)
 		return_error(main, OPEN_ERR);
 	parse_cub(fd, main);
 	init_calc(main); 
-	printf("ORIG px: %lf py: %lf\n", main->calc->px, main->calc->py);
-	mlx(main); //creates all mlx instances
-	raycast(main); //game function
-	//mlx_destroy_window
-	//mlx_destroy_imgs
-	//return_error(main, NONE)
+	mlx(main);
+	raycast(main);
+	return_error(main, NONE);
+	//destroy window
 	return (0);
 }
