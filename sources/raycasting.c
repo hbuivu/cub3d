@@ -21,7 +21,7 @@ void	cast_hline(t_calc *c, t_main *main)
 	c->col_inty = c->py;
 	while (check_coord(COL, main))
 		c->col_int += c->stepx * c->deltax;
-	c->cor_dist = fabs(c->col_int - c->px);
+	c->cor_dist = fabs(c->col_int - c->px); //this is wrong
 	c->wall_slice = (int)c->col_inty % 64;
 }
 
@@ -42,7 +42,7 @@ void	cast_vline(t_calc *c, t_main *main)
 	c->row_intx = c->px;
 	while (check_coord(ROW, main))
 		c->row_int += c->stepy * c->deltay;
-	c->cor_dist = fabs(c->row_int - c->py);
+	c->cor_dist = fabs(c->row_int - c->py); //this is wrong
 	c->wall_slice = (int)c->row_intx % 64;
 
 }
@@ -75,6 +75,7 @@ void	calc_intercepts(t_calc *c, t_main *main)
 
 void	cast_line(int x, t_calc *c, t_main *main)
 {
+	(void)x;
 	calc_intercepts(c, main);
 	c->dist_col = fabs((c->px - c->col_int) / cos(c->angle));
 	c->dist_row = fabs((c->px - c->row_intx) / cos(c->angle));

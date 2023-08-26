@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:27:01 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/24 01:15:10 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/26 17:07:42 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	destroy_mlx(t_main *main)
 	if (main->img_no_wall.img)
 		mlx_destroy_image(main->mlx.mlx_ptr, main->img_no_wall.img);
 	if (main->img_so_wall.img)
-		mlx_destroy_image(main->mlx.mlx_ptr, main->img_so_wall.img);	
+		mlx_destroy_image(main->mlx.mlx_ptr, main->img_so_wall.img);
 	if (main->img_we_wall.img)
 		mlx_destroy_image(main->mlx.mlx_ptr, main->img_we_wall.img);
 	if (main->img_ea_wall.img)
@@ -48,32 +48,10 @@ void	destroy_mlx(t_main *main)
 		mlx_destroy_image(main->mlx.mlx_ptr, main->img_door1.img);
 	if (main->img_door2.img)
 		mlx_destroy_image(main->mlx.mlx_ptr, main->img_door2.img);
-	// if(main->mlx.mlx_win)
-		// mlx_destroy_window(main->mlx.mlx_ptr, main->mlx.mlx_win);
 }
 
-void	return_error(t_main *main, int err_msg)
+void	return_error_helper(int err_msg)
 {
-	t_omap	*cur;
-	int		i;
-
-	i = -1;
-	if (err_msg == IDENT_ERR)
-		perror("incorrect identifier");
-	if (err_msg == NBR_IDENT_ERR)
-		perror("incorrect number of identifier");
-	if (err_msg == XPM_ERR)
-		perror("require .xpm file");
-	if (err_msg == GNL_ERR)
-		perror("gnl didn't get string");
-	if (err_msg == PLAYER_ERR)
-		perror("incorrect number of players");
-	if (err_msg == MALLOC_ERR)
-		perror("could not malloc");
-	if (err_msg == MAP_ERR)
-		perror("error in map");
-	if (err_msg == MLX_ERR)
-		perror("missing map components");
 	if (err_msg == OPEN_ERR)
 		perror("not a file");
 	if (err_msg == WALL_ERR)
@@ -90,52 +68,26 @@ void	return_error(t_main *main, int err_msg)
 		perror("wrong placement of comma");
 	if (err_msg == INVALID_COLOR)
 		perror("Not a valid color");
-	if (main)
-	{
-		if (main->omap)
-		{
-			cur = main->omap;
-			while (cur)
-			{
-				main->omap = main->omap->next;
-				free(cur->row);
-				free(cur);
-				cur = main->omap;
-			}
-		}
-		if (main->player_pos)
-			free(main->player_pos);
-		if (main->n_path)
-			free(main->n_path);
-		if (main->s_path)
-			free(main->s_path);
-		if (main->w_path)
-			free(main->w_path);
-		if (main->e_path)
-			free(main->e_path);
-		if (main->f_color)
-			free(main->f_color);
-		if (main->c_color)
-			free(main->c_color);
-		if (main->player_update)
-			free(main->player_update);
-		if (main->map)
-		{
-			while (main->map[++i])
-				free(main->map[i]);
-			free(main->map);
-		}
-		i = -1;
-		if (main->map_cpy)
-		{
-			while (main->map_cpy[++i])
-				free(main->map_cpy[i]);
-			free(main->map_cpy);
-		}
-		if (main->calc)
-			free(main->calc);
-		destroy_mlx(main);
-		free(main);
-	}
-	exit(1);
+}
+
+void	return_error(t_main *main, int err_msg)
+{
+	if (err_msg == IDENT_ERR)
+		perror("incorrect identifier");
+	if (err_msg == NBR_IDENT_ERR)
+		perror("incorrect number of identifier");
+	if (err_msg == XPM_ERR)
+		perror("require .xpm file");
+	if (err_msg == GNL_ERR)
+		perror("gnl didn't get string");
+	if (err_msg == PLAYER_ERR)
+		perror("incorrect number of players");
+	if (err_msg == MALLOC_ERR)
+		perror("could not malloc");
+	if (err_msg == MAP_ERR)
+		perror("error in map");
+	if (err_msg == MLX_ERR)
+		perror("missing map components");
+	return_error_helper(err_msg);
+	free_all(main);
 }

@@ -6,19 +6,17 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:13:12 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/23 18:24:06 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/26 16:25:46 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
-
 
 /*
 1. Make sure F and C are there
 2. Make sure NO, SO, WE, EA is there
 3. After that, is the map
 */
-
 int	check_main(t_main *main)
 {
 	if (main->n_path == NULL)
@@ -38,28 +36,25 @@ int	check_main(t_main *main)
 	return (0);
 }
 
-// printf("%s\n%s\n%s\n%s\n", main->n_path, main->s_path, main->e_path, main->w_path);
-// int i = 0;
-// while (main->f_color[i])
-// {
-// 	printf("%d\n%d\n", main->f_color[i], main->c_color[i]);
-// 	i++;
-// }
-// add free and exit
+/* printf("%s\n%s\n%s\n%s\n", main->n_path, main->s_path, main->e_path, main->w_path);
+int i = 0;
+while (main->f_color[i])
+{
+	printf("%d\n%d\n", main->f_color[i], main->c_color[i]);
+	i++;
+}
+add free and exit
+*/
 t_omap	*identify(t_omap *omap, t_main *main)
 {
 	t_omap	*curr;
 	t_omap	*ptr_map;
 	int		i;
-	// int		j;
 
 	curr = omap;
 	i = 0;
-	// j = 0;
 	while (curr)
 	{
-		// printf("j: %i\n", j);
-		// print_omap(main->omap);
 		while (curr->row[i] == ' ')
 			i++;
 		if (curr->row[i] == 'F')
@@ -86,7 +81,6 @@ t_omap	*identify(t_omap *omap, t_main *main)
 			return (ptr_map);
 		}
 		curr = curr->next;
-		// j++;
 	}
 	return (NULL);
 }

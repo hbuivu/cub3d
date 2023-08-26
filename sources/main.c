@@ -7,7 +7,7 @@ void	parse_cub(int fd, t_main *main)
 	download_map(fd, main);
 	begin_map = identify(main->omap, main); //check all elements
 	check_map(begin_map, main); //check map
-	get_map(begin_map, main); 
+	get_map(begin_map, main);
 	check_walled(main);
 }
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	if (fd == -1)
 		return_error(main, OPEN_ERR);
 	parse_cub(fd, main);
-	init_calc(main); 
+	init_calc(main);
 	printf("ORIG px: %lf py: %lf\n", main->calc->px, main->calc->py);
 	mlx(main); //creates all mlx instances
 	raycast(main); //game function

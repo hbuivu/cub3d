@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   walled_check.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 17:01:13 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/24 00:00:40 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/26 15:26:17 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,6 @@ void	visit(t_queue *ptr, t_main *main, int x, int y)
 	}
 }
 
-	// if (main->player_update[0] - 1 > 0 && main->player_update[1] - 1 > 0)
-	// 	visit(ptr, main, ptr->x - 1, ptr->y - 1);
-	// if (main->player_update[0] + 1 < main->map_width
-	// 	&& main->player_update[1] + 1 < main->map_height)
-	// 	visit(ptr, main, ptr->x + 1, ptr->y + 1);
-	// if (main->player_update[1] - 1 > 0
-	// && main->player_update[1] + 1 < main->map_height)
-	// 	visit(ptr, main, ptr->x - 1, ptr->y + 1);
-	// if (main->player_update[0] + 1 < main->map_width
-	// && main->player_update[1] - 1 > 0)
-	// 	visit(ptr, main, ptr->x + 1, ptr->y - 1);
 void	check_walled_helper(t_queue *ptr, t_main *main)
 {
 	if (main->player_pos[0] <= 0 || main->player_pos[0] >= main->map_width - 1
@@ -80,14 +69,9 @@ void	check_walled(t_main *main)
 	int		i;
 	t_queue	*ptr;
 
-	// main->player_update = (int *)cub_calloc(2, sizeof(int), main);
-	// main->map_cpy = ft_calloc(main->map_height + 1, sizeof(char*));
-
-	// main->player_update = (int *)cub_calloc(2, sizeof(int), main);
-	// main->map_cpy = ft_calloc(main->map_height + 1, sizeof(char *));
-	
 	main->player_update = (int *)cub_calloc(2, sizeof(int), main);
-	main->map_cpy = (char **)cub_calloc(main->map_height + 1, sizeof(char*), main);
+	main->map_cpy = (char **)cub_calloc(main->map_height + 1,
+			sizeof(char *), main);
 	i = 0;
 	while (main->map[i])
 	{

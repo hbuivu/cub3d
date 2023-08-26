@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/26 12:51:05 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/26 17:45:40 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 # define MM_DOOR				0X8B4513
 # define MM_SPRITE				0Xca8dfd
 # define MM_FLOOR				0x00FFFF
-# define MM_TILE_SIZE			24
+# define MM_TILE_SIZE			16
 # define WALK					4
 # define NUM_SPRITES			4
 
@@ -48,6 +48,22 @@
 # define WALL_BUFF				10
 # define ANGLE_ROT				2
 # define FOV					66
+
+
+//BONUS
+// typedef struct s_wall
+// {
+// 	int				ray;
+// 	double			dist;
+// 	double			cor_dist;
+// 	double			wall_height;
+// 	double			wall_slice;
+// 	t_img			wall_face;
+// 	int				start;
+// 	int				stop;
+// 	struct s_wall	*next;
+// 	struct s_wall	*prev;
+// } 	t_wall;
 
 enum	e_error
 {
@@ -115,7 +131,7 @@ typedef struct s_point
 {
 	double	scale; //scale against 64 pixels
 	double	orig_x; //column slice of wall
-	double	orig_y; //how the point would transalte on original image y axis
+	double	orig_y; //how the point would translate on original image y axis
 	double	y_dist; //the distance of orig_y from y1
 	t_pix	p1; //value of color at (x1, y1)
 	t_pix	p2; //value of color at (x2, y2)
@@ -129,9 +145,9 @@ typedef struct s_omap
 
 struct s_texture
 {
-	double x;
-	double y;
-	int texture;
+	double		x;
+	double		y;
+	int			texture;
 	double		transform_x;
 	double		transform_y;
 	int			screen_x;
@@ -143,89 +159,100 @@ struct s_texture
 	int			draw_end_x;
 }	t_texture;
 
+
 typedef struct	s_calc
 {
-	double	rad_90;
-	double	rad_270;
-	double	rad_360;
-	double	upg; //units per grid
-	double	fov; //field of view in rad
-	double	pln_height; //plane height (repeat of main win_height)
-	double	pln_width; //plane width (repeate of main win_width)
-	double	pln_dist; //plane distance from player
-	double	px; //player spawn x(col) position in unit coordinates
-	double	py; //player spawn y(row) position in unit coordinates
-	double	pdir; //player direction in rad
-	double	ray_incr; //angle at which ray increments from right to left
-	/* recalculated each ray */
-	double	angle; //angle used for calculations in degrees
-	int		stepx; //direction in which x is going for angle (-1 or 1)
-	int		stepy; //direction in which y is going for angle (-1 or 1)
-	double	tan_angle; //tangent of angle for calculations;
-	/* used for walking */
-	int		pdir_stepx; //direction in which x is going for pdir (-1 or 1)
-	int		pdir_stepy; //direction in which y is going for pdir (-1 or 1)
-	double	tan_pdir; //tangent of pdir for walking calculations
-	double	x_walk; //how much player moves in x direction when walking
-	double	y_walk; //how much player moves in y direction when walking
-	double	x_run; //how much player moves in x direction when running
-	double	y_run; //how much player moves in y direction when running
-	double	walk_dist; //how far player moves each time they walk;
-	double	run_dist; //how far player moves each time they run;
-	/* initiated to 0 at start */
-	double	col_int; //point where ray intersects a column line
-	double	col_inty; //the y coordinate where ray intersects column line
-	double	row_int; //point where ray intersects a row line
-	double	row_intx; //the x coordinate where ray intersects a row line
-	double	deltax; //movement in x direction every time y moves by 1 grid
-	double	deltay; //movement in y direction every time x moves by 1 grid
-	double	dist_col; //distance squared of original point to first column intersect with wall
-	double	dist_row; //distance squared of original point to first row intersect with wall
-	double	cor_dist; //corrected distance from point to closest
-	double	wall_height; //projected wall height
-	t_img	wall_face; //NSEW
-	int		wall_slice;
+	double		rad_90;
+	double		rad_270;
+	double		rad_360;
+	double		upg; //units per grid
+	double		fov; //field of view in rad
+	double		pln_height; //plane height (repeat of main win_height)
+	double		pln_width; //plane width (repeate of main win_width)
+	double		pln_dist; //plane distance from player
+	double		px; //player spawn x(col) position in unit coordinates
+	double		py; //player spawn y(row) position in unit coordinates
+	double		pdir; //player direction in rad
+	double		ray_incr; //angle at which ray increments from right to left
+	/* recal	culated each ray */
+	double		angle; //angle used for calculations in degrees
+	int			stepx; //direction in which x is going for angle (-1 or 1)
+	int			stepy; //direction in which y is going for angle (-1 or 1)
+	double		tan_angle; //tangent of angle for calculations;
+	/* used 	for walking */
+	int			pdir_stepx; //direction in which x is going for pdir (-1 or 1)
+	int			pdir_stepy; //direction in which y is going for pdir (-1 or 1)
+	double		tan_pdir; //tangent of pdir for walking calculations
+	double		x_walk; //how much player moves in x direction when walking
+	double		y_walk; //how much player moves in y direction when walking
+	double		x_run; //how much player moves in x direction when running
+	double		y_run; //how much player moves in y direction when running
+	double		walk_dist; //how far player moves each time they walk;
+	double		run_dist; //how far player moves each time they run;
+	/* initi	ated to 0 at start */
+	double		col_int; //point where ray intersects a column line
+	double		col_inty; //the y coordinate where ray intersects column line
+	double		row_int; //point where ray intersects a row line
+	double		row_intx; //the x coordinate where ray intersects a row line
+	double		deltax; //movement in x direction every time y moves by 1 grid
+	double		deltay; //movement in y direction every time x moves by 1 grid
+	double		dist_col; //distance squared of original point to first column intersect with wall
+	double		dist_row; //distance squared of original point to first row intersect with wall
+	double		cor_dist; //corrected distance from point to closest
+	double		wall_height; //projected wall height
+	t_img		wall_face; //NSEW
+	int			wall_slice;
+
+	// //BONUS
+	// int		ray;
+	// double	castback_px;
+	// double	castback_py;
+	// t_wall	*wall_list;
+	// t_wall	*wall_list_cur;
 }	t_calc;
 
 typedef struct s_main
 {
-	t_omap			*omap; //original map (linked list)
-	t_mlx			mlx;
-	t_calc			*calc;
-	t_img			img;
-	int				*player_pos; //(column, row)
-	char			player_dir;
-	int				map_width;
-	int				map_height;
-	char			*n_path;
-	char			*s_path;
-	char			*w_path;
-	char			*e_path;
-	int				*f_color;
-	int				*c_color;
-	char			**map; //final map, access via map[row][column]
-
+	t_omap		*omap; //original map (linked list)
+	t_mlx		mlx;
+	t_calc		*calc;
+	t_img		img;
+	int			*player_pos; //(column, row)
+	char		player_dir;
+	int			map_width;
+	int			map_height;
 	/* zahra */
-	t_img			img_minimap;
-	t_img			img_no_wall;
-	t_img			img_so_wall;
-	t_img			img_we_wall;
-	t_img			img_ea_wall;
-	t_img			img_spr1;
-	t_img			img_spr2;
-	t_img			img_door1;
-	t_img			img_door2;
-	int				*player_update;
-	char			**map_cpy;
-	int				mouse_x;
-	// t_sprite		*texture;
-	double			*z_buffer;
-	double			*pl_to_sp_dist;
+	char		*n_path;
+	char		*s_path;
+	char		*w_path;
+	char		*e_path;
+	int			*f_color;
+	int			*c_color;
+	char		**map; //final map, access via map[row][column]
+	t_img		img_minimap;
+	t_img		img_no_wall;
+	t_img		img_so_wall;
+	t_img		img_we_wall;
+	t_img		img_ea_wall;
+	t_img		img_spr1;
+	t_img		img_spr2;
+	t_img		img_door1;
+	t_img		img_door2;
+	int			*player_update;
+	char		**map_cpy;
+	int			mouse_x;
+	// t_sprite	*texture;
+	double		*z_buffer;
+	double		*pl_to_sp_dist;
 }	t_main;
 
 /* error.c */
 void	error_check(int argc, char **argv);
 void	return_error(t_main *main, int err_msg);
+void	destroy_mlx(t_main *main);
+
+/* free .c*/
+void	free_all(t_main *main);
 
 /* utils.c */
 void	*cub_calloc(size_t count, size_t size, t_main *main);
@@ -282,30 +309,37 @@ void	print_main_map(t_main *main);
 void	print_calc(t_main *main);
 void	print_main(t_main *main);
 
-
 /* identify.c */
 t_omap	*identify(t_omap *omap, t_main *main);
 
+/* identify_color.c */
 void	floor_colour(t_main *main, char *ptr);
 void	ceiling_colour(t_main *main, char *ptr);
 int		*to_int(char *s, t_main *main);
+void	digit_check(char *s, int i, t_main *main);
+void	free_split(char **split);
 
+/* identify path.c */
 void	n_path_identity(t_main *main, char *s, char *id);
 void	s_path_identity(t_main *main, char *s, char *id);
 void	w_path_identity(t_main *main, char *s, char *id);
 void	e_path_identity(t_main *main, char *s, char *id);
 
+/* walled_check.c */
 void	visit(t_queue *ptr, t_main *main, int x, int y);
 void	check_walled_helper(t_queue *ptr, t_main *main);
 void	check_walled(t_main *main);
+
+/* walled_check_utilties.c */
 t_queue	*ft_lstnew_dl(int x, int y);
 t_queue	*ft_lstadd_back_dl(t_queue **queue, t_queue *new);
 void	*ft_dequeue(t_queue *enqueue);
 void	del(void *lst);
 
+/* minimap.c */
 void	draw_minimap(t_main *main);
-void    init_minimap(t_main *main);
-int 	get_color_minimap(t_main *main, int row, int col);
+void	init_minimap(t_main *main);
+int		get_color_minimap(t_main *main, int row, int col);
 void	ft_pixel_box_put(t_main *main, int col, int row, int color);
 
 #endif

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+         #
+#    By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/24 23:55:11 by zsyyida          ###   ########.fr        #
+#    Updated: 2023/08/26 17:01:08 by zsyyida          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,19 +23,19 @@ LIBFT = libft.a
 MLX_DIR = mlx
 MLX = libmlx.a
 
-SRCS = error.c utils.c test.c \
-	identify.c identify_colour.c identify_path.c parse_map.c \
+SRCS = error.c free.c utils.c test.c \
+	identify.c identify_colour.c identify_color2.c identify_path.c parse_map.c \
 	walled_check.c walled_check_utilities.c \
-	mlx_hooks.c mlx_imgs.c  \
+	mlx_hooks.c mlx_imgs.c \
 	calc.c coord_check.c draw.c draw_utils.c raycasting.c wall_collision2.c\
 	main.c \
 
 BSRCS = error.c utils.c test.c \
-	identify.c identify_colour.c identify_path.c parse_map.c \
+	identify.c identify_colour.c identify_color2.c identify_path.c parse_map.c \
 	walled_check.c walled_check_utilities.c \
 	mlx_hooks.c mlx_imgs.c textures_bonus.c \
 	calc.c coord_check.c draw.c draw_utils.c raycasting.c \
-	main.c minimap.c \
+	main.c minimap.c wall_collision2.c\
 # SRCS = resize_ex.c
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
@@ -45,7 +45,7 @@ CC = cc
 RM	= rm -rf
 
 CFLAGS = -Wall -Wextra -Werror
-#-fsanitize=address
+# -fsanitize=address
 MLX_FLAGS = -Lmlx -lmlx -Ofast -framework OpenGL -g -framework AppKit
 # MLX_FLAGS = -g -Lmlx_linux -lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -Ofast -lm
 
