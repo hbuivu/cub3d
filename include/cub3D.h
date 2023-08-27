@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/26 17:45:40 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/27 23:51:14 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@
 # define MM_FLOOR				0x00FFFF
 # define MM_TILE_SIZE			16
 # define WALK					4
-# define NUM_SPRITES			4
 
 # define RUN					32
 # define WALL_BUFF				10
@@ -143,7 +142,7 @@ typedef struct s_omap
 	struct s_omap	*next;
 }	t_omap;
 
-struct s_texture
+struct s_sprite
 {
 	double		x;
 	double		y;
@@ -157,7 +156,7 @@ struct s_texture
 	int			width;
 	int			draw_start_x;
 	int			draw_end_x;
-}	t_texture;
+}	t_sprite;
 
 
 typedef struct	s_calc
@@ -241,7 +240,9 @@ typedef struct s_main
 	int			*player_update;
 	char		**map_cpy;
 	int			mouse_x;
-	// t_sprite	*texture;
+	t_img		*texture;
+	t_sprite	*sprite;
+	int			sprite_num;
 	double		*z_buffer;
 	double		*pl_to_sp_dist;
 }	t_main;
@@ -341,5 +342,19 @@ void	draw_minimap(t_main *main);
 void	init_minimap(t_main *main);
 int		get_color_minimap(t_main *main, int row, int col);
 void	ft_pixel_box_put(t_main *main, int col, int row, int color);
+
+/* sprite_sort.c */
+void	init_sprite(t_main *main);
+void	sort_sprites(t_main *main);
+void	swap_sprite(t_main *main, int a, int b);
+
+/* sprite_draw.c */
+int		slice_in_fov(t_main *main, t_sprite sprite, int x);
+void	draw_sprite_slice(t_main *main, t_sprite sprite);
+
+/* sprite_calc.c */
+void	calc_pl_to_sp_dist(t_main *main);
+void	calc_sprite_transform(t_main *main);
+void	calc_sprite(t_main *main);
 
 #endif

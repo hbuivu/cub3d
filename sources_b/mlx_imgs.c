@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 14:37:46 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/26 11:54:04 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/27 20:37:56 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,5 @@ void	mlx(t_main *main)
 	main->img.addr = mlx_get_data_addr(main->img.img, &main->img.bpp, &main->img.line_length, &main->img.endian);
 	if (!main->img.addr)
 		return_error(main, MLX_ERR);
-	get_textures(main);
+	get_textures_bonus(main);
 }

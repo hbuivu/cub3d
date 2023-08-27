@@ -89,18 +89,18 @@ void	cast_line(int x, t_calc *c, t_main *main)
 		c->wall_slice = (int)c->col_inty % 64;
 		c->cor_dist = c->dist_col * cos((c->fov - (2 * x * c->ray_incr)) / 2);
 		if (c->stepx == 1)
-			c->wall_face = main->img_we_wall;
+			c->wall_face = main->texture[2];
 		else if (c->stepx == -1)
-			c->wall_face = main->img_ea_wall;
+			c->wall_face = main->texture[3];
 	}
 	else
 	{
 		c->wall_slice = (int)c->row_intx % 64;
 		c->cor_dist = c->dist_row * cos((c->fov - (2 * x * c->ray_incr)) / 2);
 		if (c->stepy == 1)
-			c->wall_face = main->img_no_wall;
+			c->wall_face = main->texture[0];
 		else if (c->stepy == -1)
-			c->wall_face = main->img_so_wall;
+			c->wall_face = main->texture[1];
 	}
 }
 

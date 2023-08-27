@@ -6,7 +6,7 @@
 #    By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/26 23:47:22 by zsyyida          ###   ########.fr        #
+#    Updated: 2023/08/27 22:49:54 by zsyyida          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ BSRCS = error.c utils.c test.c \
 	walled_check.c walled_check_utilities.c \
 	mlx_hooks.c mlx_imgs.c textures_bonus.c \
 	calc.c coord_check.c draw.c draw_utils.c raycasting.c \
-	main.c minimap.c wall_collision2.c\
+	main.c minimap.c wall_collision2.c \
+	sprites_sort.c sprites_draw.c sprites_utils.c \
 # SRCS = resize_ex.c
 
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
@@ -44,8 +45,7 @@ BOBJS := $(addprefix $(BOBJ_DIR)/, $(BSRCS:.c=.o))
 CC = cc
 RM	= rm -rf
 
-CFLAGS = -Wall -Wextra -Werror
-# -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 MLX_FLAGS = -Lmlx -lmlx -Ofast -framework OpenGL -g -framework AppKit
 # MLX_FLAGS = -g -Lmlx_linux -lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -Ofast -lm
 

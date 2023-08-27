@@ -25,6 +25,8 @@ int	main(int argc, char **argv)
 	parse_cub(fd, main);
 	init_calc(main); 
 	mlx(main); //creates all mlx instances
+	init_sprite(main);
+	draw_sprites(main);
 	raycast(main); //game function
 	//mlx_destroy_window
 	//mlx_destroy_imgs
