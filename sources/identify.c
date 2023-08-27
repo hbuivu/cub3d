@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:13:12 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/27 02:05:35 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/27 12:10:06 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	check_main(t_main *main)
 	return (0);
 }
 
-int	check_identity(t_main *main, char *row)
+void	check_identity(t_main *main, char *row)
 {
 	int	i;
 	i = 0;
@@ -56,7 +56,6 @@ int	check_identity(t_main *main, char *row)
 		e_path_identity(main, &row[i], "EA");
 	else if (row[i] == 'W')
 		w_path_identity(main, &row[i], "WE");
-	return (0);
 }
 
 // printf("%s\n%s\n%s\n%s\n", main->n_path, main->s_path, main->e_path, main->w_path);
@@ -93,7 +92,6 @@ t_omap	*identify(t_omap *omap, t_main *main)
 			return (ptr_map);
 		}
 		curr = curr->next;
-		// not incrementing???
 	}
 	return (NULL);
 }
