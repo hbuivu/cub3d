@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:22:23 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/26 17:39:34 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/28 14:28:44 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ int	main(int argc, char **argv)
 	init_calc(main); 
 	mlx(main);
 	raycast(main);
+	mlx_hook(main->mlx.mlx_win, 2, 1L << 0, key_press, main);
+	mlx_hook(main->mlx.mlx_win, 17, 1L << 17, ft_close, main);
+	mlx_loop(main->mlx.mlx_ptr);
 	return_error(main, NONE);
-	//destroy window
 	return (0);
 }

@@ -1,19 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D_structs.h                                    :+:      :+:    :+:   */
+/*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 17:51:08 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/26 18:29:54 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/28 13:58:26 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_STRUCTS_H
-# define CUB3D_STRUCTS_H
-
-# include "cub3d_rev.h"
+#ifndef STRUCTS_H
+# define STRUCTS_H
 
 enum	e_error
 {
@@ -131,9 +129,14 @@ typedef struct	s_calc
 	double	py; //player spawn y(row) position in unit coordinates
 	double	pdir; //player direction in rad
 	double	angle; //angle used for calculations in degrees
+	double	rel_angle; //angle of ray being cast relative to pdir
 	int		stepx; //direction in which x is going for angle (-1 or 1)
 	int		stepy; //direction in which y is going for angle (-1 or 1)
 	double	tan_angle; //tangent of angle for calculations;
+	/* moving */
+	double	move_angle; //angle at which the player will be moving
+	double	x_walk; //how much player moves in x direction when walking
+	double	y_walk; //how much player moves in y direction when walking
 	
 	/* raycasting variables initiated to 0 at start. prob does not need to be reset */
 	double	col_int; //point where ray intersects a column line
@@ -148,17 +151,6 @@ typedef struct	s_calc
 	double	wall_height; //projected wall height
 	t_img	wall_face; //NSEW
 	int		wall_slice;
-
-		/* used for walking */
-	int		pdir_stepx; //direction in which x is going for pdir (-1 or 1)
-	int		pdir_stepy; //direction in which y is going for pdir (-1 or 1)
-	double	tan_pdir; //tangent of pdir for walking calculations
-	double	x_walk; //how much player moves in x direction when walking
-	double	y_walk; //how much player moves in y direction when walking
-	double	x_run; //how much player moves in x direction when running
-	double	y_run; //how much player moves in y direction when running
-	double	walk_dist; //how far player moves each time they walk;
-	double	run_dist; //how far player moves each time they run;
 
 	// //BONUS
 	// int		ray;

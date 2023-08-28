@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   coord_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 15:38:42 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/26 15:41:43 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/28 13:27:24 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int	row_jump(t_main *main)
 	return (0);
 }
 
-//returns 1 to continue jump
 //returns 0 if wall detected
 int	check_coord(int jump, t_main *main)
 {

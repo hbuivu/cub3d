@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/26 17:37:59 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/28 15:41:13 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,277 +15,65 @@
 
 # include "../mlx/mlx.h"
 # include "../libft/include/libft.h"
+# include "structs.h"
+# include "macros.h"
 # include <stdio.h>
 # include <math.h>
 # include <fcntl.h>
 # include <stdlib.h>
-// # include <X11/keysym.h>
-
-// from KEYCODES minilibx for ASDW and keycode for arrow keys
-# define LEFT_KEY				123
-# define RIGHT_KEY				124
-# define A_KEY					0
-# define S_KEY					1
-# define D_KEY					2
-# define W_KEY					13
-# define ESC 					53
-# define TW						64	// width of the texture
-# define TH						64  //height of texture
-// # define SIZE					1  //size of the texture
-// # define GL_SILENCE_DEPRECATION
-# define WIN_WIDTH				1920
-# define WIN_HEIGHT				1024
-# define MM_PLAYER				0XFF5733
-# define MM_WALL				0XF08080
-# define MM_DOOR				0X8B4513
-# define MM_SPRITE				0Xca8dfd
-# define MM_FLOOR				0x00FFFF
-# define MM_TILE_SIZE			24
-# define WALK					4
-# define NUM_SPRITES			2
-
-# define RUN					32
-# define WALL_BUFF				10
-# define ANGLE_ROT				2
-# define FOV					66
-
-
-//BONUS
-// typedef struct s_wall
-// {
-// 	int				ray;
-// 	double			dist;
-// 	double			cor_dist;
-// 	double			wall_height;
-// 	double			wall_slice;
-// 	t_img			wall_face;
-// 	int				start;
-// 	int				stop;
-// 	struct s_wall	*next;
-// 	struct s_wall	*prev;
-// } 	t_wall;
-
-enum	e_error
-{
-	IDENT_ERR,
-	NBR_IDENT_ERR,
-	XPM_ERR,
-	GNL_ERR,
-	MALLOC_ERR,
-	MAP_ERR,
-	MLX_ERR,
-	OPEN_ERR,
-	PLAYER_ERR,
-	WALL_ERR,
-	IMG_ERR,
-	COMMA_ERR,
-	INT_ERR,
-	COMMA_PLACE_ERR,
-	INVALID_COLOR,
-	NONE
-};
-
-enum	e_compass
-{
-	NORTH,
-	SOUTH,
-	EAST,
-	WEST,
-	COL,
-	ROW
-};
-
-typedef struct s_queue
-{
-	int				x;
-	int				y;
-	struct s_queue	*next;
-}	t_queue;
-
-typedef struct s_img
-{
-	void	*img;
-	char	*addr;
-	int		bpp;
-	int		line_length;
-	int		endian;
-}	t_img;
-
-typedef struct s_mlx
-{
-	void	*mlx_ptr;
-	void	*mlx_win;
-}	t_mlx;
-
-typedef struct s_pix
-{
-	int		x;
-	int		y;
-	uint8_t	r;
-	uint8_t	g;
-	uint8_t	b;
-}	t_pix;
-
-typedef struct s_point
-{
-	double	scale; //scale against 64 pixels
-	double	orig_x; //column slice of wall
-	double	orig_y; //how the point would translate on original image y axis
-	double	y_dist; //the distance of orig_y from y1
-	t_pix	p1; //value of color at (x1, y1)
-	t_pix	p2; //value of color at (x2, y2)
-}	t_point;
-
-typedef struct s_omap
-{
-	char			*row;
-	struct s_omap	*next;
-}	t_omap;
-
-// struct s_sprite
-// {
-//   double x;
-//   double y;
-//   int texture;
-// }	t_sprite;
-
-
-typedef struct	s_calc
-{
-	double	rad_90;
-	double	rad_270;
-	double	rad_360;
-	double	upg; //units per grid
-	double	fov; //field of view in rad
-	double	pln_height; //plane height (repeat of main win_height)
-	double	pln_width; //plane width (repeate of main win_width)
-	double	pln_dist; //plane distance from player
-	double	px; //player spawn x(col) position in unit coordinates
-	double	py; //player spawn y(row) position in unit coordinates
-	double	pdir; //player direction in rad
-	double	ray_incr; //angle at which ray increments from right to left
-	/* recalculated each ray */
-	double	angle; //angle used for calculations in degrees
-	int		stepx; //direction in which x is going for angle (-1 or 1)
-	int		stepy; //direction in which y is going for angle (-1 or 1)
-	double	tan_angle; //tangent of angle for calculations;
-	/* used for walking */
-	int		pdir_stepx; //direction in which x is going for pdir (-1 or 1)
-	int		pdir_stepy; //direction in which y is going for pdir (-1 or 1)
-	double	tan_pdir; //tangent of pdir for walking calculations
-	double	x_walk; //how much player moves in x direction when walking
-	double	y_walk; //how much player moves in y direction when walking
-	double	x_run; //how much player moves in x direction when running
-	double	y_run; //how much player moves in y direction when running
-	double	walk_dist; //how far player moves each time they walk;
-	double	run_dist; //how far player moves each time they run;
-	/* initiated to 0 at start */
-	double	col_int; //point where ray intersects a column line
-	double	col_inty; //the y coordinate where ray intersects column line
-	double	row_int; //point where ray intersects a row line
-	double	row_intx; //the x coordinate where ray intersects a row line
-	double	deltax; //movement in x direction every time y moves by 1 grid
-	double	deltay; //movement in y direction every time x moves by 1 grid
-	double	dist_col; //distance squared of original point to first column intersect with wall
-	double	dist_row; //distance squared of original point to first row intersect with wall
-	double	cor_dist; //corrected distance from point to closest
-	double	wall_height; //projected wall height
-	t_img	wall_face; //NSEW
-	int		wall_slice;
-
-	// //BONUS
-	// int		ray;
-	// double	castback_px;
-	// double	castback_py;
-	// t_wall	*wall_list;
-	// t_wall	*wall_list_cur;
-}	t_calc;
-
-typedef struct s_main
-{
-	t_omap			*omap; //original map (linked list)
-	t_mlx			mlx;
-	t_calc			*calc;
-	t_img			img;
-	int				*player_pos; //(column, row)
-	char			player_dir;
-	int				map_width;
-	int				map_height;
-	char			*n_path;
-	char			*s_path;
-	char			*w_path;
-	char			*e_path;
-	int				*f_color;
-	int				*c_color;
-	char			**map; //final map, access via map[row][column]
-
-	/* zahra */
-	t_img			img_minimap;
-	t_img			img_no_wall;
-	t_img			img_so_wall;
-	t_img			img_we_wall;
-	t_img			img_ea_wall;
-	t_img			img_spr1;
-	t_img			img_spr2;
-	t_img			img_door1;
-	t_img			img_door2;
-	int				*player_update;
-	char			**map_cpy;
-	int				mouse_x;
-}	t_main;
+# include <X11/keysym.h>
 
 /* error.c */
 void	error_check(int argc, char **argv);
 void	return_error(t_main *main, int err_msg);
+void	destroy_mlx(t_main *main);
 
 /* utils.c */
 void	*cub_calloc(size_t count, size_t size, t_main *main);
 char	*cub_strdup(const char *s1, t_main *main);
-int		ch_num(double angle, double comp);
+int		ch_num(double num, double comp);
 
 /* parse_map.c */
 void	download_map(int fd, t_main *main);
 void	check_map(t_omap *omap_start, t_main *main);
 void	get_map(t_omap *ptr_map, t_main *main);
 
-/* wall_collisions */
-void	check_collision(int	key, t_main *main);
-
-/* mlx_hooks.c */
-int		ft_close(t_main *main);
-int		key_press(int key_code, t_main *main);
-int		mouse_move(int x, int y, t_main *main);
-
 /* mlx_imgs.c */
 void	mlx(t_main *main);
 void	get_textures(t_main *main);
 void	get_data_addr(t_main *main);
-void	get_textures_bonus(t_main *main);
-void	get_data_addr_bonus(t_main *main);
 
 /* calc.c */
-void	calc_step(t_main *main);
+void	calc_step(double angle, t_calc *c);
 void	init_calc(t_main *main);
-void	recalc(t_main *main);
-void    calc_pdir_step(t_main *main);
+void	reset_ray(t_calc *c);
+void	recalc_ray(t_calc *c);
 
 /* coord_check.c */
 int	check_coord(int jump, t_main *main);
 
-/* draw.c */
-void	draw_wall(int x, t_main *main);
-void	draw_floor_ceiling(t_main *main);
-void	get_nearest_pix(t_point *p, t_main *main);
-void	interpolate(int x, int y, t_point *p, t_main *main);
-void	draw_sprite(int x, t_main *main);
-
 /* draw_utils.c */
 int		encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
 void	ft_pixel_put(t_img *img, int x, int y, int color);
-void	find_pix_color(t_pix *pix, t_main *main);
+void	get_nearest_pix(t_point *p, t_main *main);
+void	interpolate(int x, int y, t_point *p, t_main *main);
+
+/* draw.c */
+void	draw_wall(int x, t_main *main);
+void	draw_floor_ceiling(t_main *main);
 
 /* raycasting.c */
+void	calc_intercepts(t_calc *c, t_main *main);
 void	raycast(t_main *main);
+
+/* wall_collision.c */
+double	check_hline(t_calc *c, t_main *main);
+double	check_vline(t_calc *c, t_main *main);
+double	check_line(t_calc *c, t_main *main);
+
+/* mlx_hooks.c */
+int		ft_close(t_main *main);
+int		key_press(int key_code, t_main *main);
 
 /* test*/
 void	print_omap(t_omap *map);
@@ -318,5 +106,11 @@ void	draw_minimap(t_main *main);
 void    init_minimap(t_main *main);
 int 	get_color_minimap(t_main *main, int row, int col);
 void	ft_pixel_box_put(t_main *main, int col, int row, int color);
+
+/* BONUSES */
+void	get_textures_bonus(t_main *main);
+void	get_data_addr_bonus(t_main *main);
+void	draw_sprite(int x, t_main *main);
+int		mouse_move(int x, int y, t_main *main);
 
 #endif

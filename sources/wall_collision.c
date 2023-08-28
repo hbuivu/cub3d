@@ -3,58 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   wall_collision.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:10:44 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/26 16:13:20 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/28 13:50:44 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
-void	calc_move(int key, t_main *main)
-{
-	t_calc	*c;
 
-	c = main->calc;
-	if (key == W_KEY)
-	{
-		c->x_walk = round(fabs(cos(c->pdir)) * WALK * c->pdir_stepx);
-		c->y_walk = round(fabs(sin(c->pdir)) * WALK * c->pdir_stepy);
-	}
-	else if (key == S_KEY)
-	{
-		c->x_walk = round(fabs(cos(c->pdir)) * WALK * c->pdir_stepx * -1);
-		c->y_walk = round(fabs(sin(c->pdir)) * WALK * c->pdir_stepy * -1);
-	}
-	else if (key == A_KEY)
-	{
-		c->x_walk = round(fabs(sin(c->pdir)) * WALK) * -1;
-		c->y_walk = round(fabs(cos(c->pdir)) * WALK);
-	}
-	else if (key == D_KEY)
-	{
-		c->x_walk = round(fabs(sin(c->pdir)) * WALK);
-		c->y_walk = round(fabs(cos(c->pdir)) * WALK) * -1;
-	}
+double	check_hline(t_calc *c, t_main *main)
+{
+	double	wall_dist;
+	
+	c->deltay = 0;
+	c->deltax = 64;
+	if (c->stepx == 1)
+		c->col_int = ceil(c->px / c->upg) * c->upg;
+	else if (c->stepx == -1)
+		c->col_int = floor(c->px / c->upg) * c->upg;
+	c->col_inty = c->py;
+	while (check_coord(COL, main))
+		c->col_int += c->stepx * c->deltax;
+	wall_dist = fabs(c->px - c->col_int);
+	return (wall_dist);
 }
 
-void	check_collision(int key, t_main *main)
+double	check_vline(t_calc *c, t_main *main)
 {
-	t_calc	*c;
-	double	new_px;
-	double	new_py;
+	double	wall_dist;
 
-	c = main->calc;
-	calc_move(key, main);
-	new_px = c->px + c->x_walk;
-	new_py = c->py + c->y_walk;
-	if (main->map[(int)(new_py / c->upg)]
-		[(int)((new_px + (WALL_BUFF * c->pdir_stepx)) / c->upg)] != '1' 
-		&& main->map[(int)((new_py + (WALL_BUFF * c->pdir_stepy)) / c->upg)]
-		[(int)(new_px / c->upg)] != '1')
-	{
-		c->px = new_px;
-		c->py = new_py;
-	}
+	c->deltay = 64;
+	c->deltax = 0;
+	if (c->stepy == 1)
+		c->row_int = ceil(c->py / c->upg) * c->upg;
+	else if (c->stepy == -1)
+		c->row_int = floor(c->py / c->upg) * c->upg;
+	c->row_intx = c->px;
+	while (check_coord(ROW, main))
+		c->row_int += c->stepy * c->deltay;
+	wall_dist = fabs(c->py - c->row_int);
+	return (wall_dist);
+}
+
+double	check_line(t_calc *c, t_main *main)
+{
+	double	wall_dist;
+	
+	calc_intercepts(c, main); //from raycasting function;
+	c->dist_col = fabs((c->px - c->col_int) / cos(c->move_angle));
+	c->dist_row = fabs((c->py - c->row_int) / sin(c->move_angle));
+	if (c->dist_col <= c->dist_row)
+		wall_dist = c->dist_col;
+	else
+		wall_dist = c->dist_row;
+	return (wall_dist);
 }
