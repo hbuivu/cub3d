@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/28 15:41:24 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/28 17:43:53 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	calc_move(int key, t_calc *c)
 	else if (key == S_KEY)
 		c->move_angle = c->pdir + M_PI;
 	else if (key == A_KEY)
-		c->move_angle = c->pdir + c->rad_90;
-	else if (key == D_KEY)
 		c->move_angle = c->pdir - c->rad_90;
+	else if (key == D_KEY)
+		c->move_angle = c->pdir + c->rad_90;
 	if (c->move_angle < 0)
 		c->move_angle += c->rad_360;
 	else if (ch_num(c->move_angle, c->rad_360) || c->move_angle > c->rad_360)
