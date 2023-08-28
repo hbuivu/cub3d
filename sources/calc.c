@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:31:03 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/28 14:16:22 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/29 09:06:45 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ void	calc_player_info(t_main *main)
 		c->pdir = M_PI;
 	else if (main->player_dir == 'S')
 		c->pdir = c->rad_270;
-	c->angle = c->pdir - (c->fov / 2);
+	c->rel_angle = c->fov / 2;
+	c->angle = c->pdir - c->rel_angle;
 	if (c->angle < 0)
 		c->angle += c->rad_360;
-	c->rel_angle = c->fov / 2;
 	c->tan_angle = tan(c->angle);
 	calc_step(c->angle, c);
 }
@@ -73,10 +73,10 @@ void	init_calc(t_main *main)
 
 void	reset_ray(t_calc *c)
 {
-	c->angle = c->pdir - (c->fov / 2);
+	c->rel_angle = c->fov / 2;
+	c->angle = c->pdir - c->rel_angle;
 	if (c->angle < 0)
 		c->angle += c->rad_360;
-	c->rel_angle = c->fov / 2;
 	if (!ch_num(c->angle, c->rad_90) && !ch_num(c->angle, c->rad_270))
 		c->tan_angle = tan(c->angle);
 	calc_step(c->angle, c);
