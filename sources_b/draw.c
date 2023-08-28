@@ -66,6 +66,8 @@ void	draw_wall(int x, t_main *main)
 		if (start >= 0)
 		{
 			p.orig_y = row / p.scale;
+			if (p.orig_y > (double)TH -1)
+				p.orig_y = (double)TH -1 ;
 			get_nearest_pix(&p, main);
 			interpolate(x, start, &p, main);
 		}

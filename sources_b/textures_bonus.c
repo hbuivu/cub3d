@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:58:42 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/27 20:56:06 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/28 00:12:40 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	get_textures_bonus(t_main *main)
 	int	size;
 
 	size = 200;
-	main->texture = (void *)cub_calloc(9, sizeof(t_img), main);
+	main->texture = cub_calloc(9, sizeof(t_img), main);
 	main->texture[0].img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
 			"./textures/texture_0_.xpm", &size, &size);
 	if (!main->texture[0].img)

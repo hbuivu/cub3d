@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/27 23:51:14 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/28 00:06:08 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,7 +241,7 @@ typedef struct s_main
 	char		**map_cpy;
 	int			mouse_x;
 	t_img		*texture;
-	t_sprite	*sprite;
+	// t_sprite	*sprite;
 	int			sprite_num;
 	double		*z_buffer;
 	double		*pl_to_sp_dist;
@@ -277,8 +277,6 @@ int		mouse_move(int x, int y, t_main *main);
 void	mlx(t_main *main);
 void	get_textures(t_main *main);
 void	get_data_addr(t_main *main);
-void	get_textures_bonus(t_main *main);
-void	get_data_addr_bonus(t_main *main);
 
 /* calc.c */
 void	calc_step(t_main *main);
@@ -343,14 +341,18 @@ void	init_minimap(t_main *main);
 int		get_color_minimap(t_main *main, int row, int col);
 void	ft_pixel_box_put(t_main *main, int col, int row, int color);
 
+/* get_textures_bonus.c*/
+void	get_textures_bonus(t_main *main);
+void	get_data_addr_bonus(t_main *main);
+
 /* sprite_sort.c */
 void	init_sprite(t_main *main);
 void	sort_sprites(t_main *main);
 void	swap_sprite(t_main *main, int a, int b);
 
 /* sprite_draw.c */
-int		slice_in_fov(t_main *main, t_sprite sprite, int x);
-void	draw_sprite_slice(t_main *main, t_sprite sprite);
+// int		slice_in_fov(t_main *main, t_sprite sprite, int x);
+// void	draw_sprite_slice(t_main *main, t_sprite sprite);
 
 /* sprite_calc.c */
 void	calc_pl_to_sp_dist(t_main *main);
