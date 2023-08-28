@@ -6,7 +6,7 @@
 #    By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/28 15:47:59 by zsyyida          ###   ########.fr        #
+#    Updated: 2023/08/28 16:05:41 by zsyyida          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,8 @@ MLX = libmlx.a
 SRCS = error.c free.c utils.c test.c \
 	identify.c identify_colour.c identify_color2.c identify_path.c parse_map.c \
 	walled_check.c walled_check_utilities.c \
-	mlx_hooks.c mlx_imgs.c \
-	calc.c coord_check.c draw.c draw_utils.c raycasting.c wall_collision2.c\
+	calc.c coord_check.c draw_utils.c draw.c raycasting.c \
+	wall_collision.c mlx_hooks.c \
 	main.c \
 
 BSRCS = error.c utils.c test.c \
@@ -49,7 +49,6 @@ CFLAGS = -Wall -Wextra -Werror -g
 # -fsanitize=address
 MLX_FLAGS = -Lmlx -lmlx -Ofast -framework OpenGL -g -framework AppKit
 # MLX_FLAGS = -g -Lmlx_linux -lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -Ofast -lm
-
 
 #to create all of the .o files from files in SRC_DIR in OBJ_DIR
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
