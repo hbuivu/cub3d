@@ -13,23 +13,23 @@
 #ifndef MACROS_H
 # define MACROS_H
 
-// /* KEYS */
-// # define LEFT_KEY				123
-// # define RIGHT_KEY				124
-// # define A_KEY					0
-// # define S_KEY					1
-// # define D_KEY					2
-// # define W_KEY					13
-// # define ESC 					53
+/* KEYS */
+# define LEFT_KEY				123
+# define RIGHT_KEY				124
+# define A_KEY					0
+# define S_KEY					1
+# define D_KEY					2
+# define W_KEY					13
+# define ESC 					53
 
-/* LINUX KEYS */
-# define LEFT_KEY				XK_Left
-# define RIGHT_KEY				XK_Right
-# define A_KEY					XK_a
-# define S_KEY					XK_s
-# define D_KEY					XK_d
-# define W_KEY					XK_w
-# define ESC 					XK_Escape
+// /* LINUX KEYS */
+// # define LEFT_KEY				XK_Left
+// # define RIGHT_KEY				XK_Right
+// # define A_KEY					XK_a
+// # define S_KEY					XK_s
+// # define D_KEY					XK_d
+// # define W_KEY					XK_w
+// # define ESC 					XK_Escape
 
 /* DIMENSIONS */
 # define TW						64	//texture width

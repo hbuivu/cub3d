@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   identify_path.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 18:49:12 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 14:33:57 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/27 01:59:00 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	n_path_identity(t_main *main, char *s, char *id)
 	while (*s == ' ')
 		s = s + 1;
 	main->n_path = cub_strdup(s, main);
+	free(s);
 }
 
 void	s_path_identity(t_main *main, char *s, char *id)
@@ -66,6 +67,7 @@ void	s_path_identity(t_main *main, char *s, char *id)
 	while (*s == ' ')
 		s = s + 1;
 	main->s_path = cub_strdup(s, main);
+	free(s);
 }
 
 void	e_path_identity(t_main *main, char *s, char *id)
@@ -81,6 +83,7 @@ void	e_path_identity(t_main *main, char *s, char *id)
 	while (*s == ' ')
 		s = s + 1;
 	main->e_path = cub_strdup(s, main);
+	free(s);
 }
 
 void	w_path_identity(t_main *main, char *s, char *id)
@@ -96,4 +99,5 @@ void	w_path_identity(t_main *main, char *s, char *id)
 	while (*s == ' ')
 		s = s + 1;
 	main->w_path = cub_strdup(s, main);
+	free(s);
 }

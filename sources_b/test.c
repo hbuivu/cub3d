@@ -15,17 +15,17 @@ void	print_omap(t_omap *map)
 	}
 }
 
-void	print_main_map(t_main *main)
-{
-	int i;
+// void	print_main_map(t_main *main)
+// {
+// 	int i;
 
-	i = 0;
-	while (main->map[i])
-	{
-		printf("%s\n", main->map[i]);
-		i++;
-	}
-}
+// 	i = 0;
+// 	while (main->map[i])
+// 	{
+// 		printf("%s\n", main->map[i]);
+// 		i++;
+// 	}
+// }
 
 // void	print_calc(t_main *main)
 // {
@@ -34,8 +34,8 @@ void	print_main_map(t_main *main)
 // 	printf("pln_height: %lf\n", main->calc->pln_height);
 // 	printf("pln_width: %lf\n", main->calc->pln_width);
 // 	printf("pln_dist: %lf\n", main->calc->pln_dist);
-// printf("px: %lf\n", main->calc->px);
-// printf("py: %lf\n", main->calc->py);
+// 	printf("px: %lf\n", main->calc->px);
+// 	printf("py: %lf\n", main->calc->py);
 // 	printf("pdir: %lf\n", main->calc->pdir);
 // 	printf("ray_incr: %lf\n", main->calc->ray_incr);
 // 	printf("angle: %lf\n", main->calc->angle);

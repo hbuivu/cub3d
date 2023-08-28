@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   identify_colour.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 18:45:40 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/21 15:01:14 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/27 01:21:44 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,25 @@ char	*check_comma(char *s, t_main *main)
 
 	s = remove_spaces(s, main);
 	comma = 0;
-	i = 0;
-	while (s[i])
+	i = -1;
+	while (s[++i])
 	{
 		if (s[i] == ',')
 		{
 			comma++;
-			if (!(s[i - 1] >= '0' && s[i - 1] <= '9')
-				|| (!(s[i + 1] >= '0' && s[i + 1] <= '9')))
-				return_error(main, COMMA_PLACE_ERR);
+			digit_check(s, i, main);
 		}
 		else if (!(s[i] >= '0' && s[i] <= '9'))
+		{
+			free(s);
 			return_error(main, INT_ERR);
-		i++;
+		}
 	}
 	if (comma != 2)
+	{
+		free(s);
 		return_error(main, COMMA_ERR);
+	}
 	return (s);
 }
 
@@ -74,24 +77,26 @@ int	*to_int(char *s, t_main *main)
 	color = cub_calloc(4, sizeof(int), main);
 	s = check_comma(s, main);
 	split = ft_split(s, ',');
-	i = 0;
-	while (split[i])
+	i = -1;
+	while (split[++i])
 	{
 		color[i] = ft_atoi(split[i]);
 		if (color[i] < 0 || color[i] > 255)
 		{
-			perror("Not a valid color");
-			exit(1);
+			free(s);
+			free_split(split);
+			return_error(main, INVALID_COLOR);
 		}
-		i++;
 	}
 	if (!color[3])
 		color[3] = 255;
+	free(s);
+	free_split(split);
 	return (color);
 }
 
 void	floor_colour(t_main *main, char *s)
-{
+{	
 	if (main->f_color != NULL)
 		return_error(main, NBR_IDENT_ERR);
 	if (ft_strncmp(s, "F", 1) != 0)
@@ -104,6 +109,7 @@ void	floor_colour(t_main *main, char *s)
 
 void	ceiling_colour(t_main *main, char *s)
 {
+	printf("hello\n");
 	if (main->c_color != NULL)
 		return_error(main, NBR_IDENT_ERR);
 	if (ft_strncmp(s, "C ", 2) != 0)

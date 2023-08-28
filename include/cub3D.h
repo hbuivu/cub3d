@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/28 16:38:08 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/28 17:47:45 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <math.h>
 # include <fcntl.h>
 # include <stdlib.h>
-# include <X11/keysym.h>
+// # include <X11/keysym.h>
 
 /* error.c */
 void	error_check(int argc, char **argv);
@@ -139,7 +139,7 @@ void	calc_sprite(t_main *main);
 /* get_textures_bonus.c */
 void	get_textures_bonus(t_main *main);
 void	get_data_addr_bonus(t_main *main);
-void	draw_sprite(int x, t_main *main);
+void	draw_sprite(t_main *main);
 int		mouse_move(int x, int y, t_main *main);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/28 16:05:41 by zsyyida          ###   ########.fr        #
+#    Updated: 2023/08/28 17:52:57 by zsyyida          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,16 +26,19 @@ MLX = libmlx.a
 SRCS = error.c free.c utils.c test.c \
 	identify.c identify_colour.c identify_color2.c identify_path.c parse_map.c \
 	walled_check.c walled_check_utilities.c \
+	mlx_imgs.c \
 	calc.c coord_check.c draw_utils.c draw.c raycasting.c \
 	wall_collision.c mlx_hooks.c \
 	main.c \
 
-BSRCS = error.c utils.c test.c \
-	identify.c identify_colour.c identify_path.c parse_map.c \
+BSRCS = error.c free.c utils.c test.c \
+	identify.c identify_colour.c identify_color2.c identify_path.c parse_map.c \
 	walled_check.c walled_check_utilities.c \
-	mlx_hooks.c mlx_imgs.c textures_bonus.c \
-	calc.c coord_check.c draw.c draw_utils.c raycasting.c \
-	main.c minimap.c wall_collision2.c \
+	mlx_imgs.c \
+	calc.c coord_check.c draw_utils.c draw.c raycasting.c \
+	wall_collision.c mlx_hooks.c \
+	main.c \
+	minimap.c textures_bonus.c\
 	# sprites_sort.c sprites_draw.c sprites_utils.c \
 # SRCS = resize_ex.c
 
