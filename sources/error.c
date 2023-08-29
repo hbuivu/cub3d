@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:27:01 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/28 13:52:55 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/29 11:36:31 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ void	return_error(t_main *main, int err_msg)
 		perror("not a file");
 	if (err_msg == WALL_ERR)
 		perror("map not surrounded by walls");
-	if (err_msg == NONE)
-		perror("the end");
+	// if (err_msg == NONE)
+	// 	perror("the end");
 	if (err_msg == IMG_ERR)
 		perror("error saving image");
 	if (err_msg == COMMA_ERR)
