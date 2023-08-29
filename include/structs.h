@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 17:51:08 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/28 13:58:26 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/28 17:52:45 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,21 @@ typedef struct s_omap
 	struct s_omap	*next;
 }	t_omap;
 
-// struct s_sprite
-// {
-//   double x;
-//   double y;
-//   int texture;
-// }	t_sprite;
+struct s_sprite
+{
+	double		x;
+	double		y;
+	int			texture;
+	double		transform_x;
+	double		transform_y;
+	int			screen_x;
+	int			height;
+	int			draw_start_y;
+	int			draw_end_y;
+	int			width;
+	int			draw_start_x;
+	int			draw_end_x;
+}	t_sprite;
 
 //BONUS
 // typedef struct s_wall
@@ -192,6 +201,11 @@ typedef struct s_main
 	int				*player_update;
 	char			**map_cpy;
 	int				mouse_x;
+	t_img		*texture;
+	// t_sprite	*sprite;
+	int			sprite_num;
+	double		*z_buffer;
+	double		*pl_to_sp_dist;
 }	t_main;
 
 #endif

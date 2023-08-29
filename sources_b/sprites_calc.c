@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprites.c                                          :+:      :+:    :+:   */
+/*   sprites_calc.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 02:32:42 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/23 01:27:36 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/27 23:33:44 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
-
-    //translate sprite position to relative to camera
-{
-	double pl_to_sprite_x;
-	double pl_to_sprite_y; 
-    
-	pl_to_sprite_x = sprite.x - posX;
-    pl_to_sprite_y = sprite.y - posY;
-}
 
 //       //transform sprite with the inverse camera  matrix
 //       // [ planeX   dirX ] -1                                       [ dirY      -dirX ]
@@ -28,47 +19,38 @@
 void	calc_sprite_transform(t_main *main)
 {
 	double inv_det;
-	double transform_x;
-	double transform_y;
 	int sprite_screen_x;
 	
+	// normalized_sprite.x = sprite.x - game->player.pos.x;
+	// normalized_sprite.y = sprite.y - game->player.pos.y;
 	inv_det = 1.0 / (planeX * dirY - dirX * planeY); //required for correct matrix multiplication
-	transform_x = inv_det * (dirY * spriteX - dirX * spriteY);
-  	transform_y = inv_det * (-planeY * spriteX + planeX * spriteY); //this is actually the depth inside the screen, that what Z is in 3D
-	sprite_screen_x = (int)((main->map_width / 2) * (1 + transform_x / transform_y));
+	main->sprite->transform_x = inv_det * (dirY * main->sprite->x - dirX * main->sprite->y);
+  	main->sprite->transform_y = inv_det * (-planeY * main->sprite->x + planeX * main->sprite->y); //this is actually the depth inside the screen, that what Z is in 3D
+	main->sprite->sprite_screen_x = (int)((main->map_width / 2) * (1 + main->sprite->transform_x / main->v->transform_y));
 }
 
 //       //calculate height of the sprite on screen
 //       //calculate lowest and highest pixel to fill in current stripe
-void	calc_sprite_y(t_main *main)
-{
-	int sprite_height;
-	int	draw_start_y;
-	int	draw_end_y;
-    
-	sprite_height = ABS((int)(main->map_height/(transform_y))); //using 'transformY' instead of the real distance prevents fisheye
-    draw_start_y =  main->map_height/2 - sprite_height / 2  ;
-    if(draw_start_y < 0)
-		draw_start_y = 0;
-    int draw_end_y = sprite_height / 2 + main->map_height / 2;
-    if(draw_end_y >= main->map_height / 2)
-		draw_end_y = main->map_height / 2 - 1;
-}
-
 //       //calculate width of the sprite
-void	calc_sprite_x(t_main *main)
-{
-	int sprite_width;
-	int	draw_start_x;
-	int	draw_end_x;
-	
-    sprite_width = ABS( (int)(main->map_width / (transform_y)));
-    draw_start_x = sprite_screen_x - sprite_width / 2;
-    if(draw_start_x < 0)
-		draw_start_x = 0;
-    draw_end_x = sprite_width / 2 + sprite_screen_x;
-    if(draw_end_x  >= main->map_width)
-		draw_end_x  = main->map_width - 1;
+void	calc_sprite(t_main *main)
+{   
+	calc_sprite_transform(main);
+	main->sprite->screen_x = (int)((WIN_WIDTH / 2) *
+		(1.0 + main->sprite->transform_x / main->sprite->transform_y));
+	main->sprite->sprite_height = ABS((int)(WIN_HEIGHT/(main->sprite->transform_y))); //using 'transformY' instead of the real distance prevents fisheye
+    main->sprite->draw_start_y =  main->map_height/2 - main->sprite->height / 2  ;
+    if(main->sprite->draw_start_y < 0)
+		main->sprite->draw_start_y = 0;
+    main->sprite->draw_end_y = main->sprite->height / 2 + WIN_HEIGHT / 2;
+    if(main->sprite->draw_end_y >= WIN_HEIGHT / 2)
+		main->sprite->draw_end_y = WIN_HEIGHT / 2 - 1;
+    main->sprite->width = ABS( (int)(main->map_width / (main->sprite->transform_y)));
+    main->sprite->draw_start_x = main->sprite->sprite_screen_x - main->sprite->width / 2;
+    if(main->sprite->draw_start_x < 0)
+		main->sprite->draw_start_x = 0;
+    main->sprite->draw_end_x = main->sprite->width / 2 + main->sprite->sprite_screen_x;
+    if(main->sprite->draw_end_x  >= WIN_WIDTH)
+		main->sprite->draw_end_x  = WIN_WIDTH - 1;
 }
 
 //       //loop through every vertical stripe of the sprite on screen

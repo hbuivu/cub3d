@@ -43,7 +43,6 @@
 # define WALL_BUFF				10
 # define ANGLE_ROT				0.0349066
 # define FOV					66
-# define NUM_SPRITES			2
 
 /* MINIMAP */
 # define MM_PLAYER				0XFF5733
@@ -51,6 +50,6 @@
 # define MM_DOOR				0X8B4513
 # define MM_SPRITE				0Xca8dfd
 # define MM_FLOOR				0x00FFFF
-# define MM_TILE_SIZE			24
+# define MM_TILE_SIZE			16
 
 #endif

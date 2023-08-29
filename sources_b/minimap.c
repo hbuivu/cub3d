@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 11:51:49 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/23 18:12:57 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/27 00:34:11 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,31 @@ void    init_minimap(t_main *main)
 		return_error(main, MLX_ERR);
 }
 
+void	ft_pixel_tile_put_pl(t_main *main, int col, int row, int color)
+{
+	int	x;
+	int	y;
+
+	y = 1;
+	while (y < MM_TILE_SIZE - 1)
+	{
+		x = 1;
+		while (x < MM_TILE_SIZE - 1)
+		{
+			if (x > 5 && x < MM_TILE_SIZE - 6 && y > 5 && y < MM_TILE_SIZE - 6)
+				ft_pixel_put(&main->img, col + x, row + y, color);
+			else
+				ft_pixel_put(&main->img, col + x, row + y, MM_FLOOR);
+			x++;
+		}
+		y++;
+	}
+}
+
 void	ft_pixel_tile_put(t_main *main, int col, int row, int color)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 1;
 	while (y < MM_TILE_SIZE - 1)
@@ -46,22 +67,15 @@ void	ft_pixel_tile_put(t_main *main, int col, int row, int color)
 	}
 }
 
-void    draw_minimap(t_main * main)
+void	draw_minimap(t_main * main)
 {
 	int	row;
 	int	col;
-	int	player[2];
-	// int	row_player;
-	// int col_player;
 
 	row = 0;
-	player[1] = (main->calc->py + .5) * MM_TILE_SIZE ;
 	while (row < main->map_height)
 	{
-		// row_player = (int)abs((int)main->calc->py / MM_TILE_SIZE * MM_TILE_SIZE) * -1;
-		// col_player = (int)abs((int)main->calc->px / MM_TILE_SIZE * MM_TILE_SIZE) * -1;
-	    col = 0;
-		player[0] = (main->calc->px + .5) * MM_TILE_SIZE ;
+		col = 0;
 		if (main->map_height > 30 || main->map_width > 30)
 			return ;
 		while (col < main->map_width)
@@ -72,14 +86,13 @@ void    draw_minimap(t_main * main)
 				ft_pixel_tile_put(main, col * MM_TILE_SIZE, row * MM_TILE_SIZE, MM_SPRITE);
 			else if (main->map[row][col] == '3')
 				ft_pixel_tile_put(main, col * MM_TILE_SIZE, row * MM_TILE_SIZE, MM_DOOR);
-			else if (main->map[row][col] == 'N' || main->map[row][col] == 'S'
-				|| main->map[row][col] == 'E' || main->map[row][col] == 'W')
-			// else if (row == row_player && col == col_player))
-				ft_pixel_tile_put(main, col * MM_TILE_SIZE, row * MM_TILE_SIZE, MM_PLAYER);
 			else
 				ft_pixel_tile_put(main, col * MM_TILE_SIZE, row * MM_TILE_SIZE, MM_FLOOR);
+			if (row == (int)main->calc->py / TH
+				&& col == (int)main->calc->px / TW && main->map[row][col] != '1')
+				ft_pixel_tile_put_pl(main, col * MM_TILE_SIZE, row * MM_TILE_SIZE, MM_PLAYER);
 			col++;
-	    }
+		}
 		row++;
-    }
+	}
 }

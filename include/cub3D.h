@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/28 15:41:13 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/28 17:47:45 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,15 @@
 # include <math.h>
 # include <fcntl.h>
 # include <stdlib.h>
-# include <X11/keysym.h>
+// # include <X11/keysym.h>
 
 /* error.c */
 void	error_check(int argc, char **argv);
 void	return_error(t_main *main, int err_msg);
 void	destroy_mlx(t_main *main);
+
+/* free .c*/
+void	free_all(t_main *main);
 
 /* utils.c */
 void	*cub_calloc(size_t count, size_t size, t_main *main);
@@ -81,36 +84,62 @@ void	print_main_map(t_main *main);
 void	print_calc(t_main *main);
 void	print_main(t_main *main);
 
-
 /* identify.c */
 t_omap	*identify(t_omap *omap, t_main *main);
 
+/* identify_color.c */
 void	floor_colour(t_main *main, char *ptr);
 void	ceiling_colour(t_main *main, char *ptr);
 int		*to_int(char *s, t_main *main);
+void	digit_check(char *s, int i, t_main *main);
+void	free_split(char **split);
 
+/* identify path.c */
 void	n_path_identity(t_main *main, char *s, char *id);
 void	s_path_identity(t_main *main, char *s, char *id);
 void	w_path_identity(t_main *main, char *s, char *id);
 void	e_path_identity(t_main *main, char *s, char *id);
 
+/* walled_check.c */
 void	visit(t_queue *ptr, t_main *main, int x, int y);
 void	check_walled_helper(t_queue *ptr, t_main *main);
 void	check_walled(t_main *main);
+
+/* walled_check_utilties.c */
 t_queue	*ft_lstnew_dl(int x, int y);
 t_queue	*ft_lstadd_back_dl(t_queue **queue, t_queue *new);
 void	*ft_dequeue(t_queue *enqueue);
 void	del(void *lst);
 
+/* BONUSES */
+/* minimap.c */
 void	draw_minimap(t_main *main);
-void    init_minimap(t_main *main);
-int 	get_color_minimap(t_main *main, int row, int col);
+void	init_minimap(t_main *main);
+int		get_color_minimap(t_main *main, int row, int col);
 void	ft_pixel_box_put(t_main *main, int col, int row, int color);
 
-/* BONUSES */
+/* get_textures_bonus.c*/
 void	get_textures_bonus(t_main *main);
 void	get_data_addr_bonus(t_main *main);
-void	draw_sprite(int x, t_main *main);
+
+/* sprite_sort.c */
+void	init_sprite(t_main *main);
+void	sort_sprites(t_main *main);
+void	swap_sprite(t_main *main, int a, int b);
+
+/* sprite_draw.c */
+// int		slice_in_fov(t_main *main, t_sprite sprite, int x);
+// void	draw_sprite_slice(t_main *main, t_sprite sprite);
+
+/* sprite_calc.c */
+void	calc_pl_to_sp_dist(t_main *main);
+void	calc_sprite_transform(t_main *main);
+void	calc_sprite(t_main *main);
+
+/* get_textures_bonus.c */
+void	get_textures_bonus(t_main *main);
+void	get_data_addr_bonus(t_main *main);
+void	draw_sprite(t_main *main);
 int		mouse_move(int x, int y, t_main *main);
 
 #endif

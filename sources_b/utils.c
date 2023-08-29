@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 16:11:15 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/21 15:01:24 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/28 16:40:47 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*cub_strdup(const char *s1, t_main *main)
 	return (ret_str);
 }
 
-/*bc there are inconsistencies with floats,
+/*bc there are inconsistencies with floats, 
 this will get the approx value of float*/
 //returns 1 if the numbers are equal
 int	ch_num(double num, double comp)

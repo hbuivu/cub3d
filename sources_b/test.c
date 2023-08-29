@@ -15,17 +15,17 @@ void	print_omap(t_omap *map)
 	}
 }
 
-void	print_main_map(t_main *main)
-{
-	int i;
+// void	print_main_map(t_main *main)
+// {
+// 	int i;
 
-	i = 0;
-	while (main->map[i])
-	{
-		printf("%s\n", main->map[i]);
-		i++;
-	}
-}
+// 	i = 0;
+// 	while (main->map[i])
+// 	{
+// 		printf("%s\n", main->map[i]);
+// 		i++;
+// 	}
+// }
 
 // void	print_calc(t_main *main)
 // {
