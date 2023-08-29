@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   coord_check.c                                      :+:      :+:    :+:   */
+/*   coord_check_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 15:38:42 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/28 13:27:24 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/29 15:30:17 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,17 @@ int	col_jump(t_main *main)
 		else
 			col = c->col_int / c->upg;
 	}
-	if (c->col_inty > 0 && c->col_int > 0 && row < main->map_height
-		&& col < main->map_width && main->map[row][col] != '1')
-		return (1);
+	if (c->col_inty > 0 && c->col_int > 0 
+		&& row < main->map_height && col < main->map_width)
+	{
+		if (main->map[row][col] == '2')
+		{
+			search_sprite(row, col, main);
+			return (1);
+		}
+		else if (main->map[row][col] != '1')
+			return (1);
+	}
 	return (0);
 }
 
@@ -63,9 +71,17 @@ int	row_jump(t_main *main)
 		else
 			row = c->row_int / c->upg;
 	}
-	if (c->row_intx > 0 && c->row_int > 0 && row < main->map_height
-		&& col < main->map_width && main->map[row][col] != '1')
-		return (1);
+	if (c->row_intx > 0 && c->row_int > 0 
+		&& row < main->map_height && col < main->map_width)
+	{
+		if (main->map[row][col] == '2')
+		{
+			search_sprite(row, col, main);
+			return (1);
+		}
+		else if (main->map[row][col] != '1')
+			return (1);
+	}
 	return (0);
 }
 

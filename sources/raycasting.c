@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 15:56:51 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/28 14:40:51 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/29 14:51:41 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	cast_hline(t_calc *c, t_main *main)
 		c->col_int += c->stepx * c->deltax;
 	c->dist_col = c->px - c->col_int;
 	c->cor_dist = fabs(c->dist_col * cos(c->rel_angle));
-	// c->cor_dist = fabs(c->col_int - c->px);
 	c->wall_slice = (int)c->col_inty % 64;
 }
 
@@ -54,7 +53,6 @@ void	cast_vline(t_calc *c, t_main *main)
 		c->row_int += c->stepy * c->deltay;
 	c->dist_row = c->py - c->row_int;
 	c->cor_dist = fabs(c->dist_row * cos(c->rel_angle));
-	// c->cor_dist = fabs(c->row_int - c->py);
 	c->wall_slice = (int)c->row_intx % 64;
 }
 
