@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/29 15:48:09 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/29 17:42:11 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,8 +128,8 @@ void	sort_sprites(t_main *main);
 void	swap_sprite(t_main *main, int a, int b);
 
 /* sprite_draw.c */
-// int		slice_in_fov(t_main *main, t_sprite sprite, int x);
-// void	draw_sprite_slice(t_main *main, t_sprite sprite);
+int		slice_in_fov(t_main *main, t_sprite sprite, int x);
+void	draw_sprite_slice(t_main *main, t_sprite sprite);
 
 /* sprite_calc.c */
 void	calc_pl_to_sp_dist(t_main *main);

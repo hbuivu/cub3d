@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 03:22:27 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/29 17:37:10 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/29 17:59:57 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,45 +14,45 @@
 
 //translate sprite position to relative to camera or player
 // sqrt of pl_to_sp distance not taken bc not needed bc used to find order whih stays same
-// void		calc_pl_to_sp_dist(t_main *main)
-// {
-	// int i;
+void		calc_pl_to_sp_dist(t_main *main)
+{
+	int i;
 
-	// i = 0;
-	// main->pl_to_sp_dist = cub_calloc(main->sprite_num, sizeof(double), main);
-	// while (i < main->sprite_num)
-	// {
-	// 	main->pl_to_sp_dist[i] = (
-	// 	(main->calc->px / 64 - main->sprite[i].x) *
-	// 	(main->calc->px / 64 - main->sprite[i].x) +
-	// 	(main->calc->py / 64 - main->sprite[i].y) *
-	// 	(main->calc->py / 64 - main->sprite[i].y));
-	// 	i++;
-	// }
-	// sort_sprites(main);
-// }
+	i = 0;
+	main->pl_to_sp_dist	= cub_calloc(main->sprite_num, sizeof(double), main);
+	while (i < main->sprite_num)
+	{
+		main->pl_to_sp_dist[i] = (
+		(main->calc->px / 64 - main->sprite[i].x) *
+		(main->calc->px / 64 - main->sprite[i].x) +
+		(main->calc->py / 64 - main->sprite[i].y) *
+		(main->calc->py / 64 - main->sprite[i].y));
+		i++;
+		printf("lf\n",main->pl_to_sp_dist[i]);
+	}
+}
 
-// void		swap_sprite(t_main *main, int a, int b)
-// {
-// 	double		tmp;
-// 	t_sprite	tmp_sprite;
+void		swap_sprite(t_main *main, int a, int b)
+{
+	double		tmp;
+	t_sprite	*tmp_sprite;
 
-// 	tmp_sprite = (t_sprite)calloc(1, sizeof(t_sprite);
-// 	tmp = main->pl_to_sp_dist[a];
-// 	main->pl_to_sp_dist[a] = main->pl_to_sp_dist[b];
-// 	main->pl_to_sp_dist[b] = tmp;
-// 	tmp_sprite = main->sprite[a];
-// 	main->sprite[a] = main->sprite[b];
-// 	main->sprite[b] = tmp_sprite;
-// 	free (tmp_sprite);
-// }
+	tmp_sprite = (t_sprite *)calloc(1, sizeof(t_sprite));
+	tmp = main->pl_to_sp_dist[a];
+	main->pl_to_sp_dist[a] = main->pl_to_sp_dist[b];
+	main->pl_to_sp_dist[b] = tmp;
+	tmp_sprite = &main->sprite[a];
+	main->sprite[a] = main->sprite[b];
+	main->sprite[b] = *tmp_sprite;
+	free (tmp_sprite);
+}
 
-// void	sort_sprites(t_main *main)
-// {
+void	sort_sprites(t_main *main)
+{
 	// int		i;
 	// int		flag;
 
-	// calc_pl_to_sp_dist(main);
+	calc_pl_to_sp_dist(main);
 	// flag = 1;
 	// while (flag)
 	// {
@@ -68,7 +68,7 @@
 	// 		i--;
 	// 	}
 	// }
-// }
+}
 
 void	count_sprites(t_main *main)
 {
