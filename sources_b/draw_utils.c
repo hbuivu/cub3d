@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 16:11:15 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/28 13:34:05 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/29 12:10:35 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ void	get_nearest_pix(t_point *p, t_main *main)
 	p->p1.x = (int)p->orig_x;
 	p->p1.y = (int)p->orig_y;
 	p->p2.x = (int)p->orig_x;
-	p->p2.y = (int)p->orig_y + 1;
+	if (p->p1.y == TH - 1)
+		p->p2.y = (int)p->orig_y;
+	else
+		p->p2.y = (int)p->orig_y + 1;
 	find_pix_color(&p->p1, main);
 	find_pix_color(&p->p2, main);
 	p->y_dist = p->orig_y - (int)p->orig_y;

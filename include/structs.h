@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 17:51:08 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/28 17:52:45 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/29 13:38:45 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ typedef struct s_omap
 	struct s_omap	*next;
 }	t_omap;
 
-struct s_sprite
+typedef	struct s_sprite
 {
 	double		x;
 	double		y;
@@ -132,7 +132,7 @@ typedef struct	s_calc
 	double	pln_width; //plane width (repeate of main win_width)
 	double	pln_dist; //plane distance from player
 	double	ray_incr; //angle at which ray increments from right to left
-	
+
 	/* changing calculations, needed for raycasting and movement */
 	double	px; //player spawn x(col) position in unit coordinates
 	double	py; //player spawn y(row) position in unit coordinates
@@ -146,7 +146,7 @@ typedef struct	s_calc
 	double	move_angle; //angle at which the player will be moving
 	double	x_walk; //how much player moves in x direction when walking
 	double	y_walk; //how much player moves in y direction when walking
-	
+
 	/* raycasting variables initiated to 0 at start. prob does not need to be reset */
 	double	col_int; //point where ray intersects a column line
 	double	col_inty; //the y coordinate where ray intersects column line

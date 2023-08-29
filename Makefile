@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+         #
+#    By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/29 12:46:54 by hbui-vu          ###   ########.fr        #
+#    Updated: 2023/08/29 14:40:48 by zsyyida          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,7 @@ OBJ_DIR = object
 BOBJ_DIR = object_b
 LIBFT_DIR = libft
 LIBFT = libft.a
-<<<<<<< HEAD
-# MLX_DIR = mlx_linux
-=======
 #MLX_DIR = mlx_linux
->>>>>>> Zahra
 MLX_DIR = mlx
 MLX = libmlx.a
 
@@ -40,7 +36,7 @@ BSRCS = error.c free.c utils.c test.c \
 	walled_check.c walled_check_utilities.c \
 	mlx_imgs.c \
 	calc.c coord_check.c draw_utils.c draw.c raycasting.c \
-	wall_collision.c mlx_hooks.c \
+	wall_collision.c mlx_hooks.c mlx_hooks_bonus.c \
 	main.c \
 	minimap.c textures_bonus.c\
 	# sprites_sort.c sprites_draw.c sprites_utils.c \
@@ -52,19 +48,12 @@ BOBJS := $(addprefix $(BOBJ_DIR)/, $(BSRCS:.c=.o))
 CC = cc
 RM	= rm -rf
 
-<<<<<<< HEAD
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror
 # -g3 -fsanitize=address
 # -fsanitize=address
 MLX_FLAGS = -Lmlx -lmlx -Ofast -framework OpenGL -g -framework AppKit
 # MLX_FLAGS = -g -Lmlx_linux -lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -Ofast -lm
 
-=======
-CFLAGS = -Wall -Wextra -Werror -g
-# -fsanitize=address
-MLX_FLAGS = -Lmlx -lmlx -Ofast -framework OpenGL -g -framework AppKit
-# MLX_FLAGS = -g -Lmlx_linux -lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -Ofast -lm
->>>>>>> Zahra
 
 #to create all of the .o files from files in SRC_DIR in OBJ_DIR
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
@@ -77,17 +66,10 @@ $(BOBJ_DIR)/%.o : $(BSRC_DIR)/%.c
 	@$(CC) $(CFLAGS) -I $(INC_DIR) -I $(LIBFT_DIR)/$(INC_DIR) -I $(MLX_DIR) -c $< -o $@
 
 $(NAME): $(OBJS)
-<<<<<<< HEAD
 	$(MAKE) -C $(LIBFT_DIR)
 	$(MAKE) -C $(MLX_DIR)
 	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(OBJS) -Llibft -lft -o $(NAME)
 # @$(CC) $(OBJS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(CFLAGS) $(MLX_FLAGS) -Llibft -lft -o $(NAME)
-=======
-	make -C $(LIBFT_DIR)
-	make -C $(MLX_DIR)
-	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(OBJS) -Llibft -lft -o $(NAME)
-	# @$(CC) $(OBJS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(CFLAGS) $(MLX_FLAGS) -Llibft -lft -o $(NAME)
->>>>>>> Zahra
 
 all: $(NAME)
 

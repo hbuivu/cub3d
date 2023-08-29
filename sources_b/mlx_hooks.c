@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/28 17:51:08 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/29 14:39:44 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	move(int key, t_main *main)
 	c->px += c->x_walk;
 	c->py += c->y_walk;
 	reset_ray(main->calc);
-	return (1);	
+	return (1);
 }
 
 int	key_press(int key, t_main *main)
@@ -90,7 +90,7 @@ int	key_press(int key, t_main *main)
 	else if (key == W_KEY || key == S_KEY || key == A_KEY || key == D_KEY)
 	{
 		if (move(key, main) == 0)
-			return (0);	
+			return (0);
 	}
 	else
 		return (0);

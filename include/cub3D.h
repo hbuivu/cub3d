@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/28 17:47:45 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/29 14:40:20 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,8 @@ void	calc_sprite(t_main *main);
 void	get_textures_bonus(t_main *main);
 void	get_data_addr_bonus(t_main *main);
 void	draw_sprite(t_main *main);
+
+/* mlx_hooks_bonus.c */
 int		mouse_move(int x, int y, t_main *main);
 
 #endif
