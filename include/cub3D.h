@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/29 14:40:20 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/29 15:48:09 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,5 +143,6 @@ void	draw_sprite(t_main *main);
 
 /* mlx_hooks_bonus.c */
 int		mouse_move(int x, int y, t_main *main);
+void	rotate(int key, t_calc *c);
 
 #endif

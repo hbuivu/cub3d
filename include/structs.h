@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 17:51:08 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/29 13:38:45 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/29 15:49:00 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,7 +202,7 @@ typedef struct s_main
 	char			**map_cpy;
 	int				mouse_x;
 	t_img		*texture;
-	// t_sprite	*sprite;
+	t_sprite	*sprite;
 	int			sprite_num;
 	double		*z_buffer;
 	double		*pl_to_sp_dist;
