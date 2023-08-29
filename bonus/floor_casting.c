@@ -10,14 +10,6 @@
 3. interpolate between the pixels to find every other world position and insert pixel color accordingly
 4. do this for every single row */
 
-void	draw_fl_text(t_floor *f, t_main *main)
-{
-	//convert world coordinates to tile coordinates
-	f->pix_x = 
-	f->pix_y = 
-	//get color from image 
-	//place color into (X, y coordinate of screen)
-}
 typedef struct s_floor
 {
 	double	perp_dist; //perpendicular distance from player to horizon
@@ -39,13 +31,20 @@ typedef struct s_floor
 	int		y;
 }	t_floor;
 
+void	draw_fl_text(t_floor *f, t_main *main)
+{
+	//convert world coordinates to tile coordinates
+	f->pix_x = fmod(f->fx, 64.0);
+	f->pix_y = fmod(f->fy, 64.0);
+	//get color from image 
+	//place color into (X, y coordinate of screen)
+}
+
 void	floor_casting(t_main *main)
 {
 	//make sure to reset numbers in calc first 
 	t_floor	f;
 	t_calc	*c;
-	int	x;
-	int	y;
 
 	//precalculations
 	f.dist_ratio = c->pln_dist * PLAYER_HEIGHT;

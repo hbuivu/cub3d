@@ -6,7 +6,7 @@
 #    By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/29 12:11:11 by hbui-vu          ###   ########.fr        #
+#    Updated: 2023/08/29 12:35:44 by hbui-vu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,8 @@ BOBJS = $(addprefix $(BOBJ_DIR)/, $(BSRCS:.c=.o))
 CC = cc
 RM	= rm -rf
 
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror 
+# -g3 -fsanitize=address
 # -fsanitize=address
 MLX_FLAGS = -Lmlx -lmlx -Ofast -framework OpenGL -g -framework AppKit
 # MLX_FLAGS = -g -Lmlx_linux -lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -Ofast -lm
