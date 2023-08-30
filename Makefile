@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+         #
+#    By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/29 17:56:09 by zsyyida          ###   ########.fr        #
+#    Updated: 2023/08/30 20:31:48 by zsyyida          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ BSRCS = error.c free.c utils.c test.c \
 	identify.c identify_colour.c identify_color2.c identify_path.c parse_map.c \
 	walled_check.c walled_check_utilities.c \
 	mlx_imgs.c \
-	calc.c coord_check.c draw_utils.c draw.c raycasting.c \
+	calc_bonus.c coord_check_bonus.c draw_utils.c draw.c raycasting_bonus.c \
 	wall_collision.c mlx_hooks.c mlx_hooks_bonus.c \
 	main.c \
 	minimap.c textures_bonus.c\

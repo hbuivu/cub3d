@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:22:23 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/30 17:16:36 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/30 22:59:25 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 	mlx(main);
 	raycast(main);
 	init_sprite(main);
-	// draw_sprite(main);
+	draw_sprite(main);
 	mlx_hook(main->mlx.mlx_win, 6, 0, &mouse_move, main);
 	mlx_hook(main->mlx.mlx_win, 2, 1L << 0, key_press, main);
 	mlx_hook(main->mlx.mlx_win, 17, 1L << 17, ft_close, main);

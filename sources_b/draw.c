@@ -3,22 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 15:43:26 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/30 14:37:05 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 20:30:29 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
-void	draw_wall(int x, t_main *main)
+void	draw_wall(int x, t_calc *c, t_main *main)
 {
 	int		row;
 	int		start;
 	int		stop;
 	t_point	p;
-	t_calc	*c;
 
 	c = main->calc;
 	row = 0;

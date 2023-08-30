@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   coord_check_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 15:38:42 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/30 14:10:25 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 20:28:40 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	col_jump(t_main *main)
 	{
 		if (main->map[row][col] == '2')
 		{
-			search_sprite(row, col, main);
+			// search_sprite(row, col, main);
 			return (1);
 		}
 		else if (main->map[row][col] != '1')
@@ -76,7 +76,7 @@ int	row_jump(t_main *main)
 	{
 		if (main->map[row][col] == '2')
 		{
-			search_sprite(row, col, main);
+			// search_sprite(row, col, main);
 			return (1);
 		}
 		else if (main->map[row][col] != '1')

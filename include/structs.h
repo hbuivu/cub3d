@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 17:51:08 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/30 17:55:00 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 20:46:55 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,7 @@ typedef	struct s_sprite
 	int		start_col; //init to -1 at the beginning, tells you which column to begin rendering sprite slice
 	int		end_col; //init to -1 at beginning, tells you which column to end rendering of sprite slice
 	int		render;
+	int		texture; 
 }	t_sprite;
 
 //BONUS
