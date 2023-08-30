@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 17:51:08 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/30 10:44:04 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 15:17:58 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,11 +147,10 @@ typedef struct	s_calc
 	double	rad_90;
 	double	rad_270;
 	double	rad_360;
-	double	upg; //units per grid
 	double	fov; //field of view in rad
-	double	pln_height; //plane height (repeat of main win_height)
-	double	pln_width; //plane width (repeate of main win_width)
+	double	midpt; //half of plane height, indicates midpt of walls and sprites
 	double	pln_dist; //plane distance from player
+	double	height_ratio; //constant ratio (texture_height * plane_distance) - used to find height of object in plane
 	double	ray_incr; //angle at which ray increments from right to left
 
 	/* changing calculations, needed for raycasting and movement */
@@ -183,8 +182,6 @@ typedef struct	s_calc
 	int		wall_slice;
 
 	/* BONUS: sprites */
-	double	sp_plny; //constant, WIN_HEIGHT / 2;
-	double	sp_height_ratio; //constant, pln_dist * SH
 	double	col_to_fov_ratio; //constant, win_width / FOV, how many columns for 1 degree of fov
 	int		x; //ray counter
 

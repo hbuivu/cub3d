@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:14:26 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/21 17:12:39 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/30 13:50:24 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int	check_row(t_omap *cur, t_main *main)
 	only_spaces = 1;
 	while (cur->row[++i])
 	{
+		if (cur->row[i] == '\n')
+			return (0);
 		if (!ft_strchr(" NSEW01", cur->row[i]))
 			return_error(main, MAP_ERR);
 		if (ft_strchr("NSEW01", cur->row[i]))
@@ -81,7 +83,7 @@ int	check_row(t_omap *cur, t_main *main)
 		}
 	}
 	if (only_spaces)
-		return_error(main, MAP_ERR);
+		return (0);
 	return (i);
 }
 
@@ -89,19 +91,22 @@ void	check_map(t_omap *omap_start, t_main *main)
 {
 	t_omap	*cur;
 	int		row_len;
+	int		empty_line;
 
 	if (omap_start == NULL)
 		return_error(main, MAP_ERR);
 	cur = omap_start;
+	empty_line = 0;
 	while (cur)
 	{
-		if (cur->row[0] == '\n')
-			return_error(main, MAP_ERR);
 		row_len = check_row(cur, main);
+		if (row_len != 0 && empty_line == 1)
+			return_error(main, MAP_ERR);
+		if (row_len == 0)
+			empty_line = 1;
 		main->map_height++;
 		if (main->map_width < row_len)
 			main->map_width = row_len;
-		row_len = 0;
 		cur = cur->next;
 	}
 	if (main->player_dir == '\0')

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   identify_colour.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 18:45:40 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/27 01:21:44 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/30 13:33:28 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,6 @@ void	floor_colour(t_main *main, char *s)
 
 void	ceiling_colour(t_main *main, char *s)
 {
-	printf("hello\n");
 	if (main->c_color != NULL)
 		return_error(main, NBR_IDENT_ERR);
 	if (ft_strncmp(s, "C ", 2) != 0)

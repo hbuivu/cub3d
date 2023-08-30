@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 15:38:42 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/29 15:30:17 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 14:10:25 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ int	col_jump(t_main *main)
 
 	c = main->calc;
 	if (c->stepx == 1 && c->stepy == 1
-		&& ch_num(fmod(c->col_int, c->upg), 0)
-		&& ch_num(fmod(c->col_inty, c->upg), 0))
+		&& ch_num(fmod(c->col_int, UPG), 0)
+		&& ch_num(fmod(c->col_inty, UPG), 0))
 	{
-		col = (c->col_int / c->upg) - 1; 
-		row = c->col_inty / c->upg;
+		col = (c->col_int / UPG) - 1; 
+		row = c->col_inty / UPG;
 	}
 	else
 	{
-		row = c->col_inty / c->upg;
+		row = c->col_inty / UPG;
 		if (c->stepx == -1)
-			col = (c->col_int / c->upg) - 1;
+			col = (c->col_int / UPG) - 1;
 		else
-			col = c->col_int / c->upg;
+			col = c->col_int / UPG;
 	}
 	if (c->col_inty > 0 && c->col_int > 0 
 		&& row < main->map_height && col < main->map_width)
@@ -57,19 +57,19 @@ int	row_jump(t_main *main)
 
 	c = main->calc;
 	if (c->stepx == 1 && c->stepy == 1
-		&& ch_num(fmod(c->row_int, c->upg), 0)
-		&& ch_num(fmod(c->row_intx, c->upg), 0))
+		&& ch_num(fmod(c->row_int, UPG), 0)
+		&& ch_num(fmod(c->row_intx, UPG), 0))
 	{
-		row = (c->row_int / c->upg) - 1;
-		col = c->row_intx / c->upg; 
+		row = (c->row_int / UPG) - 1;
+		col = c->row_intx / UPG; 
 	}
 	else
 	{
-		col = c->row_intx / c->upg;
+		col = c->row_intx / UPG;
 		if (c->stepy == -1)
-			row = (c->row_int / c->upg) - 1;
+			row = (c->row_int / UPG) - 1;
 		else
-			row = c->row_int / c->upg;
+			row = c->row_int / UPG;
 	}
 	if (c->row_intx > 0 && c->row_int > 0 
 		&& row < main->map_height && col < main->map_width)

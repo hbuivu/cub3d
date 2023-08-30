@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 15:43:26 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/29 12:46:39 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 16:03:57 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void	draw_wall(int x, t_main *main)
 
 	c = main->calc;
 	row = 0;
-	start = (int)(round((c->pln_height / 2) - (c->wall_height / 2)));
+	start = (int)(round((c->midpt) - (c->wall_height / 2)));
 	stop = (int)(round(start + c->wall_height));
-	if (stop >= c->pln_height)
-		stop = c->pln_height - 1;
-	p.scale = c->wall_height / c->upg;
+	if (stop >= WIN_HEIGHT)
+		stop = WIN_HEIGHT - 1;
+	p.scale = c->wall_height / TH;
 	p.orig_x = c->wall_slice;
 	while (row < (int)c->wall_height && start <= stop)
 	{

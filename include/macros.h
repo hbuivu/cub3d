@@ -33,7 +33,8 @@
 
 /* DIMENSIONS */
 # define TW						64	//texture width
-# define TH						64  //texture height
+# define TH						64	//texture height
+# define UPG					64	//units per grid
 # define WIN_WIDTH				1920
 # define WIN_HEIGHT				1024
 
@@ -52,8 +53,8 @@
 # define MM_FLOOR				0x00FFFF
 # define MM_TILE_SIZE			16
 
-/* sprite */
-# define SH						16 // sprite height
-# define SW						16 // sprite width
+// /* sprite */
+// # define SH						16 // sprite height
+// # define SW						16 // sprite width
 
 #endif

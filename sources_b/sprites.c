@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:30:29 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/30 11:13:37 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 15:19:55 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	search_sprite(int row, int col, t_main *main)
 			if (sp[i].render == 0)
 			{
 				sp[i].render = 1;
-				sp[i].spx = (sp[i].x + .5) * main->upg;
-				sp[i].spy = (sp[i].y + .5) * main->upg;
+				sp[i].spx = (sp[i].sp_gridx + .5) * UPG;
+				sp[i].spy = (sp[i].sp_gridy + .5) * UPG;
 				sp[i].vx = sp[i].spx - main->calc->px;
 				sp[i].vy = sp[i].spy - main->calc->py;
 				sp[i].vangle = atan2(-sp[i].vy, sp[i].vx);
@@ -62,9 +62,8 @@ void	search_sprite(int row, int col, t_main *main)
 					|| ch_num(sp[i].rel_vangle, main->calc->rad_360))
 					sp[i].rel_vangle -= main->calc->rad_360;
 				sp[i].plnx = sp[i].rel_vangle * main->calc->col_to_fov_ratio;
-				sp[i].plny = main->calc->sp_plny;
 				//how do I know which column x and y falls into
-				sp[i].sp_height = (main->calc->sp_height_ratio) / sp[i].sp_dist;
+				sp[i].sp_height = (main->calc->height_ratio) / sp[i].sp_dist;
 			}
 			return ;
 		}
@@ -121,22 +120,20 @@ void	sp_interpolate(int x, int y, t_point *p, t_main *main)
 	*(unsigned int *)dst = encode_rgb((int)p->r, (int)p->g, (int)p->b);
 }
 
-void	draw_sp_slice(int x, t_main *main)
+void	draw_sp_slice(t_sprite *sp, t_main *main)
 {
 	int			row;
 	int			start;
 	int			stop;
 	t_point		p;
-	t_sprite	*sp;
 
-	sp = &main->sprite;
 	row = 0;
-	start = (int)(sp->plny - (sp->sp_height / 2));
+	start = (int)(main->calc->midpt - (sp->sp_height / 2));
 	stop = (int)(start + sp->sp_height);
 	if (stop >= WIN_HEIGHT)
 		stop = WIN_HEIGHT - 1;
-	p.scale = sp->sp_height / c->upg;
-	while (row < (int)c->sp_height && start <= stop)
+	p.scale = sp->sp_height / TH;
+	while (row < (int)sp->sp_height && start <= stop)
 	{
 		if (start >= 0)
 		{
@@ -164,7 +161,7 @@ void	render_sprite_slice(t_main *main)
 	if (stop >= WIN_HEIGHT)
 		stop = WIN_HEIGHT - 1;
 	//need to employ bilinear interpolation here, not just linear interpolation
-	p.scale = sp->sp_height / SH;
+	p.scale = sp->sp_height / TH;
 
 	//width is the same as height; when printing out columns, make sure that the
 	//sprite stays within the confines of printable columns

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calc_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:31:03 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/30 01:29:22 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 14:51:38 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ void	calc_player_info(t_main *main)
 	t_calc *c;
 
 	c = main->calc;
-	c->px = ((main->player_pos[0] + .5) * c->upg);
-	c->py = ((main->player_pos[1] + .5) * c->upg);
+	c->px = ((main->player_pos[0] + .5) * UPG);
+	c->py = ((main->player_pos[1] + .5) * UPG);
 	if (main->player_dir == 'E')
 		c->pdir = 0;
 	else if (main->player_dir == 'N')
@@ -62,15 +62,12 @@ void	init_calc(t_main *main)
 	c->rad_90 = M_PI / 2;
 	c->rad_270 = (3 * M_PI) / 2;
 	c->rad_360 = M_PI * 2;
-	c->upg = 64;
 	c->fov = FOV * (M_PI / 180);
-	c->pln_width = WIN_WIDTH;
-	c->pln_height = WIN_HEIGHT;
-	c->pln_dist = (c->pln_width / 2) / tan(c->fov / 2);
-	c->ray_incr = c->fov / c->pln_width;
-	c->sp_plny = WIN_HEIGHT / 2; //NEW
-	c->sp_height_ratio = c->pln_dist * SH; //NEW
-	c->col_to_fov_ratio = WIN_WDITH / FOV; //NEW
+	c->midpt = WIN_HEIGHT / 2;
+	c->pln_dist = (WIN_WIDTH / 2) / tan(c->fov / 2);
+	c->height_ratio = TH * c->pln_dist;
+	c->ray_incr = c->fov / WIN_WIDTH;
+	c->col_to_fov_ratio = WIN_WIDTH / FOV; //NEW
 	calc_player_info(main);
 }
 

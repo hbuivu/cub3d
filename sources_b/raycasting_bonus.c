@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 15:56:51 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/30 01:00:44 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 14:52:38 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ void	cast_hline(t_calc *c, t_main *main)
 	if (c->stepx == 1)
 	{
 		c->wall_face = main->img_we_wall;
-		c->col_int = ceil(c->px / c->upg) * c->upg;
+		c->col_int = ceil(c->px / UPG) * UPG;
 	}
 	else if (c->stepx == -1)
 	{
 		c->wall_face = main->img_ea_wall;
-		c->col_int = floor(c->px / c->upg) * c->upg;
+		c->col_int = floor(c->px / UPG) * UPG;
 	}
 	c->col_inty = c->py;
 	while (check_coord(COL, main))
@@ -42,12 +42,12 @@ void	cast_vline(t_calc *c, t_main *main)
 	if (c->stepy == 1)
 	{
 		c->wall_face = main->img_no_wall;
-		c->row_int = ceil(c->py / c->upg) * c->upg;
+		c->row_int = ceil(c->py / UPG) * UPG;
 	}
 	else if (c->stepy == -1)
 	{
 		c->wall_face = main->img_so_wall;
-		c->row_int = floor(c->py / c->upg) * c->upg;
+		c->row_int = floor(c->py / UPG) * UPG;
 	}
 	c->row_intx = c->px;
 	while (check_coord(ROW, main))
@@ -60,28 +60,28 @@ void	cast_vline(t_calc *c, t_main *main)
 
 void	calc_intercepts(t_calc *c, t_main *main)
 {
-	c->deltay = fabs(c->upg * c->tan_angle);
-	c->deltax = fabs(c->upg / c->tan_angle);
+	c->deltay = fabs(UPG * c->tan_angle);
+	c->deltax = fabs(UPG / c->tan_angle);
 	if (c->stepx == 1)
-		c->col_int = ceil(c->px / c->upg) * c->upg;
+		c->col_int = ceil(c->px / UPG) * UPG;
 	else if (c->stepx == -1)
-		c->col_int = floor(c->px / c->upg) * c->upg;
+		c->col_int = floor(c->px / UPG) * UPG;
 	c->col_inty = c->py + (c->stepy 
 			* fabs((c->col_int - c->px) * c->tan_angle));
 	if (c->stepy == 1)
-		c->row_int = ceil(c->py / c->upg) * c->upg;
+		c->row_int = ceil(c->py / UPG) * UPG;
 	else if (c->stepy == -1)
-		c->row_int = floor(c->py / c->upg) * c->upg;
+		c->row_int = floor(c->py / UPG) * UPG;
 	c->row_intx = c->px + (c->stepx
 			* fabs((c->row_int - c->py) / c->tan_angle));
 	while (check_coord(COL, main))
 	{
-		c->col_int += c->stepx * c->upg;
+		c->col_int += c->stepx * UPG;
 		c->col_inty += c->stepy * c->deltay;
 	}
 	while (check_coord(ROW, main))
 	{
-		c->row_int += c->stepy * c->upg;
+		c->row_int += c->stepy * UPG;
 		c->row_intx += c->stepx * c->deltax;
 	}
 }
@@ -118,7 +118,7 @@ void	raycast(t_main *main)
 	c = main->calc;
 	c->x = 0; //NEW
 	draw_floor_ceiling(main);
-	while (c->x < main->calc->pln_width)
+	while (c->x < WIN_WIDTH)
 	{
 		if (ch_num(c->angle, 0) || ch_num(c->angle, M_PI))
 			cast_hline(c, main);
@@ -126,8 +126,8 @@ void	raycast(t_main *main)
 			cast_vline(c, main);
 		else
 			cast_line(c, main);
-		c->wall_height = (c->upg / c->cor_dist) * c->pln_dist;
-		draw_wall(x, main);
+		c->wall_height = c->height_ratio / c->cor_dist;
+		draw_wall(c->x, main);
 		recalc_ray(main->calc);
 		c->x++;
 	}

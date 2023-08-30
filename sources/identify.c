@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   identify.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:13:12 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/27 12:10:06 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/30 13:33:38 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ t_omap	*identify(t_omap *omap, t_main *main)
 		|| ft_strchr(curr->row, '0') != NULL
 		|| ft_strchr(curr->row, ' ') != NULL)
 		{
-			printf("map\n");
 			if (check_main(main) == 1)
 				return (NULL);
 			ptr_map = curr;
