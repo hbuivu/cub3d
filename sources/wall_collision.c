@@ -6,17 +6,16 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:10:44 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/30 14:00:59 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 17:53:38 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
-
 double	check_hline(t_calc *c, t_main *main)
 {
 	double	wall_dist;
-	
+
 	c->deltay = 0;
 	c->deltax = 64;
 	if (c->stepx == 1)
@@ -50,7 +49,7 @@ double	check_vline(t_calc *c, t_main *main)
 double	check_line(t_calc *c, t_main *main)
 {
 	double	wall_dist;
-	
+
 	calc_intercepts(c, main); //from raycasting function;
 	c->dist_col = fabs((c->px - c->col_int) / cos(c->move_angle));
 	c->dist_row = fabs((c->py - c->row_int) / sin(c->move_angle));

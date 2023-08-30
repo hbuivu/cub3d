@@ -6,12 +6,11 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 16:13:12 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/30 13:33:38 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 17:53:25 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
-
 
 /*
 1. Make sure F and C are there
@@ -41,6 +40,7 @@ int	check_main(t_main *main)
 void	check_identity(t_main *main, char *row)
 {
 	int	i;
+
 	i = 0;
 	while (row[i] == ' ')
 		i++;
@@ -58,7 +58,8 @@ void	check_identity(t_main *main, char *row)
 		w_path_identity(main, &row[i], "WE");
 }
 
-// printf("%s\n%s\n%s\n%s\n", main->n_path, main->s_path, main->e_path, main->w_path);
+// printf("%s\n%s\n%s\n%s\n", main->n_path,
+//  main->s_path, main->e_path, main->w_path);
 // int i = 0;
 // while (main->f_color[i])
 // {
@@ -78,12 +79,12 @@ t_omap	*identify(t_omap *omap, t_main *main)
 		i = 0;
 		while (curr->row[i] == ' ')
 			i++;
-		if (curr->row[i] == 'F' || curr->row[i] == 'C' || curr->row[i] == 'N' 
+		if (curr->row[i] == 'F' || curr->row[i] == 'C' || curr->row[i] == 'N'
 			|| curr->row[i] == 'S' || curr->row[i] == 'E' || *curr->row == 'W')
 			check_identity(main, curr->row);
 		else if (ft_strchr(curr->row, '1') != NULL
-		|| ft_strchr(curr->row, '0') != NULL
-		|| ft_strchr(curr->row, ' ') != NULL)
+			|| ft_strchr(curr->row, '0') != NULL
+			|| ft_strchr(curr->row, ' ') != NULL)
 		{
 			if (check_main(main) == 1)
 				return (NULL);
@@ -94,4 +95,3 @@ t_omap	*identify(t_omap *omap, t_main *main)
 	}
 	return (NULL);
 }
-

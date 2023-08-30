@@ -20,6 +20,7 @@
 # define S_KEY					1
 # define D_KEY					2
 # define W_KEY					13
+# define E_KEY					14
 # define ESC 					53
 
 // /* LINUX KEYS */

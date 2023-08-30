@@ -6,7 +6,7 @@
 #    By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/29 14:40:48 by zsyyida          ###   ########.fr        #
+#    Updated: 2023/08/29 17:56:09 by zsyyida          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ BSRCS = error.c free.c utils.c test.c \
 	wall_collision.c mlx_hooks.c mlx_hooks_bonus.c \
 	main.c \
 	minimap.c textures_bonus.c\
-	# sprites_sort.c sprites_draw.c sprites_utils.c \
+	sprites_sort.c sprite_draw.c sprites_calc.c \
 # SRCS = resize_ex.c
 
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
@@ -49,8 +49,7 @@ CC = cc
 RM	= rm -rf
 
 CFLAGS = -Wall -Wextra -Werror
-# -g3 -fsanitize=address
-# -fsanitize=address
+#  -fsanitize=address
 MLX_FLAGS = -Lmlx -lmlx -Ofast -framework OpenGL -g -framework AppKit
 # MLX_FLAGS = -g -Lmlx_linux -lmlx_linux -L/usr/lib -Imlx_linux -lXext -lX11 -Ofast -lm
 

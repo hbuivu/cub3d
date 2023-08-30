@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 17:01:13 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/26 15:26:17 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/30 17:11:20 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,14 @@ void	check_walled_helper(t_queue *ptr, t_main *main)
 	main->map_cpy[main->player_pos[1]][main->player_pos[0]] = 'V';
 	main->player_update[0] = ptr->x;
 	main->player_update[1] = ptr->y;
-	if (ptr->x - 1 > 0 && ptr->x + 1 < main->map_width)
-	{
+	if (ptr->x + 1 < main->map_width)
 		visit(ptr, main, ptr->x + 1, ptr->y);
+	if (ptr->x - 1 > 0)
 		visit(ptr, main, ptr->x - 1, ptr->y);
-	}
-	if (main->player_update[1] - 1 > 0
-		&& main->player_update[1] + 1 < main->map_height)
-	{
+	if (main->player_update[1] + 1 < main->map_height)
 		visit(ptr, main, ptr->x, ptr->y + 1);
+	if (main->player_update[1] - 1 > 0)
 		visit(ptr, main, ptr->x, ptr->y - 1);
-	}
 }
 
 void	check_walled(t_main *main)

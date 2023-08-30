@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/29 14:39:44 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/30 17:23:54 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	calc_move(int key, t_calc *c)
 //returns 0 if player cannot move -> no raycasting required
 int	move(int key, t_main *main)
 {
-	t_calc *c;
+	t_calc	*c;
 	double	wall_dist;
 	double	new_move;
 
@@ -63,7 +63,8 @@ int	move(int key, t_main *main)
 	calc_move(key, c);
 	if (ch_num(c->move_angle, 0) || ch_num(c->move_angle, M_PI))
 		wall_dist = check_hline(c, main);
-	else if (ch_num(c->move_angle, c->rad_90) || ch_num(c->move_angle, c->rad_270))
+	else if (ch_num(c->move_angle, c->rad_90)
+		|| ch_num(c->move_angle, c->rad_270))
 		wall_dist = check_vline(c, main);
 	else
 		wall_dist = check_line(c, main);
@@ -92,6 +93,11 @@ int	key_press(int key, t_main *main)
 		if (move(key, main) == 0)
 			return (0);
 	}
+		//  if (condition showing door triggered)
+	// else if (key == E_KEY && == '2')
+		// 		main->sprite[i].texture = 7;
+		// 	//  usleep(100);
+		// 		main->sprite[i].texture = 8;
 	else
 		return (0);
 	raycast(main);

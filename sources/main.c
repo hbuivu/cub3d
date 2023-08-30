@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:22:23 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/29 12:45:33 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 17:02:03 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ void	parse_cub(int fd, t_main *main)
 	download_map(fd, main);
 	begin_map = identify(main->omap, main);
 	check_map(begin_map, main);
-	get_map(begin_map, main); 
-
+	get_map(begin_map, main);
 	check_walled(main);
 }
 
@@ -37,13 +36,12 @@ int	main(int argc, char **argv)
 	if (fd == -1)
 		return_error(main, OPEN_ERR);
 	parse_cub(fd, main);
-	init_calc(main); 
+	init_calc(main);
 	mlx(main);
 	raycast(main);
 	mlx_hook(main->mlx.mlx_win, 2, 1L << 0, key_press, main);
 	mlx_hook(main->mlx.mlx_win, 17, 1L << 17, ft_close, main);
 	mlx_loop(main->mlx.mlx_ptr);
 	return_error(main, NONE);
-
 	return (0);
 }
