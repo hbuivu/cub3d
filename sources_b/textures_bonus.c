@@ -3,14 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   textures_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:58:42 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/28 00:12:40 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/30 17:25:22 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
+
+void	get_textures_bonus_helper(t_main *main, int size)
+{
+	if (!main->texture[4].img)
+		return_error(main, IMG_ERR);
+	main->texture[5].img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
+			"./textures/texture_5_.xpm", &size, &size);
+	if (!main->texture[5].img)
+		return_error(main, IMG_ERR);
+	main->texture[6].img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
+			"./textures/texture_6_.xpm", &size, &size);
+	if (!main->texture[6].img)
+		return_error(main, IMG_ERR);
+	main->texture[7].img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
+			"./textures/texture_7_.xpm", &size, &size);
+	if (!main->texture[7].img)
+		return_error(main, IMG_ERR);
+	main->texture[8].img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
+			"./textures/texture_8_.xpm", &size, &size);
+	if (!main->texture[8].img)
+		return_error(main, IMG_ERR);
+}
 
 void	get_textures_bonus(t_main *main)
 {
@@ -36,25 +58,26 @@ void	get_textures_bonus(t_main *main)
 		return_error(main, IMG_ERR);
 	main->texture[4].img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
 			"./textures/texture_4_.xpm", &size, &size);
-	if (!main->texture[4].img)
-		return_error(main, IMG_ERR);
-		main->texture[5].img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
-			"./textures/texture_5_.xpm", &size, &size);
-	if (!main->texture[5].img)
-		return_error(main, IMG_ERR);	
-	main->texture[6].img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
-			"./textures/texture_6_.xpm", &size, &size);
-	if (!main->texture[6].img)
-		return_error(main, IMG_ERR);
-	main->texture[7].img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
-			"./textures/texture_7_.xpm", &size, &size);
-	if (!main->texture[7].img)
-		return_error(main, IMG_ERR);
-	main->texture[8].img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
-			"./textures/texture_8_.xpm", &size, &size);
-	if (!main->texture[8].img)
-		return_error(main, IMG_ERR);
-	get_data_addr_bonus(main);	
+	get_textures_bonus_helper(main, size);
+	// if (!main->texture[4].img)
+	// 	return_error(main, IMG_ERR);
+	// 	main->texture[5].img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
+	// 		"./textures/texture_5_.xpm", &size, &size);
+	// if (!main->texture[5].img)
+	// 	return_error(main, IMG_ERR);
+	// main->texture[6].img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
+	// 		"./textures/texture_6_.xpm", &size, &size);
+	// if (!main->texture[6].img)
+	// 	return_error(main, IMG_ERR);
+	// main->texture[7].img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
+	// 		"./textures/texture_7_.xpm", &size, &size);
+	// if (!main->texture[7].img)
+	// 	return_error(main, IMG_ERR);
+	// main->texture[8].img = mlx_xpm_file_to_image(main->mlx.mlx_ptr,
+	// 		"./textures/texture_8_.xpm", &size, &size);
+	// if (!main->texture[8].img)
+	// 	return_error(main, IMG_ERR);
+	// get_data_addr_bonus(main);
 }
 
 void	get_data_addr_bonus(t_main *main)

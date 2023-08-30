@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calc.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:31:03 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/28 14:16:22 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 17:10:05 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	calc_step(double angle, t_calc *c)
 //therefore angle, will never be 0, 90, 180, 270
 void	calc_player_info(t_main *main)
 {
-	t_calc *c;
+	t_calc	*c;
 
 	c = main->calc;
 	c->px = ((main->player_pos[0] + .5) * c->upg);

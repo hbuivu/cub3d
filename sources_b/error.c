@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:27:01 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/28 16:31:06 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/30 17:13:41 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	destroy_mlx(t_main *main)
 		mlx_destroy_image(main->mlx.mlx_ptr, main->img_door1.img);
 	if (main->img_door2.img)
 		mlx_destroy_image(main->mlx.mlx_ptr, main->img_door2.img);
-	if(main->mlx.mlx_win)
+	if (main->mlx.mlx_win)
 		mlx_destroy_window(main->mlx.mlx_ptr, main->mlx.mlx_win);
 }
 

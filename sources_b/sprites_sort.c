@@ -6,7 +6,7 @@
 /*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 03:22:27 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/29 17:59:57 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/30 11:58:05 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void		calc_pl_to_sp_dist(t_main *main)
 		(main->calc->py / 64 - main->sprite[i].y) *
 		(main->calc->py / 64 - main->sprite[i].y));
 		i++;
-		printf("lf\n",main->pl_to_sp_dist[i]);
+		// printf("lf\n",main->pl_to_sp_dist[i]);
 	}
 }
 

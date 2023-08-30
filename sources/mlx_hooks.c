@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/29 12:45:04 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 17:05:19 by zsyyida          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	calc_move(int key, t_calc *c)
 //returns 0 if player cannot move -> no raycasting required
 int	move(int key, t_main *main)
 {
-	t_calc *c;
+	t_calc	*c;
 	double	wall_dist;
 	double	new_move;
 
@@ -63,7 +63,8 @@ int	move(int key, t_main *main)
 	calc_move(key, c);
 	if (ch_num(c->move_angle, 0) || ch_num(c->move_angle, M_PI))
 		wall_dist = check_hline(c, main);
-	else if (ch_num(c->move_angle, c->rad_90) || ch_num(c->move_angle, c->rad_270))
+	else if (ch_num(c->move_angle, c->rad_90)
+		|| ch_num(c->move_angle, c->rad_270))
 		wall_dist = check_vline(c, main);
 	else
 		wall_dist = check_line(c, main);
@@ -78,7 +79,7 @@ int	move(int key, t_main *main)
 	c->px += c->x_walk;
 	c->py += c->y_walk;
 	reset_ray(main->calc);
-	return (1);	
+	return (1);
 }
 
 int	key_press(int key, t_main *main)
@@ -90,7 +91,7 @@ int	key_press(int key, t_main *main)
 	else if (key == W_KEY || key == S_KEY || key == A_KEY || key == D_KEY)
 	{
 		if (move(key, main) == 0)
-			return (0);	
+			return (0);
 	}
 	else
 		return (0);
