@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:14:26 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/30 13:50:24 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 18:07:27 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,12 @@ void	download_map(int fd, t_main *main)
 
 //returns the length of row
 //only_spaces checks if line contains only spaces and no other characters
-int	check_row(t_omap *cur, t_main *main)
+int	check_row(t_omap *cur, int *only_spaces, t_main *main)
 {
 	int	i;
-	int	only_spaces;
 
 	i = -1;
-	only_spaces = 1;
+	*only_spaces = 1;
 	while (cur->row[++i])
 	{
 		if (cur->row[i] == '\n')
@@ -71,7 +70,7 @@ int	check_row(t_omap *cur, t_main *main)
 		if (!ft_strchr(" NSEW01", cur->row[i]))
 			return_error(main, MAP_ERR);
 		if (ft_strchr("NSEW01", cur->row[i]))
-			only_spaces = 0;
+			*only_spaces = 0;
 		if (ft_strchr("NSEW", cur->row[i]))
 		{
 			if (main->player_dir != '\0' || main->player_pos != NULL)
@@ -82,7 +81,7 @@ int	check_row(t_omap *cur, t_main *main)
 			main->player_pos[1] = main->map_height;
 		}
 	}
-	if (only_spaces)
+	if (*only_spaces)
 		return (0);
 	return (i);
 }
@@ -92,6 +91,7 @@ void	check_map(t_omap *omap_start, t_main *main)
 	t_omap	*cur;
 	int		row_len;
 	int		empty_line;
+	int		only_spaces;
 
 	if (omap_start == NULL)
 		return_error(main, MAP_ERR);
@@ -99,7 +99,7 @@ void	check_map(t_omap *omap_start, t_main *main)
 	empty_line = 0;
 	while (cur)
 	{
-		row_len = check_row(cur, main);
+		row_len = check_row(cur, &only_spaces, main);
 		if (row_len != 0 && empty_line == 1)
 			return_error(main, MAP_ERR);
 		if (row_len == 0)

@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 15:56:51 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/30 15:53:24 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 18:01:13 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ void	raycast(t_main *main)
 		else
 			cast_line(c, main);
 		c->wall_height = c->height_ratio / c->cor_dist;
-		draw_wall(x, main);
+		draw_wall(x, main->calc, main);
 		recalc_ray(main->calc);
 		x++;
 	}

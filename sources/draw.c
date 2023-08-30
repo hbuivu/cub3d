@@ -6,21 +6,19 @@
 /*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 15:43:26 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/30 16:03:57 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 18:00:37 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
-void	draw_wall(int x, t_main *main)
+void	draw_wall(int x, t_calc *c, t_main *main)
 {
 	int		row;
 	int		start;
 	int		stop;
 	t_point	p;
-	t_calc	*c;
 
-	c = main->calc;
 	row = 0;
 	start = (int)(round((c->midpt) - (c->wall_height / 2)));
 	stop = (int)(round(start + c->wall_height));

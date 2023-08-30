@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/29 17:42:11 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/30 18:09:27 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	reset_ray(t_calc *c);
 void	recalc_ray(t_calc *c);
 
 /* coord_check.c */
-int	check_coord(int jump, t_main *main);
+int		check_coord(int jump, t_main *main);
 
 /* draw_utils.c */
 int		encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
@@ -62,7 +62,7 @@ void	get_nearest_pix(t_point *p, t_main *main);
 void	interpolate(int x, int y, t_point *p, t_main *main);
 
 /* draw.c */
-void	draw_wall(int x, t_main *main);
+void	draw_wall(int x, t_calc *c, t_main *main);
 void	draw_floor_ceiling(t_main *main);
 
 /* raycasting.c */
