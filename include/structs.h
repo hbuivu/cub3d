@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 17:51:08 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/30 17:55:00 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 22:30:09 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,7 @@ typedef struct	s_calc
 	double	pln_dist; //plane distance from player
 	double	height_ratio; //constant ratio (texture_height * plane_distance) - used to find height of object in plane
 	double	ray_incr; //angle at which ray increments from right to left
-
+	double	pln_decr; //decrement of column for each ray
 	/* changing calculations, needed for raycasting and movement */
 	double	px; //player spawn x(col) position in unit coordinates
 	double	py; //player spawn y(row) position in unit coordinates
