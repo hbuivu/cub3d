@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calc.c                                             :+:      :+:    :+:   */
+/*   calc_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:31:03 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/28 14:16:22 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 01:29:22 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,9 @@ void	init_calc(t_main *main)
 	c->pln_height = WIN_HEIGHT;
 	c->pln_dist = (c->pln_width / 2) / tan(c->fov / 2);
 	c->ray_incr = c->fov / c->pln_width;
+	c->sp_plny = WIN_HEIGHT / 2; //NEW
+	c->sp_height_ratio = c->pln_dist * SH; //NEW
+	c->col_to_fov_ratio = WIN_WDITH / FOV; //NEW
 	calc_player_info(main);
 }
 

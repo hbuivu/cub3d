@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycasting.c                                       :+:      :+:    :+:   */
+/*   raycasting_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 15:56:51 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/28 17:41:21 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/30 01:00:44 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,12 +114,11 @@ void	cast_line(t_calc *c, t_main *main)
 void	raycast(t_main *main)
 {
 	t_calc	*c;
-	int		x;
 
 	c = main->calc;
-	x = 0;
+	c->x = 0; //NEW
 	draw_floor_ceiling(main);
-	while (x < main->calc->pln_width)
+	while (c->x < main->calc->pln_width)
 	{
 		if (ch_num(c->angle, 0) || ch_num(c->angle, M_PI))
 			cast_hline(c, main);
@@ -130,7 +129,7 @@ void	raycast(t_main *main)
 		c->wall_height = (c->upg / c->cor_dist) * c->pln_dist;
 		draw_wall(x, main);
 		recalc_ray(main->calc);
-		x++;
+		c->x++;
 	}
 	draw_minimap(main);
 	mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win,

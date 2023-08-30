@@ -138,11 +138,7 @@ int main(void)
 {
 	t_mlxz	*mlx;
 	t_point	*p;
-<<<<<<< HEAD:drafts/resize_ex.c
 	char	*relative_path = "textures/sprt1.xpm";
-=======
-	char	*relative_path = "textures/spr1.xpm";
->>>>>>> Zahra:sources/resize_ex.c
 
 	mlx = NULL;
 	p = NULL;
@@ -190,10 +186,10 @@ int main(void)
 			p->p1->y = p->y1;
 			p->p2->x = p->x1;
 			p->p2->y = p->y2;
-			p->p3->x = p->x1;
+			p->p3->x = p->x2;
 			p->p3->y = p->y1;
-			p->p4->x = p->x1;
-			p->p4->y = p->y1;
+			p->p4->x = p->x2;
+			p->p4->y = p->y2;
 		
 			/* fill out pixel information */
 			find_pix_color(mlx, p->p1);

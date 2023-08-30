@@ -53,7 +53,7 @@
 # define MM_TILE_SIZE			16
 
 /* sprite */
-# define SH						16 // sprite width
+# define SH						16 // sprite height
 # define SW						16 // sprite width
 
 #endif

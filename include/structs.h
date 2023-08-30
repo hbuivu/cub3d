@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 17:51:08 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/29 15:24:25 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/30 10:44:04 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,23 @@ typedef struct s_point
 	double	y_dist; //the distance of orig_y from y1
 	t_pix	p1; //value of color at (x1, y1)
 	t_pix	p2; //value of color at (x2, y2)
+	/* for sprites */
+	double	x_dist;
+	t_pix	p3;
+	t_pix	p4;
+	double	r1;
+	double	r2;
+	double	r;
+	double	g1;
+	double	g2;
+	double	g;
+	double	b1;
+	double	b2;
+	double	b;
+	int		x1;
+	int		x2;
+	int		y1;
+	int		y2;
 }	t_point;
 
 typedef struct s_omap
@@ -92,19 +109,22 @@ typedef struct s_omap
 
 typedef	struct s_sprite
 {
-	double		x;
-	double		y;
-	int			texture;
-	double		transform_x;
-	double		transform_y;
-	int			screen_x;
-	int			height;
-	int			draw_start_y;
-	int			draw_end_y;
-	int			width;
-	int			draw_start_x;
-	int			draw_end_x;
-	int			render;
+	double	sp_gridx; //large grid coordinate x
+	double	sp_gridy; //large grid coordinate y
+	double	sp_dist; //distance sprite is from player
+	double	spx; //small grid coordinate x
+	double	spy; //small grid coordinate y
+	double	vx; //x vector between player and sprite
+	double	vy; //y vector between player and sprite
+	double	vangle; //angle between x axis and vec
+	double	rel_vangle; //relative angle between vector and leftmost FOV angle
+	double	plnx; //sprite x coordinate on projection plane
+	double	plny; //sprite y coordinate on projection plane
+	double	sp_height;
+	double	sp_width; //always equaly to sp height
+	int		start_col; //init to -1 at the beginning, tells you which column to begin rendering sprite slice
+	int		end_col; //init to -1 at beginning, tells you which column to end rendering of sprite slice
+	int		render;
 }	t_sprite;
 
 //BONUS
@@ -162,6 +182,12 @@ typedef struct	s_calc
 	t_img	wall_face; //NSEW
 	int		wall_slice;
 
+	/* BONUS: sprites */
+	double	sp_plny; //constant, WIN_HEIGHT / 2;
+	double	sp_height_ratio; //constant, pln_dist * SH
+	double	col_to_fov_ratio; //constant, win_width / FOV, how many columns for 1 degree of fov
+	int		x; //ray counter
+
 	// //BONUS
 	// int		ray;
 	// double	castback_px;
@@ -208,5 +234,16 @@ typedef struct s_main
 	double		*z_buffer;
 	double		*pl_to_sp_dist;
 }	t_main;
+
+	// int			texture;
+	// double		transform_x;
+	// double		transform_y;
+	// int			screen_x;
+	// int			height;
+	// int			draw_start_y;
+	// int			draw_end_y;
+	// int			width;
+	// int			draw_start_x;
+	// int			draw_end_x;
 
 #endif
