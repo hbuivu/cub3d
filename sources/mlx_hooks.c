@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_hooks.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsyyida <zsyyida@student42abudhabi.ae>     +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:51:30 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/30 17:05:19 by zsyyida          ###   ########.fr       */
+/*   Updated: 2023/08/31 19:29:01 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	ft_close(t_main *main)
 void	rotate(int key, t_calc *c)
 {
 	if (key == LEFT_KEY)
-		c->pdir -= ANGLE_ROT;
-	else if (key == RIGHT_KEY)
 		c->pdir += ANGLE_ROT;
+	else if (key == RIGHT_KEY)
+		c->pdir -= ANGLE_ROT;
 	if (c->pdir < 0)
 		c->pdir += c->rad_360;
 	else if (ch_num(c->pdir, c->rad_360) || c->pdir > c->rad_360)
@@ -38,9 +38,9 @@ void	calc_move(int key, t_calc *c)
 	else if (key == S_KEY)
 		c->move_angle = c->pdir + M_PI;
 	else if (key == A_KEY)
-		c->move_angle = c->pdir - c->rad_90;
-	else if (key == D_KEY)
 		c->move_angle = c->pdir + c->rad_90;
+	else if (key == D_KEY)
+		c->move_angle = c->pdir - c->rad_90;
 	if (c->move_angle < 0)
 		c->move_angle += c->rad_360;
 	else if (ch_num(c->move_angle, c->rad_360) || c->move_angle > c->rad_360)

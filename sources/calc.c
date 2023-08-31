@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calc.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:31:03 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/30 22:52:25 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/31 19:28:11 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,12 @@ void	calc_player_info(t_main *main)
 		c->pdir = M_PI;
 	else if (main->player_dir == 'S')
 		c->pdir = c->rad_270;
-	c->rel_angle = c->fov / 2;
+	c->rel_angle = -1 * c->fov / 2;
 	c->angle = c->pdir - c->rel_angle;
 	if (c->angle < 0)
 		c->angle += c->rad_360;
+	else if (c->angle > c->rad_360 || ch_num(c->angle, c->rad_360))
+		c->angle -= c->rad_360;
 	c->tan_angle = tan(c->angle);
 	calc_step(c->angle, c);
 }
@@ -66,19 +68,19 @@ void	init_calc(t_main *main)
 	c->midpt = WIN_HEIGHT / 2;
 	c->pln_dist = (WIN_WIDTH / 2) / tan(c->fov / 2);
 	c->height_ratio = TH * c->pln_dist;
-	c->ray_incr = c->fov / WIN_WIDTH;
-	
-	c->pln_decr = WIN_WIDTH / 2;
+	c->pln_decr = -1 * WIN_WIDTH / 2;
 	calc_player_info(main);
 }
 
 void	reset_ray(t_calc *c)
 {
-	c->pln_decr = WIN_WIDTH / 2;
-	c->rel_angle = c->fov / 2;
+	c->pln_decr = -1 * WIN_WIDTH / 2;
+	c->rel_angle = -1 * c->fov / 2;
 	c->angle = c->pdir - c->rel_angle;
 	if (c->angle < 0)
 		c->angle += c->rad_360;
+	else if (c->angle > c->rad_360 || ch_num(c->angle, c->rad_360))
+		c->angle -= c->rad_360;
 	if (!ch_num(c->angle, c->rad_90) && !ch_num(c->angle, c->rad_270))
 		c->tan_angle = tan(c->angle);
 	calc_step(c->angle, c);
@@ -86,20 +88,33 @@ void	reset_ray(t_calc *c)
 
 void	recalc_ray(t_calc *c)
 {
-	c->pln_decr--;
-	// c->angle += c->ray_incr;
+	c->pln_decr++;
 	c->rel_angle = atan(c->pln_decr / c->pln_dist);
 	c->angle = c->pdir - c->rel_angle;
 	if (c->angle > c->rad_360 || ch_num(c->angle, c->rad_360))
 		c->angle -= c->rad_360;
 	else if (c->angle < 0)
 		c->angle += c->rad_360;
-	// c->rel_angle -= c->ray_incr;
 	if (!ch_num(c->angle, c->rad_90) && !ch_num(c->angle, c->rad_270))
 		c->tan_angle = tan(c->angle);
 	calc_step(c->angle, c);
 }
 
+// void	recalc_ray(t_calc *c)
+// {
+// 	c->pln_decr--;
+// 	// c->angle += c->ray_incr;
+// 	c->rel_angle = atan(c->pln_decr / c->pln_dist);
+// 	c->angle = c->pdir - c->rel_angle;
+// 	if (c->angle > c->rad_360 || ch_num(c->angle, c->rad_360))
+// 		c->angle -= c->rad_360;
+// 	else if (c->angle < 0)
+// 		c->angle += c->rad_360;
+// 	// c->rel_angle -= c->ray_incr;
+// 	if (!ch_num(c->angle, c->rad_90) && !ch_num(c->angle, c->rad_270))
+// 		c->tan_angle = tan(c->angle);
+// 	calc_step(c->angle, c);
+// }
 // void	reset_vars(t_calc *c)
 // {
 // 	c->col_int = 0;
