@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:46:52 by zsyyida           #+#    #+#             */
-/*   Updated: 2023/08/30 22:20:51 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/31 08:23:09 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	print_omap(t_omap *map);
 void	print_main_map(t_main *main);
 void	print_calc(t_main *main);
 void	print_main(t_main *main);
+void	print_sprite(t_sprite *sp);
 
 /* identify.c */
 t_omap	*identify(t_omap *omap, t_main *main);
@@ -145,4 +146,6 @@ void	draw_sprite(t_main *main);
 int		mouse_move(int x, int y, t_main *main);
 void	rotate(int key, t_calc *c);
 
+/* sprite.c */
+void	render_sprite(t_sprite *sp, t_main *main);
 #endif

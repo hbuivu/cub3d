@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprites.c                                          :+:      :+:    :+:   */
+/*   sprites_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 15:30:29 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/31 10:30:44 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/31 08:10:37 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,40 +28,47 @@ void	reset_sprite_search(t_main *main)
 	}
 }
 
-void	test_sprite(t_main *main)
+void	search_sprite(int row, int col, t_main *main)
 {
 	t_sprite	*sp;
 	int			i;
 
 	sp = main->sprite;
 	i = 0;
-
-	sp[i].render = 1;
-	sp[i].spx = (sp[i].sp_gridx + .5) * UPG;
-	sp[i].spy = (sp[i].sp_gridy + .5) * UPG;
-	sp[i].vx = sp[i].spx - main->calc->px;
-	sp[i].vy = sp[i].spy - main->calc->py;
-	sp[i].sp_dist = 181.0193359838;
-	sp[i].vangle = atan2(-sp[i].vy, sp[i].vx);
-	if (sp[i].vangle < 0)
-		sp[i].vangle += main->calc->rad_360;
-	else if (sp[i].vangle > main->calc->rad_360 
-		|| ch_num(sp[i].vangle, main->calc->rad_360))
-		sp[i].vangle -= main->calc->rad_360;
-	printf("pdir: %lf, fov: %lf\n", main->calc->pdir, main->calc->fov);
-	sp[i].rel_vangle = main->calc->pdir + (main->calc->fov / 2) - sp[i].vangle;
-	if (sp[i].rel_vangle < 0)
-		sp[i].rel_vangle += main->calc->rad_360;
-	else if (sp[i].rel_vangle > main->calc->rad_360 
-		|| ch_num(sp[i].rel_vangle, main->calc->rad_360))
-		sp[i].rel_vangle -= main->calc->rad_360;
-	sp[i].plnx = sp[i].rel_vangle * main->calc->col_to_fov_ratio;
-	sp[i].sp_size = (main->calc->height_ratio) / sp[i].sp_dist;
-	printf("px: %lf py: %lf\n", main->calc->px, main->calc->py);
-	print_sprite(sp);
+	while (i < main->sprite_num)
+	{
+		if (ch_num(sp[i].x, (double)col) && ch_num(sp[i].y, (double)row))
+		{
+			if (sp[i].start_col == -1)
+				sp[i].start_col = main->calc->x;
+			sp[i].end_col = main->calc->x;
+			if (sp[i].render == 0)
+			{
+				sp[i].render = 1;
+				sp[i].spx = (sp[i].sp_gridx + .5) * UPG;
+				sp[i].spy = (sp[i].sp_gridy + .5) * UPG;
+				sp[i].vx = sp[i].spx - main->calc->px;
+				sp[i].vy = sp[i].spy - main->calc->py;
+				sp[i].vangle = atan2(-sp[i].vy, sp[i].vx);
+				if (sp[i].vangle < 0)
+					sp[i].vangle += main->calc->rad_360;
+				else if (sp[i].vangle > main->calc->rad_360 
+					|| ch_num(sp[i].vangle, main->calc->rad_360))
+					sp[i].vangle -= main->calc->rad_360;
+				sp[i].rel_vangle = main->calc->pdir + (FOV / 2) - sp[i].vangle;
+				if (sp[i].rel_vangle < 0)
+					sp[i].rel_vangle += main->calc->rad_360;
+				else if (sp[i].rel_vangle > main->calc->rad_360 
+					|| ch_num(sp[i].rel_vangle, main->calc->rad_360))
+					sp[i].rel_vangle -= main->calc->rad_360;
+				sp[i].plnx = sp[i].rel_vangle * main->calc->col_to_fov_ratio;
+				sp[i].sp_height = (main->calc->height_ratio) / sp[i].sp_dist;
+			}
+			return ;
+		}
+		i++;
+	}
 }
-
-
 
 void	sp_find_pix_color(t_pix *pix, t_main *main)
 {
@@ -69,7 +76,7 @@ void	sp_find_pix_color(t_pix *pix, t_main *main)
 	void	*addr;
 	t_img	texture;
 
-	texture = main->img_no_wall;
+	texture = main->img_spr1;
 	offset = pix->y * texture.line_length + pix->x * (texture.bpp / 8);
 	addr = texture.addr + offset;
 	pix->r = *((uint32_t *)addr) >> 16;
@@ -135,20 +142,20 @@ void	render_sprite(t_sprite *sp, t_main *main)
 	t_point		p;
 
 	test_sprite(main);
+
 	row = 0;
-	col = (int)(sp->plnx - sp->sp_size / 2);
-	start = (int)(main->calc->midpt - (sp->sp_size / 2));
+	col = (int)(sp->plnx - sp->sp_height / 2);
+	start = (int)(main->calc->midpt - (sp->sp_height / 2));
 	begin = start;
-	stop = (int)(start + sp->sp_size);
+	stop = (int)(start + sp->sp_height);
 	if (stop >= WIN_HEIGHT)
 		stop = WIN_HEIGHT - 1;
-	p.scale = sp->sp_size / TH;
-	// printf("info: col: %i, start: %i, stop: %i, scale: %lf\n", col, start, stop, p.scale);
-	while (col < (int)sp->sp_size)
+	p.scale = sp->sp_height / TH;
+	while (col < (int)sp->sp_height)
 	{
 		if (col >= sp->start_col && col <= sp->end_col)
 		{
-			while (row < (int)sp->sp_size && begin <= stop)
+			while (row < (int)sp->sp_height && begin <= stop)
 			{
 				if (start >= 0)
 				{
@@ -168,45 +175,3 @@ void	render_sprite(t_sprite *sp, t_main *main)
 		begin = start;
 	}
 }
-
-// void	search_sprite(int row, int col, t_main *main)
-// {
-// 	t_sprite	*sp;
-// 	int			i;
-
-// 	sp = main->sprite;
-// 	i = 0;
-// 	while (i < main->sprite_num)
-// 	{
-// 		if (ch_num(sp[i].x, (double)col) && ch_num(sp[i].y, (double)row))
-// 		{
-// 			if (sp[i].start_col == -1)
-// 				sp[i].start_col = main->calc->x;
-// 			sp[i].end_col = main->calc->x;
-// 			if (sp[i].render == 0)
-// 			{
-// 				sp[i].render = 1;
-// 				sp[i].spx = (sp[i].sp_gridx + .5) * UPG;
-// 				sp[i].spy = (sp[i].sp_gridy + .5) * UPG;
-// 				sp[i].vx = sp[i].spx - main->calc->px;
-// 				sp[i].vy = sp[i].spy - main->calc->py;
-// 				sp[i].vangle = atan2(-sp[i].vy, sp[i].vx);
-// 				if (sp[i].vangle < 0)
-// 					sp[i].vangle += main->calc->rad_360;
-// 				else if (sp[i].vangle > main->calc->rad_360 
-// 					|| ch_num(sp[i].vangle, main->calc->rad_360))
-// 					sp[i].vangle -= main->calc->rad_360;
-// 				sp[i].rel_vangle = main->calc->pdir + (c->FOV / 2) - sp[i].vangle;
-// 				if (sp[i].rel_vangle < 0)
-// 					sp[i].rel_vangle += main->calc->rad_360;
-// 				else if (sp[i].rel_vangle > main->calc->rad_360 
-// 					|| ch_num(sp[i].rel_vangle, main->calc->rad_360))
-// 					sp[i].rel_vangle -= main->calc->rad_360;
-// 				sp[i].plnx = sp[i].rel_vangle * main->calc->col_to_fov_ratio;
-// 				sp[i].sp_size = (main->calc->height_ratio) / sp[i].sp_dist;
-// 			}
-// 			return ;
-// 		}
-// 		i++;
-// 	}
-// }

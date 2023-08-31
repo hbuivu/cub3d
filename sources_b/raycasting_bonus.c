@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 15:56:51 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/30 18:01:20 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/31 09:59:28 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,7 @@ void	raycast(t_main *main)
 		c->x++;
 	}
 	draw_minimap(main);
+	render_sprite(main->sprite, main);
 	mlx_put_image_to_window(main->mlx.mlx_ptr, main->mlx.mlx_win,
 		main->img.img, 0, 0);
 }

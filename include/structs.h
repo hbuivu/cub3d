@@ -6,7 +6,7 @@
 /*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 17:51:08 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/30 22:30:09 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/31 09:36:02 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,9 +119,7 @@ typedef	struct s_sprite
 	double	vangle; //angle between x axis and vec
 	double	rel_vangle; //relative angle between vector and leftmost FOV angle
 	double	plnx; //sprite x coordinate on projection plane
-	double	plny; //sprite y coordinate on projection plane
-	double	sp_height;
-	double	sp_width; //always equaly to sp height
+	double	sp_size; //height and width of sprite (both the same)
 	int		start_col; //init to -1 at the beginning, tells you which column to begin rendering sprite slice
 	int		end_col; //init to -1 at beginning, tells you which column to end rendering of sprite slice
 	int		render;

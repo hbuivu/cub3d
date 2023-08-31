@@ -6,7 +6,7 @@
 #    By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/24 16:22:28 by hbui-vu           #+#    #+#              #
-#    Updated: 2023/08/30 22:18:20 by hbui-vu          ###   ########.fr        #
+#    Updated: 2023/08/31 10:19:34 by hbui-vu          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,23 +23,25 @@ MLX_DIR = mlx_linux
 # MLX_DIR = mlx
 MLX = libmlx.a
 
-SRCS = error.c free.c utils.c test.c \
+SRCS = error.c free.c utils.c\
 	identify.c identify_colour.c identify_color2.c identify_path.c parse_map.c \
 	walled_check.c walled_check_utilities.c \
 	mlx_imgs.c \
 	calc.c coord_check.c draw_utils.c draw.c raycasting.c \
 	wall_collision.c mlx_hooks.c \
-	main.c \
+	main.c test.c\
 
-BSRCS = error.c free.c utils.c test.c \
+BSRCS = error.c free.c utils.c \
 	identify.c identify_colour.c identify_color2.c identify_path.c parse_map.c \
 	walled_check.c walled_check_utilities.c \
 	mlx_imgs.c \
-	calc.c coord_check.c draw_utils.c draw.c raycasting.c \
+	calc_bonus.c coord_check_bonus.c draw_utils.c draw.c raycasting_bonus.c \
 	wall_collision.c mlx_hooks.c mlx_hooks_bonus.c \
-	main.c \
+	main_bonus.c \
 	minimap.c textures_bonus.c\
-	sprites_sort.c sprite_draw.c sprites_calc.c \
+	sprites.c\
+	test.c \
+# sprites_sort.c sprite_draw.c sprites_calc.c
 # SRCS = resize_ex.c
 
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
@@ -75,7 +77,9 @@ all: $(NAME)
 bonus: $(NAME) $(BOBJS)
 	make -C $(LIBFT_DIR)
 	make -C $(MLX_DIR)
-	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(BOBJS) -Llibft -lft -o $(NAME)
+# @$(CC) $(CFLAGS) $(MLX_FLAGS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(BOBJS) -Llibft -lft -o $(NAME)
+	@$(CC) $(BOBJS) $(LIBFT_DIR)/$(LIBFT) $(MLX_DIR)/$(MLX) $(CFLAGS) $(MLX_FLAGS) -Llibft -lft -o $(NAME)
+
 
 clean:
 	make clean -C $(MLX_DIR)

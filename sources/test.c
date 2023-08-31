@@ -77,3 +77,17 @@ void	print_omap(t_omap *map)
 // 	printf("********* CALCULATIONS *********\n");
 // 	print_calc(main);
 // }
+
+void	print_sprite(t_sprite *sp)
+{
+	printf("sp_gridx: %lf sp_gridy: %lf\n", sp->sp_gridx, sp->sp_gridy);
+	printf("sp_dist: %lf\n", sp->sp_dist);
+	printf("spx: %lf spy: %lf\n", sp->spx, sp->spy);
+	printf("vx: %lf vy: %lf\n", sp->vx, sp->vy);
+	printf("vangle: %lf\n", sp->vangle);
+	printf("rel_vangle: %lf\n", sp->rel_vangle);
+	printf("plnx: %lf\n", sp->plnx);
+	printf("sp_size: %lf\n", sp->sp_size);
+	printf("start_col: %i end_col: %i\n", sp->start_col, sp->end_col);
+	printf("render: %i\n", sp->render);
+}
