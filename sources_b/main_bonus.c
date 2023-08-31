@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbui-vu <hbui-vu@student.42abudhabi.ae>    +#+  +:+       +#+        */
+/*   By: hbui-vu <hbui-vu@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 16:22:23 by hbui-vu           #+#    #+#             */
-/*   Updated: 2023/08/31 10:34:23 by hbui-vu          ###   ########.fr       */
+/*   Updated: 2023/08/31 12:50:09 by hbui-vu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	main(int argc, char **argv)
 	main->sprite[0].end_col = -1;
 	/* delete later */
 	raycast(main);
+	init_sprite(main);
+	draw_sprite(main);
 	mlx_hook(main->mlx.mlx_win, 6, 0, &mouse_move, main);
 	mlx_hook(main->mlx.mlx_win, 2, 1L << 0, key_press, main);
 	mlx_hook(main->mlx.mlx_win, 17, 1L << 17, ft_close, main);
